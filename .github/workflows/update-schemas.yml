@@ -5,7 +5,7 @@ on:
 
 jobs:
   update-schemas:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     steps:
       - name: Checkout esphome-schema repo
@@ -13,10 +13,11 @@ jobs:
         with:
           ref: dev
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - name: Set up Python 3.11
+        id: python
+        uses: actions/setup-python@v5.5.0
         with:
-          python-version: "3.11"
+          python-version: 3.11
 
       - name: Clone ESPHome repository
         run: |
@@ -27,6 +28,7 @@ jobs:
       - name: Install ESPHome dependencies
         run: |
           cd esphome
+          pip install -r requirements.txt -r requirements_optional.txt -r requirements_test.txt
           pip install -e .
 
       - name: Generate language schema
