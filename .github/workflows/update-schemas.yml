@@ -31,7 +31,7 @@ jobs:
 
       - name: Generate language schema
         run: |
-          python esphome/script/build_language_schema.py --output-dir=./schema
+          python esphome/script/build_language_schema.py --output-path=./schema
 
       - name: Commit changes to schema folder
         run: |
