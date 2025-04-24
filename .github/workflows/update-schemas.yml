@@ -1,0 +1,42 @@
+name: Update ESPHome Schemas
+
+on:
+  workflow_dispatch:
+
+jobs:
+  update-schemas:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout esphome-schema repo
+        uses: actions/checkout@v4
+        with:
+          ref: dev
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Clone ESPHome repository
+        run: |
+          git clone --depth=1 --branch=dev https://github.com/esphome/esphome.git
+          cd esphome
+          echo "ESPHOME_COMMIT_MESSAGE=$(git log -1 --pretty=%s)" >> $GITHUB_ENV
+
+      - name: Install ESPHome dependencies
+        run: |
+          cd esphome
+          pip install -e .
+
+      - name: Generate language schema
+        run: |
+          python esphome/script/build_language_schema.py --output-dir=./schema
+
+      - name: Commit changes to schema folder
+        run: |
+          git config user.name "GitHub Action"
+          git config user.email "actions@github.com"
+          git add schema
+          git diff --cached --quiet || git commit -m "esphome: $ESPHOME_COMMIT_MESSAGE"
+          git push
