@@ -1480,15 +1480,15 @@
                     "key": "Optional",
                     "type": "enum",
                     "values": {
-                      "u8_hb": null,
-                      "f88": null,
-                      "s16": null,
                       "s8_lb": null,
-                      "u8_lb": null,
-                      "u16": null,
-                      "u8_lb_60": null,
+                      "u8_hb": null,
                       "u8_hb_60": null,
-                      "s8_hb": null
+                      "u16": null,
+                      "s8_hb": null,
+                      "u8_lb_60": null,
+                      "s16": null,
+                      "f88": null,
+                      "u8_lb": null
                     }
                   }
                 }
@@ -1518,15 +1518,15 @@
                     "key": "Optional",
                     "type": "enum",
                     "values": {
-                      "u8_hb": null,
-                      "f88": null,
-                      "s16": null,
                       "s8_lb": null,
-                      "u8_lb": null,
-                      "u16": null,
-                      "u8_lb_60": null,
+                      "u8_hb": null,
                       "u8_hb_60": null,
-                      "s8_hb": null
+                      "u16": null,
+                      "s8_hb": null,
+                      "u8_lb_60": null,
+                      "s16": null,
+                      "f88": null,
+                      "u8_lb": null
                     }
                   }
                 }
@@ -1556,15 +1556,15 @@
                     "key": "Optional",
                     "type": "enum",
                     "values": {
-                      "u8_hb": null,
-                      "f88": null,
-                      "s16": null,
                       "s8_lb": null,
-                      "u8_lb": null,
-                      "u16": null,
-                      "u8_lb_60": null,
+                      "u8_hb": null,
                       "u8_hb_60": null,
-                      "s8_hb": null
+                      "u16": null,
+                      "s8_hb": null,
+                      "u8_lb_60": null,
+                      "s16": null,
+                      "f88": null,
+                      "u8_lb": null
                     }
                   }
                 }
@@ -1594,15 +1594,15 @@
                     "key": "Optional",
                     "type": "enum",
                     "values": {
-                      "u8_hb": null,
-                      "f88": null,
-                      "s16": null,
                       "s8_lb": null,
-                      "u8_lb": null,
-                      "u16": null,
-                      "u8_lb_60": null,
+                      "u8_hb": null,
                       "u8_hb_60": null,
-                      "s8_hb": null
+                      "u16": null,
+                      "s8_hb": null,
+                      "u8_lb_60": null,
+                      "s16": null,
+                      "f88": null,
+                      "u8_lb": null
                     }
                   }
                 }
@@ -1632,15 +1632,15 @@
                     "key": "Optional",
                     "type": "enum",
                     "values": {
-                      "u8_hb": null,
-                      "f88": null,
-                      "s16": null,
                       "s8_lb": null,
-                      "u8_lb": null,
-                      "u16": null,
-                      "u8_lb_60": null,
+                      "u8_hb": null,
                       "u8_hb_60": null,
-                      "s8_hb": null
+                      "u16": null,
+                      "s8_hb": null,
+                      "u8_lb_60": null,
+                      "s16": null,
+                      "f88": null,
+                      "u8_lb": null
                     }
                   }
                 }
@@ -1670,15 +1670,15 @@
                     "key": "Optional",
                     "type": "enum",
                     "values": {
-                      "u8_hb": null,
-                      "f88": null,
-                      "s16": null,
                       "s8_lb": null,
-                      "u8_lb": null,
-                      "u16": null,
-                      "u8_lb_60": null,
+                      "u8_hb": null,
                       "u8_hb_60": null,
-                      "s8_hb": null
+                      "u16": null,
+                      "s8_hb": null,
+                      "u8_lb_60": null,
+                      "s16": null,
+                      "f88": null,
+                      "u8_lb": null
                     }
                   }
                 }
@@ -1708,15 +1708,15 @@
                     "key": "Optional",
                     "type": "enum",
                     "values": {
-                      "u8_hb": null,
-                      "f88": null,
-                      "s16": null,
                       "s8_lb": null,
-                      "u8_lb": null,
-                      "u16": null,
-                      "u8_lb_60": null,
+                      "u8_hb": null,
                       "u8_hb_60": null,
-                      "s8_hb": null
+                      "u16": null,
+                      "s8_hb": null,
+                      "u8_lb_60": null,
+                      "s16": null,
+                      "f88": null,
+                      "u8_lb": null
                     }
                   }
                 }
@@ -1746,15 +1746,15 @@
                     "key": "Optional",
                     "type": "enum",
                     "values": {
-                      "u8_hb": null,
-                      "f88": null,
-                      "s16": null,
                       "s8_lb": null,
-                      "u8_lb": null,
-                      "u16": null,
-                      "u8_lb_60": null,
+                      "u8_hb": null,
                       "u8_hb_60": null,
-                      "s8_hb": null
+                      "u16": null,
+                      "s8_hb": null,
+                      "u8_lb_60": null,
+                      "s16": null,
+                      "f88": null,
+                      "u8_lb": null
                     }
                   }
                 }
@@ -1784,15 +1784,15 @@
                     "key": "Optional",
                     "type": "enum",
                     "values": {
-                      "u8_hb": null,
-                      "f88": null,
-                      "s16": null,
                       "s8_lb": null,
-                      "u8_lb": null,
-                      "u16": null,
-                      "u8_lb_60": null,
+                      "u8_hb": null,
                       "u8_hb_60": null,
-                      "s8_hb": null
+                      "u16": null,
+                      "s8_hb": null,
+                      "u8_lb_60": null,
+                      "s16": null,
+                      "f88": null,
+                      "u8_lb": null
                     }
                   }
                 }
@@ -1822,15 +1822,15 @@
                     "key": "Optional",
                     "type": "enum",
                     "values": {
-                      "u8_hb": null,
-                      "f88": null,
-                      "s16": null,
                       "s8_lb": null,
-                      "u8_lb": null,
-                      "u16": null,
-                      "u8_lb_60": null,
+                      "u8_hb": null,
                       "u8_hb_60": null,
-                      "s8_hb": null
+                      "u16": null,
+                      "s8_hb": null,
+                      "u8_lb_60": null,
+                      "s16": null,
+                      "f88": null,
+                      "u8_lb": null
                     }
                   }
                 }
@@ -1860,15 +1860,15 @@
                     "key": "Optional",
                     "type": "enum",
                     "values": {
-                      "u8_hb": null,
-                      "f88": null,
-                      "s16": null,
                       "s8_lb": null,
-                      "u8_lb": null,
-                      "u16": null,
-                      "u8_lb_60": null,
+                      "u8_hb": null,
                       "u8_hb_60": null,
-                      "s8_hb": null
+                      "u16": null,
+                      "s8_hb": null,
+                      "u8_lb_60": null,
+                      "s16": null,
+                      "f88": null,
+                      "u8_lb": null
                     }
                   }
                 }
@@ -1898,15 +1898,15 @@
                     "key": "Optional",
                     "type": "enum",
                     "values": {
-                      "u8_hb": null,
-                      "f88": null,
-                      "s16": null,
                       "s8_lb": null,
-                      "u8_lb": null,
-                      "u16": null,
-                      "u8_lb_60": null,
+                      "u8_hb": null,
                       "u8_hb_60": null,
-                      "s8_hb": null
+                      "u16": null,
+                      "s8_hb": null,
+                      "u8_lb_60": null,
+                      "s16": null,
+                      "f88": null,
+                      "u8_lb": null
                     }
                   }
                 }
@@ -1936,15 +1936,15 @@
                     "key": "Optional",
                     "type": "enum",
                     "values": {
-                      "u8_hb": null,
-                      "f88": null,
-                      "s16": null,
                       "s8_lb": null,
-                      "u8_lb": null,
-                      "u16": null,
-                      "u8_lb_60": null,
+                      "u8_hb": null,
                       "u8_hb_60": null,
-                      "s8_hb": null
+                      "u16": null,
+                      "s8_hb": null,
+                      "u8_lb_60": null,
+                      "s16": null,
+                      "f88": null,
+                      "u8_lb": null
                     }
                   }
                 }
@@ -1974,15 +1974,15 @@
                     "key": "Optional",
                     "type": "enum",
                     "values": {
-                      "u8_hb": null,
-                      "f88": null,
-                      "s16": null,
                       "s8_lb": null,
-                      "u8_lb": null,
-                      "u16": null,
-                      "u8_lb_60": null,
+                      "u8_hb": null,
                       "u8_hb_60": null,
-                      "s8_hb": null
+                      "u16": null,
+                      "s8_hb": null,
+                      "u8_lb_60": null,
+                      "s16": null,
+                      "f88": null,
+                      "u8_lb": null
                     }
                   }
                 }
@@ -2012,15 +2012,15 @@
                     "key": "Optional",
                     "type": "enum",
                     "values": {
-                      "u8_hb": null,
-                      "f88": null,
-                      "s16": null,
                       "s8_lb": null,
-                      "u8_lb": null,
-                      "u16": null,
-                      "u8_lb_60": null,
+                      "u8_hb": null,
                       "u8_hb_60": null,
-                      "s8_hb": null
+                      "u16": null,
+                      "s8_hb": null,
+                      "u8_lb_60": null,
+                      "s16": null,
+                      "f88": null,
+                      "u8_lb": null
                     }
                   }
                 }
@@ -2047,15 +2047,15 @@
                     "key": "Optional",
                     "type": "enum",
                     "values": {
-                      "u8_hb": null,
-                      "f88": null,
-                      "s16": null,
                       "s8_lb": null,
-                      "u8_lb": null,
-                      "u16": null,
-                      "u8_lb_60": null,
+                      "u8_hb": null,
                       "u8_hb_60": null,
-                      "s8_hb": null
+                      "u16": null,
+                      "s8_hb": null,
+                      "u8_lb_60": null,
+                      "s16": null,
+                      "f88": null,
+                      "u8_lb": null
                     }
                   }
                 }
@@ -2082,15 +2082,15 @@
                     "key": "Optional",
                     "type": "enum",
                     "values": {
-                      "u8_hb": null,
-                      "f88": null,
-                      "s16": null,
                       "s8_lb": null,
-                      "u8_lb": null,
-                      "u16": null,
-                      "u8_lb_60": null,
+                      "u8_hb": null,
                       "u8_hb_60": null,
-                      "s8_hb": null
+                      "u16": null,
+                      "s8_hb": null,
+                      "u8_lb_60": null,
+                      "s16": null,
+                      "f88": null,
+                      "u8_lb": null
                     }
                   }
                 }
@@ -2117,15 +2117,15 @@
                     "key": "Optional",
                     "type": "enum",
                     "values": {
-                      "u8_hb": null,
-                      "f88": null,
-                      "s16": null,
                       "s8_lb": null,
-                      "u8_lb": null,
-                      "u16": null,
-                      "u8_lb_60": null,
+                      "u8_hb": null,
                       "u8_hb_60": null,
-                      "s8_hb": null
+                      "u16": null,
+                      "s8_hb": null,
+                      "u8_lb_60": null,
+                      "s16": null,
+                      "f88": null,
+                      "u8_lb": null
                     }
                   }
                 }
@@ -2152,15 +2152,15 @@
                     "key": "Optional",
                     "type": "enum",
                     "values": {
-                      "u8_hb": null,
-                      "f88": null,
-                      "s16": null,
                       "s8_lb": null,
-                      "u8_lb": null,
-                      "u16": null,
-                      "u8_lb_60": null,
+                      "u8_hb": null,
                       "u8_hb_60": null,
-                      "s8_hb": null
+                      "u16": null,
+                      "s8_hb": null,
+                      "u8_lb_60": null,
+                      "s16": null,
+                      "f88": null,
+                      "u8_lb": null
                     }
                   }
                 }
@@ -2187,15 +2187,15 @@
                     "key": "Optional",
                     "type": "enum",
                     "values": {
-                      "u8_hb": null,
-                      "f88": null,
-                      "s16": null,
                       "s8_lb": null,
-                      "u8_lb": null,
-                      "u16": null,
-                      "u8_lb_60": null,
+                      "u8_hb": null,
                       "u8_hb_60": null,
-                      "s8_hb": null
+                      "u16": null,
+                      "s8_hb": null,
+                      "u8_lb_60": null,
+                      "s16": null,
+                      "f88": null,
+                      "u8_lb": null
                     }
                   }
                 }
@@ -2222,15 +2222,15 @@
                     "key": "Optional",
                     "type": "enum",
                     "values": {
-                      "u8_hb": null,
-                      "f88": null,
-                      "s16": null,
                       "s8_lb": null,
-                      "u8_lb": null,
-                      "u16": null,
-                      "u8_lb_60": null,
+                      "u8_hb": null,
                       "u8_hb_60": null,
-                      "s8_hb": null
+                      "u16": null,
+                      "s8_hb": null,
+                      "u8_lb_60": null,
+                      "s16": null,
+                      "f88": null,
+                      "u8_lb": null
                     }
                   }
                 }
@@ -2257,15 +2257,15 @@
                     "key": "Optional",
                     "type": "enum",
                     "values": {
-                      "u8_hb": null,
-                      "f88": null,
-                      "s16": null,
                       "s8_lb": null,
-                      "u8_lb": null,
-                      "u16": null,
-                      "u8_lb_60": null,
+                      "u8_hb": null,
                       "u8_hb_60": null,
-                      "s8_hb": null
+                      "u16": null,
+                      "s8_hb": null,
+                      "u8_lb_60": null,
+                      "s16": null,
+                      "f88": null,
+                      "u8_lb": null
                     }
                   }
                 }
@@ -2292,15 +2292,15 @@
                     "key": "Optional",
                     "type": "enum",
                     "values": {
-                      "u8_hb": null,
-                      "f88": null,
-                      "s16": null,
                       "s8_lb": null,
-                      "u8_lb": null,
-                      "u16": null,
-                      "u8_lb_60": null,
+                      "u8_hb": null,
                       "u8_hb_60": null,
-                      "s8_hb": null
+                      "u16": null,
+                      "s8_hb": null,
+                      "u8_lb_60": null,
+                      "s16": null,
+                      "f88": null,
+                      "u8_lb": null
                     }
                   }
                 }
@@ -2330,15 +2330,15 @@
                     "key": "Optional",
                     "type": "enum",
                     "values": {
-                      "u8_hb": null,
-                      "f88": null,
-                      "s16": null,
                       "s8_lb": null,
-                      "u8_lb": null,
-                      "u16": null,
-                      "u8_lb_60": null,
+                      "u8_hb": null,
                       "u8_hb_60": null,
-                      "s8_hb": null
+                      "u16": null,
+                      "s8_hb": null,
+                      "u8_lb_60": null,
+                      "s16": null,
+                      "f88": null,
+                      "u8_lb": null
                     }
                   }
                 }
@@ -2368,15 +2368,15 @@
                     "key": "Optional",
                     "type": "enum",
                     "values": {
-                      "u8_hb": null,
-                      "f88": null,
-                      "s16": null,
                       "s8_lb": null,
-                      "u8_lb": null,
-                      "u16": null,
-                      "u8_lb_60": null,
+                      "u8_hb": null,
                       "u8_hb_60": null,
-                      "s8_hb": null
+                      "u16": null,
+                      "s8_hb": null,
+                      "u8_lb_60": null,
+                      "s16": null,
+                      "f88": null,
+                      "u8_lb": null
                     }
                   }
                 }
@@ -2406,15 +2406,15 @@
                     "key": "Optional",
                     "type": "enum",
                     "values": {
-                      "u8_hb": null,
-                      "f88": null,
-                      "s16": null,
                       "s8_lb": null,
-                      "u8_lb": null,
-                      "u16": null,
-                      "u8_lb_60": null,
+                      "u8_hb": null,
                       "u8_hb_60": null,
-                      "s8_hb": null
+                      "u16": null,
+                      "s8_hb": null,
+                      "u8_lb_60": null,
+                      "s16": null,
+                      "f88": null,
+                      "u8_lb": null
                     }
                   }
                 }
@@ -2444,15 +2444,15 @@
                     "key": "Optional",
                     "type": "enum",
                     "values": {
-                      "u8_hb": null,
-                      "f88": null,
-                      "s16": null,
                       "s8_lb": null,
-                      "u8_lb": null,
-                      "u16": null,
-                      "u8_lb_60": null,
+                      "u8_hb": null,
                       "u8_hb_60": null,
-                      "s8_hb": null
+                      "u16": null,
+                      "s8_hb": null,
+                      "u8_lb_60": null,
+                      "s16": null,
+                      "f88": null,
+                      "u8_lb": null
                     }
                   }
                 }
@@ -2482,15 +2482,15 @@
                     "key": "Optional",
                     "type": "enum",
                     "values": {
-                      "u8_hb": null,
-                      "f88": null,
-                      "s16": null,
                       "s8_lb": null,
-                      "u8_lb": null,
-                      "u16": null,
-                      "u8_lb_60": null,
+                      "u8_hb": null,
                       "u8_hb_60": null,
-                      "s8_hb": null
+                      "u16": null,
+                      "s8_hb": null,
+                      "u8_lb_60": null,
+                      "s16": null,
+                      "f88": null,
+                      "u8_lb": null
                     }
                   }
                 }
@@ -2520,15 +2520,15 @@
                     "key": "Optional",
                     "type": "enum",
                     "values": {
-                      "u8_hb": null,
-                      "f88": null,
-                      "s16": null,
                       "s8_lb": null,
-                      "u8_lb": null,
-                      "u16": null,
-                      "u8_lb_60": null,
+                      "u8_hb": null,
                       "u8_hb_60": null,
-                      "s8_hb": null
+                      "u16": null,
+                      "s8_hb": null,
+                      "u8_lb_60": null,
+                      "s16": null,
+                      "f88": null,
+                      "u8_lb": null
                     }
                   }
                 }
@@ -2552,15 +2552,15 @@
                     "key": "Optional",
                     "type": "enum",
                     "values": {
-                      "u8_hb": null,
-                      "f88": null,
-                      "s16": null,
                       "s8_lb": null,
-                      "u8_lb": null,
-                      "u16": null,
-                      "u8_lb_60": null,
+                      "u8_hb": null,
                       "u8_hb_60": null,
-                      "s8_hb": null
+                      "u16": null,
+                      "s8_hb": null,
+                      "u8_lb_60": null,
+                      "s16": null,
+                      "f88": null,
+                      "u8_lb": null
                     }
                   }
                 }
@@ -2584,15 +2584,15 @@
                     "key": "Optional",
                     "type": "enum",
                     "values": {
-                      "u8_hb": null,
-                      "f88": null,
-                      "s16": null,
                       "s8_lb": null,
-                      "u8_lb": null,
-                      "u16": null,
-                      "u8_lb_60": null,
+                      "u8_hb": null,
                       "u8_hb_60": null,
-                      "s8_hb": null
+                      "u16": null,
+                      "s8_hb": null,
+                      "u8_lb_60": null,
+                      "s16": null,
+                      "f88": null,
+                      "u8_lb": null
                     }
                   }
                 }
@@ -2619,15 +2619,15 @@
                     "key": "Optional",
                     "type": "enum",
                     "values": {
-                      "u8_hb": null,
-                      "f88": null,
-                      "s16": null,
                       "s8_lb": null,
-                      "u8_lb": null,
-                      "u16": null,
-                      "u8_lb_60": null,
+                      "u8_hb": null,
                       "u8_hb_60": null,
-                      "s8_hb": null
+                      "u16": null,
+                      "s8_hb": null,
+                      "u8_lb_60": null,
+                      "s16": null,
+                      "f88": null,
+                      "u8_lb": null
                     }
                   }
                 }
@@ -2657,15 +2657,15 @@
                     "key": "Optional",
                     "type": "enum",
                     "values": {
-                      "u8_hb": null,
-                      "f88": null,
-                      "s16": null,
                       "s8_lb": null,
-                      "u8_lb": null,
-                      "u16": null,
-                      "u8_lb_60": null,
+                      "u8_hb": null,
                       "u8_hb_60": null,
-                      "s8_hb": null
+                      "u16": null,
+                      "s8_hb": null,
+                      "u8_lb_60": null,
+                      "s16": null,
+                      "f88": null,
+                      "u8_lb": null
                     }
                   }
                 }
@@ -2689,15 +2689,15 @@
                     "key": "Optional",
                     "type": "enum",
                     "values": {
-                      "u8_hb": null,
-                      "f88": null,
-                      "s16": null,
                       "s8_lb": null,
-                      "u8_lb": null,
-                      "u16": null,
-                      "u8_lb_60": null,
+                      "u8_hb": null,
                       "u8_hb_60": null,
-                      "s8_hb": null
+                      "u16": null,
+                      "s8_hb": null,
+                      "u8_lb_60": null,
+                      "s16": null,
+                      "f88": null,
+                      "u8_lb": null
                     }
                   }
                 }
@@ -2721,15 +2721,15 @@
                     "key": "Optional",
                     "type": "enum",
                     "values": {
-                      "u8_hb": null,
-                      "f88": null,
-                      "s16": null,
                       "s8_lb": null,
-                      "u8_lb": null,
-                      "u16": null,
-                      "u8_lb_60": null,
+                      "u8_hb": null,
                       "u8_hb_60": null,
-                      "s8_hb": null
+                      "u16": null,
+                      "s8_hb": null,
+                      "u8_lb_60": null,
+                      "s16": null,
+                      "f88": null,
+                      "u8_lb": null
                     }
                   }
                 }
@@ -2753,15 +2753,15 @@
                     "key": "Optional",
                     "type": "enum",
                     "values": {
-                      "u8_hb": null,
-                      "f88": null,
-                      "s16": null,
                       "s8_lb": null,
-                      "u8_lb": null,
-                      "u16": null,
-                      "u8_lb_60": null,
+                      "u8_hb": null,
                       "u8_hb_60": null,
-                      "s8_hb": null
+                      "u16": null,
+                      "s8_hb": null,
+                      "u8_lb_60": null,
+                      "s16": null,
+                      "f88": null,
+                      "u8_lb": null
                     }
                   }
                 }
@@ -2785,15 +2785,15 @@
                     "key": "Optional",
                     "type": "enum",
                     "values": {
-                      "u8_hb": null,
-                      "f88": null,
-                      "s16": null,
                       "s8_lb": null,
-                      "u8_lb": null,
-                      "u16": null,
-                      "u8_lb_60": null,
+                      "u8_hb": null,
                       "u8_hb_60": null,
-                      "s8_hb": null
+                      "u16": null,
+                      "s8_hb": null,
+                      "u8_lb_60": null,
+                      "s16": null,
+                      "f88": null,
+                      "u8_lb": null
                     }
                   }
                 }
@@ -2817,15 +2817,15 @@
                     "key": "Optional",
                     "type": "enum",
                     "values": {
-                      "u8_hb": null,
-                      "f88": null,
-                      "s16": null,
                       "s8_lb": null,
-                      "u8_lb": null,
-                      "u16": null,
-                      "u8_lb_60": null,
+                      "u8_hb": null,
                       "u8_hb_60": null,
-                      "s8_hb": null
+                      "u16": null,
+                      "s8_hb": null,
+                      "u8_lb_60": null,
+                      "s16": null,
+                      "f88": null,
+                      "u8_lb": null
                     }
                   }
                 }
@@ -2849,15 +2849,15 @@
                     "key": "Optional",
                     "type": "enum",
                     "values": {
-                      "u8_hb": null,
-                      "f88": null,
-                      "s16": null,
                       "s8_lb": null,
-                      "u8_lb": null,
-                      "u16": null,
-                      "u8_lb_60": null,
+                      "u8_hb": null,
                       "u8_hb_60": null,
-                      "s8_hb": null
+                      "u16": null,
+                      "s8_hb": null,
+                      "u8_lb_60": null,
+                      "s16": null,
+                      "f88": null,
+                      "u8_lb": null
                     }
                   }
                 }

@@ -10,26 +10,6 @@
               "type": "schema",
               "schema": {
                 "config_vars": {
-                  "opaque": {
-                    "key": "Optional",
-                    "is_list": true,
-                    "type": "schema",
-                    "schema": {
-                      "extends": [
-                        "image.BASE_SCHEMA"
-                      ],
-                      "config_vars": {
-                        "transparency": {
-                          "key": "Optional",
-                          "default": "opaque"
-                        },
-                        "type": {
-                          "key": "Optional",
-                          "default": "BINARY"
-                        }
-                      }
-                    }
-                  },
                   "chroma_key": {
                     "key": "Optional",
                     "is_list": true,
@@ -42,6 +22,26 @@
                         "transparency": {
                           "key": "Optional",
                           "default": "chroma_key"
+                        },
+                        "type": {
+                          "key": "Optional",
+                          "default": "BINARY"
+                        }
+                      }
+                    }
+                  },
+                  "opaque": {
+                    "key": "Optional",
+                    "is_list": true,
+                    "type": "schema",
+                    "schema": {
+                      "extends": [
+                        "image.BASE_SCHEMA"
+                      ],
+                      "config_vars": {
+                        "transparency": {
+                          "key": "Optional",
+                          "default": "opaque"
                         },
                         "type": {
                           "key": "Optional",
@@ -70,7 +70,7 @@
               "type": "schema",
               "schema": {
                 "config_vars": {
-                  "opaque": {
+                  "chroma_key": {
                     "key": "Optional",
                     "is_list": true,
                     "type": "schema",
@@ -81,7 +81,7 @@
                       "config_vars": {
                         "transparency": {
                           "key": "Optional",
-                          "default": "opaque"
+                          "default": "chroma_key"
                         },
                         "type": {
                           "key": "Optional",
@@ -110,7 +110,7 @@
                       }
                     }
                   },
-                  "chroma_key": {
+                  "opaque": {
                     "key": "Optional",
                     "is_list": true,
                     "type": "schema",
@@ -121,7 +121,7 @@
                       "config_vars": {
                         "transparency": {
                           "key": "Optional",
-                          "default": "chroma_key"
+                          "default": "opaque"
                         },
                         "type": {
                           "key": "Optional",
@@ -150,7 +150,7 @@
               "type": "schema",
               "schema": {
                 "config_vars": {
-                  "opaque": {
+                  "chroma_key": {
                     "key": "Optional",
                     "is_list": true,
                     "type": "schema",
@@ -161,7 +161,7 @@
                       "config_vars": {
                         "transparency": {
                           "key": "Optional",
-                          "default": "opaque"
+                          "default": "chroma_key"
                         },
                         "type": {
                           "key": "Optional",
@@ -190,7 +190,7 @@
                       }
                     }
                   },
-                  "chroma_key": {
+                  "opaque": {
                     "key": "Optional",
                     "is_list": true,
                     "type": "schema",
@@ -201,7 +201,7 @@
                       "config_vars": {
                         "transparency": {
                           "key": "Optional",
-                          "default": "chroma_key"
+                          "default": "opaque"
                         },
                         "type": {
                           "key": "Optional",
@@ -230,7 +230,7 @@
               "type": "schema",
               "schema": {
                 "config_vars": {
-                  "opaque": {
+                  "chroma_key": {
                     "key": "Optional",
                     "is_list": true,
                     "type": "schema",
@@ -241,7 +241,7 @@
                       "config_vars": {
                         "transparency": {
                           "key": "Optional",
-                          "default": "opaque"
+                          "default": "chroma_key"
                         },
                         "type": {
                           "key": "Optional",
@@ -270,7 +270,7 @@
                       }
                     }
                   },
-                  "chroma_key": {
+                  "opaque": {
                     "key": "Optional",
                     "is_list": true,
                     "type": "schema",
@@ -281,7 +281,7 @@
                       "config_vars": {
                         "transparency": {
                           "key": "Optional",
-                          "default": "chroma_key"
+                          "default": "opaque"
                         },
                         "type": {
                           "key": "Optional",
@@ -310,7 +310,7 @@
               "type": "schema",
               "schema": {
                 "config_vars": {
-                  "opaque": {
+                  "chroma_key": {
                     "key": "Optional",
                     "is_list": true,
                     "type": "schema",
@@ -321,7 +321,7 @@
                       "config_vars": {
                         "transparency": {
                           "key": "Optional",
-                          "default": "opaque"
+                          "default": "chroma_key"
                         },
                         "type": {
                           "key": "Optional",
@@ -350,7 +350,7 @@
                       }
                     }
                   },
-                  "chroma_key": {
+                  "opaque": {
                     "key": "Optional",
                     "is_list": true,
                     "type": "schema",
@@ -361,7 +361,7 @@
                       "config_vars": {
                         "transparency": {
                           "key": "Optional",
-                          "default": "chroma_key"
+                          "default": "opaque"
                         },
                         "type": {
                           "key": "Optional",
@@ -390,7 +390,7 @@
               "type": "schema",
               "schema": {
                 "config_vars": {
-                  "opaque": {
+                  "chroma_key": {
                     "key": "Optional",
                     "is_list": true,
                     "type": "schema",
@@ -401,7 +401,7 @@
                       "config_vars": {
                         "transparency": {
                           "key": "Optional",
-                          "default": "opaque"
+                          "default": "chroma_key"
                         },
                         "type": {
                           "key": "Optional",
@@ -430,7 +430,7 @@
                       }
                     }
                   },
-                  "chroma_key": {
+                  "opaque": {
                     "key": "Optional",
                     "is_list": true,
                     "type": "schema",
@@ -441,7 +441,7 @@
                       "config_vars": {
                         "transparency": {
                           "key": "Optional",
-                          "default": "chroma_key"
+                          "default": "opaque"
                         },
                         "type": {
                           "key": "Optional",
@@ -470,7 +470,7 @@
               "type": "schema",
               "schema": {
                 "config_vars": {
-                  "opaque": {
+                  "chroma_key": {
                     "key": "Optional",
                     "is_list": true,
                     "type": "schema",
@@ -481,7 +481,7 @@
                       "config_vars": {
                         "transparency": {
                           "key": "Optional",
-                          "default": "opaque"
+                          "default": "chroma_key"
                         },
                         "type": {
                           "key": "Optional",
@@ -510,7 +510,7 @@
                       }
                     }
                   },
-                  "chroma_key": {
+                  "opaque": {
                     "key": "Optional",
                     "is_list": true,
                     "type": "schema",
@@ -521,7 +521,7 @@
                       "config_vars": {
                         "transparency": {
                           "key": "Optional",
-                          "default": "chroma_key"
+                          "default": "opaque"
                         },
                         "type": {
                           "key": "Optional",
