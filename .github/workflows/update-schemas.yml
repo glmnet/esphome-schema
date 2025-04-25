@@ -57,3 +57,6 @@ jobs:
           author_name: GitHub Action
           author_email: actions@github.com
           message: "esphome: $ESPHOME_COMMIT_MESSAGE"
+
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
