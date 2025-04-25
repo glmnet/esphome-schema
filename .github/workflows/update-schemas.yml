@@ -34,7 +34,6 @@ jobs:
       - name: Generate language schema
         run: |
           python esphome/script/build_language_schema.py --output-path=./schema
-          cd ..
 
       - name: Clone ESPHome docs repository
         run: |
@@ -47,6 +46,7 @@ jobs:
 
       - name: Add docs to language schema
         run: |
+          cd esphome-docs
           python -m sphinx -a -Dextensions=github,seo,sitemap,schema_doc . _build
 
       - name: Commit changes to schema folder
