@@ -1,4 +1,77 @@
 {
+  "atm90e32.button": {
+    "schemas": {
+      "CONFIG_SCHEMA": {
+        "type": "schema",
+        "schema": {
+          "config_vars": {
+            "id": {
+              "key": "GeneratedID",
+              "use_id_type": "atm90e32::ATM90E32Component",
+              "type": "use_id",
+              "docs": "**[ID](https://esphome.io/guides/configuration-types.html#config-id)**: The ID of the atm90e32 defined above. Required if there are multiple atm90e32 configured.\n\n*See also: [atm90e32 Button](https://esphome.io/components/sensor/atm90e32.html#button)*"
+            },
+            "run_offset_calibration": {
+              "key": "Optional",
+              "type": "schema",
+              "schema": {
+                "extends": [
+                  "button.BUTTON_SCHEMA"
+                ],
+                "config_vars": {
+                  "id": {
+                    "key": "GeneratedID",
+                    "id_type": {
+                      "class": "atm90e32::ATM90E32CalibrationButton",
+                      "parents": [
+                        "button::Button",
+                        "EntityBase"
+                      ]
+                    }
+                  },
+                  "icon": {
+                    "default": "mdi:scale"
+                  },
+                  "entity_category": {
+                    "default": "config"
+                  }
+                }
+              },
+              "docs": "A button to run the offset calibration. All options from [Button](https://esphome.io/components/button/index.html#config-button).\n\n*See also: [atm90e32 Button](https://esphome.io/components/sensor/atm90e32.html#button)*"
+            },
+            "clear_offset_calibration": {
+              "key": "Optional",
+              "type": "schema",
+              "schema": {
+                "extends": [
+                  "button.BUTTON_SCHEMA"
+                ],
+                "config_vars": {
+                  "id": {
+                    "key": "GeneratedID",
+                    "id_type": {
+                      "class": "atm90e32::ATM90E32ClearCalibrationButton",
+                      "parents": [
+                        "button::Button",
+                        "EntityBase"
+                      ]
+                    }
+                  },
+                  "icon": {
+                    "default": "mdi:chip"
+                  },
+                  "entity_category": {
+                    "default": "config"
+                  }
+                }
+              },
+              "docs": "A button to clear the offset calibration. All options from [Button](https://esphome.io/components/button/index.html#config-button).\n\n*See also: [atm90e32 Button](https://esphome.io/components/sensor/atm90e32.html#button)*"
+            }
+          }
+        }
+      }
+    }
+  },
   "atm90e32.sensor": {
     "schemas": {
       "ATM90E32_PHASE_SCHEMA": {
@@ -476,79 +549,6 @@
           "extends": [
             "core.COMPONENT_SCHEMA"
           ]
-        }
-      }
-    }
-  },
-  "atm90e32.button": {
-    "schemas": {
-      "CONFIG_SCHEMA": {
-        "type": "schema",
-        "schema": {
-          "config_vars": {
-            "id": {
-              "key": "GeneratedID",
-              "use_id_type": "atm90e32::ATM90E32Component",
-              "type": "use_id",
-              "docs": "**[ID](https://esphome.io/guides/configuration-types.html#config-id)**: The ID of the atm90e32 defined above. Required if there are multiple atm90e32 configured.\n\n*See also: [atm90e32 Button](https://esphome.io/components/sensor/atm90e32.html#button)*"
-            },
-            "run_offset_calibration": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "button.BUTTON_SCHEMA"
-                ],
-                "config_vars": {
-                  "id": {
-                    "key": "GeneratedID",
-                    "id_type": {
-                      "class": "atm90e32::ATM90E32CalibrationButton",
-                      "parents": [
-                        "button::Button",
-                        "EntityBase"
-                      ]
-                    }
-                  },
-                  "icon": {
-                    "default": "mdi:scale"
-                  },
-                  "entity_category": {
-                    "default": "config"
-                  }
-                }
-              },
-              "docs": "A button to run the offset calibration. All options from [Button](https://esphome.io/components/button/index.html#config-button).\n\n*See also: [atm90e32 Button](https://esphome.io/components/sensor/atm90e32.html#button)*"
-            },
-            "clear_offset_calibration": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "button.BUTTON_SCHEMA"
-                ],
-                "config_vars": {
-                  "id": {
-                    "key": "GeneratedID",
-                    "id_type": {
-                      "class": "atm90e32::ATM90E32ClearCalibrationButton",
-                      "parents": [
-                        "button::Button",
-                        "EntityBase"
-                      ]
-                    }
-                  },
-                  "icon": {
-                    "default": "mdi:chip"
-                  },
-                  "entity_category": {
-                    "default": "config"
-                  }
-                }
-              },
-              "docs": "A button to clear the offset calibration. All options from [Button](https://esphome.io/components/button/index.html#config-button).\n\n*See also: [atm90e32 Button](https://esphome.io/components/sensor/atm90e32.html#button)*"
-            }
-          }
         }
       }
     }

@@ -57,6 +57,34 @@
       }
     }
   },
+  "uponor_smatrix.climate": {
+    "schemas": {
+      "CONFIG_SCHEMA": {
+        "type": "schema",
+        "schema": {
+          "extends": [
+            "climate.CLIMATE_SCHEMA",
+            "uponor_smatrix.UPONOR_SMATRIX_DEVICE_SCHEMA"
+          ],
+          "config_vars": {
+            "id": {
+              "id_type": {
+                "class": "uponor_smatrix::UponorSmatrixClimate",
+                "parents": [
+                  "climate::Climate",
+                  "EntityBase",
+                  "Component",
+                  "uponor_smatrix::UponorSmatrixDevice",
+                  "Parented<uponor_smatrix::UponorSmatrixComponent>",
+                  "Parented"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  },
   "uponor_smatrix.sensor": {
     "schemas": {
       "CONFIG_SCHEMA": {
@@ -171,34 +199,6 @@
                     "default": "measurement"
                   }
                 }
-              }
-            }
-          }
-        }
-      }
-    }
-  },
-  "uponor_smatrix.climate": {
-    "schemas": {
-      "CONFIG_SCHEMA": {
-        "type": "schema",
-        "schema": {
-          "extends": [
-            "climate.CLIMATE_SCHEMA",
-            "uponor_smatrix.UPONOR_SMATRIX_DEVICE_SCHEMA"
-          ],
-          "config_vars": {
-            "id": {
-              "id_type": {
-                "class": "uponor_smatrix::UponorSmatrixClimate",
-                "parents": [
-                  "climate::Climate",
-                  "EntityBase",
-                  "Component",
-                  "uponor_smatrix::UponorSmatrixDevice",
-                  "Parented<uponor_smatrix::UponorSmatrixComponent>",
-                  "Parented"
-                ]
               }
             }
           }

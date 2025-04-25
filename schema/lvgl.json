@@ -95,27 +95,6 @@
       }
     }
   },
-  "lvgl.sensor": {
-    "schemas": {
-      "CONFIG_SCHEMA": {
-        "type": "schema",
-        "schema": {
-          "extends": [
-            "sensor.SENSOR_SCHEMA"
-          ],
-          "config_vars": {
-            "id": {},
-            "widget": {
-              "key": "Required",
-              "use_id_type": "<member 'base' of 'MockObj' objects>",
-              "type": "use_id",
-              "docs": "The ID of a supported widget configured in LVGL, which will reflect the state of the sensor.\n\n*See also: [LVGL Sensor](https://esphome.io/components/sensor/lvgl.html#configuration-variables)*"
-            }
-          }
-        }
-      }
-    }
-  },
   "lvgl.binary_sensor": {
     "schemas": {
       "CONFIG_SCHEMA": {
@@ -250,6 +229,27 @@
               "key": "Optional",
               "default": "False",
               "type": "boolean"
+            }
+          }
+        }
+      }
+    }
+  },
+  "lvgl.sensor": {
+    "schemas": {
+      "CONFIG_SCHEMA": {
+        "type": "schema",
+        "schema": {
+          "extends": [
+            "sensor.SENSOR_SCHEMA"
+          ],
+          "config_vars": {
+            "id": {},
+            "widget": {
+              "key": "Required",
+              "use_id_type": "<member 'base' of 'MockObj' objects>",
+              "type": "use_id",
+              "docs": "The ID of a supported widget configured in LVGL, which will reflect the state of the sensor.\n\n*See also: [LVGL Sensor](https://esphome.io/components/sensor/lvgl.html#configuration-variables)*"
             }
           }
         }

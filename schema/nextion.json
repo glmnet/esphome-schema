@@ -1,7 +1,7 @@
 {
-  "nextion.sensor": {
+  "nextion.binary_sensor": {
     "schemas": {
-      "CONFIG_SENSOR_COMPONENT_SCHEMA": {
+      "CONFIG_BINARY_SENSOR_SCHEMA": {
         "type": "schema",
         "schema": {
           "config_vars": {
@@ -36,10 +36,6 @@
             "variable_name": {
               "key": "Optional",
               "docs": "**string**: The name of the Nextion variable. Any value over `0` is considered to be **on**\n\n*See also: [Nextion Switch Component](https://esphome.io/components/switch/nextion.html#configuration-variables)*"
-            },
-            "font_id": {
-              "key": "Optional",
-              "type": "integer"
             }
           }
         }
@@ -48,102 +44,10 @@
         "type": "schema",
         "schema": {
           "extends": [
-            "sensor.SENSOR_SCHEMA",
-            "nextion.sensor.CONFIG_SENSOR_COMPONENT_SCHEMA",
+            "binary_sensor.BINARY_SENSOR_SCHEMA",
+            "nextion.binary_sensor.CONFIG_BINARY_SENSOR_SCHEMA",
             "core.COMPONENT_SCHEMA"
           ],
-          "config_vars": {
-            "id": {
-              "id_type": {
-                "class": "nextion::NextionSensor",
-                "parents": [
-                  "sensor::Sensor",
-                  "EntityBase",
-                  "PollingComponent",
-                  "Component"
-                ]
-              }
-            },
-            "accuracy_decimals": {
-              "default": "2"
-            },
-            "precision": {
-              "key": "Optional",
-              "default": "0",
-              "type": "integer",
-              "docs": "**int**: This is for Nextion float components. This sets the precision that the component is set to. This typically is the `vvs1` setting of the component.\n\n*See also: [Nextion Sensor Component](https://esphome.io/components/sensor/nextion.html#configuration-variables)*"
-            },
-            "wave_channel_id": {
-              "key": "Optional"
-            },
-            "component_id": {
-              "key": "Optional",
-              "type": "integer",
-              "data_type": "uint8_t"
-            },
-            "wave_max_length": {
-              "key": "Optional",
-              "default": "255",
-              "type": "integer"
-            },
-            "wave_max_value": {
-              "key": "Optional",
-              "default": "100",
-              "type": "integer"
-            },
-            "waveform_send_last_value": {
-              "key": "Optional",
-              "default": "True",
-              "type": "boolean"
-            },
-            "update_interval": {
-              "key": "Optional",
-              "default": "never",
-              "docs": "**[Time](https://esphome.io/guides/configuration-types.html#config-time)**: The duration to update the sensor\n\n*See also: [Nextion Sensor Component](https://esphome.io/components/sensor/nextion.html#configuration-variables)*"
-            }
-          }
-        }
-      }
-    },
-    "action": {
-      "publish": {
-        "type": "schema",
-        "schema": {
-          "config_vars": {
-            "id": {
-              "key": "Required",
-              "use_id_type": "nextion::NextionSensor",
-              "type": "use_id",
-              "docs": "**[ID](https://esphome.io/guides/configuration-types.html#config-id)**: The ID of the Nextion sensor.\n\n*See also: [Nextion Sensor Component](https://esphome.io/components/sensor/nextion.html#sensor-nextion-publish-action)*"
-            },
-            "state": {
-              "key": "Required",
-              "templatable": true,
-              "docs": "**string, [templatable](https://esphome.io/automations/templates.html#config-templatable)**: The float state to publish.\n\n*See also: [Nextion Sensor Component](https://esphome.io/components/sensor/nextion.html#sensor-nextion-publish-action)*"
-            },
-            "publish_state": {
-              "key": "Optional",
-              "default": "true",
-              "templatable": true,
-              "type": "boolean"
-            },
-            "send_to_nextion": {
-              "key": "Optional",
-              "default": "true",
-              "templatable": true,
-              "type": "boolean"
-            }
-          }
-        },
-        "docs": "You can also publish a state to a Nextion sensor from elsewhere in your YAML file with the `sensor.nextion.publish` action.\n\n*See also: [`sensor.nextion.publish` Action](https://esphome.io/components/sensor/nextion.html#sensor-nextion-publish-action)*"
-      }
-    }
-  },
-  "nextion.binary_sensor": {
-    "schemas": {
-      "CONFIG_SCHEMA": {
-        "type": "schema",
-        "schema": {
           "config_vars": {
             "id": {
               "id_type": {
@@ -172,38 +76,6 @@
               "key": "Optional",
               "default": "never",
               "docs": "**[Time](https://esphome.io/guides/configuration-types.html#config-time)**: The duration to update the sensor. If using a [Nextion Custom Binary Sensor Protocol](https://esphome.io/components/binary_sensor/nextion.html#nextion-custom-binary-sensor-protocol) this should not be used\n\n*See also: [Nextion Binary Sensor Component](https://esphome.io/components/binary_sensor/nextion.html#configuration-variables)*"
-            },
-            "nextion_id": {
-              "key": "GeneratedID",
-              "use_id_type": "nextion::Nextion",
-              "type": "use_id",
-              "docs": "**[ID](https://esphome.io/guides/configuration-types.html#config-id)**: The ID of the Nextion display.\n\n*See also: [Nextion Binary Sensor Component](https://esphome.io/components/binary_sensor/nextion.html#configuration-variables)*"
-            },
-            "background_color": {
-              "key": "Optional",
-              "use_id_type": "Color",
-              "type": "use_id",
-              "docs": "**[Color](https://esphome.io/components/display/index.html#config-color)**: The background color\n\n*See also: [Nextion Binary Sensor Component](https://esphome.io/components/binary_sensor/nextion.html#configuration-variables)*"
-            },
-            "foreground_color": {
-              "key": "Optional",
-              "use_id_type": "Color",
-              "type": "use_id",
-              "docs": "**[Color](https://esphome.io/components/display/index.html#config-color)**: The foreground color\n\n*See also: [Nextion Binary Sensor Component](https://esphome.io/components/binary_sensor/nextion.html#configuration-variables)*"
-            },
-            "visible": {
-              "key": "Optional",
-              "default": "True",
-              "type": "boolean",
-              "docs": "**boolean**: Visible or not\n\n*See also: [Nextion Binary Sensor Component](https://esphome.io/components/binary_sensor/nextion.html#configuration-variables)*"
-            },
-            "component_name": {
-              "key": "Optional",
-              "docs": "**string**: The name of the Nextion component.\n\n*See also: [Nextion Binary Sensor Component](https://esphome.io/components/binary_sensor/nextion.html#configuration-variables)*"
-            },
-            "variable_name": {
-              "key": "Optional",
-              "docs": "**string**: The name of the Nextion variable. Any value over `0` is considered to be **on**\n\n*See also: [Nextion Binary Sensor Component](https://esphome.io/components/binary_sensor/nextion.html#configuration-variables)*"
             }
           }
         }
@@ -230,13 +102,15 @@
               "key": "Optional",
               "default": "true",
               "templatable": true,
-              "type": "boolean"
+              "type": "boolean",
+              "docs": "**bool, [templatable](https://esphome.io/automations/templates.html#config-templatable)**: Publish new state to Home Assistant. Default is true.\n\n*See also: [Nextion Binary Sensor Component](https://esphome.io/components/binary_sensor/nextion.html#binary-sensor-nextion-publish-action)*"
             },
             "send_to_nextion": {
               "key": "Optional",
               "default": "true",
               "templatable": true,
-              "type": "boolean"
+              "type": "boolean",
+              "docs": "**bool, [templatable](https://esphome.io/automations/templates.html#config-templatable)**: Publish new state to Nextion display which will update component. Default is true.\n\n*See also: [Nextion Binary Sensor Component](https://esphome.io/components/binary_sensor/nextion.html#binary-sensor-nextion-publish-action)*"
             }
           }
         },
@@ -373,6 +247,119 @@
       }
     }
   },
+  "nextion.sensor": {
+    "schemas": {
+      "CONFIG_SENSOR_COMPONENT_SCHEMA": {
+        "type": "schema",
+        "schema": {
+          "extends": [
+            "nextion.binary_sensor.CONFIG_BINARY_SENSOR_SCHEMA"
+          ],
+          "config_vars": {
+            "font_id": {
+              "key": "Optional",
+              "type": "integer"
+            }
+          }
+        }
+      },
+      "CONFIG_SCHEMA": {
+        "type": "schema",
+        "schema": {
+          "extends": [
+            "sensor.SENSOR_SCHEMA",
+            "nextion.sensor.CONFIG_SENSOR_COMPONENT_SCHEMA",
+            "core.COMPONENT_SCHEMA"
+          ],
+          "config_vars": {
+            "id": {
+              "id_type": {
+                "class": "nextion::NextionSensor",
+                "parents": [
+                  "sensor::Sensor",
+                  "EntityBase",
+                  "PollingComponent",
+                  "Component"
+                ]
+              }
+            },
+            "accuracy_decimals": {
+              "default": "2"
+            },
+            "precision": {
+              "key": "Optional",
+              "default": "0",
+              "type": "integer",
+              "docs": "**int**: This is for Nextion float components. This sets the precision that the component is set to. This typically is the `vvs1` setting of the component.\n\n*See also: [Nextion Sensor Component](https://esphome.io/components/sensor/nextion.html#configuration-variables)*"
+            },
+            "wave_channel_id": {
+              "key": "Optional"
+            },
+            "component_id": {
+              "key": "Optional",
+              "type": "integer",
+              "data_type": "uint8_t"
+            },
+            "wave_max_length": {
+              "key": "Optional",
+              "default": "255",
+              "type": "integer"
+            },
+            "wave_max_value": {
+              "key": "Optional",
+              "default": "100",
+              "type": "integer"
+            },
+            "waveform_send_last_value": {
+              "key": "Optional",
+              "default": "True",
+              "type": "boolean"
+            },
+            "update_interval": {
+              "key": "Optional",
+              "default": "never",
+              "docs": "**[Time](https://esphome.io/guides/configuration-types.html#config-time)**: The duration to update the sensor\n\n*See also: [Nextion Sensor Component](https://esphome.io/components/sensor/nextion.html#configuration-variables)*"
+            }
+          }
+        }
+      }
+    },
+    "action": {
+      "publish": {
+        "type": "schema",
+        "schema": {
+          "config_vars": {
+            "id": {
+              "key": "Required",
+              "use_id_type": "nextion::NextionSensor",
+              "type": "use_id",
+              "docs": "**[ID](https://esphome.io/guides/configuration-types.html#config-id)**: The ID of the Nextion sensor.\n\n*See also: [Nextion Sensor Component](https://esphome.io/components/sensor/nextion.html#sensor-nextion-publish-action)*"
+            },
+            "state": {
+              "key": "Required",
+              "templatable": true,
+              "docs": "**string, [templatable](https://esphome.io/automations/templates.html#config-templatable)**: The float state to publish.\n\n*See also: [Nextion Sensor Component](https://esphome.io/components/sensor/nextion.html#sensor-nextion-publish-action)*"
+            },
+            "publish_state": {
+              "key": "Optional",
+              "default": "true",
+              "templatable": true,
+              "type": "boolean",
+              "docs": "**bool, [templatable](https://esphome.io/automations/templates.html#config-templatable)**: Publish new state to Home Assistant. Default is true.\n\n*See also: [Nextion Sensor Component](https://esphome.io/components/sensor/nextion.html#sensor-nextion-publish-action)*"
+            },
+            "send_to_nextion": {
+              "key": "Optional",
+              "default": "true",
+              "templatable": true,
+              "type": "boolean",
+              "docs": "**bool, [templatable](https://esphome.io/automations/templates.html#config-templatable)**: Publish new state to Nextion display which will update component. Default is true.\n\n*See also: [Nextion Sensor Component](https://esphome.io/components/sensor/nextion.html#sensor-nextion-publish-action)*"
+            }
+          }
+        },
+        "docs": "You can also publish a state to a Nextion sensor from elsewhere in your YAML file with the `sensor.nextion.publish` action.\n\n*See also: [`sensor.nextion.publish` Action](https://esphome.io/components/sensor/nextion.html#sensor-nextion-publish-action)*"
+      }
+    }
+  },
   "nextion.switch": {
     "schemas": {
       "CONFIG_SCHEMA": {
@@ -450,13 +437,15 @@
               "key": "Optional",
               "default": "true",
               "templatable": true,
-              "type": "boolean"
+              "type": "boolean",
+              "docs": "**bool, [templatable](https://esphome.io/automations/templates.html#config-templatable)**: Publish new state to Home Assistant. Default is true.\n\n*See also: [Nextion Switch Component](https://esphome.io/components/switch/nextion.html#switch-nextion-publish-action)*"
             },
             "send_to_nextion": {
               "key": "Optional",
               "default": "true",
               "templatable": true,
-              "type": "boolean"
+              "type": "boolean",
+              "docs": "**bool, [templatable](https://esphome.io/automations/templates.html#config-templatable)**: Publish new state to Nextion display which will update component. Default is true.\n\n*See also: [Nextion Switch Component](https://esphome.io/components/switch/nextion.html#switch-nextion-publish-action)*"
             }
           }
         },
@@ -544,13 +533,15 @@
               "key": "Optional",
               "default": "true",
               "templatable": true,
-              "type": "boolean"
+              "type": "boolean",
+              "docs": "**bool, [templatable](https://esphome.io/automations/templates.html#config-templatable)**: Publish new state to Home Assistant. Default is true.\n\n*See also: [Nextion Text Sensor Component](https://esphome.io/components/text_sensor/nextion.html#text-sensor-nextion-publish-action)*"
             },
             "send_to_nextion": {
               "key": "Optional",
               "default": "true",
               "templatable": true,
-              "type": "boolean"
+              "type": "boolean",
+              "docs": "**bool, [templatable](https://esphome.io/automations/templates.html#config-templatable)**: Publish new state to Nextion display which will update component. Default is true.\n\n*See also: [Nextion Text Sensor Component](https://esphome.io/components/text_sensor/nextion.html#text-sensor-nextion-publish-action)*"
             }
           }
         },

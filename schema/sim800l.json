@@ -150,6 +150,40 @@
       }
     }
   },
+  "sim800l.binary_sensor": {
+    "schemas": {
+      "CONFIG_SCHEMA": {
+        "type": "schema",
+        "schema": {
+          "config_vars": {
+            "sim800l_id": {
+              "key": "GeneratedID",
+              "use_id_type": "sim800l::Sim800LComponent",
+              "type": "use_id"
+            },
+            "registered": {
+              "key": "Optional",
+              "type": "schema",
+              "schema": {
+                "extends": [
+                  "binary_sensor.BINARY_SENSOR_SCHEMA"
+                ],
+                "config_vars": {
+                  "entity_category": {
+                    "default": "diagnostic"
+                  },
+                  "device_class": {
+                    "default": "connectivity"
+                  }
+                }
+              },
+              "docs": "Indicates if the SIM800L has successfully registered in the cellular network.\n  * All options from [Binary Sensor](https://esphome.io/components/binary_sensor/index.html#config-binary-sensor).\n  \n  \n\n*See also: [sim800l Binary Sensor](https://esphome.io/components/sim800l.html#binary-sensor)*"
+            }
+          }
+        }
+      }
+    }
+  },
   "sim800l.sensor": {
     "schemas": {
       "CONFIG_SCHEMA": {
@@ -187,40 +221,6 @@
                 }
               },
               "docs": "The informed Received signal strength indication (RSSI) in dBm.\n  * All options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n  \n  \n\n*See also: [sim800l Sensor](https://esphome.io/components/sim800l.html#sensor)*"
-            }
-          }
-        }
-      }
-    }
-  },
-  "sim800l.binary_sensor": {
-    "schemas": {
-      "CONFIG_SCHEMA": {
-        "type": "schema",
-        "schema": {
-          "config_vars": {
-            "sim800l_id": {
-              "key": "GeneratedID",
-              "use_id_type": "sim800l::Sim800LComponent",
-              "type": "use_id"
-            },
-            "registered": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "binary_sensor.BINARY_SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "entity_category": {
-                    "default": "diagnostic"
-                  },
-                  "device_class": {
-                    "default": "connectivity"
-                  }
-                }
-              },
-              "docs": "Indicates if the SIM800L has successfully registered in the cellular network.\n  * All options from [Binary Sensor](https://esphome.io/components/binary_sensor/index.html#config-binary-sensor).\n  \n  \n\n*See also: [sim800l Binary Sensor](https://esphome.io/components/sim800l.html#binary-sensor)*"
             }
           }
         }

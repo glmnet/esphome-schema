@@ -1,24 +1,18 @@
 {
   "number": {
     "components": {
-      "copy": {
-        "docs": "**[ID](https://esphome.io/guides/configuration-types.html#config-id)**: The number that should be mirrored.\n\n*See also: [Copy Number](https://esphome.io/components/copy.html#copy-number)*"
-      },
+      "copy": {},
       "homeassistant": {
         "dependencies": [
           "api"
         ],
         "docs": "The `homeassistant` number platform allows you to create a number that is synchronized with Home Assistant. Min, Max and Step are not configurable for this platform because they are taken from the Home Assistant entity.\n\n*See also: [Home Assistant Number](https://esphome.io/components/number/homeassistant.html#home-assistant-number)*"
       },
-      "ld2410": {
-        "docs": "The `ld2410` number allows you to control the configuration of your [LD2410 Sensor.\n\n*See also: [ld2410 Number](https://esphome.io/components/sensor/ld2410.html#number)*"
-      },
+      "ld2410": {},
       "ld2420": {
         "docs": "**presence_timeout** (*Optional*): The time in seconds during which the occupied state (presence) will persist after presence is no longer detected. Any energy detection within the time window restarts the countdown from this value. Defaults to 120s. **Required** when `min_gate_distance` and `max_gate_distance` is specified. May contain any options from [Number](https://esphome.io/components/number/index.html#config-number).\n\n*See also: [ld2420 Number](https://esphome.io/components/sensor/ld2420.html#number)*"
       },
-      "ld2450": {
-        "docs": "The `ld2450` number allows you to control the presence timeout and zone area configuration of your [LD2450 Sensor.\n\n*See also: [ld2450 Number](https://esphome.io/components/sensor/ld2450.html#number)*"
-      },
+      "ld2450": {},
       "lvgl": {
         "docs": "The `lvgl` number platform creates a number component from an LVGL widget and requires [LVGL](https://esphome.io/components/lvgl/index.html) to be configured.\n\n*See also: [LVGL Number](https://esphome.io/components/number/lvgl.html#lvgl-number)*"
       },

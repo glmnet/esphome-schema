@@ -1,9 +1,7 @@
 {
   "lock": {
     "components": {
-      "copy": {
-        "docs": "**[ID](https://esphome.io/guides/configuration-types.html#config-id)**: The lock that should be mirrored.\n\n*See also: [Copy Lock](https://esphome.io/components/copy.html#copy-lock)*"
-      },
+      "copy": {},
       "output": {
         "docs": "The `output` lock platform allows you to use any output component as a lock.\n\n*See also: [Generic Output Lock](https://esphome.io/components/lock/output.html#generic-output-lock)*"
       },

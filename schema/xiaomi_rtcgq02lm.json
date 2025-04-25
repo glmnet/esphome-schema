@@ -31,48 +31,6 @@
       }
     }
   },
-  "xiaomi_rtcgq02lm.sensor": {
-    "schemas": {
-      "CONFIG_SCHEMA": {
-        "type": "schema",
-        "schema": {
-          "config_vars": {
-            "id": {
-              "key": "GeneratedID",
-              "use_id_type": "xiaomi_rtcgq02lm::XiaomiRTCGQ02LM",
-              "type": "use_id"
-            },
-            "battery_level": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "%"
-                  },
-                  "accuracy_decimals": {
-                    "default": "0"
-                  },
-                  "device_class": {
-                    "default": "battery"
-                  },
-                  "state_class": {
-                    "default": "measurement"
-                  },
-                  "entity_category": {
-                    "default": "diagnostic"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  },
   "xiaomi_rtcgq02lm.binary_sensor": {
     "schemas": {
       "CONFIG_SCHEMA": {
@@ -139,6 +97,48 @@
                         "core.positive_time_period_milliseconds"
                       ]
                     }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "xiaomi_rtcgq02lm.sensor": {
+    "schemas": {
+      "CONFIG_SCHEMA": {
+        "type": "schema",
+        "schema": {
+          "config_vars": {
+            "id": {
+              "key": "GeneratedID",
+              "use_id_type": "xiaomi_rtcgq02lm::XiaomiRTCGQ02LM",
+              "type": "use_id"
+            },
+            "battery_level": {
+              "key": "Optional",
+              "type": "schema",
+              "schema": {
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ],
+                "config_vars": {
+                  "unit_of_measurement": {
+                    "default": "%"
+                  },
+                  "accuracy_decimals": {
+                    "default": "0"
+                  },
+                  "device_class": {
+                    "default": "battery"
+                  },
+                  "state_class": {
+                    "default": "measurement"
+                  },
+                  "entity_category": {
+                    "default": "diagnostic"
                   }
                 }
               }

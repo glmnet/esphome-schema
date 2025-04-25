@@ -9,9 +9,7 @@
       "ble_client": {
         "docs": "The `ble_client` component is a switch platform that is used to enable and disable a `ble_client`. This has several uses, such as minimizing battery usage or for allowing other clients (Eg phone apps) to connect to the device.\n\n*See also: [BLE Client Switch](https://esphome.io/components/switch/ble_client.html#ble-client-switch)*"
       },
-      "copy": {
-        "docs": "**[ID](https://esphome.io/guides/configuration-types.html#config-id)**: The switch that should be mirrored.\n\n*See also: [Copy Switch](https://esphome.io/components/copy.html#copy-switch)*"
-      },
+      "copy": {},
       "custom": {},
       "dfrobot_sen0395": {
         "dependencies": [
@@ -37,12 +35,8 @@
         ],
         "docs": "The `homeassistant` Switch platform allows you to create Switch that **import** states and allow **control** via your Home Assistant instance using the [native API](https://esphome.io/components/api.html).\n\n*See also: [Home Assistant Switch](https://esphome.io/components/switch/homeassistant.html#home-assistant-switch)*"
       },
-      "ld2410": {
-        "docs": "The `ld2410` switch allows you to control your [LD2410 Sensor.\n\n*See also: [ld2410 Switch](https://esphome.io/components/sensor/ld2410.html#switch)*"
-      },
-      "ld2450": {
-        "docs": "The `ld2450` switch allows you to control your [LD2450 Sensor `Bluetooth` and `Multi/Single Target Tracking`.\n\n*See also: [ld2450 Switch](https://esphome.io/components/sensor/ld2450.html#switch)*"
-      },
+      "ld2410": {},
+      "ld2450": {},
       "lvgl": {
         "docs": "The `lvgl` switch platform creates a switch from an LVGL widget and requires [LVGL](https://esphome.io/components/lvgl/index.html) to be configured.\n\n*See also: [LVGL Switch](https://esphome.io/components/switch/lvgl.html#lvgl-switch)*"
       },

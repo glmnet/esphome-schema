@@ -27,13 +27,12 @@
         "dependencies": [
           "dac7678"
         ],
-        "docs": "The DAC7678 output component exposes a DAC7678 DAC channel of a global [DAC7678 hub](https://esphome.io/components/output/dac7678.html#dac7678-component) as a float output.\n\n*See also: [DAC7678 Output](https://esphome.io/components/output/dac7678.html#dac7678-output)*"
+        "docs": "The DAC7678 component represents a DAC7678 12-bit 8 channel DAC with internal reference ([datasheet](https://www.ti.com/lit/ds/symlink/dac7678.pdf)) in ESPHome. It uses the [I\u00b2C Bus](https://esphome.io/components/i2c.html#i2c) for communication.\n\n*See also: [DAC7678](https://esphome.io/components/output/dac7678.html#dac7678)*"
       },
       "emc2101": {
         "dependencies": [
           "emc2101"
-        ],
-        "docs": "**[ID](https://esphome.io/guides/configuration-types.html#config-id)**: The ID to use for code generation, and for reference by dependent components.\n\n*See also: [EMC2101 Output](https://esphome.io/components/emc2101.html#emc2101-output)*"
+        ]
       },
       "esp32_dac": {
         "dependencies": [
@@ -77,7 +76,7 @@
         "dependencies": [
           "mcp4461"
         ],
-        "docs": "The MCP4461 output component exposes 8 MCP4461 (wiper-)channels of a global [MCP4461](https://esphome.io/components/output/mcp4461.html#id1) as float outputs.\n\n*See also: [MCP4461 Output](https://esphome.io/components/output/mcp4461.html#mcp4461-output)*"
+        "docs": "The MCP4461 output component enables the use of an 8\u2011bit external quad digital potentiometer/rheostat via I\u00b2C. See the [MCP4461 Datasheet](https://www.microchip.com/en-us/product/mcp4461) for more information.\n\n*See also: [MCP4461 Component](https://esphome.io/components/output/mcp4461.html#mcp4461-component)*"
       },
       "mcp4725": {
         "dependencies": [
@@ -89,7 +88,7 @@
         "dependencies": [
           "mcp4728"
         ],
-        "docs": "The MCP4728 output component exposes 4 MCP4728 channels of a global [MCP4728](https://esphome.io/components/output/mcp4728.html#id1) as float outputs.\n\n*See also: [MCP4728 Output](https://esphome.io/components/output/mcp4728.html#mcp4728-output)*"
+        "docs": "The MCP4728 output component allows to use [12bit external quad DAC](https://www.adafruit.com/product/4470) in order to have analog outputs on any board by using [I\u00b2C](https://esphome.io/components/i2c.html#i2c). Devices default address is `0x60`.\n\n*See also: [MCP4728 Component](https://esphome.io/components/output/mcp4728.html#mcp4728-component)*"
       },
       "mcp47a1": {
         "dependencies": [
@@ -118,7 +117,7 @@
         "dependencies": [
           "pca9685"
         ],
-        "docs": "The PCA9685 output component exposes a PCA9685 PWM channel of a global [PCA9685 hub](https://esphome.io/components/output/pca9685.html#pca9685-component) as a float output.\n\n*See also: [PCA9685 Output](https://esphome.io/components/output/pca9685.html#pca9685-output)*"
+        "docs": "The PCA9685 component represents a PCA9685 12-bit PWM driver ([datasheet](https://www.nxp.com/docs/en/data-sheet/PCA9685.pdf), [adafruit](https://www.adafruit.com/product/815)) in ESPHome. It uses [I\u00b2C Bus](https://esphome.io/components/i2c.html#i2c) for communication.\n\n*See also: [PCA9685](https://esphome.io/components/output/pca9685.html#pca9685)*"
       },
       "pipsolar": {
         "dependencies": [
@@ -173,7 +172,7 @@
         "dependencies": [
           "tlc59208f"
         ],
-        "docs": "The TLC59208F output component exposes a TLC59208F PWM channel of a global [TLC59208F chip](https://esphome.io/components/output/tlc59208f.html#tlc59208f-component) as a float output.\n\n*See also: [TLC59208F Output](https://esphome.io/components/output/tlc59208f.html#tlc59208f-output)*"
+        "docs": "The TLC59208F component represents a Texas Instruments TLC59208F 8-bit PWM driver ([datasheet](http://www.ti.com/lit/gpn/tlc59208f), [hw example](https://faboplatform.github.io/ArduinoDocs/03.I2C%20Brick/211_brick_i2c_7seg/)) in ESPHome. It uses [I\u00b2C Bus](https://esphome.io/components/i2c.html#i2c) for communication.\n\n*See also: [TLC59208F](https://esphome.io/components/output/tlc59208f.html#tlc59208f)*"
       },
       "tlc5947": {
         "dependencies": [

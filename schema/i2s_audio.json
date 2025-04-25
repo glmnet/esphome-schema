@@ -41,6 +41,10 @@
               ],
               "type": "pin",
               "docs": "**[Pin](https://esphome.io/guides/configuration-types.html#config-pin)**: The GPIO pin to use for the I\u00b2S `MCLK` *(Master Clock)* signal.\n\n*See also: [I\u00b2S Audio Component](https://esphome.io/components/i2s_audio.html#configuration-variables)*"
+            },
+            "use_legacy": {
+              "key": "Optional",
+              "type": "boolean"
             }
           }
         },

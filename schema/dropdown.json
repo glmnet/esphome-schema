@@ -8412,10 +8412,6 @@
             "selected_text": {
               "key": "Optional"
             },
-            "dir": {
-              "key": "Optional",
-              "default": "BOTTOM"
-            },
             "dropdown_list": {
               "key": "Optional",
               "type": "schema",
@@ -20691,6 +20687,9 @@
             "options": {
               "key": "Optional",
               "is_list": true
+            },
+            "dir": {
+              "key": "Optional"
             }
           }
         }

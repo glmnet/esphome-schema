@@ -73,7 +73,8 @@
             "sync_mode": {
               "key": "Optional",
               "default": "False",
-              "type": "boolean"
+              "type": "boolean",
+              "docs": "**boolean, default **false****: Synchronous communication mode prevents other components from disabling interrupts while we are talking to the boiler. Enable if you experience a lot of random intermittent invalid response errors (very likely to happen while using Dallas temperature sensors).\n\n*See also: [OpenTherm](https://esphome.io/components/opentherm.html#configuration-variables)*"
             },
             "opentherm_version": {
               "key": "Optional",
@@ -168,1432 +169,6 @@
           ]
         },
         "is_list": true
-      }
-    }
-  },
-  "opentherm.sensor": {
-    "schemas": {
-      "CONFIG_SCHEMA": {
-        "type": "schema",
-        "schema": {
-          "config_vars": {
-            "opentherm_id": {
-              "key": "GeneratedID",
-              "use_id_type": "opentherm::OpenthermHub",
-              "type": "use_id"
-            },
-            "rel_mod_level": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "%"
-                  },
-                  "icon": {
-                    "default": "mdi:percent"
-                  },
-                  "accuracy_decimals": {
-                    "default": "2"
-                  },
-                  "state_class": {
-                    "default": "measurement"
-                  },
-                  "data_type": {
-                    "key": "Optional",
-                    "type": "enum",
-                    "values": {
-                      "f88": null,
-                      "s16": null,
-                      "u16": null,
-                      "u8_lb": null,
-                      "u8_lb_60": null,
-                      "u8_hb_60": null,
-                      "s8_lb": null,
-                      "u8_hb": null,
-                      "s8_hb": null
-                    }
-                  }
-                }
-              }
-            },
-            "ch_pressure": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "bar"
-                  },
-                  "accuracy_decimals": {
-                    "default": "2"
-                  },
-                  "device_class": {
-                    "default": "pressure"
-                  },
-                  "state_class": {
-                    "default": "measurement"
-                  },
-                  "data_type": {
-                    "key": "Optional",
-                    "type": "enum",
-                    "values": {
-                      "f88": null,
-                      "s16": null,
-                      "u16": null,
-                      "u8_lb": null,
-                      "u8_lb_60": null,
-                      "u8_hb_60": null,
-                      "s8_lb": null,
-                      "u8_hb": null,
-                      "s8_hb": null
-                    }
-                  }
-                }
-              }
-            },
-            "dhw_flow_rate": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "l/min"
-                  },
-                  "icon": {
-                    "default": "mdi:waves-arrow-right"
-                  },
-                  "accuracy_decimals": {
-                    "default": "2"
-                  },
-                  "state_class": {
-                    "default": "measurement"
-                  },
-                  "data_type": {
-                    "key": "Optional",
-                    "type": "enum",
-                    "values": {
-                      "f88": null,
-                      "s16": null,
-                      "u16": null,
-                      "u8_lb": null,
-                      "u8_lb_60": null,
-                      "u8_hb_60": null,
-                      "s8_lb": null,
-                      "u8_hb": null,
-                      "s8_hb": null
-                    }
-                  }
-                }
-              }
-            },
-            "t_boiler": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "\u00b0C"
-                  },
-                  "accuracy_decimals": {
-                    "default": "2"
-                  },
-                  "device_class": {
-                    "default": "temperature"
-                  },
-                  "state_class": {
-                    "default": "measurement"
-                  },
-                  "data_type": {
-                    "key": "Optional",
-                    "type": "enum",
-                    "values": {
-                      "f88": null,
-                      "s16": null,
-                      "u16": null,
-                      "u8_lb": null,
-                      "u8_lb_60": null,
-                      "u8_hb_60": null,
-                      "s8_lb": null,
-                      "u8_hb": null,
-                      "s8_hb": null
-                    }
-                  }
-                }
-              }
-            },
-            "t_dhw": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "\u00b0C"
-                  },
-                  "accuracy_decimals": {
-                    "default": "2"
-                  },
-                  "device_class": {
-                    "default": "temperature"
-                  },
-                  "state_class": {
-                    "default": "measurement"
-                  },
-                  "data_type": {
-                    "key": "Optional",
-                    "type": "enum",
-                    "values": {
-                      "f88": null,
-                      "s16": null,
-                      "u16": null,
-                      "u8_lb": null,
-                      "u8_lb_60": null,
-                      "u8_hb_60": null,
-                      "s8_lb": null,
-                      "u8_hb": null,
-                      "s8_hb": null
-                    }
-                  }
-                }
-              }
-            },
-            "t_outside": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "\u00b0C"
-                  },
-                  "accuracy_decimals": {
-                    "default": "2"
-                  },
-                  "device_class": {
-                    "default": "temperature"
-                  },
-                  "state_class": {
-                    "default": "measurement"
-                  },
-                  "data_type": {
-                    "key": "Optional",
-                    "type": "enum",
-                    "values": {
-                      "f88": null,
-                      "s16": null,
-                      "u16": null,
-                      "u8_lb": null,
-                      "u8_lb_60": null,
-                      "u8_hb_60": null,
-                      "s8_lb": null,
-                      "u8_hb": null,
-                      "s8_hb": null
-                    }
-                  }
-                }
-              }
-            },
-            "t_ret": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "\u00b0C"
-                  },
-                  "accuracy_decimals": {
-                    "default": "2"
-                  },
-                  "device_class": {
-                    "default": "temperature"
-                  },
-                  "state_class": {
-                    "default": "measurement"
-                  },
-                  "data_type": {
-                    "key": "Optional",
-                    "type": "enum",
-                    "values": {
-                      "f88": null,
-                      "s16": null,
-                      "u16": null,
-                      "u8_lb": null,
-                      "u8_lb_60": null,
-                      "u8_hb_60": null,
-                      "s8_lb": null,
-                      "u8_hb": null,
-                      "s8_hb": null
-                    }
-                  }
-                }
-              }
-            },
-            "t_storage": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "\u00b0C"
-                  },
-                  "accuracy_decimals": {
-                    "default": "2"
-                  },
-                  "device_class": {
-                    "default": "temperature"
-                  },
-                  "state_class": {
-                    "default": "measurement"
-                  },
-                  "data_type": {
-                    "key": "Optional",
-                    "type": "enum",
-                    "values": {
-                      "f88": null,
-                      "s16": null,
-                      "u16": null,
-                      "u8_lb": null,
-                      "u8_lb_60": null,
-                      "u8_hb_60": null,
-                      "s8_lb": null,
-                      "u8_hb": null,
-                      "s8_hb": null
-                    }
-                  }
-                }
-              }
-            },
-            "t_collector": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "\u00b0C"
-                  },
-                  "accuracy_decimals": {
-                    "default": "0"
-                  },
-                  "device_class": {
-                    "default": "temperature"
-                  },
-                  "state_class": {
-                    "default": "measurement"
-                  },
-                  "data_type": {
-                    "key": "Optional",
-                    "type": "enum",
-                    "values": {
-                      "f88": null,
-                      "s16": null,
-                      "u16": null,
-                      "u8_lb": null,
-                      "u8_lb_60": null,
-                      "u8_hb_60": null,
-                      "s8_lb": null,
-                      "u8_hb": null,
-                      "s8_hb": null
-                    }
-                  }
-                }
-              }
-            },
-            "t_flow_ch2": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "\u00b0C"
-                  },
-                  "accuracy_decimals": {
-                    "default": "2"
-                  },
-                  "device_class": {
-                    "default": "temperature"
-                  },
-                  "state_class": {
-                    "default": "measurement"
-                  },
-                  "data_type": {
-                    "key": "Optional",
-                    "type": "enum",
-                    "values": {
-                      "f88": null,
-                      "s16": null,
-                      "u16": null,
-                      "u8_lb": null,
-                      "u8_lb_60": null,
-                      "u8_hb_60": null,
-                      "s8_lb": null,
-                      "u8_hb": null,
-                      "s8_hb": null
-                    }
-                  }
-                }
-              }
-            },
-            "t_dhw2": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "\u00b0C"
-                  },
-                  "accuracy_decimals": {
-                    "default": "2"
-                  },
-                  "device_class": {
-                    "default": "temperature"
-                  },
-                  "state_class": {
-                    "default": "measurement"
-                  },
-                  "data_type": {
-                    "key": "Optional",
-                    "type": "enum",
-                    "values": {
-                      "f88": null,
-                      "s16": null,
-                      "u16": null,
-                      "u8_lb": null,
-                      "u8_lb_60": null,
-                      "u8_hb_60": null,
-                      "s8_lb": null,
-                      "u8_hb": null,
-                      "s8_hb": null
-                    }
-                  }
-                }
-              }
-            },
-            "t_exhaust": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "\u00b0C"
-                  },
-                  "accuracy_decimals": {
-                    "default": "0"
-                  },
-                  "device_class": {
-                    "default": "temperature"
-                  },
-                  "state_class": {
-                    "default": "measurement"
-                  },
-                  "data_type": {
-                    "key": "Optional",
-                    "type": "enum",
-                    "values": {
-                      "f88": null,
-                      "s16": null,
-                      "u16": null,
-                      "u8_lb": null,
-                      "u8_lb_60": null,
-                      "u8_hb_60": null,
-                      "s8_lb": null,
-                      "u8_hb": null,
-                      "s8_hb": null
-                    }
-                  }
-                }
-              }
-            },
-            "fan_speed": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "RPM"
-                  },
-                  "icon": {
-                    "default": "mdi:fan"
-                  },
-                  "accuracy_decimals": {
-                    "default": "0"
-                  },
-                  "state_class": {
-                    "default": "measurement"
-                  },
-                  "data_type": {
-                    "key": "Optional",
-                    "type": "enum",
-                    "values": {
-                      "f88": null,
-                      "s16": null,
-                      "u16": null,
-                      "u8_lb": null,
-                      "u8_lb_60": null,
-                      "u8_hb_60": null,
-                      "s8_lb": null,
-                      "u8_hb": null,
-                      "s8_hb": null
-                    }
-                  }
-                }
-              }
-            },
-            "fan_speed_setpoint": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "RPM"
-                  },
-                  "icon": {
-                    "default": "mdi:fan"
-                  },
-                  "accuracy_decimals": {
-                    "default": "0"
-                  },
-                  "state_class": {
-                    "default": "measurement"
-                  },
-                  "data_type": {
-                    "key": "Optional",
-                    "type": "enum",
-                    "values": {
-                      "f88": null,
-                      "s16": null,
-                      "u16": null,
-                      "u8_lb": null,
-                      "u8_lb_60": null,
-                      "u8_hb_60": null,
-                      "s8_lb": null,
-                      "u8_hb": null,
-                      "s8_hb": null
-                    }
-                  }
-                }
-              }
-            },
-            "flame_current": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "\u00b5A"
-                  },
-                  "accuracy_decimals": {
-                    "default": "0"
-                  },
-                  "device_class": {
-                    "default": "current"
-                  },
-                  "state_class": {
-                    "default": "measurement"
-                  },
-                  "data_type": {
-                    "key": "Optional",
-                    "type": "enum",
-                    "values": {
-                      "f88": null,
-                      "s16": null,
-                      "u16": null,
-                      "u8_lb": null,
-                      "u8_lb_60": null,
-                      "u8_hb_60": null,
-                      "s8_lb": null,
-                      "u8_hb": null,
-                      "s8_hb": null
-                    }
-                  }
-                }
-              }
-            },
-            "burner_starts": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "icon": {
-                    "default": "mdi:gas-burner"
-                  },
-                  "accuracy_decimals": {
-                    "default": "0"
-                  },
-                  "state_class": {
-                    "default": "total_increasing"
-                  },
-                  "data_type": {
-                    "key": "Optional",
-                    "type": "enum",
-                    "values": {
-                      "f88": null,
-                      "s16": null,
-                      "u16": null,
-                      "u8_lb": null,
-                      "u8_lb_60": null,
-                      "u8_hb_60": null,
-                      "s8_lb": null,
-                      "u8_hb": null,
-                      "s8_hb": null
-                    }
-                  }
-                }
-              }
-            },
-            "ch_pump_starts": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "icon": {
-                    "default": "mdi:pump"
-                  },
-                  "accuracy_decimals": {
-                    "default": "0"
-                  },
-                  "state_class": {
-                    "default": "total_increasing"
-                  },
-                  "data_type": {
-                    "key": "Optional",
-                    "type": "enum",
-                    "values": {
-                      "f88": null,
-                      "s16": null,
-                      "u16": null,
-                      "u8_lb": null,
-                      "u8_lb_60": null,
-                      "u8_hb_60": null,
-                      "s8_lb": null,
-                      "u8_hb": null,
-                      "s8_hb": null
-                    }
-                  }
-                }
-              }
-            },
-            "dhw_pump_valve_starts": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "icon": {
-                    "default": "mdi:water-pump"
-                  },
-                  "accuracy_decimals": {
-                    "default": "0"
-                  },
-                  "state_class": {
-                    "default": "total_increasing"
-                  },
-                  "data_type": {
-                    "key": "Optional",
-                    "type": "enum",
-                    "values": {
-                      "f88": null,
-                      "s16": null,
-                      "u16": null,
-                      "u8_lb": null,
-                      "u8_lb_60": null,
-                      "u8_hb_60": null,
-                      "s8_lb": null,
-                      "u8_hb": null,
-                      "s8_hb": null
-                    }
-                  }
-                }
-              }
-            },
-            "dhw_burner_starts": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "icon": {
-                    "default": "mdi:gas-burner"
-                  },
-                  "accuracy_decimals": {
-                    "default": "0"
-                  },
-                  "state_class": {
-                    "default": "total_increasing"
-                  },
-                  "data_type": {
-                    "key": "Optional",
-                    "type": "enum",
-                    "values": {
-                      "f88": null,
-                      "s16": null,
-                      "u16": null,
-                      "u8_lb": null,
-                      "u8_lb_60": null,
-                      "u8_hb_60": null,
-                      "s8_lb": null,
-                      "u8_hb": null,
-                      "s8_hb": null
-                    }
-                  }
-                }
-              }
-            },
-            "burner_operation_hours": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "icon": {
-                    "default": "mdi:clock-outline"
-                  },
-                  "accuracy_decimals": {
-                    "default": "0"
-                  },
-                  "state_class": {
-                    "default": "total_increasing"
-                  },
-                  "data_type": {
-                    "key": "Optional",
-                    "type": "enum",
-                    "values": {
-                      "f88": null,
-                      "s16": null,
-                      "u16": null,
-                      "u8_lb": null,
-                      "u8_lb_60": null,
-                      "u8_hb_60": null,
-                      "s8_lb": null,
-                      "u8_hb": null,
-                      "s8_hb": null
-                    }
-                  }
-                }
-              }
-            },
-            "ch_pump_operation_hours": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "icon": {
-                    "default": "mdi:clock-outline"
-                  },
-                  "accuracy_decimals": {
-                    "default": "0"
-                  },
-                  "state_class": {
-                    "default": "total_increasing"
-                  },
-                  "data_type": {
-                    "key": "Optional",
-                    "type": "enum",
-                    "values": {
-                      "f88": null,
-                      "s16": null,
-                      "u16": null,
-                      "u8_lb": null,
-                      "u8_lb_60": null,
-                      "u8_hb_60": null,
-                      "s8_lb": null,
-                      "u8_hb": null,
-                      "s8_hb": null
-                    }
-                  }
-                }
-              }
-            },
-            "dhw_pump_valve_operation_hours": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "icon": {
-                    "default": "mdi:clock-outline"
-                  },
-                  "accuracy_decimals": {
-                    "default": "0"
-                  },
-                  "state_class": {
-                    "default": "total_increasing"
-                  },
-                  "data_type": {
-                    "key": "Optional",
-                    "type": "enum",
-                    "values": {
-                      "f88": null,
-                      "s16": null,
-                      "u16": null,
-                      "u8_lb": null,
-                      "u8_lb_60": null,
-                      "u8_hb_60": null,
-                      "s8_lb": null,
-                      "u8_hb": null,
-                      "s8_hb": null
-                    }
-                  }
-                }
-              }
-            },
-            "dhw_burner_operation_hours": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "icon": {
-                    "default": "mdi:clock-outline"
-                  },
-                  "accuracy_decimals": {
-                    "default": "0"
-                  },
-                  "state_class": {
-                    "default": "total_increasing"
-                  },
-                  "data_type": {
-                    "key": "Optional",
-                    "type": "enum",
-                    "values": {
-                      "f88": null,
-                      "s16": null,
-                      "u16": null,
-                      "u8_lb": null,
-                      "u8_lb_60": null,
-                      "u8_hb_60": null,
-                      "s8_lb": null,
-                      "u8_hb": null,
-                      "s8_hb": null
-                    }
-                  }
-                }
-              }
-            },
-            "t_dhw_set_ub": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "\u00b0C"
-                  },
-                  "accuracy_decimals": {
-                    "default": "0"
-                  },
-                  "device_class": {
-                    "default": "temperature"
-                  },
-                  "state_class": {
-                    "default": "measurement"
-                  },
-                  "data_type": {
-                    "key": "Optional",
-                    "type": "enum",
-                    "values": {
-                      "f88": null,
-                      "s16": null,
-                      "u16": null,
-                      "u8_lb": null,
-                      "u8_lb_60": null,
-                      "u8_hb_60": null,
-                      "s8_lb": null,
-                      "u8_hb": null,
-                      "s8_hb": null
-                    }
-                  }
-                }
-              }
-            },
-            "t_dhw_set_lb": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "\u00b0C"
-                  },
-                  "accuracy_decimals": {
-                    "default": "0"
-                  },
-                  "device_class": {
-                    "default": "temperature"
-                  },
-                  "state_class": {
-                    "default": "measurement"
-                  },
-                  "data_type": {
-                    "key": "Optional",
-                    "type": "enum",
-                    "values": {
-                      "f88": null,
-                      "s16": null,
-                      "u16": null,
-                      "u8_lb": null,
-                      "u8_lb_60": null,
-                      "u8_hb_60": null,
-                      "s8_lb": null,
-                      "u8_hb": null,
-                      "s8_hb": null
-                    }
-                  }
-                }
-              }
-            },
-            "max_t_set_ub": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "\u00b0C"
-                  },
-                  "accuracy_decimals": {
-                    "default": "0"
-                  },
-                  "device_class": {
-                    "default": "temperature"
-                  },
-                  "state_class": {
-                    "default": "measurement"
-                  },
-                  "data_type": {
-                    "key": "Optional",
-                    "type": "enum",
-                    "values": {
-                      "f88": null,
-                      "s16": null,
-                      "u16": null,
-                      "u8_lb": null,
-                      "u8_lb_60": null,
-                      "u8_hb_60": null,
-                      "s8_lb": null,
-                      "u8_hb": null,
-                      "s8_hb": null
-                    }
-                  }
-                }
-              }
-            },
-            "max_t_set_lb": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "\u00b0C"
-                  },
-                  "accuracy_decimals": {
-                    "default": "0"
-                  },
-                  "device_class": {
-                    "default": "temperature"
-                  },
-                  "state_class": {
-                    "default": "measurement"
-                  },
-                  "data_type": {
-                    "key": "Optional",
-                    "type": "enum",
-                    "values": {
-                      "f88": null,
-                      "s16": null,
-                      "u16": null,
-                      "u8_lb": null,
-                      "u8_lb_60": null,
-                      "u8_hb_60": null,
-                      "s8_lb": null,
-                      "u8_hb": null,
-                      "s8_hb": null
-                    }
-                  }
-                }
-              }
-            },
-            "t_dhw_set": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "\u00b0C"
-                  },
-                  "accuracy_decimals": {
-                    "default": "2"
-                  },
-                  "device_class": {
-                    "default": "temperature"
-                  },
-                  "state_class": {
-                    "default": "measurement"
-                  },
-                  "data_type": {
-                    "key": "Optional",
-                    "type": "enum",
-                    "values": {
-                      "f88": null,
-                      "s16": null,
-                      "u16": null,
-                      "u8_lb": null,
-                      "u8_lb_60": null,
-                      "u8_hb_60": null,
-                      "s8_lb": null,
-                      "u8_hb": null,
-                      "s8_hb": null
-                    }
-                  }
-                }
-              }
-            },
-            "max_t_set": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "\u00b0C"
-                  },
-                  "accuracy_decimals": {
-                    "default": "2"
-                  },
-                  "device_class": {
-                    "default": "temperature"
-                  },
-                  "state_class": {
-                    "default": "measurement"
-                  },
-                  "data_type": {
-                    "key": "Optional",
-                    "type": "enum",
-                    "values": {
-                      "f88": null,
-                      "s16": null,
-                      "u16": null,
-                      "u8_lb": null,
-                      "u8_lb_60": null,
-                      "u8_hb_60": null,
-                      "s8_lb": null,
-                      "u8_hb": null,
-                      "s8_hb": null
-                    }
-                  }
-                }
-              }
-            },
-            "oem_fault_code": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "accuracy_decimals": {
-                    "default": "0"
-                  },
-                  "state_class": {
-                    "default": ""
-                  },
-                  "data_type": {
-                    "key": "Optional",
-                    "type": "enum",
-                    "values": {
-                      "f88": null,
-                      "s16": null,
-                      "u16": null,
-                      "u8_lb": null,
-                      "u8_lb_60": null,
-                      "u8_hb_60": null,
-                      "s8_lb": null,
-                      "u8_hb": null,
-                      "s8_hb": null
-                    }
-                  }
-                }
-              }
-            },
-            "oem_diagnostic_code": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "accuracy_decimals": {
-                    "default": "0"
-                  },
-                  "state_class": {
-                    "default": ""
-                  },
-                  "data_type": {
-                    "key": "Optional",
-                    "type": "enum",
-                    "values": {
-                      "f88": null,
-                      "s16": null,
-                      "u16": null,
-                      "u8_lb": null,
-                      "u8_lb_60": null,
-                      "u8_hb_60": null,
-                      "s8_lb": null,
-                      "u8_hb": null,
-                      "s8_hb": null
-                    }
-                  }
-                }
-              }
-            },
-            "max_capacity": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "kW"
-                  },
-                  "accuracy_decimals": {
-                    "default": "0"
-                  },
-                  "state_class": {
-                    "default": "measurement"
-                  },
-                  "data_type": {
-                    "key": "Optional",
-                    "type": "enum",
-                    "values": {
-                      "f88": null,
-                      "s16": null,
-                      "u16": null,
-                      "u8_lb": null,
-                      "u8_lb_60": null,
-                      "u8_hb_60": null,
-                      "s8_lb": null,
-                      "u8_hb": null,
-                      "s8_hb": null
-                    }
-                  }
-                }
-              }
-            },
-            "min_mod_level": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "%"
-                  },
-                  "icon": {
-                    "default": "mdi:percent"
-                  },
-                  "accuracy_decimals": {
-                    "default": "0"
-                  },
-                  "state_class": {
-                    "default": "measurement"
-                  },
-                  "data_type": {
-                    "key": "Optional",
-                    "type": "enum",
-                    "values": {
-                      "f88": null,
-                      "s16": null,
-                      "u16": null,
-                      "u8_lb": null,
-                      "u8_lb_60": null,
-                      "u8_hb_60": null,
-                      "s8_lb": null,
-                      "u8_hb": null,
-                      "s8_hb": null
-                    }
-                  }
-                }
-              }
-            },
-            "opentherm_version_device": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "accuracy_decimals": {
-                    "default": "0"
-                  },
-                  "state_class": {
-                    "default": ""
-                  },
-                  "data_type": {
-                    "key": "Optional",
-                    "type": "enum",
-                    "values": {
-                      "f88": null,
-                      "s16": null,
-                      "u16": null,
-                      "u8_lb": null,
-                      "u8_lb_60": null,
-                      "u8_hb_60": null,
-                      "s8_lb": null,
-                      "u8_hb": null,
-                      "s8_hb": null
-                    }
-                  }
-                }
-              }
-            },
-            "device_type": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "accuracy_decimals": {
-                    "default": "0"
-                  },
-                  "state_class": {
-                    "default": ""
-                  },
-                  "data_type": {
-                    "key": "Optional",
-                    "type": "enum",
-                    "values": {
-                      "f88": null,
-                      "s16": null,
-                      "u16": null,
-                      "u8_lb": null,
-                      "u8_lb_60": null,
-                      "u8_hb_60": null,
-                      "s8_lb": null,
-                      "u8_hb": null,
-                      "s8_hb": null
-                    }
-                  }
-                }
-              }
-            },
-            "device_version": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "accuracy_decimals": {
-                    "default": "0"
-                  },
-                  "state_class": {
-                    "default": ""
-                  },
-                  "data_type": {
-                    "key": "Optional",
-                    "type": "enum",
-                    "values": {
-                      "f88": null,
-                      "s16": null,
-                      "u16": null,
-                      "u8_lb": null,
-                      "u8_lb_60": null,
-                      "u8_hb_60": null,
-                      "s8_lb": null,
-                      "u8_hb": null,
-                      "s8_hb": null
-                    }
-                  }
-                }
-              }
-            },
-            "device_id": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "accuracy_decimals": {
-                    "default": "0"
-                  },
-                  "state_class": {
-                    "default": ""
-                  },
-                  "data_type": {
-                    "key": "Optional",
-                    "type": "enum",
-                    "values": {
-                      "f88": null,
-                      "s16": null,
-                      "u16": null,
-                      "u8_lb": null,
-                      "u8_lb_60": null,
-                      "u8_hb_60": null,
-                      "s8_lb": null,
-                      "u8_hb": null,
-                      "s8_hb": null
-                    }
-                  }
-                }
-              }
-            },
-            "otc_hc_ratio_ub": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "accuracy_decimals": {
-                    "default": "0"
-                  },
-                  "state_class": {
-                    "default": ""
-                  },
-                  "data_type": {
-                    "key": "Optional",
-                    "type": "enum",
-                    "values": {
-                      "f88": null,
-                      "s16": null,
-                      "u16": null,
-                      "u8_lb": null,
-                      "u8_lb_60": null,
-                      "u8_hb_60": null,
-                      "s8_lb": null,
-                      "u8_hb": null,
-                      "s8_hb": null
-                    }
-                  }
-                }
-              }
-            },
-            "otc_hc_ratio_lb": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "accuracy_decimals": {
-                    "default": "0"
-                  },
-                  "state_class": {
-                    "default": ""
-                  },
-                  "data_type": {
-                    "key": "Optional",
-                    "type": "enum",
-                    "values": {
-                      "f88": null,
-                      "s16": null,
-                      "u16": null,
-                      "u8_lb": null,
-                      "u8_lb_60": null,
-                      "u8_hb_60": null,
-                      "s8_lb": null,
-                      "u8_hb": null,
-                      "s8_hb": null
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "extends": [
-            "core.COMPONENT_SCHEMA"
-          ]
-        }
       }
     }
   },
@@ -2858,6 +1433,1432 @@
                     "key": "Optional",
                     "default": "False",
                     "type": "boolean"
+                  }
+                }
+              }
+            }
+          },
+          "extends": [
+            "core.COMPONENT_SCHEMA"
+          ]
+        }
+      }
+    }
+  },
+  "opentherm.sensor": {
+    "schemas": {
+      "CONFIG_SCHEMA": {
+        "type": "schema",
+        "schema": {
+          "config_vars": {
+            "opentherm_id": {
+              "key": "GeneratedID",
+              "use_id_type": "opentherm::OpenthermHub",
+              "type": "use_id"
+            },
+            "rel_mod_level": {
+              "key": "Optional",
+              "type": "schema",
+              "schema": {
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ],
+                "config_vars": {
+                  "unit_of_measurement": {
+                    "default": "%"
+                  },
+                  "icon": {
+                    "default": "mdi:percent"
+                  },
+                  "accuracy_decimals": {
+                    "default": "2"
+                  },
+                  "state_class": {
+                    "default": "measurement"
+                  },
+                  "data_type": {
+                    "key": "Optional",
+                    "type": "enum",
+                    "values": {
+                      "u8_hb": null,
+                      "f88": null,
+                      "s16": null,
+                      "s8_lb": null,
+                      "u8_lb": null,
+                      "u16": null,
+                      "u8_lb_60": null,
+                      "u8_hb_60": null,
+                      "s8_hb": null
+                    }
+                  }
+                }
+              }
+            },
+            "ch_pressure": {
+              "key": "Optional",
+              "type": "schema",
+              "schema": {
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ],
+                "config_vars": {
+                  "unit_of_measurement": {
+                    "default": "bar"
+                  },
+                  "accuracy_decimals": {
+                    "default": "2"
+                  },
+                  "device_class": {
+                    "default": "pressure"
+                  },
+                  "state_class": {
+                    "default": "measurement"
+                  },
+                  "data_type": {
+                    "key": "Optional",
+                    "type": "enum",
+                    "values": {
+                      "u8_hb": null,
+                      "f88": null,
+                      "s16": null,
+                      "s8_lb": null,
+                      "u8_lb": null,
+                      "u16": null,
+                      "u8_lb_60": null,
+                      "u8_hb_60": null,
+                      "s8_hb": null
+                    }
+                  }
+                }
+              }
+            },
+            "dhw_flow_rate": {
+              "key": "Optional",
+              "type": "schema",
+              "schema": {
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ],
+                "config_vars": {
+                  "unit_of_measurement": {
+                    "default": "l/min"
+                  },
+                  "icon": {
+                    "default": "mdi:waves-arrow-right"
+                  },
+                  "accuracy_decimals": {
+                    "default": "2"
+                  },
+                  "state_class": {
+                    "default": "measurement"
+                  },
+                  "data_type": {
+                    "key": "Optional",
+                    "type": "enum",
+                    "values": {
+                      "u8_hb": null,
+                      "f88": null,
+                      "s16": null,
+                      "s8_lb": null,
+                      "u8_lb": null,
+                      "u16": null,
+                      "u8_lb_60": null,
+                      "u8_hb_60": null,
+                      "s8_hb": null
+                    }
+                  }
+                }
+              }
+            },
+            "t_boiler": {
+              "key": "Optional",
+              "type": "schema",
+              "schema": {
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ],
+                "config_vars": {
+                  "unit_of_measurement": {
+                    "default": "\u00b0C"
+                  },
+                  "accuracy_decimals": {
+                    "default": "2"
+                  },
+                  "device_class": {
+                    "default": "temperature"
+                  },
+                  "state_class": {
+                    "default": "measurement"
+                  },
+                  "data_type": {
+                    "key": "Optional",
+                    "type": "enum",
+                    "values": {
+                      "u8_hb": null,
+                      "f88": null,
+                      "s16": null,
+                      "s8_lb": null,
+                      "u8_lb": null,
+                      "u16": null,
+                      "u8_lb_60": null,
+                      "u8_hb_60": null,
+                      "s8_hb": null
+                    }
+                  }
+                }
+              }
+            },
+            "t_dhw": {
+              "key": "Optional",
+              "type": "schema",
+              "schema": {
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ],
+                "config_vars": {
+                  "unit_of_measurement": {
+                    "default": "\u00b0C"
+                  },
+                  "accuracy_decimals": {
+                    "default": "2"
+                  },
+                  "device_class": {
+                    "default": "temperature"
+                  },
+                  "state_class": {
+                    "default": "measurement"
+                  },
+                  "data_type": {
+                    "key": "Optional",
+                    "type": "enum",
+                    "values": {
+                      "u8_hb": null,
+                      "f88": null,
+                      "s16": null,
+                      "s8_lb": null,
+                      "u8_lb": null,
+                      "u16": null,
+                      "u8_lb_60": null,
+                      "u8_hb_60": null,
+                      "s8_hb": null
+                    }
+                  }
+                }
+              }
+            },
+            "t_outside": {
+              "key": "Optional",
+              "type": "schema",
+              "schema": {
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ],
+                "config_vars": {
+                  "unit_of_measurement": {
+                    "default": "\u00b0C"
+                  },
+                  "accuracy_decimals": {
+                    "default": "2"
+                  },
+                  "device_class": {
+                    "default": "temperature"
+                  },
+                  "state_class": {
+                    "default": "measurement"
+                  },
+                  "data_type": {
+                    "key": "Optional",
+                    "type": "enum",
+                    "values": {
+                      "u8_hb": null,
+                      "f88": null,
+                      "s16": null,
+                      "s8_lb": null,
+                      "u8_lb": null,
+                      "u16": null,
+                      "u8_lb_60": null,
+                      "u8_hb_60": null,
+                      "s8_hb": null
+                    }
+                  }
+                }
+              }
+            },
+            "t_ret": {
+              "key": "Optional",
+              "type": "schema",
+              "schema": {
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ],
+                "config_vars": {
+                  "unit_of_measurement": {
+                    "default": "\u00b0C"
+                  },
+                  "accuracy_decimals": {
+                    "default": "2"
+                  },
+                  "device_class": {
+                    "default": "temperature"
+                  },
+                  "state_class": {
+                    "default": "measurement"
+                  },
+                  "data_type": {
+                    "key": "Optional",
+                    "type": "enum",
+                    "values": {
+                      "u8_hb": null,
+                      "f88": null,
+                      "s16": null,
+                      "s8_lb": null,
+                      "u8_lb": null,
+                      "u16": null,
+                      "u8_lb_60": null,
+                      "u8_hb_60": null,
+                      "s8_hb": null
+                    }
+                  }
+                }
+              }
+            },
+            "t_storage": {
+              "key": "Optional",
+              "type": "schema",
+              "schema": {
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ],
+                "config_vars": {
+                  "unit_of_measurement": {
+                    "default": "\u00b0C"
+                  },
+                  "accuracy_decimals": {
+                    "default": "2"
+                  },
+                  "device_class": {
+                    "default": "temperature"
+                  },
+                  "state_class": {
+                    "default": "measurement"
+                  },
+                  "data_type": {
+                    "key": "Optional",
+                    "type": "enum",
+                    "values": {
+                      "u8_hb": null,
+                      "f88": null,
+                      "s16": null,
+                      "s8_lb": null,
+                      "u8_lb": null,
+                      "u16": null,
+                      "u8_lb_60": null,
+                      "u8_hb_60": null,
+                      "s8_hb": null
+                    }
+                  }
+                }
+              }
+            },
+            "t_collector": {
+              "key": "Optional",
+              "type": "schema",
+              "schema": {
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ],
+                "config_vars": {
+                  "unit_of_measurement": {
+                    "default": "\u00b0C"
+                  },
+                  "accuracy_decimals": {
+                    "default": "0"
+                  },
+                  "device_class": {
+                    "default": "temperature"
+                  },
+                  "state_class": {
+                    "default": "measurement"
+                  },
+                  "data_type": {
+                    "key": "Optional",
+                    "type": "enum",
+                    "values": {
+                      "u8_hb": null,
+                      "f88": null,
+                      "s16": null,
+                      "s8_lb": null,
+                      "u8_lb": null,
+                      "u16": null,
+                      "u8_lb_60": null,
+                      "u8_hb_60": null,
+                      "s8_hb": null
+                    }
+                  }
+                }
+              }
+            },
+            "t_flow_ch2": {
+              "key": "Optional",
+              "type": "schema",
+              "schema": {
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ],
+                "config_vars": {
+                  "unit_of_measurement": {
+                    "default": "\u00b0C"
+                  },
+                  "accuracy_decimals": {
+                    "default": "2"
+                  },
+                  "device_class": {
+                    "default": "temperature"
+                  },
+                  "state_class": {
+                    "default": "measurement"
+                  },
+                  "data_type": {
+                    "key": "Optional",
+                    "type": "enum",
+                    "values": {
+                      "u8_hb": null,
+                      "f88": null,
+                      "s16": null,
+                      "s8_lb": null,
+                      "u8_lb": null,
+                      "u16": null,
+                      "u8_lb_60": null,
+                      "u8_hb_60": null,
+                      "s8_hb": null
+                    }
+                  }
+                }
+              }
+            },
+            "t_dhw2": {
+              "key": "Optional",
+              "type": "schema",
+              "schema": {
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ],
+                "config_vars": {
+                  "unit_of_measurement": {
+                    "default": "\u00b0C"
+                  },
+                  "accuracy_decimals": {
+                    "default": "2"
+                  },
+                  "device_class": {
+                    "default": "temperature"
+                  },
+                  "state_class": {
+                    "default": "measurement"
+                  },
+                  "data_type": {
+                    "key": "Optional",
+                    "type": "enum",
+                    "values": {
+                      "u8_hb": null,
+                      "f88": null,
+                      "s16": null,
+                      "s8_lb": null,
+                      "u8_lb": null,
+                      "u16": null,
+                      "u8_lb_60": null,
+                      "u8_hb_60": null,
+                      "s8_hb": null
+                    }
+                  }
+                }
+              }
+            },
+            "t_exhaust": {
+              "key": "Optional",
+              "type": "schema",
+              "schema": {
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ],
+                "config_vars": {
+                  "unit_of_measurement": {
+                    "default": "\u00b0C"
+                  },
+                  "accuracy_decimals": {
+                    "default": "0"
+                  },
+                  "device_class": {
+                    "default": "temperature"
+                  },
+                  "state_class": {
+                    "default": "measurement"
+                  },
+                  "data_type": {
+                    "key": "Optional",
+                    "type": "enum",
+                    "values": {
+                      "u8_hb": null,
+                      "f88": null,
+                      "s16": null,
+                      "s8_lb": null,
+                      "u8_lb": null,
+                      "u16": null,
+                      "u8_lb_60": null,
+                      "u8_hb_60": null,
+                      "s8_hb": null
+                    }
+                  }
+                }
+              }
+            },
+            "fan_speed": {
+              "key": "Optional",
+              "type": "schema",
+              "schema": {
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ],
+                "config_vars": {
+                  "unit_of_measurement": {
+                    "default": "RPM"
+                  },
+                  "icon": {
+                    "default": "mdi:fan"
+                  },
+                  "accuracy_decimals": {
+                    "default": "0"
+                  },
+                  "state_class": {
+                    "default": "measurement"
+                  },
+                  "data_type": {
+                    "key": "Optional",
+                    "type": "enum",
+                    "values": {
+                      "u8_hb": null,
+                      "f88": null,
+                      "s16": null,
+                      "s8_lb": null,
+                      "u8_lb": null,
+                      "u16": null,
+                      "u8_lb_60": null,
+                      "u8_hb_60": null,
+                      "s8_hb": null
+                    }
+                  }
+                }
+              }
+            },
+            "fan_speed_setpoint": {
+              "key": "Optional",
+              "type": "schema",
+              "schema": {
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ],
+                "config_vars": {
+                  "unit_of_measurement": {
+                    "default": "RPM"
+                  },
+                  "icon": {
+                    "default": "mdi:fan"
+                  },
+                  "accuracy_decimals": {
+                    "default": "0"
+                  },
+                  "state_class": {
+                    "default": "measurement"
+                  },
+                  "data_type": {
+                    "key": "Optional",
+                    "type": "enum",
+                    "values": {
+                      "u8_hb": null,
+                      "f88": null,
+                      "s16": null,
+                      "s8_lb": null,
+                      "u8_lb": null,
+                      "u16": null,
+                      "u8_lb_60": null,
+                      "u8_hb_60": null,
+                      "s8_hb": null
+                    }
+                  }
+                }
+              }
+            },
+            "flame_current": {
+              "key": "Optional",
+              "type": "schema",
+              "schema": {
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ],
+                "config_vars": {
+                  "unit_of_measurement": {
+                    "default": "\u00b5A"
+                  },
+                  "accuracy_decimals": {
+                    "default": "0"
+                  },
+                  "device_class": {
+                    "default": "current"
+                  },
+                  "state_class": {
+                    "default": "measurement"
+                  },
+                  "data_type": {
+                    "key": "Optional",
+                    "type": "enum",
+                    "values": {
+                      "u8_hb": null,
+                      "f88": null,
+                      "s16": null,
+                      "s8_lb": null,
+                      "u8_lb": null,
+                      "u16": null,
+                      "u8_lb_60": null,
+                      "u8_hb_60": null,
+                      "s8_hb": null
+                    }
+                  }
+                }
+              }
+            },
+            "burner_starts": {
+              "key": "Optional",
+              "type": "schema",
+              "schema": {
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ],
+                "config_vars": {
+                  "icon": {
+                    "default": "mdi:gas-burner"
+                  },
+                  "accuracy_decimals": {
+                    "default": "0"
+                  },
+                  "state_class": {
+                    "default": "total_increasing"
+                  },
+                  "data_type": {
+                    "key": "Optional",
+                    "type": "enum",
+                    "values": {
+                      "u8_hb": null,
+                      "f88": null,
+                      "s16": null,
+                      "s8_lb": null,
+                      "u8_lb": null,
+                      "u16": null,
+                      "u8_lb_60": null,
+                      "u8_hb_60": null,
+                      "s8_hb": null
+                    }
+                  }
+                }
+              }
+            },
+            "ch_pump_starts": {
+              "key": "Optional",
+              "type": "schema",
+              "schema": {
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ],
+                "config_vars": {
+                  "icon": {
+                    "default": "mdi:pump"
+                  },
+                  "accuracy_decimals": {
+                    "default": "0"
+                  },
+                  "state_class": {
+                    "default": "total_increasing"
+                  },
+                  "data_type": {
+                    "key": "Optional",
+                    "type": "enum",
+                    "values": {
+                      "u8_hb": null,
+                      "f88": null,
+                      "s16": null,
+                      "s8_lb": null,
+                      "u8_lb": null,
+                      "u16": null,
+                      "u8_lb_60": null,
+                      "u8_hb_60": null,
+                      "s8_hb": null
+                    }
+                  }
+                }
+              }
+            },
+            "dhw_pump_valve_starts": {
+              "key": "Optional",
+              "type": "schema",
+              "schema": {
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ],
+                "config_vars": {
+                  "icon": {
+                    "default": "mdi:water-pump"
+                  },
+                  "accuracy_decimals": {
+                    "default": "0"
+                  },
+                  "state_class": {
+                    "default": "total_increasing"
+                  },
+                  "data_type": {
+                    "key": "Optional",
+                    "type": "enum",
+                    "values": {
+                      "u8_hb": null,
+                      "f88": null,
+                      "s16": null,
+                      "s8_lb": null,
+                      "u8_lb": null,
+                      "u16": null,
+                      "u8_lb_60": null,
+                      "u8_hb_60": null,
+                      "s8_hb": null
+                    }
+                  }
+                }
+              }
+            },
+            "dhw_burner_starts": {
+              "key": "Optional",
+              "type": "schema",
+              "schema": {
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ],
+                "config_vars": {
+                  "icon": {
+                    "default": "mdi:gas-burner"
+                  },
+                  "accuracy_decimals": {
+                    "default": "0"
+                  },
+                  "state_class": {
+                    "default": "total_increasing"
+                  },
+                  "data_type": {
+                    "key": "Optional",
+                    "type": "enum",
+                    "values": {
+                      "u8_hb": null,
+                      "f88": null,
+                      "s16": null,
+                      "s8_lb": null,
+                      "u8_lb": null,
+                      "u16": null,
+                      "u8_lb_60": null,
+                      "u8_hb_60": null,
+                      "s8_hb": null
+                    }
+                  }
+                }
+              }
+            },
+            "burner_operation_hours": {
+              "key": "Optional",
+              "type": "schema",
+              "schema": {
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ],
+                "config_vars": {
+                  "icon": {
+                    "default": "mdi:clock-outline"
+                  },
+                  "accuracy_decimals": {
+                    "default": "0"
+                  },
+                  "state_class": {
+                    "default": "total_increasing"
+                  },
+                  "data_type": {
+                    "key": "Optional",
+                    "type": "enum",
+                    "values": {
+                      "u8_hb": null,
+                      "f88": null,
+                      "s16": null,
+                      "s8_lb": null,
+                      "u8_lb": null,
+                      "u16": null,
+                      "u8_lb_60": null,
+                      "u8_hb_60": null,
+                      "s8_hb": null
+                    }
+                  }
+                }
+              }
+            },
+            "ch_pump_operation_hours": {
+              "key": "Optional",
+              "type": "schema",
+              "schema": {
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ],
+                "config_vars": {
+                  "icon": {
+                    "default": "mdi:clock-outline"
+                  },
+                  "accuracy_decimals": {
+                    "default": "0"
+                  },
+                  "state_class": {
+                    "default": "total_increasing"
+                  },
+                  "data_type": {
+                    "key": "Optional",
+                    "type": "enum",
+                    "values": {
+                      "u8_hb": null,
+                      "f88": null,
+                      "s16": null,
+                      "s8_lb": null,
+                      "u8_lb": null,
+                      "u16": null,
+                      "u8_lb_60": null,
+                      "u8_hb_60": null,
+                      "s8_hb": null
+                    }
+                  }
+                }
+              }
+            },
+            "dhw_pump_valve_operation_hours": {
+              "key": "Optional",
+              "type": "schema",
+              "schema": {
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ],
+                "config_vars": {
+                  "icon": {
+                    "default": "mdi:clock-outline"
+                  },
+                  "accuracy_decimals": {
+                    "default": "0"
+                  },
+                  "state_class": {
+                    "default": "total_increasing"
+                  },
+                  "data_type": {
+                    "key": "Optional",
+                    "type": "enum",
+                    "values": {
+                      "u8_hb": null,
+                      "f88": null,
+                      "s16": null,
+                      "s8_lb": null,
+                      "u8_lb": null,
+                      "u16": null,
+                      "u8_lb_60": null,
+                      "u8_hb_60": null,
+                      "s8_hb": null
+                    }
+                  }
+                }
+              }
+            },
+            "dhw_burner_operation_hours": {
+              "key": "Optional",
+              "type": "schema",
+              "schema": {
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ],
+                "config_vars": {
+                  "icon": {
+                    "default": "mdi:clock-outline"
+                  },
+                  "accuracy_decimals": {
+                    "default": "0"
+                  },
+                  "state_class": {
+                    "default": "total_increasing"
+                  },
+                  "data_type": {
+                    "key": "Optional",
+                    "type": "enum",
+                    "values": {
+                      "u8_hb": null,
+                      "f88": null,
+                      "s16": null,
+                      "s8_lb": null,
+                      "u8_lb": null,
+                      "u16": null,
+                      "u8_lb_60": null,
+                      "u8_hb_60": null,
+                      "s8_hb": null
+                    }
+                  }
+                }
+              }
+            },
+            "t_dhw_set_ub": {
+              "key": "Optional",
+              "type": "schema",
+              "schema": {
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ],
+                "config_vars": {
+                  "unit_of_measurement": {
+                    "default": "\u00b0C"
+                  },
+                  "accuracy_decimals": {
+                    "default": "0"
+                  },
+                  "device_class": {
+                    "default": "temperature"
+                  },
+                  "state_class": {
+                    "default": "measurement"
+                  },
+                  "data_type": {
+                    "key": "Optional",
+                    "type": "enum",
+                    "values": {
+                      "u8_hb": null,
+                      "f88": null,
+                      "s16": null,
+                      "s8_lb": null,
+                      "u8_lb": null,
+                      "u16": null,
+                      "u8_lb_60": null,
+                      "u8_hb_60": null,
+                      "s8_hb": null
+                    }
+                  }
+                }
+              }
+            },
+            "t_dhw_set_lb": {
+              "key": "Optional",
+              "type": "schema",
+              "schema": {
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ],
+                "config_vars": {
+                  "unit_of_measurement": {
+                    "default": "\u00b0C"
+                  },
+                  "accuracy_decimals": {
+                    "default": "0"
+                  },
+                  "device_class": {
+                    "default": "temperature"
+                  },
+                  "state_class": {
+                    "default": "measurement"
+                  },
+                  "data_type": {
+                    "key": "Optional",
+                    "type": "enum",
+                    "values": {
+                      "u8_hb": null,
+                      "f88": null,
+                      "s16": null,
+                      "s8_lb": null,
+                      "u8_lb": null,
+                      "u16": null,
+                      "u8_lb_60": null,
+                      "u8_hb_60": null,
+                      "s8_hb": null
+                    }
+                  }
+                }
+              }
+            },
+            "max_t_set_ub": {
+              "key": "Optional",
+              "type": "schema",
+              "schema": {
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ],
+                "config_vars": {
+                  "unit_of_measurement": {
+                    "default": "\u00b0C"
+                  },
+                  "accuracy_decimals": {
+                    "default": "0"
+                  },
+                  "device_class": {
+                    "default": "temperature"
+                  },
+                  "state_class": {
+                    "default": "measurement"
+                  },
+                  "data_type": {
+                    "key": "Optional",
+                    "type": "enum",
+                    "values": {
+                      "u8_hb": null,
+                      "f88": null,
+                      "s16": null,
+                      "s8_lb": null,
+                      "u8_lb": null,
+                      "u16": null,
+                      "u8_lb_60": null,
+                      "u8_hb_60": null,
+                      "s8_hb": null
+                    }
+                  }
+                }
+              }
+            },
+            "max_t_set_lb": {
+              "key": "Optional",
+              "type": "schema",
+              "schema": {
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ],
+                "config_vars": {
+                  "unit_of_measurement": {
+                    "default": "\u00b0C"
+                  },
+                  "accuracy_decimals": {
+                    "default": "0"
+                  },
+                  "device_class": {
+                    "default": "temperature"
+                  },
+                  "state_class": {
+                    "default": "measurement"
+                  },
+                  "data_type": {
+                    "key": "Optional",
+                    "type": "enum",
+                    "values": {
+                      "u8_hb": null,
+                      "f88": null,
+                      "s16": null,
+                      "s8_lb": null,
+                      "u8_lb": null,
+                      "u16": null,
+                      "u8_lb_60": null,
+                      "u8_hb_60": null,
+                      "s8_hb": null
+                    }
+                  }
+                }
+              }
+            },
+            "t_dhw_set": {
+              "key": "Optional",
+              "type": "schema",
+              "schema": {
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ],
+                "config_vars": {
+                  "unit_of_measurement": {
+                    "default": "\u00b0C"
+                  },
+                  "accuracy_decimals": {
+                    "default": "2"
+                  },
+                  "device_class": {
+                    "default": "temperature"
+                  },
+                  "state_class": {
+                    "default": "measurement"
+                  },
+                  "data_type": {
+                    "key": "Optional",
+                    "type": "enum",
+                    "values": {
+                      "u8_hb": null,
+                      "f88": null,
+                      "s16": null,
+                      "s8_lb": null,
+                      "u8_lb": null,
+                      "u16": null,
+                      "u8_lb_60": null,
+                      "u8_hb_60": null,
+                      "s8_hb": null
+                    }
+                  }
+                }
+              }
+            },
+            "max_t_set": {
+              "key": "Optional",
+              "type": "schema",
+              "schema": {
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ],
+                "config_vars": {
+                  "unit_of_measurement": {
+                    "default": "\u00b0C"
+                  },
+                  "accuracy_decimals": {
+                    "default": "2"
+                  },
+                  "device_class": {
+                    "default": "temperature"
+                  },
+                  "state_class": {
+                    "default": "measurement"
+                  },
+                  "data_type": {
+                    "key": "Optional",
+                    "type": "enum",
+                    "values": {
+                      "u8_hb": null,
+                      "f88": null,
+                      "s16": null,
+                      "s8_lb": null,
+                      "u8_lb": null,
+                      "u16": null,
+                      "u8_lb_60": null,
+                      "u8_hb_60": null,
+                      "s8_hb": null
+                    }
+                  }
+                }
+              }
+            },
+            "oem_fault_code": {
+              "key": "Optional",
+              "type": "schema",
+              "schema": {
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ],
+                "config_vars": {
+                  "accuracy_decimals": {
+                    "default": "0"
+                  },
+                  "state_class": {
+                    "default": ""
+                  },
+                  "data_type": {
+                    "key": "Optional",
+                    "type": "enum",
+                    "values": {
+                      "u8_hb": null,
+                      "f88": null,
+                      "s16": null,
+                      "s8_lb": null,
+                      "u8_lb": null,
+                      "u16": null,
+                      "u8_lb_60": null,
+                      "u8_hb_60": null,
+                      "s8_hb": null
+                    }
+                  }
+                }
+              }
+            },
+            "oem_diagnostic_code": {
+              "key": "Optional",
+              "type": "schema",
+              "schema": {
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ],
+                "config_vars": {
+                  "accuracy_decimals": {
+                    "default": "0"
+                  },
+                  "state_class": {
+                    "default": ""
+                  },
+                  "data_type": {
+                    "key": "Optional",
+                    "type": "enum",
+                    "values": {
+                      "u8_hb": null,
+                      "f88": null,
+                      "s16": null,
+                      "s8_lb": null,
+                      "u8_lb": null,
+                      "u16": null,
+                      "u8_lb_60": null,
+                      "u8_hb_60": null,
+                      "s8_hb": null
+                    }
+                  }
+                }
+              }
+            },
+            "max_capacity": {
+              "key": "Optional",
+              "type": "schema",
+              "schema": {
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ],
+                "config_vars": {
+                  "unit_of_measurement": {
+                    "default": "kW"
+                  },
+                  "accuracy_decimals": {
+                    "default": "0"
+                  },
+                  "state_class": {
+                    "default": "measurement"
+                  },
+                  "data_type": {
+                    "key": "Optional",
+                    "type": "enum",
+                    "values": {
+                      "u8_hb": null,
+                      "f88": null,
+                      "s16": null,
+                      "s8_lb": null,
+                      "u8_lb": null,
+                      "u16": null,
+                      "u8_lb_60": null,
+                      "u8_hb_60": null,
+                      "s8_hb": null
+                    }
+                  }
+                }
+              }
+            },
+            "min_mod_level": {
+              "key": "Optional",
+              "type": "schema",
+              "schema": {
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ],
+                "config_vars": {
+                  "unit_of_measurement": {
+                    "default": "%"
+                  },
+                  "icon": {
+                    "default": "mdi:percent"
+                  },
+                  "accuracy_decimals": {
+                    "default": "0"
+                  },
+                  "state_class": {
+                    "default": "measurement"
+                  },
+                  "data_type": {
+                    "key": "Optional",
+                    "type": "enum",
+                    "values": {
+                      "u8_hb": null,
+                      "f88": null,
+                      "s16": null,
+                      "s8_lb": null,
+                      "u8_lb": null,
+                      "u16": null,
+                      "u8_lb_60": null,
+                      "u8_hb_60": null,
+                      "s8_hb": null
+                    }
+                  }
+                }
+              }
+            },
+            "opentherm_version_device": {
+              "key": "Optional",
+              "type": "schema",
+              "schema": {
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ],
+                "config_vars": {
+                  "accuracy_decimals": {
+                    "default": "0"
+                  },
+                  "state_class": {
+                    "default": ""
+                  },
+                  "data_type": {
+                    "key": "Optional",
+                    "type": "enum",
+                    "values": {
+                      "u8_hb": null,
+                      "f88": null,
+                      "s16": null,
+                      "s8_lb": null,
+                      "u8_lb": null,
+                      "u16": null,
+                      "u8_lb_60": null,
+                      "u8_hb_60": null,
+                      "s8_hb": null
+                    }
+                  }
+                }
+              }
+            },
+            "device_type": {
+              "key": "Optional",
+              "type": "schema",
+              "schema": {
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ],
+                "config_vars": {
+                  "accuracy_decimals": {
+                    "default": "0"
+                  },
+                  "state_class": {
+                    "default": ""
+                  },
+                  "data_type": {
+                    "key": "Optional",
+                    "type": "enum",
+                    "values": {
+                      "u8_hb": null,
+                      "f88": null,
+                      "s16": null,
+                      "s8_lb": null,
+                      "u8_lb": null,
+                      "u16": null,
+                      "u8_lb_60": null,
+                      "u8_hb_60": null,
+                      "s8_hb": null
+                    }
+                  }
+                }
+              }
+            },
+            "device_version": {
+              "key": "Optional",
+              "type": "schema",
+              "schema": {
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ],
+                "config_vars": {
+                  "accuracy_decimals": {
+                    "default": "0"
+                  },
+                  "state_class": {
+                    "default": ""
+                  },
+                  "data_type": {
+                    "key": "Optional",
+                    "type": "enum",
+                    "values": {
+                      "u8_hb": null,
+                      "f88": null,
+                      "s16": null,
+                      "s8_lb": null,
+                      "u8_lb": null,
+                      "u16": null,
+                      "u8_lb_60": null,
+                      "u8_hb_60": null,
+                      "s8_hb": null
+                    }
+                  }
+                }
+              }
+            },
+            "device_id": {
+              "key": "Optional",
+              "type": "schema",
+              "schema": {
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ],
+                "config_vars": {
+                  "accuracy_decimals": {
+                    "default": "0"
+                  },
+                  "state_class": {
+                    "default": ""
+                  },
+                  "data_type": {
+                    "key": "Optional",
+                    "type": "enum",
+                    "values": {
+                      "u8_hb": null,
+                      "f88": null,
+                      "s16": null,
+                      "s8_lb": null,
+                      "u8_lb": null,
+                      "u16": null,
+                      "u8_lb_60": null,
+                      "u8_hb_60": null,
+                      "s8_hb": null
+                    }
+                  }
+                }
+              }
+            },
+            "otc_hc_ratio_ub": {
+              "key": "Optional",
+              "type": "schema",
+              "schema": {
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ],
+                "config_vars": {
+                  "accuracy_decimals": {
+                    "default": "0"
+                  },
+                  "state_class": {
+                    "default": ""
+                  },
+                  "data_type": {
+                    "key": "Optional",
+                    "type": "enum",
+                    "values": {
+                      "u8_hb": null,
+                      "f88": null,
+                      "s16": null,
+                      "s8_lb": null,
+                      "u8_lb": null,
+                      "u16": null,
+                      "u8_lb_60": null,
+                      "u8_hb_60": null,
+                      "s8_hb": null
+                    }
+                  }
+                }
+              }
+            },
+            "otc_hc_ratio_lb": {
+              "key": "Optional",
+              "type": "schema",
+              "schema": {
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ],
+                "config_vars": {
+                  "accuracy_decimals": {
+                    "default": "0"
+                  },
+                  "state_class": {
+                    "default": ""
+                  },
+                  "data_type": {
+                    "key": "Optional",
+                    "type": "enum",
+                    "values": {
+                      "u8_hb": null,
+                      "f88": null,
+                      "s16": null,
+                      "s8_lb": null,
+                      "u8_lb": null,
+                      "u16": null,
+                      "u8_lb_60": null,
+                      "u8_hb_60": null,
+                      "s8_hb": null
+                    }
                   }
                 }
               }

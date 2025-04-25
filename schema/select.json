@@ -1,18 +1,12 @@
 {
   "select": {
     "components": {
-      "copy": {
-        "docs": "**[ID](https://esphome.io/guides/configuration-types.html#config-id)**: The select that should be mirrored.\n\n*See also: [Copy Select](https://esphome.io/components/copy.html#copy-select)*"
-      },
-      "ld2410": {
-        "docs": "The `ld2410` select allows you to control your [LD2410 Sensor.\n\n*See also: [ld2410 Select](https://esphome.io/components/sensor/ld2410.html#select)*"
-      },
+      "copy": {},
+      "ld2410": {},
       "ld2420": {
         "docs": "**Operating Modes:**\n\n*See also: [ld2420 Select](https://esphome.io/components/sensor/ld2420.html#select)*"
       },
-      "ld2450": {
-        "docs": "The `ld2450` select allows you to control `baud rate` and `zone type` of your [LD2450 Sensor.\n\n*See also: [ld2450 Select](https://esphome.io/components/sensor/ld2450.html#select)*"
-      },
+      "ld2450": {},
       "logger": {
         "docs": "The `logger` Select platform allows you to create a Select that can be used to change the log level of the logger component.\n\n*See also: [Logger Select](https://esphome.io/components/select/logger.html#logger-select)*"
       },

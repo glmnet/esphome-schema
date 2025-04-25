@@ -102,6 +102,30 @@
       }
     }
   },
+  "emc2101.output": {
+    "schemas": {
+      "CONFIG_SCHEMA": {
+        "type": "schema",
+        "schema": {
+          "extends": [
+            "emc2101.EMC2101_COMPONENT_SCHEMA"
+          ],
+          "config_vars": {
+            "id": {
+              "key": "Required",
+              "id_type": {
+                "class": "emc2101::EMC2101Output",
+                "parents": [
+                  "output::FloatOutput",
+                  "output::BinaryOutput"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  },
   "emc2101.sensor": {
     "schemas": {
       "CONFIG_SCHEMA": {
@@ -217,31 +241,6 @@
             "update_interval": {
               "key": "Optional",
               "default": "60s"
-            }
-          }
-        }
-      }
-    }
-  },
-  "emc2101.output": {
-    "schemas": {
-      "CONFIG_SCHEMA": {
-        "type": "schema",
-        "schema": {
-          "extends": [
-            "emc2101.EMC2101_COMPONENT_SCHEMA"
-          ],
-          "config_vars": {
-            "id": {
-              "key": "Required",
-              "id_type": {
-                "class": "emc2101::EMC2101Output",
-                "parents": [
-                  "output::FloatOutput",
-                  "output::BinaryOutput"
-                ]
-              },
-              "docs": "**[ID](https://esphome.io/guides/configuration-types.html#config-id)**: The ID to use for code generation, and for reference by dependent components.\n\n*See also: [EMC2101 Output](https://esphome.io/components/emc2101.html#id1)*"
             }
           }
         }

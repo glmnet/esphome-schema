@@ -403,9 +403,6 @@
       }
     },
     "platforms": {
-      "sensor": {
-        "docs": "ESPHome has support for many different sensors. Each of them is a platform of the `sensor` domain and each sensor has several base configuration options.\n\n*See also: [Sensor Component](https://esphome.io/components/sensor/index.html#sensor-component)*"
-      },
       "alarm_control_panel": {
         "docs": "Configuration variables:\n\n*See also: [Alarm Control Panel Component](https://esphome.io/components/alarm_control_panel/index.html#alarm-control-panel-component)*"
       },
@@ -457,6 +454,9 @@
       "select": {
         "docs": "ESPHome has support for components to create a select entity. A select entity is basically an option list that can be set by either yaml, hardware or the user/frontend.\n\n*See also: [Select Component](https://esphome.io/components/select/index.html#select-component)*"
       },
+      "sensor": {
+        "docs": "ESPHome has support for many different sensors. Each of them is a platform of the `sensor` domain and each sensor has several base configuration options.\n\n*See also: [Sensor Component](https://esphome.io/components/sensor/index.html#sensor-component)*"
+      },
       "speaker": {
         "docs": "The `speaker` domain contains common functionality shared across the speaker platforms.\n\n*See also: [Speaker Components](https://esphome.io/components/speaker/index.html#speaker-components)*"
       },
@@ -484,15 +484,6 @@
       }
     },
     "components": {
-      "esphome": {
-        "docs": "Here you specify some core information that ESPHome needs to create firmwares. Most importantly, this is the section of the configuration where you specify the **name** of the node.\n\n*See also: [ESPHome Core Configuration](https://esphome.io/components/esphome.html#esphome-core-configuration)*"
-      },
-      "esp32": {
-        "docs": "This is an alternative base framework for ESP32 chips; it is recommended for variants of the ESP32 like ESP32S2, ESP32S3, ESP32C3 and single-core ESP32 chips.\n\n*See also: [ESP-IDF framework](https://esphome.io/components/esp32.html#esp-idf-framework)*"
-      },
-      "esp8266": {
-        "docs": "This component contains platform-specific options for the ESP8266 platform.\n\n*See also: [ESP8266 Platform](https://esphome.io/components/esp8266.html#esp8266-platform)*"
-      },
       "adalight": {
         "dependencies": [
           "uart"
@@ -687,6 +678,9 @@
         ],
         "docs": "**int**: Manually specify the I\u00b2C address of the sensor. Defaults to `0x4C`.\n\n*See also: [EMC2101 Component](https://esphome.io/components/emc2101.html#emc2101-component)*"
       },
+      "esp32": {
+        "docs": "This is an alternative base framework for ESP32 chips; it is recommended for variants of the ESP32 like ESP32S2, ESP32S3, ESP32C3 and single-core ESP32 chips.\n\n*See also: [ESP-IDF framework](https://esphome.io/components/esp32.html#esp-idf-framework)*"
+      },
       "esp32_ble": {
         "dependencies": [
           "esp32"
@@ -735,6 +729,12 @@
           "esp32"
         ],
         "docs": "The `esp32_touch` component creates a global hub enabling (capacitive) touch detection on GPIO pins [supported by ESP32, ESP32-S2 or ESP32-S3 processors](https://esphome.io/components/binary_sensor/esp32_touch.html#esp32-touch-pad-pins). With this enabled, [binary sensors](https://esphome.io/components/binary_sensor/esp32_touch.html#esp32-touch-binary-sensor) may then be configured to permit touch detection.\n\n*See also: [esp32_touch Component/Hub](https://esphome.io/components/binary_sensor/esp32_touch.html#component-hub)*"
+      },
+      "esp8266": {
+        "docs": "This component contains platform-specific options for the ESP8266 platform.\n\n*See also: [ESP8266 Platform](https://esphome.io/components/esp8266.html#esp8266-platform)*"
+      },
+      "esphome": {
+        "docs": "Here you specify some core information that ESPHome needs to create firmwares. Most importantly, this is the section of the configuration where you specify the **name** of the node.\n\n*See also: [ESPHome Core Configuration](https://esphome.io/components/esphome.html#esphome-core-configuration)*"
       },
       "ethernet": {
         "dependencies": [
@@ -957,17 +957,17 @@
         ],
         "docs": "The `mdns` component makes the node announce itself on the local network using the multicast DNS (mDNS) protocol.\n\n*See also: [mDNS Component](https://esphome.io/components/mdns.html#mdns-component)*"
       },
-      "micronova": {
-        "dependencies": [
-          "uart"
-        ],
-        "docs": "**[Pin](https://esphome.io/guides/configuration-types.html#config-pin)**: Output pin to be used to switch the line between RX and TX.\n\n*See also: [micronova Component/Hub](https://esphome.io/components/micronova.html#component-hub)*"
-      },
       "micro_wake_word": {
         "dependencies": [
           "microphone"
         ],
         "docs": "ESPHome implements an on-device wake word detection framework from [microWakeWord](https://github.com/kahrendt/microWakeWord). This repository/library allows you to create a custom wake word for your ESPHome device.\n\n*See also: [Micro Wake Word](https://esphome.io/components/micro_wake_word.html#micro-wake-word)*"
+      },
+      "micronova": {
+        "dependencies": [
+          "uart"
+        ],
+        "docs": "**[Pin](https://esphome.io/guides/configuration-types.html#config-pin)**: Output pin to be used to switch the line between RX and TX.\n\n*See also: [micronova Component/Hub](https://esphome.io/components/micronova.html#component-hub)*"
       },
       "modbus": {
         "dependencies": [
@@ -1562,9 +1562,9 @@
     },
     "pins": [
       "esp32",
-      "esp8266",
       "bk72xx",
       "ch422g",
+      "esp8266",
       "host",
       "max6956",
       "mcp23xxx",

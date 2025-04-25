@@ -1,4 +1,48 @@
 {
+  "am43.cover": {
+    "schemas": {
+      "CONFIG_SCHEMA": {
+        "type": "schema",
+        "schema": {
+          "extends": [
+            "cover.COVER_SCHEMA",
+            "core.COMPONENT_SCHEMA"
+          ],
+          "config_vars": {
+            "id": {
+              "id_type": {
+                "class": "am43::Am43Component",
+                "parents": [
+                  "cover::Cover",
+                  "EntityBase",
+                  "ble_client::BLEClientNode",
+                  "Component"
+                ]
+              }
+            },
+            "pin": {
+              "key": "Optional",
+              "default": "8888",
+              "type": "integer",
+              "docs": "**int**: The pin for the device, as set in the app. The default is usually printed on the device. Defaults to `8888`.\n\n*See also: [AM43 Cover](https://esphome.io/components/cover/am43.html#configuration-variables)*"
+            },
+            "invert_position": {
+              "key": "Optional",
+              "default": "False",
+              "type": "boolean",
+              "docs": "**boolean**: Inverts the position value to and from the device. Set if ESPHome is swapping around the open/close state of the cover.\n\n*See also: [AM43 Cover](https://esphome.io/components/cover/am43.html#configuration-variables)*"
+            },
+            "ble_client_id": {
+              "key": "GeneratedID",
+              "use_id_type": "ble_client::BLEClient",
+              "type": "use_id",
+              "docs": "**[ID](https://esphome.io/guides/configuration-types.html#config-id)**: The id of the `ble_client` entry associated with the device.\n\n*See also: [AM43 Cover](https://esphome.io/components/cover/am43.html#configuration-variables)*"
+            }
+          }
+        }
+      }
+    }
+  },
   "am43.sensor": {
     "schemas": {
       "CONFIG_SCHEMA": {
@@ -76,50 +120,6 @@
           "extends": [
             "core.COMPONENT_SCHEMA"
           ]
-        }
-      }
-    }
-  },
-  "am43.cover": {
-    "schemas": {
-      "CONFIG_SCHEMA": {
-        "type": "schema",
-        "schema": {
-          "extends": [
-            "cover.COVER_SCHEMA",
-            "core.COMPONENT_SCHEMA"
-          ],
-          "config_vars": {
-            "id": {
-              "id_type": {
-                "class": "am43::Am43Component",
-                "parents": [
-                  "cover::Cover",
-                  "EntityBase",
-                  "ble_client::BLEClientNode",
-                  "Component"
-                ]
-              }
-            },
-            "pin": {
-              "key": "Optional",
-              "default": "8888",
-              "type": "integer",
-              "docs": "**int**: The pin for the device, as set in the app. The default is usually printed on the device. Defaults to `8888`.\n\n*See also: [AM43 Cover](https://esphome.io/components/cover/am43.html#configuration-variables)*"
-            },
-            "invert_position": {
-              "key": "Optional",
-              "default": "False",
-              "type": "boolean",
-              "docs": "**boolean**: Inverts the position value to and from the device. Set if ESPHome is swapping around the open/close state of the cover.\n\n*See also: [AM43 Cover](https://esphome.io/components/cover/am43.html#configuration-variables)*"
-            },
-            "ble_client_id": {
-              "key": "GeneratedID",
-              "use_id_type": "ble_client::BLEClient",
-              "type": "use_id",
-              "docs": "**[ID](https://esphome.io/guides/configuration-types.html#config-id)**: The id of the `ble_client` entry associated with the device.\n\n*See also: [AM43 Cover](https://esphome.io/components/cover/am43.html#configuration-variables)*"
-            }
-          }
         }
       }
     }

@@ -98,7 +98,7 @@
               "templatable": true,
               "docs": "**string, [templatable](https://esphome.io/automations/templates.html#config-templatable)**: URL to which to send the request.\n\n*See also: [HTTP Request](https://esphome.io/components/http_request.html#http-request-get-action)*"
             },
-            "headers": {
+            "request_headers": {
               "key": "String",
               "key_type": "string",
               "type": "schema",
@@ -109,29 +109,29 @@
                     "type": "string"
                   }
                 }
-              },
-              "docs": "**mapping**: Map of HTTP headers. Values are [templatable](https://esphome.io/automations/templates.html#config-templatable).\n\n*See also: [HTTP Request](https://esphome.io/components/http_request.html#http-request-get-action)*"
+              }
+            },
+            "collect_headers": {
+              "key": "Optional",
+              "is_list": true,
+              "type": "string"
             },
             "capture_response": {
               "key": "Optional",
               "default": "False",
-              "type": "boolean",
-              "docs": "**boolean**: when set to `true`, the response data will be captured and placed into the `body` variable as a `std::string` for use in [lambdas](https://esphome.io/automations/templates.html#config-lambda). Defaults to `false`.\n\n*See also: [HTTP Request](https://esphome.io/components/http_request.html#http-request-get-action)*"
+              "type": "boolean"
             },
             "on_response": {
               "key": "Optional",
-              "type": "trigger",
-              "docs": "**[Automation](https://esphome.io/automations/index.html#automation)**: An automation to perform after the request is received.\n\n*See also: [HTTP Request](https://esphome.io/components/http_request.html#http-request-get-action)*"
+              "type": "trigger"
             },
             "on_error": {
               "key": "Optional",
-              "type": "trigger",
-              "docs": "**[Automation](https://esphome.io/automations/index.html#automation)**: An automation to perform if the request cannot be completed.\n\n*See also: [HTTP Request](https://esphome.io/components/http_request.html#http-request-get-action)*"
+              "type": "trigger"
             },
             "max_response_buffer_size": {
               "key": "Optional",
-              "default": "1kB",
-              "docs": "**integer**: The maximum buffer size to be used to store the response. Defaults to `1 kB`.\n\n*See also: [HTTP Request](https://esphome.io/components/http_request.html#http-request-get-action)*"
+              "default": "1kB"
             }
           }
         }

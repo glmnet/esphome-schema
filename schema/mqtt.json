@@ -298,14 +298,12 @@
             },
             "qos": {
               "key": "Optional",
-              "default": "0",
-              "docs": "**int**: The [Quality of Service](https://www.hivemq.com/blog/mqtt-essentials-part-6-mqtt-quality-of-service-levels) level of the topic. Defaults to 0.\n\n*See also: [MQTTMessage](https://esphome.io/components/mqtt.html#mqttmessage)*"
+              "default": "0"
             },
             "retain": {
               "key": "Optional",
               "default": "True",
-              "type": "boolean",
-              "docs": "**boolean**: If the published message should have a retain flag on or not. Defaults to `true`.\n\n*See also: [MQTTMessage](https://esphome.io/components/mqtt.html#mqttmessage)*"
+              "type": "boolean"
             }
           }
         }

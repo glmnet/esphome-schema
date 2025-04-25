@@ -10,9 +10,7 @@
       "binary": {
         "docs": "The `binary` fan platform lets you represent any binary [Output Component](https://esphome.io/components/output/index.html#output) as a fan.\n\n*See also: [Binary Fan](https://esphome.io/components/fan/binary.html#binary-fan)*"
       },
-      "copy": {
-        "docs": "**[ID](https://esphome.io/guides/configuration-types.html#config-id)**: The fan that should be mirrored.\n\n*See also: [Copy Fan](https://esphome.io/components/copy.html#copy-fan)*"
-      },
+      "copy": {},
       "hbridge": {
         "docs": "The `hbridge` fan platform allows you to use a compatible *h-bridge* (L298N, DRV8871, MX1508, BTS7960, L9110S, DRV8833, TB6612, etc.) to control a fan (or motor/solenoid).\n\n*See also: [H-bridge Fan](https://esphome.io/components/fan/hbridge.html#h-bridge-fan)*"
       },

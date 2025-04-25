@@ -14,12 +14,6 @@
               "use_id_type": "remote_base::RemoteTransmitterBase",
               "type": "use_id",
               "docs": "**[ID](https://esphome.io/guides/configuration-types.html#config-id)**: The remote transmitter to send the remote code with. Defaults to the first one defined in the configuration.\n\n*See also: [Remote Transmitter Actions](https://esphome.io/components/remote_transmitter.html#remote-transmitter-actions)*"
-            },
-            "address": {
-              "docs": "**int**: The 16-bit address to send, see dumper output for more details.\n\n*See also: [Remote Transmitter Actions](https://esphome.io/components/remote_transmitter.html#remote-transmitter-actions)*"
-            },
-            "id": {
-              "docs": "**int**: The 24-bit ID to send. Each remote has a unique one.\n\n*See also: [Remote Transmitter Actions](https://esphome.io/components/remote_transmitter.html#remote-transmitter-actions)*"
             }
           }
         }

@@ -269,6 +269,28 @@
       }
     }
   },
+  "fingerprint_grow.binary_sensor": {
+    "schemas": {
+      "CONFIG_SCHEMA": {
+        "type": "schema",
+        "schema": {
+          "extends": [
+            "binary_sensor.BINARY_SENSOR_SCHEMA"
+          ],
+          "config_vars": {
+            "fingerprint_grow_id": {
+              "key": "GeneratedID",
+              "use_id_type": "fingerprint_grow::FingerprintGrowComponent",
+              "type": "use_id"
+            },
+            "icon": {
+              "default": "mdi:key-plus"
+            }
+          }
+        }
+      }
+    }
+  },
   "fingerprint_grow.sensor": {
     "schemas": {
       "CONFIG_SCHEMA": {
@@ -396,28 +418,6 @@
                   }
                 }
               }
-            }
-          }
-        }
-      }
-    }
-  },
-  "fingerprint_grow.binary_sensor": {
-    "schemas": {
-      "CONFIG_SCHEMA": {
-        "type": "schema",
-        "schema": {
-          "extends": [
-            "binary_sensor.BINARY_SENSOR_SCHEMA"
-          ],
-          "config_vars": {
-            "fingerprint_grow_id": {
-              "key": "GeneratedID",
-              "use_id_type": "fingerprint_grow::FingerprintGrowComponent",
-              "type": "use_id"
-            },
-            "icon": {
-              "default": "mdi:key-plus"
             }
           }
         }

@@ -237,6 +237,56 @@
       }
     }
   },
+  "ezo_pmp.binary_sensor": {
+    "schemas": {
+      "CONFIG_SCHEMA": {
+        "type": "schema",
+        "schema": {
+          "config_vars": {
+            "id": {
+              "key": "GeneratedID",
+              "use_id_type": "ezo_pmp::EzoPMP",
+              "type": "use_id"
+            },
+            "pump_state": {
+              "key": "Optional",
+              "type": "schema",
+              "schema": {
+                "extends": [
+                  "binary_sensor.BINARY_SENSOR_SCHEMA"
+                ],
+                "config_vars": {
+                  "entity_category": {
+                    "default": ""
+                  },
+                  "device_class": {
+                    "default": "running"
+                  }
+                }
+              }
+            },
+            "is_paused": {
+              "key": "Optional",
+              "type": "schema",
+              "schema": {
+                "extends": [
+                  "binary_sensor.BINARY_SENSOR_SCHEMA"
+                ],
+                "config_vars": {
+                  "entity_category": {
+                    "default": ""
+                  },
+                  "device_class": {
+                    "default": ""
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
   "ezo_pmp.sensor": {
     "schemas": {
       "CONFIG_SCHEMA": {
@@ -400,56 +450,6 @@
                   },
                   "entity_category": {
                     "default": "diagnostic"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  },
-  "ezo_pmp.binary_sensor": {
-    "schemas": {
-      "CONFIG_SCHEMA": {
-        "type": "schema",
-        "schema": {
-          "config_vars": {
-            "id": {
-              "key": "GeneratedID",
-              "use_id_type": "ezo_pmp::EzoPMP",
-              "type": "use_id"
-            },
-            "pump_state": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "binary_sensor.BINARY_SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "entity_category": {
-                    "default": ""
-                  },
-                  "device_class": {
-                    "default": "running"
-                  }
-                }
-              }
-            },
-            "is_paused": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "binary_sensor.BINARY_SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "entity_category": {
-                    "default": ""
-                  },
-                  "device_class": {
-                    "default": ""
                   }
                 }
               }

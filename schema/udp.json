@@ -173,19 +173,6 @@
       }
     }
   },
-  "udp.sensor": {
-    "schemas": {
-      "CONFIG_SCHEMA": {
-        "type": "schema",
-        "schema": {
-          "extends": [
-            "sensor.SENSOR_SCHEMA",
-            "udp.SENSOR_SCHEMA"
-          ]
-        }
-      }
-    }
-  },
   "udp.binary_sensor": {
     "schemas": {
       "CONFIG_SCHEMA": {
@@ -193,6 +180,19 @@
         "schema": {
           "extends": [
             "binary_sensor.BINARY_SENSOR_SCHEMA",
+            "udp.SENSOR_SCHEMA"
+          ]
+        }
+      }
+    }
+  },
+  "udp.sensor": {
+    "schemas": {
+      "CONFIG_SCHEMA": {
+        "type": "schema",
+        "schema": {
+          "extends": [
+            "sensor.SENSOR_SCHEMA",
             "udp.SENSOR_SCHEMA"
           ]
         }

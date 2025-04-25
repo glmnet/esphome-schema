@@ -28,9 +28,7 @@
         ],
         "docs": "The `cap1188` binary sensor allows you to use your CAP1188 with ESPHome. First, setup a [Component/Hub](https://esphome.io/components/binary_sensor/cap1188.html#cap1188-component) and then use this binary sensor platform to create individual binary sensors for each touch sensor.\n\n*See also: [cap1188 Binary Sensor](https://esphome.io/components/binary_sensor/cap1188.html#binary-sensor)*"
       },
-      "copy": {
-        "docs": "**[ID](https://esphome.io/guides/configuration-types.html#config-id)**: The binary sensor that should be mirrored.\n\n*See also: [Copy Binary Sensor](https://esphome.io/components/copy.html#copy-binary-sensor)*"
-      },
+      "copy": {},
       "cst816": {},
       "custom": {},
       "daly_bms": {
@@ -90,14 +88,11 @@
         ],
         "docs": "The `ld2410` binary sensor allows you to use your [LD2410 Sensor to perform different measurements.\n\n*See also: [ld2410 Binary Sensor](https://esphome.io/components/sensor/ld2410.html#binary-sensor)*"
       },
-      "ld2420": {
-        "docs": "The `ld2420` binary sensor allows you to use your [LD2420 24Ghz mmWave Radar Sensor to sense presence.\n\n*See also: [ld2420 Binary Sensor](https://esphome.io/components/sensor/ld2420.html#binary-sensor)*"
-      },
+      "ld2420": {},
       "ld2450": {
         "dependencies": [
           "ld2450"
-        ],
-        "docs": "The `ld2450` binary sensor offers presence states for the targets.\n\n*See also: [ld2450 Binary Sensor](https://esphome.io/components/sensor/ld2450.html#binary-sensor)*"
+        ]
       },
       "lvgl": {
         "docs": "The `lvgl` binary sensor platform creates a binary sensor from an LVGL widget and requires [LVGL](https://esphome.io/components/lvgl/index.html) to be configured.\n\n*See also: [LVGL Binary Sensor](https://esphome.io/components/binary_sensor/lvgl.html#lvgl-binary-sensor)*"
@@ -124,8 +119,7 @@
       "msa3xx": {
         "dependencies": [
           "msa3xx"
-        ],
-        "docs": "Three binary sensors available for use. Internal 500 ms debounce is applied for all sensors. For every sensor **name** is required. All other options from [Binary Sensor](https://esphome.io/components/binary_sensor/index.html#config-binary-sensor). Shorthand notation also can be used.\n\n*See also: [msa3xx Binary Sensor](https://esphome.io/components/sensor/msa3xx.html#binary-sensor)*"
+        ]
       },
       "nextion": {
         "docs": "The `nextion` binary sensor platform supports the many switched components in the Nextion as well as integer variables (>0 == true). It can be a component or variable in the Nextion display. It is best to set the components vscope to global in the Nextion Editor. This way the component will be available if the page is shown or not.\n\n*See also: [Nextion Binary Sensor Component](https://esphome.io/components/binary_sensor/nextion.html#nextion-binary-sensor-component)*"
@@ -151,7 +145,7 @@
         "dependencies": [
           "pn532"
         ],
-        "docs": "The `pn532` binary sensor platform lets you track if an NFC/RFID tag with a given unique id (`uid`) is currently being detected by the PN532 or not.\n\n*See also: [pn532 Binary Sensor](https://esphome.io/components/binary_sensor/pn532.html#pn532-binary-sensor)*"
+        "docs": "The `pn532` component allows you to use PN532 NFC/RFID controllers ([datasheet](https://cdn-shop.adafruit.com/datasheets/pn532ds.pdf), [Adafruit](https://www.adafruit.com/product/364)) with ESPHome. This component is a global hub that establishes the connection to the PN532 via [SPI](https://esphome.io/components/spi.html#spi) or [I\u00b2C](https://esphome.io/components/i2c.html#i2c) and outputs its data. Using the [PN532 binary sensors](https://esphome.io/components/binary_sensor/pn532.html#pn532-tag) you can then create individual binary sensors that track if an NFC/RFID tag is currently detected by the PN532.\n\n*See also: [PN532 NFC/RFID](https://esphome.io/components/binary_sensor/pn532.html#pn532-nfc-rfid)*"
       },
       "qwiic_pir": {
         "dependencies": [
@@ -163,7 +157,7 @@
         "dependencies": [
           "rc522"
         ],
-        "docs": "The `rc522` binary sensor platform lets you track if an NFC/RFID tag with a given unique id (`uid`) is currently being detected by the RC522 or not.\n\n*See also: [rc522 Binary Sensor](https://esphome.io/components/binary_sensor/rc522.html#rc522-binary-sensor)*"
+        "docs": "The `rc522` component allows you to use RC522 NFC/RFID controllers ([datasheet](https://www.nxp.com/docs/en/data-sheet/MFRC522.pdf), [Ali Express](https://www.aliexpress.com/item/1260729519.html)) with ESPHome. ESPHome can read the UID from the tag. Every NFC/RFID tag has a unique \u201cUID\u201d value assigned at the time of manufacture. Tags can be associated with binary sensors, making it easy to determine when a specific tag is present. You can also use the tag information directly within ESPHome automations/lambdas. See [Setting Up Tags](https://esphome.io/components/binary_sensor/rc522.html#rc522-setting-up-tags) for information on how to setup individual binary sensors using this component.\n\n*See also: [RC522 NFC/RFID](https://esphome.io/components/binary_sensor/rc522.html#rc522-nfc-rfid)*"
       },
       "rc522_spi": {
         "dependencies": [
@@ -174,7 +168,7 @@
         "dependencies": [
           "rdm6300"
         ],
-        "docs": "The `rdm6300` binary sensor platform lets you track if an NFC/RFID tag with a given unique id (`uid`) is currently being detected by the RDM6300 or not.\n\n*See also: [rdm6300 Binary Sensor](https://esphome.io/components/binary_sensor/rdm6300.html#rdm6300-binary-sensor)*"
+        "docs": "The `rdm6300` component allows you to use RDM6300 NFC/RFID controllers ([datasheet](https://elty.pl/upload/download/RFID/RDM630-Spec.pdf), [iTead](https://www.itead.cc/rdm6300.html)) with ESPHome. This component is a global hub that establishes the connection to the RDM6300 via [UART](https://esphome.io/components/uart.html#uart) and translates the received data. Using the [RDM6300 binary sensors](https://esphome.io/components/binary_sensor/rdm6300.html#rdm6300-tag) you can then create individual binary sensors that track if an NFC/RFID tag is currently detected by the RDM6300.\n\n*See also: [RDM6300 NFC/RFID](https://esphome.io/components/binary_sensor/rdm6300.html#rdm6300-nfc-rfid)*"
       },
       "remote_receiver": {
         "dependencies": [
@@ -210,7 +204,7 @@
         "dependencies": [
           "network"
         ],
-        "docs": "This binary sensor tracks the connection status (*online*/*offline*) of the remote peer.\n\n*See also: [Status Binary Sensor](https://esphome.io/components/wireguard.html#status-binary-sensor)*"
+        "docs": "The Status Binary Sensor exposes the node state (if it\u2019s connected to via MQTT/native API) for Home Assistant.\n\n*See also: [Status Binary Sensor](https://esphome.io/components/binary_sensor/status.html#status-binary-sensor)*"
       },
       "switch": {
         "docs": "The Switch Binary Sensor platform allows you to view the state of any switch component as a read-only binary sensor.\n\n*See also: [Switch Binary Sensor](https://esphome.io/components/binary_sensor/switch.html#switch-binary-sensor)*"
@@ -240,14 +234,12 @@
       "ttp229_bsf": {
         "dependencies": [
           "ttp229_bsf"
-        ],
-        "docs": "Configuration variables:\n\n*See also: [ttp229_bsf Binary Sensor](https://esphome.io/components/binary_sensor/ttp229.html#ttp229-bsf-binary-sensor)*"
+        ]
       },
       "ttp229_lsf": {
         "dependencies": [
           "ttp229_lsf"
-        ],
-        "docs": "Configuration variables:\n\n*See also: [ttp229_lsf Binary Sensor](https://esphome.io/components/binary_sensor/ttp229.html#ttp229-lsf-binary-sensor)*"
+        ]
       },
       "tuya": {
         "dependencies": [
@@ -445,7 +437,8 @@
                       "extends": [
                         "core.positive_time_period_milliseconds"
                       ]
-                    }
+                    },
+                    "docs": "**[Time](https://esphome.io/guides/configuration-types.html#config-time)**: The minimum duration the click should last. Defaults to `50ms`.\n\n*See also: [settle](https://esphome.io/components/binary_sensor/index.html#on-double-click)*"
                   },
                   "max_length": {
                     "key": "Optional",
@@ -455,7 +448,8 @@
                       "extends": [
                         "core.positive_time_period_milliseconds"
                       ]
-                    }
+                    },
+                    "docs": "**[Time](https://esphome.io/guides/configuration-types.html#config-time)**: The maximum duration the click should last. Defaults to `350ms`.\n\n*See also: [settle](https://esphome.io/components/binary_sensor/index.html#on-double-click)*"
                   },
                   "then": {
                     "type": "trigger"
@@ -477,8 +471,7 @@
                       "extends": [
                         "core.positive_time_period_milliseconds"
                       ]
-                    },
-                    "docs": "**[Time](https://esphome.io/guides/configuration-types.html#config-time)**: The minimum duration the click should last. Defaults to `50ms`.\n\n*See also: [settle](https://esphome.io/components/binary_sensor/index.html#on-double-click)*"
+                    }
                   },
                   "max_length": {
                     "key": "Optional",
@@ -488,8 +481,7 @@
                       "extends": [
                         "core.positive_time_period_milliseconds"
                       ]
-                    },
-                    "docs": "**[Time](https://esphome.io/guides/configuration-types.html#config-time)**: The maximum duration the click should last. Defaults to `350ms`.\n\n*See also: [settle](https://esphome.io/components/binary_sensor/index.html#on-double-click)*"
+                    }
                   },
                   "then": {
                     "type": "trigger"

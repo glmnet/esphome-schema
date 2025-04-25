@@ -199,6 +199,48 @@
       }
     }
   },
+  "ble_client.output": {
+    "schemas": {
+      "CONFIG_SCHEMA": {
+        "type": "schema",
+        "schema": {
+          "extends": [
+            "output.BINARY_OUTPUT_SCHEMA",
+            "core.COMPONENT_SCHEMA",
+            "ble_client.BLE_CLIENT_SCHEMA"
+          ],
+          "config_vars": {
+            "id": {
+              "key": "Required",
+              "id_type": {
+                "class": "ble_client::BLEBinaryOutput",
+                "parents": [
+                  "output::BinaryOutput",
+                  "ble_client::BLEClientNode",
+                  "Component"
+                ]
+              },
+              "docs": "**[ID](https://esphome.io/guides/configuration-types.html#config-id)**: The ID to use for code generation, and for reference by dependent components.\n\n*See also: [BLE Client Binary Output](https://esphome.io/components/output/ble_client.html#configuration-variables)*"
+            },
+            "service_uuid": {
+              "key": "Required",
+              "docs": "**UUID**: UUID of the service on the device.\n\n*See also: [BLE Client Binary Output](https://esphome.io/components/output/ble_client.html#configuration-variables)*"
+            },
+            "characteristic_uuid": {
+              "key": "Required",
+              "docs": "**UUID**: UUID of the service\u2019s characteristic to write to.\n\n*See also: [BLE Client Binary Output](https://esphome.io/components/output/ble_client.html#configuration-variables)*"
+            },
+            "require_response": {
+              "key": "Optional",
+              "default": "False",
+              "type": "boolean",
+              "docs": "**boolean**: Control whether to require a remote response from the device when writing. Whether or not this is required will vary by device. Defaults to `false`\n\n*See also: [BLE Client Binary Output](https://esphome.io/components/output/ble_client.html#configuration-variables)*"
+            }
+          }
+        }
+      }
+    }
+  },
   "ble_client.sensor": {
     "schemas": {
       "CONFIG_SCHEMA": {
@@ -303,48 +345,6 @@
         },
         "typed_key": "type",
         "docs": "One of `rssi`, `characteristic`.\n\n*See also: [BLE Client Sensor](https://esphome.io/components/sensor/ble_client.html#configuration-variables)*"
-      }
-    }
-  },
-  "ble_client.output": {
-    "schemas": {
-      "CONFIG_SCHEMA": {
-        "type": "schema",
-        "schema": {
-          "extends": [
-            "output.BINARY_OUTPUT_SCHEMA",
-            "core.COMPONENT_SCHEMA",
-            "ble_client.BLE_CLIENT_SCHEMA"
-          ],
-          "config_vars": {
-            "id": {
-              "key": "Required",
-              "id_type": {
-                "class": "ble_client::BLEBinaryOutput",
-                "parents": [
-                  "output::BinaryOutput",
-                  "ble_client::BLEClientNode",
-                  "Component"
-                ]
-              },
-              "docs": "**[ID](https://esphome.io/guides/configuration-types.html#config-id)**: The ID to use for code generation, and for reference by dependent components.\n\n*See also: [BLE Client Binary Output](https://esphome.io/components/output/ble_client.html#configuration-variables)*"
-            },
-            "service_uuid": {
-              "key": "Required",
-              "docs": "**UUID**: UUID of the service on the device.\n\n*See also: [BLE Client Binary Output](https://esphome.io/components/output/ble_client.html#configuration-variables)*"
-            },
-            "characteristic_uuid": {
-              "key": "Required",
-              "docs": "**UUID**: UUID of the service\u2019s characteristic to write to.\n\n*See also: [BLE Client Binary Output](https://esphome.io/components/output/ble_client.html#configuration-variables)*"
-            },
-            "require_response": {
-              "key": "Optional",
-              "default": "False",
-              "type": "boolean",
-              "docs": "**boolean**: Control whether to require a remote response from the device when writing. Whether or not this is required will vary by device. Defaults to `false`\n\n*See also: [BLE Client Binary Output](https://esphome.io/components/output/ble_client.html#configuration-variables)*"
-            }
-          }
-        }
       }
     }
   },

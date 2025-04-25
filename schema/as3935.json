@@ -101,6 +101,25 @@
       }
     }
   },
+  "as3935.binary_sensor": {
+    "schemas": {
+      "CONFIG_SCHEMA": {
+        "type": "schema",
+        "schema": {
+          "extends": [
+            "binary_sensor.BINARY_SENSOR_SCHEMA"
+          ],
+          "config_vars": {
+            "as3935_id": {
+              "key": "GeneratedID",
+              "use_id_type": "as3935::AS3935Component",
+              "type": "use_id"
+            }
+          }
+        }
+      }
+    }
+  },
   "as3935.sensor": {
     "schemas": {
       "CONFIG_SCHEMA": {
@@ -155,25 +174,6 @@
           "extends": [
             "core.COMPONENT_SCHEMA"
           ]
-        }
-      }
-    }
-  },
-  "as3935.binary_sensor": {
-    "schemas": {
-      "CONFIG_SCHEMA": {
-        "type": "schema",
-        "schema": {
-          "extends": [
-            "binary_sensor.BINARY_SENSOR_SCHEMA"
-          ],
-          "config_vars": {
-            "as3935_id": {
-              "key": "GeneratedID",
-              "use_id_type": "as3935::AS3935Component",
-              "type": "use_id"
-            }
-          }
         }
       }
     }

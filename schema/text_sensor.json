@@ -22,12 +22,9 @@
       "bme68x_bsec2": {
         "dependencies": [
           "bme68x_bsec2"
-        ],
-        "docs": "The sensor\u2019s accuracy can be reported in text format.\n\n*See also: [bme68x_bsec2 Text Sensor](https://esphome.io/components/sensor/bme68x_bsec2.html#text-sensor)*"
+        ]
       },
-      "copy": {
-        "docs": "**[ID](https://esphome.io/guides/configuration-types.html#config-id)**: The text sensor that should be mirrored.\n\n*See also: [Copy Text Sensor](https://esphome.io/components/copy.html#copy-text-sensor)*"
-      },
+      "copy": {},
       "custom": {},
       "daly_bms": {
         "docs": "Text sensor that indicates the status of BMS.\n\n*See also: [daly_bms Text Sensor](https://esphome.io/components/sensor/daly_bms.html#text-sensor)*"
@@ -64,17 +61,13 @@
       "ld2410": {
         "dependencies": [
           "ld2410"
-        ],
-        "docs": "The `ld2410` text sensor allows you to get information about your [LD2410 Sensor.\n\n*See also: [ld2410 Text Sensor](https://esphome.io/components/sensor/ld2410.html#text-sensor)*"
+        ]
       },
-      "ld2420": {
-        "docs": "The `ld2420` text sensor provides version information for the [LD2420 24Ghz mmWave Radar Sensor.\n\n*See also: [ld2420 Text Sensor](https://esphome.io/components/sensor/ld2420.html#text-sensor)*"
-      },
+      "ld2420": {},
       "ld2450": {
         "dependencies": [
           "ld2450"
-        ],
-        "docs": "The `ld2450` text sensor allows you to get information about your [LD2450 Sensor.\n\n*See also: [ld2450 Text Sensor](https://esphome.io/components/sensor/ld2450.html#text-sensor)*"
+        ]
       },
       "libretiny": {
         "dependencies": [
@@ -101,8 +94,7 @@
       "msa3xx": {
         "dependencies": [
           "msa3xx"
-        ],
-        "docs": "Text sensor provides orientation information. You can use shorthand notation like `orientation_xy: \"Orientation XY\"` or use regular notation.\n\n*See also: [msa3xx Text Sensor](https://esphome.io/components/sensor/msa3xx.html#text-sensor)*"
+        ]
       },
       "nextion": {
         "docs": "The `nextion` text sensor platform supports text strings. It can be a component or variable in the Nextion display. It is best to set the components vscope to global in the Nextion Editor. This way the component will be available if the page is shown or not.\n\n*See also: [Nextion Text Sensor Component](https://esphome.io/components/text_sensor/nextion.html#nextion-text-sensor-component)*"

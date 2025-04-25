@@ -79,14 +79,12 @@
                   "Parented<mcp4461::Mcp4461Component>",
                   "Parented"
                 ]
-              },
-              "docs": "**[ID](https://esphome.io/guides/configuration-types.html#config-id)**: The id to use for this output component.\n\n*See also: [MCP4461 Output](https://esphome.io/components/output/mcp4461.html#id2)*"
+              }
             },
             "mcp4461_id": {
               "key": "GeneratedID",
               "use_id_type": "mcp4461::Mcp4461Component",
-              "type": "use_id",
-              "docs": "**[ID](https://esphome.io/guides/configuration-types.html#config-id)**: Manually specify the ID of the [MCP4461](https://esphome.io/components/output/mcp4461.html#id1). Use this if you have multiple MCP4461 ICs you want to use at the same time.\n\n*See also: [MCP4461 Output](https://esphome.io/components/output/mcp4461.html#id2)*"
+              "type": "use_id"
             },
             "channel": {
               "key": "Required",
@@ -100,8 +98,7 @@
                 "F": null,
                 "G": null,
                 "H": null
-              },
-              "docs": "**string**: Choose the channel of this MCP4461 output component. One of `A`, `B`, `C`, `D`, `E`, `F`, `G` or `H`.\n\n*See also: [MCP4461 Output](https://esphome.io/components/output/mcp4461.html#id2)*"
+              }
             },
             "terminal_a": {
               "key": "Optional",

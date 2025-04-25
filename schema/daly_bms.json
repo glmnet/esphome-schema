@@ -42,6 +42,45 @@
       }
     }
   },
+  "daly_bms.binary_sensor": {
+    "schemas": {
+      "CONFIG_SCHEMA": {
+        "type": "schema",
+        "schema": {
+          "config_vars": {
+            "bms_daly_id": {
+              "key": "GeneratedID",
+              "use_id_type": "daly_bms::DalyBmsComponent",
+              "type": "use_id"
+            },
+            "charging_mos_enabled": {
+              "key": "Optional",
+              "type": "schema",
+              "schema": {
+                "extends": [
+                  "binary_sensor.BINARY_SENSOR_SCHEMA"
+                ]
+              },
+              "docs": "The BMS charging MOS status to enable the recharge of the battery. All options from [Binary Sensor](https://esphome.io/components/binary_sensor/index.html#config-binary-sensor).\n\n*See also: [daly_bms Binary Sensor](https://esphome.io/components/sensor/daly_bms.html#id3)*"
+            },
+            "discharging_mos_enabled": {
+              "key": "Optional",
+              "type": "schema",
+              "schema": {
+                "extends": [
+                  "binary_sensor.BINARY_SENSOR_SCHEMA"
+                ]
+              },
+              "docs": "The BMS discharging mos status to enable the load. All options from [Binary Sensor](https://esphome.io/components/binary_sensor/index.html#config-binary-sensor).\n\n*See also: [daly_bms Binary Sensor](https://esphome.io/components/sensor/daly_bms.html#id3)*"
+            }
+          },
+          "extends": [
+            "core.COMPONENT_SCHEMA"
+          ]
+        }
+      }
+    }
+  },
   "daly_bms.sensor": {
     "schemas": {
       "CELL_VOLTAGE_SCHEMA": {
@@ -600,45 +639,6 @@
                   "daly_bms.sensor.CELL_VOLTAGE_SCHEMA"
                 ]
               }
-            }
-          },
-          "extends": [
-            "core.COMPONENT_SCHEMA"
-          ]
-        }
-      }
-    }
-  },
-  "daly_bms.binary_sensor": {
-    "schemas": {
-      "CONFIG_SCHEMA": {
-        "type": "schema",
-        "schema": {
-          "config_vars": {
-            "bms_daly_id": {
-              "key": "GeneratedID",
-              "use_id_type": "daly_bms::DalyBmsComponent",
-              "type": "use_id"
-            },
-            "charging_mos_enabled": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "binary_sensor.BINARY_SENSOR_SCHEMA"
-                ]
-              },
-              "docs": "The BMS charging MOS status to enable the recharge of the battery. All options from [Binary Sensor](https://esphome.io/components/binary_sensor/index.html#config-binary-sensor).\n\n*See also: [daly_bms Binary Sensor](https://esphome.io/components/sensor/daly_bms.html#id3)*"
-            },
-            "discharging_mos_enabled": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "binary_sensor.BINARY_SENSOR_SCHEMA"
-                ]
-              },
-              "docs": "The BMS discharging mos status to enable the load. All options from [Binary Sensor](https://esphome.io/components/binary_sensor/index.html#config-binary-sensor).\n\n*See also: [daly_bms Binary Sensor](https://esphome.io/components/sensor/daly_bms.html#id3)*"
             }
           },
           "extends": [

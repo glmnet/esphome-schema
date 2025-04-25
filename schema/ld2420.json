@@ -29,54 +29,6 @@
       }
     }
   },
-  "ld2420.sensor": {
-    "schemas": {
-      "CONFIG_SCHEMA": {
-        "type": "schema",
-        "schema": {
-          "extends": [
-            "core.COMPONENT_SCHEMA"
-          ],
-          "config_vars": {
-            "id": {
-              "key": "GeneratedID",
-              "id_type": {
-                "class": "ld2420::LD2420Sensor",
-                "parents": [
-                  "sensor::Sensor",
-                  "EntityBase",
-                  "Component"
-                ]
-              }
-            },
-            "ld2420_id": {
-              "key": "GeneratedID",
-              "use_id_type": "ld2420::LD2420Component",
-              "type": "use_id"
-            },
-            "moving_distance": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "cm"
-                  },
-                  "device_class": {
-                    "default": "distance"
-                  }
-                }
-              },
-              "docs": "Distance between the sensor and the detected moving target. May contain any options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n\n*See also: [ld2420 Sensor](https://esphome.io/components/sensor/ld2420.html#id4)*"
-            }
-          }
-        }
-      }
-    }
-  },
   "ld2420.binary_sensor": {
     "schemas": {
       "CONFIG_SCHEMA": {
@@ -114,8 +66,7 @@
                     "default": "occupancy"
                   }
                 }
-              },
-              "docs": "If a target is detected with either still or in movement **has_target** will be set true for the duration of the **presence_time_window** setting. May contain any options from [Binary Sensor](https://esphome.io/components/binary_sensor/index.html#config-binary-sensor).\n\n*See also: [ld2420 Binary Sensor](https://esphome.io/components/sensor/ld2420.html#id5)*"
+              }
             }
           }
         }
@@ -161,8 +112,7 @@
                     "default": "restart"
                   }
                 }
-              },
-              "docs": "Saves both manual config tuning or the auto calibrate still and move threshold config settings. May contain any options from [Button](https://esphome.io/components/button/index.html#config-button).\n\n*See also: [ld2420 Button](https://esphome.io/components/sensor/ld2420.html#id3)*"
+              }
             },
             "revert_config": {
               "key": "Optional",
@@ -192,8 +142,7 @@
                     "default": "restart"
                   }
                 }
-              },
-              "docs": "Undoes in-progress edits prior to their application via the `apply_config` button. May contain any options from [Button](https://esphome.io/components/button/index.html#config-button).\n\n*See also: [ld2420 Button](https://esphome.io/components/sensor/ld2420.html#id3)*"
+              }
             },
             "restart_module": {
               "key": "Optional",
@@ -220,8 +169,7 @@
                     "default": "diagnostic"
                   }
                 }
-              },
-              "docs": "Reboots the LD2420 modules. May contain any options from [Button](https://esphome.io/components/button/index.html#config-button).\n\n*See also: [ld2420 Button](https://esphome.io/components/sensor/ld2420.html#id3)*"
+              }
             },
             "factory_reset": {
               "key": "Optional",
@@ -248,8 +196,7 @@
                     "default": "config"
                   }
                 }
-              },
-              "docs": "Restores a base set of LD2420 configuration values. May contain any options from [Button](https://esphome.io/components/button/index.html#config-button).\n\n*See also: [ld2420 Button](https://esphome.io/components/sensor/ld2420.html#id3)*"
+              }
             }
           }
         }
@@ -1543,6 +1490,53 @@
       }
     }
   },
+  "ld2420.sensor": {
+    "schemas": {
+      "CONFIG_SCHEMA": {
+        "type": "schema",
+        "schema": {
+          "extends": [
+            "core.COMPONENT_SCHEMA"
+          ],
+          "config_vars": {
+            "id": {
+              "key": "GeneratedID",
+              "id_type": {
+                "class": "ld2420::LD2420Sensor",
+                "parents": [
+                  "sensor::Sensor",
+                  "EntityBase",
+                  "Component"
+                ]
+              }
+            },
+            "ld2420_id": {
+              "key": "GeneratedID",
+              "use_id_type": "ld2420::LD2420Component",
+              "type": "use_id"
+            },
+            "moving_distance": {
+              "key": "Optional",
+              "type": "schema",
+              "schema": {
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ],
+                "config_vars": {
+                  "unit_of_measurement": {
+                    "default": "cm"
+                  },
+                  "device_class": {
+                    "default": "distance"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
   "ld2420.text_sensor": {
     "schemas": {
       "CONFIG_SCHEMA": {
@@ -1583,8 +1577,7 @@
                     "default": "diagnostic"
                   }
                 }
-              },
-              "docs": "Allows you to retrieve the [LD2420 24Ghz mmWave Radar Sensor firmware version. May contain any options from [Text Sensor](https://esphome.io/components/text_sensor/index.html#config-text-sensor).\n\n*See also: [ld2420 Text Sensor](https://esphome.io/components/sensor/ld2420.html#id6)*"
+              }
             }
           }
         }

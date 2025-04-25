@@ -1,84 +1,4 @@
 {
-  "pid.sensor": {
-    "schemas": {
-      "CONFIG_SCHEMA": {
-        "type": "schema",
-        "schema": {
-          "extends": [
-            "sensor.SENSOR_SCHEMA",
-            "core.COMPONENT_SCHEMA"
-          ],
-          "config_vars": {
-            "id": {
-              "id_type": {
-                "class": "pid::PIDClimateSensor",
-                "parents": [
-                  "sensor::Sensor",
-                  "EntityBase",
-                  "Component"
-                ]
-              }
-            },
-            "unit_of_measurement": {
-              "default": "%"
-            },
-            "icon": {
-              "default": "mdi:gauge"
-            },
-            "accuracy_decimals": {
-              "default": "1"
-            },
-            "state_class": {
-              "default": "measurement"
-            },
-            "climate_id": {
-              "key": "GeneratedID",
-              "use_id_type": "pid::PIDClimate",
-              "type": "use_id",
-              "docs": "**[ID](https://esphome.io/guides/configuration-types.html#config-id)**: The ID of the pid climate to get the values from.\n\n*See also: [pid Sensor](https://esphome.io/components/climate/pid.html#pid-sensor)*"
-            },
-            "type": {
-              "key": "Required",
-              "type": "enum",
-              "values": {
-                "RESULT": {
-                  "docs": "The resulting value (sum of P, I, and D terms)."
-                },
-                "ERROR": {
-                  "docs": "The calculated error (setpoint - process_variable)"
-                },
-                "PROPORTIONAL": {
-                  "docs": "The proportional term of the PID controller."
-                },
-                "INTEGRAL": {
-                  "docs": "The integral term of the PID controller."
-                },
-                "DERIVATIVE": {
-                  "docs": "The derivative term of the PID controller."
-                },
-                "HEAT": {
-                  "docs": "The resulting heating power to the supplied to the `heat_output`."
-                },
-                "COOL": {
-                  "docs": "The resulting cooling power to the supplied to the `cool_output`."
-                },
-                "KP": {
-                  "docs": "The current factor for the proportional term of the PID controller."
-                },
-                "KI": {
-                  "docs": "The current factor for the integral term of the PID controller."
-                },
-                "KD": {
-                  "docs": "The current factor for the differential term of the PID controller."
-                }
-              },
-              "docs": "**string**: The value to monitor. One of\n  * `RESULT` - The resulting value (sum of P, I, and D terms).\n  \n  * `ERROR` - The calculated error (setpoint - process_variable)\n  \n  * `PROPORTIONAL` - The proportional term of the PID controller.\n  \n  * `INTEGRAL` - The integral term of the PID controller.\n  \n  * `DERIVATIVE` - The derivative term of the PID controller.\n  \n  * `HEAT` - The resulting heating power to the supplied to the `heat_output`.\n  \n  * `COOL` - The resulting cooling power to the supplied to the `cool_output`.\n  \n  * `KP` - The current factor for the proportional term of the PID controller.\n  \n  * `KI` - The current factor for the integral term of the PID controller.\n  \n  * `KD` - The current factor for the differential term of the PID controller.\n  \n  \n\n*See also: [pid Sensor](https://esphome.io/components/climate/pid.html#pid-sensor)*"
-            }
-          }
-        }
-      }
-    }
-  },
   "pid.climate": {
     "schemas": {
       "CONFIG_SCHEMA": {
@@ -295,6 +215,86 @@
           }
         },
         "docs": "This action sets new values for the control parameters of the PID controller. This can be used to manually tune the PID controller. Make sure to take update the values you want on the YAML file! They will reset on the next reboot.\n\n*See also: [`climate.pid.set_control_parameters` Action](https://esphome.io/components/climate/pid.html#climate-pid-set-control-parameters-action)*"
+      }
+    }
+  },
+  "pid.sensor": {
+    "schemas": {
+      "CONFIG_SCHEMA": {
+        "type": "schema",
+        "schema": {
+          "extends": [
+            "sensor.SENSOR_SCHEMA",
+            "core.COMPONENT_SCHEMA"
+          ],
+          "config_vars": {
+            "id": {
+              "id_type": {
+                "class": "pid::PIDClimateSensor",
+                "parents": [
+                  "sensor::Sensor",
+                  "EntityBase",
+                  "Component"
+                ]
+              }
+            },
+            "unit_of_measurement": {
+              "default": "%"
+            },
+            "icon": {
+              "default": "mdi:gauge"
+            },
+            "accuracy_decimals": {
+              "default": "1"
+            },
+            "state_class": {
+              "default": "measurement"
+            },
+            "climate_id": {
+              "key": "GeneratedID",
+              "use_id_type": "pid::PIDClimate",
+              "type": "use_id",
+              "docs": "**[ID](https://esphome.io/guides/configuration-types.html#config-id)**: The ID of the pid climate to get the values from.\n\n*See also: [pid Sensor](https://esphome.io/components/climate/pid.html#pid-sensor)*"
+            },
+            "type": {
+              "key": "Required",
+              "type": "enum",
+              "values": {
+                "RESULT": {
+                  "docs": "The resulting value (sum of P, I, and D terms)."
+                },
+                "ERROR": {
+                  "docs": "The calculated error (setpoint - process_variable)"
+                },
+                "PROPORTIONAL": {
+                  "docs": "The proportional term of the PID controller."
+                },
+                "INTEGRAL": {
+                  "docs": "The integral term of the PID controller."
+                },
+                "DERIVATIVE": {
+                  "docs": "The derivative term of the PID controller."
+                },
+                "HEAT": {
+                  "docs": "The resulting heating power to the supplied to the `heat_output`."
+                },
+                "COOL": {
+                  "docs": "The resulting cooling power to the supplied to the `cool_output`."
+                },
+                "KP": {
+                  "docs": "The current factor for the proportional term of the PID controller."
+                },
+                "KI": {
+                  "docs": "The current factor for the integral term of the PID controller."
+                },
+                "KD": {
+                  "docs": "The current factor for the differential term of the PID controller."
+                }
+              },
+              "docs": "**string**: The value to monitor. One of\n  * `RESULT` - The resulting value (sum of P, I, and D terms).\n  \n  * `ERROR` - The calculated error (setpoint - process_variable)\n  \n  * `PROPORTIONAL` - The proportional term of the PID controller.\n  \n  * `INTEGRAL` - The integral term of the PID controller.\n  \n  * `DERIVATIVE` - The derivative term of the PID controller.\n  \n  * `HEAT` - The resulting heating power to the supplied to the `heat_output`.\n  \n  * `COOL` - The resulting cooling power to the supplied to the `cool_output`.\n  \n  * `KP` - The current factor for the proportional term of the PID controller.\n  \n  * `KI` - The current factor for the integral term of the PID controller.\n  \n  * `KD` - The current factor for the differential term of the PID controller.\n  \n  \n\n*See also: [pid Sensor](https://esphome.io/components/climate/pid.html#pid-sensor)*"
+            }
+          }
+        }
       }
     }
   }

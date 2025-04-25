@@ -31,157 +31,6 @@
       }
     }
   },
-  "seeed_mr24hpc1.sensor": {
-    "schemas": {
-      "CONFIG_SCHEMA": {
-        "type": "schema",
-        "schema": {
-          "config_vars": {
-            "mr24hpc1_id": {
-              "key": "GeneratedID",
-              "use_id_type": "seeed_mr24hpc1::MR24HPC1Component",
-              "type": "use_id"
-            },
-            "custom_presence_of_detection": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "m"
-                  },
-                  "icon": {
-                    "default": "mdi:signal-distance-variant"
-                  },
-                  "accuracy_decimals": {
-                    "default": "2"
-                  },
-                  "device_class": {
-                    "default": "distance"
-                  }
-                }
-              },
-              "docs": "**float**: Valid only for [underlying open functions](https://esphome.io/components/seeed_mr24hpc1.html#seeed-mr24hpc1-open-function). Radar detects human breath at a straight line distance, usually no more than 3 metres. All options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n\n*See also: [seeed_mr24hpc1 Sensor](https://esphome.io/components/seeed_mr24hpc1.html#seeed-mr24hpc1-spatial-mtion)*"
-            },
-            "movement_signs": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "icon": {
-                    "default": "mdi:human-greeting-variant"
-                  }
-                }
-              },
-              "docs": "**int**: A value calculated by a built-in algorithm to determine if someone is moving in the current environment. When the value is 0, the radar determines that no one is present in the environment. When the value is 1, the radar determines that someone is present in the environment and is stationary. When the value is greater than 1, the radar determines that someone is present in the environment and is in motion. The larger the value, the stronger the motion. All options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n\n*See also: [seeed_mr24hpc1 Sensor](https://esphome.io/components/seeed_mr24hpc1.html#seeed-mr24hpc1-spatial-mtion)*"
-            },
-            "custom_motion_distance": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "m"
-                  },
-                  "icon": {
-                    "default": "mdi:signal-distance-variant"
-                  },
-                  "accuracy_decimals": {
-                    "default": "2"
-                  }
-                }
-              },
-              "docs": "**float**: Valid only for [underlying open functions](https://esphome.io/components/seeed_mr24hpc1.html#seeed-mr24hpc1-open-function). Distance in meters of detected moving target. All options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n\n*See also: [seeed_mr24hpc1 Sensor](https://esphome.io/components/seeed_mr24hpc1.html#seeed-mr24hpc1-spatial-mtion)*"
-            },
-            "custom_spatial_static_value": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "icon": {
-                    "default": "mdi:counter"
-                  },
-                  "device_class": {
-                    "default": "energy"
-                  }
-                }
-              },
-              "docs": "**int**: Valid only for [underlying open functions](https://esphome.io/components/seeed_mr24hpc1.html#seeed-mr24hpc1-open-function). Electromagnetic waves are present in the environment, with a low change in frequency when no one is present. The value of the overall space electromagnetic wave reflection weakly floating when there is someone breathing in the space (chest breathing micromotion). The output range for this value is 0-250. All options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n\n*See also: [seeed_mr24hpc1 Sensor](https://esphome.io/components/seeed_mr24hpc1.html#seeed-mr24hpc1-spatial-mtion)*"
-            },
-            "custom_spatial_motion_value": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "icon": {
-                    "default": "mdi:counter"
-                  },
-                  "device_class": {
-                    "default": "energy"
-                  }
-                }
-              },
-              "docs": "**int**: Valid only for [underlying open functions](https://esphome.io/components/seeed_mr24hpc1.html#seeed-mr24hpc1-open-function). Motion amplitude values, different motion amplitudes cause different electromagnetic wave frequency changes. The output range for this value is 0-250. All options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n\n*See also: [seeed_mr24hpc1 Sensor](https://esphome.io/components/seeed_mr24hpc1.html#seeed-mr24hpc1-spatial-mtion)*"
-            },
-            "custom_motion_speed": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "m/s"
-                  },
-                  "icon": {
-                    "default": "mdi:run-fast"
-                  },
-                  "accuracy_decimals": {
-                    "default": "2"
-                  },
-                  "device_class": {
-                    "default": "speed"
-                  }
-                }
-              },
-              "docs": "**float**: Valid only for [underlying open functions](https://esphome.io/components/seeed_mr24hpc1.html#seeed-mr24hpc1-open-function). The magnitude of the speed of the target movement is determined in real time. Approaching radar speed is positive, away is negative. When there is no movement speed, the value is 0, and the speed gear is in 0.5m/s increments. All options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n\n*See also: [seeed_mr24hpc1 Sensor](https://esphome.io/components/seeed_mr24hpc1.html#seeed-mr24hpc1-spatial-mtion)*"
-            },
-            "custom_mode_num": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "icon": {
-                    "default": "mdi:counter"
-                  }
-                }
-              },
-              "docs": "**int**: The custom mode number that the radar is currently in. If it is not in custom mode, then the value is 0. All options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n\n*See also: [seeed_mr24hpc1 Sensor](https://esphome.io/components/seeed_mr24hpc1.html#seeed-mr24hpc1-spatial-mtion)*"
-            }
-          }
-        }
-      }
-    }
-  },
   "seeed_mr24hpc1.binary_sensor": {
     "schemas": {
       "CONFIG_SCHEMA": {
@@ -606,6 +455,157 @@
                   }
                 }
               }
+            }
+          }
+        }
+      }
+    }
+  },
+  "seeed_mr24hpc1.sensor": {
+    "schemas": {
+      "CONFIG_SCHEMA": {
+        "type": "schema",
+        "schema": {
+          "config_vars": {
+            "mr24hpc1_id": {
+              "key": "GeneratedID",
+              "use_id_type": "seeed_mr24hpc1::MR24HPC1Component",
+              "type": "use_id"
+            },
+            "custom_presence_of_detection": {
+              "key": "Optional",
+              "type": "schema",
+              "schema": {
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ],
+                "config_vars": {
+                  "unit_of_measurement": {
+                    "default": "m"
+                  },
+                  "icon": {
+                    "default": "mdi:signal-distance-variant"
+                  },
+                  "accuracy_decimals": {
+                    "default": "2"
+                  },
+                  "device_class": {
+                    "default": "distance"
+                  }
+                }
+              },
+              "docs": "**float**: Valid only for [underlying open functions](https://esphome.io/components/seeed_mr24hpc1.html#seeed-mr24hpc1-open-function). Radar detects human breath at a straight line distance, usually no more than 3 metres. All options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n\n*See also: [seeed_mr24hpc1 Sensor](https://esphome.io/components/seeed_mr24hpc1.html#seeed-mr24hpc1-spatial-mtion)*"
+            },
+            "movement_signs": {
+              "key": "Optional",
+              "type": "schema",
+              "schema": {
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ],
+                "config_vars": {
+                  "icon": {
+                    "default": "mdi:human-greeting-variant"
+                  }
+                }
+              },
+              "docs": "**int**: A value calculated by a built-in algorithm to determine if someone is moving in the current environment. When the value is 0, the radar determines that no one is present in the environment. When the value is 1, the radar determines that someone is present in the environment and is stationary. When the value is greater than 1, the radar determines that someone is present in the environment and is in motion. The larger the value, the stronger the motion. All options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n\n*See also: [seeed_mr24hpc1 Sensor](https://esphome.io/components/seeed_mr24hpc1.html#seeed-mr24hpc1-spatial-mtion)*"
+            },
+            "custom_motion_distance": {
+              "key": "Optional",
+              "type": "schema",
+              "schema": {
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ],
+                "config_vars": {
+                  "unit_of_measurement": {
+                    "default": "m"
+                  },
+                  "icon": {
+                    "default": "mdi:signal-distance-variant"
+                  },
+                  "accuracy_decimals": {
+                    "default": "2"
+                  }
+                }
+              },
+              "docs": "**float**: Valid only for [underlying open functions](https://esphome.io/components/seeed_mr24hpc1.html#seeed-mr24hpc1-open-function). Distance in meters of detected moving target. All options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n\n*See also: [seeed_mr24hpc1 Sensor](https://esphome.io/components/seeed_mr24hpc1.html#seeed-mr24hpc1-spatial-mtion)*"
+            },
+            "custom_spatial_static_value": {
+              "key": "Optional",
+              "type": "schema",
+              "schema": {
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ],
+                "config_vars": {
+                  "icon": {
+                    "default": "mdi:counter"
+                  },
+                  "device_class": {
+                    "default": "energy"
+                  }
+                }
+              },
+              "docs": "**int**: Valid only for [underlying open functions](https://esphome.io/components/seeed_mr24hpc1.html#seeed-mr24hpc1-open-function). Electromagnetic waves are present in the environment, with a low change in frequency when no one is present. The value of the overall space electromagnetic wave reflection weakly floating when there is someone breathing in the space (chest breathing micromotion). The output range for this value is 0-250. All options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n\n*See also: [seeed_mr24hpc1 Sensor](https://esphome.io/components/seeed_mr24hpc1.html#seeed-mr24hpc1-spatial-mtion)*"
+            },
+            "custom_spatial_motion_value": {
+              "key": "Optional",
+              "type": "schema",
+              "schema": {
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ],
+                "config_vars": {
+                  "icon": {
+                    "default": "mdi:counter"
+                  },
+                  "device_class": {
+                    "default": "energy"
+                  }
+                }
+              },
+              "docs": "**int**: Valid only for [underlying open functions](https://esphome.io/components/seeed_mr24hpc1.html#seeed-mr24hpc1-open-function). Motion amplitude values, different motion amplitudes cause different electromagnetic wave frequency changes. The output range for this value is 0-250. All options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n\n*See also: [seeed_mr24hpc1 Sensor](https://esphome.io/components/seeed_mr24hpc1.html#seeed-mr24hpc1-spatial-mtion)*"
+            },
+            "custom_motion_speed": {
+              "key": "Optional",
+              "type": "schema",
+              "schema": {
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ],
+                "config_vars": {
+                  "unit_of_measurement": {
+                    "default": "m/s"
+                  },
+                  "icon": {
+                    "default": "mdi:run-fast"
+                  },
+                  "accuracy_decimals": {
+                    "default": "2"
+                  },
+                  "device_class": {
+                    "default": "speed"
+                  }
+                }
+              },
+              "docs": "**float**: Valid only for [underlying open functions](https://esphome.io/components/seeed_mr24hpc1.html#seeed-mr24hpc1-open-function). The magnitude of the speed of the target movement is determined in real time. Approaching radar speed is positive, away is negative. When there is no movement speed, the value is 0, and the speed gear is in 0.5m/s increments. All options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n\n*See also: [seeed_mr24hpc1 Sensor](https://esphome.io/components/seeed_mr24hpc1.html#seeed-mr24hpc1-spatial-mtion)*"
+            },
+            "custom_mode_num": {
+              "key": "Optional",
+              "type": "schema",
+              "schema": {
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ],
+                "config_vars": {
+                  "icon": {
+                    "default": "mdi:counter"
+                  }
+                }
+              },
+              "docs": "**int**: The custom mode number that the radar is currently in. If it is not in custom mode, then the value is 0. All options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n\n*See also: [seeed_mr24hpc1 Sensor](https://esphome.io/components/seeed_mr24hpc1.html#seeed-mr24hpc1-spatial-mtion)*"
             }
           }
         }

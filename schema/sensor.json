@@ -69,14 +69,12 @@
       "airthings_wave_mini": {
         "dependencies": [
           "ble_client"
-        ],
-        "docs": "AirThings Wave Mini tracks airborne chemicals, temperature, pressure and humidity.\n\n*See also: [Airthings Wave Mini Sensor](https://esphome.io/components/sensor/airthings_ble.html#airthings-wave-mini-sensor)*"
+        ]
       },
       "airthings_wave_plus": {
         "dependencies": [
           "ble_client"
-        ],
-        "docs": "AirThings Wave Plus tracks radon (24h and long term), airborne chemicals, CO2, temperature, atmospheric pressure and humidity.\n\n*See also: [Airthings Wave Plus Sensor](https://esphome.io/components/sensor/airthings_ble.html#airthings-wave-plus-sensor)*"
+        ]
       },
       "alpha3": {
         "docs": "The `alpha3` component allows you to monitor a Grundfos Alpha3 Model B circulator pump over BLE.\n\n*See also: [Grundfos Alpha3](https://esphome.io/components/sensor/alpha3.html#grundfos-alpha3)*"
@@ -108,7 +106,6 @@
         ],
         "docs": "The `apds9960` sensor allows you to use your [APDS9960 Sensor to perform different measurements.\n\n*See also: [apds9960 Sensor](https://esphome.io/components/sensor/apds9960.html#sensor)*"
       },
-      "arduino_port_expander": {},
       "as3935": {
         "dependencies": [
           "as3935"
@@ -137,6 +134,12 @@
       },
       "atm90e32": {
         "docs": "The `atm90e32` sensor platform allows you to use your ATM90E32 voltage/current and power sensors ([datasheet](http://ww1.microchip.com/downloads/en/devicedoc/Atmel-46003-SE-M90E32AS-Datasheet.pdf)) with ESPHome. This sensor is commonly found in CircuitSetup 2 and 6 channel energy meters and the [Gelidus Research](https://www.gelidus.ca/) 2 channel power meter.\n\n*See also: [ATM90E32 Power Sensor](https://esphome.io/components/sensor/atm90e32.html#atm90e32-power-sensor)*"
+      },
+      "b_parasite": {
+        "dependencies": [
+          "esp32_ble_tracker"
+        ],
+        "docs": "[b-parasite](https://github.com/rbaron/b-parasite) is an open source soil moisture and ambient temperature/humidity/light sensor.\n\n*See also: [b-parasite](https://esphome.io/components/sensor/b_parasite.html#b-parasite)*"
       },
       "bedjet": {
         "dependencies": [
@@ -217,7 +220,7 @@
         "dependencies": [
           "bme68x_bsec2"
         ],
-        "docs": "**[ID](https://esphome.io/guides/configuration-types.html#config-id)**: The ID of the `bme68x_bsec2_i2c` component sensors will refer to. Useful when multiple devices are present in your configuration.\n\n*See also: [bme68x_bsec2 Sensor](https://esphome.io/components/sensor/bme68x_bsec2.html#sensor)*"
+        "docs": "The `bme68x_bsec2_i2c` sensor platform allows you to use your [BME680](https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bme680-ds001.pdf) and [BME688](https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bme688-ds000.pdf) ([Adafruit](https://www.adafruit.com/product/3660), [Pimoroni](https://shop.pimoroni.com/products/bme680-breakout)) temperature, humidity, pressure and gas sensors with ESPHome via the Bosch Sensortec Environmental Cluster 2 (BSEC2) software library. The use of Bosch\u2019s proprietary algorithms provide an Index for Air Quality (IAQ) measurement derived from the gas resistance sensor\u2019s response to specific Volatile Organic Compounds (VOCs). The BSEC software also provides estimated values for CO\u2082 and Breath Volatile Organic Compounds (b-VOC) using a correlation between VOC and CO\u2082 in a human\u2019s exhaled breath.\n\n*See also: [BME68x Temperature, Humidity, Pressure & Gas Sensor via BSEC2](https://esphome.io/components/sensor/bme68x_bsec2.html#bme68x-temperature-humidity-pressure-gas-sensor-via-bsec2)*"
       },
       "bmi160": {
         "dependencies": [
@@ -259,12 +262,6 @@
         ],
         "docs": "The `bmp581` sensor platform allows you to use your BMP581 ([datasheet](https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmp581-ds004.pdf), [SparkFun](https://www.sparkfun.com/products/20170)) temperature and pressure sensors with ESPHome. The [I\u00b2C](https://esphome.io/components/i2c.html#i2c) bus is required to be set up in your configuration for this sensor to work.\n\n*See also: [BMP581 Temperature+Pressure Sensor](https://esphome.io/components/sensor/bmp581.html#bmp581-temperature-pressure-sensor)*"
       },
-      "b_parasite": {
-        "dependencies": [
-          "esp32_ble_tracker"
-        ],
-        "docs": "[b-parasite](https://github.com/rbaron/b-parasite) is an open source soil moisture and ambient temperature/humidity/light sensor.\n\n*See also: [b-parasite](https://esphome.io/components/sensor/b_parasite.html#b-parasite)*"
-      },
       "ccs811": {
         "dependencies": [
           "i2c"
@@ -280,9 +277,7 @@
       "combination": {
         "docs": "The `combination` sensor platform allows you to combine the state of several sensors into one. To use this sensor, specify the combination type and add your source sensors.\n\n*See also: [Combine the state of several sensors](https://esphome.io/components/sensor/combination.html#combine-the-state-of-several-sensors)*"
       },
-      "copy": {
-        "docs": "**[ID](https://esphome.io/guides/configuration-types.html#config-id)**: The sensor that should be mirrored.\n\n*See also: [Copy Sensor](https://esphome.io/components/copy.html#copy-sensor)*"
-      },
+      "copy": {},
       "cs5460a": {
         "dependencies": [
           "spi"
@@ -459,6 +454,12 @@
         ],
         "docs": "The `homeassistant` sensor platform allows you to create sensors that import states from your Home Assistant instance using the [native API](https://esphome.io/components/api.html).\n\n*See also: [Home Assistant Sensor](https://esphome.io/components/sensor/homeassistant.html#home-assistant-sensor)*"
       },
+      "honeywell_hih_i2c": {
+        "dependencies": [
+          "i2c"
+        ],
+        "docs": "Honeywell HumidIcon (I2C HIH series) Temperature & Humidity sensors with ESPHome ([website](https://sps.honeywell.com/us/en/products/advanced-sensing-technologies/healthcare-sensing/humidity-with-temperature-sensors), [datasheet](https://prod-edam.honeywell.com/content/dam/honeywell-edam/sps/siot/en-us/products/sensors/humidity-with-temperature-sensors/common/documents/sps-siot-humidity-sensors-line-guide-009034-7-en-ciid-54931.pdf?download=false)). The [I\u00b2C Bus](https://esphome.io/components/i2c.html#i2c) is required to be set up in your configuration for this sensor to work.\n\n*See also: [Honeywell HumidIcon (I2C HIH series) Temperature & Humidity Sensor](https://esphome.io/components/sensor/honeywell_hih_i2c.html#honeywell-humidicon-i2c-hih-series-temperature-humidity-sensor)*"
+      },
       "honeywellabp": {
         "dependencies": [
           "spi"
@@ -470,12 +471,6 @@
           "i2c"
         ],
         "docs": "The `honeywellabp2_i2c` sensor platform allows you to use your Honeywell ABP ([website](https://sps.honeywell.com/us/en/products/advanced-sensing-technologies/healthcare-sensing/board-mount-pressure-sensors/basic-abp2-series), [datasheet](https://prod-edam.honeywell.com/content/dam/honeywell-edam/sps/siot/en-us/products/sensors/pressure-sensors/board-mount-pressure-sensors/basic-abp2-series/documents/sps-siot-abp2-series-datasheet-32350268-en.pdf?download=false)) pressure and temperature sensors with ESPHome. The [I2C](https://esphome.io/components/i2c.html#i2c) is required to be set up in your configuration for this sensor to work\n\n*See also: [Honeywell ABP 2 Pressure Sensors](https://esphome.io/components/sensor/honeywellabp2_i2c.html#honeywell-abp-2-pressure-sensors)*"
-      },
-      "honeywell_hih_i2c": {
-        "dependencies": [
-          "i2c"
-        ],
-        "docs": "Honeywell HumidIcon (I2C HIH series) Temperature & Humidity sensors with ESPHome ([website](https://sps.honeywell.com/us/en/products/advanced-sensing-technologies/healthcare-sensing/humidity-with-temperature-sensors), [datasheet](https://prod-edam.honeywell.com/content/dam/honeywell-edam/sps/siot/en-us/products/sensors/humidity-with-temperature-sensors/common/documents/sps-siot-humidity-sensors-line-guide-009034-7-en-ciid-54931.pdf?download=false)). The [I\u00b2C Bus](https://esphome.io/components/i2c.html#i2c) is required to be set up in your configuration for this sensor to work.\n\n*See also: [Honeywell HumidIcon (I2C HIH series) Temperature & Humidity Sensor](https://esphome.io/components/sensor/honeywell_hih_i2c.html#honeywell-humidicon-i2c-hih-series-temperature-humidity-sensor)*"
       },
       "hrxl_maxsonar_wr": {
         "dependencies": [
@@ -594,13 +589,13 @@
         "docs": "The `ld2410` sensor allows you to use your [LD2410 Sensor to perform different measurements.\n\n*See also: [ld2410 Sensor](https://esphome.io/components/sensor/ld2410.html#sensor)*"
       },
       "ld2420": {
-        "docs": "The `ld2420` sensor allows you to use your [LD2420 24Ghz mmWave Radar Sensor to approximate the distance between the sensor and an object moving within its field of detection.\n\n*See also: [ld2420 Sensor](https://esphome.io/components/sensor/ld2420.html#sensor)*"
+        "docs": "The `ld2420` sensor platform allows you to use the HLK-LD2420 motion and presence sensor. The [UART](https://esphome.io/components/uart.html#uart) is required to be set up in your configuration for this sensor to work.\n\n*See also: [LD2420 24Ghz mmWave Radar Sensor](https://esphome.io/components/sensor/ld2420.html#ld2420-24ghz-mmwave-radar-sensor)*"
       },
       "ld2450": {
         "dependencies": [
           "ld2450"
         ],
-        "docs": "The `ld2450` sensor provides you with information about the states and attributes of detected targets.\n\n*See also: [ld2450 Sensor](https://esphome.io/components/sensor/ld2450.html#sensor)*"
+        "docs": "The `ld2450` component allows you to use the [HLK-LD2450](https://www.hlktech.net/index.php?id=1157) human presence, motion detection and tracking radar module with ESPHome.\n\n*See also: [LD2450 Sensor](https://esphome.io/components/sensor/ld2450.html#ld2450-sensor)*"
       },
       "ltr390": {
         "dependencies": [
@@ -778,7 +773,7 @@
         "dependencies": [
           "msa3xx"
         ],
-        "docs": "Acceleration data is available through sensors configuration. You can use shorthand notation like `acceleration_x: \"Acceleration X\"` or use regular notation. For regular notation only the **name** is required. All options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n\n*See also: [msa3xx Sensor](https://esphome.io/components/sensor/msa3xx.html#sensor)*"
+        "docs": "The `msa3xx` sensor platform allows you to use your MSA301 and MSA311 tri-axial, low-g accelerometers ([datasheet](https://cdn-shop.adafruit.com/product-files/5309/MSA311-V1.1-ENG.pdf)) with ESPHome. The [I\u00b2C](https://esphome.io/components/i2c.html#i2c) is required to be set up in your configuration for this sensor to work.\n\n*See also: [MSA301 and MSA311 Sensors](https://esphome.io/components/sensor/msa3xx.html#msa301-and-msa311-sensors)*"
       },
       "nau7802": {
         "dependencies": [
@@ -886,8 +881,7 @@
       "radon_eye_rd200": {
         "dependencies": [
           "ble_client"
-        ],
-        "docs": "Radon Eye RD200 tracks radon concentration over short periods (5 min interval) and longer periods (24h or month).\n\n*See also: [Radon Eye RD200 Sensor](https://esphome.io/components/sensor/radon_eye_ble.html#radon-eye-rd200-sensor)*"
+        ]
       },
       "resistance": {
         "docs": "The `resistance` platform is a helper sensor that allows you to convert readings from a voltage sensor (such as the [ADC Sensor](https://esphome.io/components/sensor/adc.html)) into resistance readings in \u2126 (ohm).\n\n*See also: [Resistance Sensor](https://esphome.io/components/sensor/resistance.html#resistance-sensor)*"
@@ -1434,8 +1428,7 @@
                 "extends": [
                   "core.positive_time_period_milliseconds"
                 ]
-              },
-              "docs": "**[Time](https://esphome.io/guides/configuration-types.html#config-time)**: Manually set the time in which the sensor values should be marked as \u201cexpired\u201d/\u201cunknown\u201d. Not providing any value means no expiry.\n\n*See also: [Sensor Component](https://esphome.io/components/sensor/index.html#base-sensor-configuration)*"
+              }
             },
             "filters": {
               "key": "Optional",
@@ -1446,13 +1439,11 @@
             },
             "on_value": {
               "key": "Optional",
-              "type": "trigger",
-              "docs": "**[Automation](https://esphome.io/automations/index.html#automation)**: An automation to perform when a new value is published. See [on_value](https://esphome.io/components/sensor/index.html#sensor-on-value).\n\n*See also: [Sensor Component](https://esphome.io/components/sensor/index.html#base-sensor-configuration)*"
+              "type": "trigger"
             },
             "on_raw_value": {
               "key": "Optional",
-              "type": "trigger",
-              "docs": "**[Automation](https://esphome.io/automations/index.html#automation)**: An automation to perform when a raw value is received that hasn\u2019t passed through any filters. See [on_raw_value](https://esphome.io/components/sensor/index.html#sensor-on-raw-value).\n\n*See also: [Sensor Component](https://esphome.io/components/sensor/index.html#base-sensor-configuration)*"
+              "type": "trigger"
             },
             "on_value_range": {
               "key": "Optional",
@@ -1474,8 +1465,7 @@
                   }
                 }
               },
-              "has_required_var": true,
-              "docs": "**[Automation](https://esphome.io/automations/index.html#automation)**: An automation to perform when a published value transition from outside to a range to inside. See [on_value_range](https://esphome.io/components/sensor/index.html#sensor-on-value-range).\n\n*See also: [Sensor Component](https://esphome.io/components/sensor/index.html#base-sensor-configuration)*"
+              "has_required_var": true
             }
           }
         }

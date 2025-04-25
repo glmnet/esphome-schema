@@ -58,16 +58,13 @@
             "id": {
               "key": "Required",
               "use_id_type": "datetime::DateTimeEntity",
-              "type": "use_id",
-              "docs": "**[ID](https://esphome.io/guides/configuration-types.html#config-id)**: The ID of the datetime to set.\n\n*See also: [Datetime Component](https://esphome.io/components/datetime/index.html#datetime-datetime-set-action)*"
+              "type": "use_id"
             },
             "datetime": {
-              "key": "Required",
-              "docs": "**string, datetime parts, [templatable](https://esphome.io/automations/templates.html#config-templatable)**: The value to set the datetime to.\n\n*See also: [Datetime Component](https://esphome.io/components/datetime/index.html#datetime-datetime-set-action)*"
+              "key": "Required"
             }
           }
-        },
-        "docs": "This is an [Action](https://esphome.io/automations/actions.html#config-action) for setting a datetime datetime state. The `datetime` provided can be in one of 3 formats:\n\n*See also: [`datetime.datetime.set` Action](https://esphome.io/components/datetime/index.html#datetime-datetime-set-action)*"
+        }
       }
     }
   }

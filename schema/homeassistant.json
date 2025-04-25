@@ -129,34 +129,6 @@
       }
     }
   },
-  "homeassistant.sensor": {
-    "schemas": {
-      "CONFIG_SCHEMA": {
-        "type": "schema",
-        "schema": {
-          "extends": [
-            "sensor.SENSOR_SCHEMA",
-            "homeassistant.HOME_ASSISTANT_IMPORT_SCHEMA"
-          ],
-          "config_vars": {
-            "id": {
-              "id_type": {
-                "class": "homeassistant::HomeassistantSensor",
-                "parents": [
-                  "sensor::Sensor",
-                  "EntityBase",
-                  "Component"
-                ]
-              }
-            },
-            "accuracy_decimals": {
-              "default": "1"
-            }
-          }
-        }
-      }
-    }
-  },
   "homeassistant.binary_sensor": {
     "schemas": {
       "CONFIG_SCHEMA": {
@@ -203,6 +175,34 @@
                   "Component"
                 ]
               }
+            }
+          }
+        }
+      }
+    }
+  },
+  "homeassistant.sensor": {
+    "schemas": {
+      "CONFIG_SCHEMA": {
+        "type": "schema",
+        "schema": {
+          "extends": [
+            "sensor.SENSOR_SCHEMA",
+            "homeassistant.HOME_ASSISTANT_IMPORT_SCHEMA"
+          ],
+          "config_vars": {
+            "id": {
+              "id_type": {
+                "class": "homeassistant::HomeassistantSensor",
+                "parents": [
+                  "sensor::Sensor",
+                  "EntityBase",
+                  "Component"
+                ]
+              }
+            },
+            "accuracy_decimals": {
+              "default": "1"
             }
           }
         }

@@ -248,7 +248,8 @@
                 "WAV": null,
                 "MP3": null,
                 "FLAC": null
-              }
+              },
+              "docs": "**enum**: The audio format Home Asssistant will transcode audio to before sending it to the device. One of `FLAC`, `MP3`, `WAV`, or `NONE`. `NONE` disables transcoding in Home Assistant. Defaults to `FLAC`.\n\n*See also: [Speaker Audio Media Player](https://esphome.io/components/media_player/speaker.html#configuration-variables)*"
             },
             "sample_rate": {
               "key": "Optional",
@@ -288,7 +289,7 @@
                   "speaker.media_player.PIPELINE_SCHEMA"
                 ]
               },
-              "docs": "**Pipeline Schema**: Configuration settings for the announcement pipeline.\n  * **speaker** (**Required**, [ID](https://esphome.io/guides/configuration-types.html#config-id)): The [speaker](https://esphome.io/components/speaker/index.html) to output the audio.\n  \n  * **format** (**Optional**, enum): The audio format Home Asssistant will transcode audio to before sending it to the device. One of `FLAC`, `MP3`, `WAV`, or `NONE`. `NONE` disables transcoding in Home Assistant. Defaults to `FLAC`.\n  \n  * **sample_rate** (*Optional*, positive integer): Sample rate for the transcoded audio. Should be supported by the configured `speaker` component. Defaults to the speaker\u2019s sample rate.\n  \n  * **num_channels** (*Optional*, positive integer): Number of channels for the transcoded audio. Must be either `1` or `2`. Defaults to the speaker\u2019s number of channels.\n  \n  \n\n*See also: [Speaker Audio Media Player](https://esphome.io/components/media_player/speaker.html#configuration-variables)*"
+              "docs": "**Pipeline Schema**: Configuration settings for the announcement pipeline.\n  * **speaker** (**Required**, [ID](https://esphome.io/guides/configuration-types.html#config-id)): The [speaker](https://esphome.io/components/speaker/index.html) to output the audio.\n  \n  * **format** (*Optional*, enum): The audio format Home Asssistant will transcode audio to before sending it to the device. One of `FLAC`, `MP3`, `WAV`, or `NONE`. `NONE` disables transcoding in Home Assistant. Defaults to `FLAC`.\n  \n  * **sample_rate** (*Optional*, positive integer): Sample rate for the transcoded audio. Should be supported by the configured `speaker` component. Defaults to the speaker\u2019s sample rate.\n  \n  * **num_channels** (*Optional*, positive integer): Number of channels for the transcoded audio. Must be either `1` or `2`. Defaults to the speaker\u2019s number of channels.\n  \n  \n\n*See also: [Speaker Audio Media Player](https://esphome.io/components/media_player/speaker.html#configuration-variables)*"
             },
             "media_pipeline": {
               "key": "Optional",

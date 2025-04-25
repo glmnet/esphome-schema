@@ -81,8 +81,7 @@
             "color": {
               "key": "Optional",
               "use_id_type": "Color",
-              "type": "use_id",
-              "docs": "Sets the color of the sensor trace.\n\n*See also: [Graph Component](https://esphome.io/components/graph.html#configuration-variables)*"
+              "type": "use_id"
             },
             "min_value": {
               "key": "Optional",

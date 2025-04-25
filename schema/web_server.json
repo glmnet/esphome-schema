@@ -14,7 +14,7 @@
                   "Controller"
                 ]
               },
-              "docs": "**[ID](https://esphome.io/guides/configuration-types.html#config-id)**: Manually specify the ID used for code generation.\n\n*See also: [Web Server Component](https://esphome.io/components/web_server.html#configuration-variables)*"
+              "docs": "**[ID](https://esphome.io/guides/configuration-types.html#config-id)**: Manually specify the ID used for the group.\n\n*See also: [Web Server Component](https://esphome.io/components/web_server.html#configuration-variables)*"
             },
             "port": {
               "key": "Optional",
@@ -127,6 +127,9 @@
                   }
                 }
               }
+            },
+            "name": {
+              "docs": "**string**: A string representing the group name which is displayed as the header of the group\n\n*See also: [Web Server Component](https://esphome.io/components/web_server.html#configuration-variables)*"
             }
           },
           "extends": [

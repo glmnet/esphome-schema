@@ -286,11 +286,13 @@
           "config_vars": {
             "ssid": {
               "key": "Required",
-              "templatable": true
+              "templatable": true,
+              "docs": "**string, [templatable](https://esphome.io/automations/templates.html#config-templatable)**: The name of the WiFi access point.\n\n*See also: [Enterprise Authentication](https://esphome.io/components/wifi.html#wifi-configure-action)*"
             },
             "password": {
               "key": "Required",
-              "templatable": true
+              "templatable": true,
+              "docs": "**string, [templatable](https://esphome.io/automations/templates.html#config-templatable)**: The password of the WiFi access point. Leave empty for no password.\n\n*See also: [Enterprise Authentication](https://esphome.io/components/wifi.html#wifi-configure-action)*"
             },
             "save": {
               "key": "Optional",

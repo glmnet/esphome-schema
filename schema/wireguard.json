@@ -141,39 +141,6 @@
       }
     }
   },
-  "wireguard.sensor": {
-    "schemas": {
-      "CONFIG_SCHEMA": {
-        "type": "schema",
-        "schema": {
-          "config_vars": {
-            "wireguard_id": {
-              "key": "GeneratedID",
-              "use_id_type": "wireguard::Wireguard",
-              "type": "use_id"
-            },
-            "latest_handshake": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "device_class": {
-                    "default": "timestamp"
-                  },
-                  "entity_category": {
-                    "default": "diagnostic"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  },
   "wireguard.binary_sensor": {
     "schemas": {
       "CONFIG_SCHEMA": {
@@ -207,6 +174,39 @@
                   "binary_sensor.BINARY_SENSOR_SCHEMA"
                 ],
                 "config_vars": {
+                  "entity_category": {
+                    "default": "diagnostic"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "wireguard.sensor": {
+    "schemas": {
+      "CONFIG_SCHEMA": {
+        "type": "schema",
+        "schema": {
+          "config_vars": {
+            "wireguard_id": {
+              "key": "GeneratedID",
+              "use_id_type": "wireguard::Wireguard",
+              "type": "use_id"
+            },
+            "latest_handshake": {
+              "key": "Optional",
+              "type": "schema",
+              "schema": {
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ],
+                "config_vars": {
+                  "device_class": {
+                    "default": "timestamp"
+                  },
                   "entity_category": {
                     "default": "diagnostic"
                   }

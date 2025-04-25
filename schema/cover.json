@@ -7,9 +7,7 @@
         ],
         "docs": "The `am43` cover platform allows you to control an AM43 based BLE cover motor. These devices are sold under various brands, such as Zemismart and A-OK. The platform connects to the device over the ESP32\u2019s BLE peripheral and both controls and fetches the position and state of the motor.\n\n*See also: [AM43 Cover](https://esphome.io/components/cover/am43.html#am43-cover)*"
       },
-      "copy": {
-        "docs": "**[ID](https://esphome.io/guides/configuration-types.html#config-id)**: The cover that should be mirrored.\n\n*See also: [Copy Cover](https://esphome.io/components/copy.html#copy-cover)*"
-      },
+      "copy": {},
       "current_based": {
         "docs": "The `current_based` cover platform allows you to create covers with position control by using current sensors to detect the fully-open and fully-closed states. This is pretty useful when using motors with integrated mechanical endstops. During cover operation, the component monitors the current consumption to detect when the motor has stopped.\n\n*See also: [Current Based Cover](https://esphome.io/components/cover/current_based.html#current-based-cover)*"
       },

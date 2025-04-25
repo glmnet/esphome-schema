@@ -179,6 +179,74 @@
       }
     }
   },
+  "msa3xx.binary_sensor": {
+    "schemas": {
+      "CONFIG_SCHEMA": {
+        "type": "schema",
+        "schema": {
+          "extends": [
+            "msa3xx.MSA_SENSOR_SCHEMA"
+          ],
+          "config_vars": {
+            "tap": {
+              "key": "Optional",
+              "type": "schema",
+              "maybe": "name",
+              "schema": {
+                "extends": [
+                  "binary_sensor.BINARY_SENSOR_SCHEMA"
+                ],
+                "config_vars": {
+                  "icon": {
+                    "default": "mdi:gesture-tap"
+                  },
+                  "device_class": {
+                    "default": "vibration"
+                  }
+                }
+              }
+            },
+            "double_tap": {
+              "key": "Optional",
+              "type": "schema",
+              "maybe": "name",
+              "schema": {
+                "extends": [
+                  "binary_sensor.BINARY_SENSOR_SCHEMA"
+                ],
+                "config_vars": {
+                  "icon": {
+                    "default": "mdi:gesture-double-tap"
+                  },
+                  "device_class": {
+                    "default": "vibration"
+                  }
+                }
+              }
+            },
+            "active": {
+              "key": "Optional",
+              "type": "schema",
+              "maybe": "name",
+              "schema": {
+                "extends": [
+                  "binary_sensor.BINARY_SENSOR_SCHEMA"
+                ],
+                "config_vars": {
+                  "icon": {
+                    "default": "mdi:vibrate"
+                  },
+                  "device_class": {
+                    "default": "vibration"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
   "msa3xx.sensor": {
     "schemas": {
       "accel_schema": {
@@ -218,8 +286,7 @@
                 "extends": [
                   "msa3xx.sensor.accel_schema"
                 ]
-              },
-              "docs": "X-axis acceleration, m/s\u00b2.\n\n*See also: [msa3xx Sensor](https://esphome.io/components/sensor/msa3xx.html#id2)*"
+              }
             },
             "acceleration_y": {
               "key": "Optional",
@@ -228,8 +295,7 @@
                 "extends": [
                   "msa3xx.sensor.accel_schema"
                 ]
-              },
-              "docs": "Y-axis acceleration, m/s\u00b2.\n\n*See also: [msa3xx Sensor](https://esphome.io/components/sensor/msa3xx.html#id2)*"
+              }
             },
             "acceleration_z": {
               "key": "Optional",
@@ -239,80 +305,6 @@
                   "msa3xx.sensor.accel_schema"
                 ]
               }
-            },
-            "update_interval": {
-              "docs": "**[Time](https://esphome.io/guides/configuration-types.html#config-time)**: The interval for updating acceleration sensors. Defaults to `10s`.\n\n*See also: [msa3xx Component/Hub](https://esphome.io/components/sensor/msa3xx.html#configuration-variables)*"
-            }
-          }
-        }
-      }
-    }
-  },
-  "msa3xx.binary_sensor": {
-    "schemas": {
-      "CONFIG_SCHEMA": {
-        "type": "schema",
-        "schema": {
-          "extends": [
-            "msa3xx.MSA_SENSOR_SCHEMA"
-          ],
-          "config_vars": {
-            "tap": {
-              "key": "Optional",
-              "type": "schema",
-              "maybe": "name",
-              "schema": {
-                "extends": [
-                  "binary_sensor.BINARY_SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "icon": {
-                    "default": "mdi:gesture-tap"
-                  },
-                  "device_class": {
-                    "default": "vibration"
-                  }
-                }
-              },
-              "docs": "Single tap detection.\n\n*See also: [msa3xx Binary Sensor](https://esphome.io/components/sensor/msa3xx.html#id1)*"
-            },
-            "double_tap": {
-              "key": "Optional",
-              "type": "schema",
-              "maybe": "name",
-              "schema": {
-                "extends": [
-                  "binary_sensor.BINARY_SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "icon": {
-                    "default": "mdi:gesture-double-tap"
-                  },
-                  "device_class": {
-                    "default": "vibration"
-                  }
-                }
-              },
-              "docs": "Double tap detection.\n\n*See also: [msa3xx Binary Sensor](https://esphome.io/components/sensor/msa3xx.html#id1)*"
-            },
-            "active": {
-              "key": "Optional",
-              "type": "schema",
-              "maybe": "name",
-              "schema": {
-                "extends": [
-                  "binary_sensor.BINARY_SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "icon": {
-                    "default": "mdi:vibrate"
-                  },
-                  "device_class": {
-                    "default": "vibration"
-                  }
-                }
-              },
-              "docs": "Movement detection.\n\n*See also: [msa3xx Binary Sensor](https://esphome.io/components/sensor/msa3xx.html#id1)*"
             }
           }
         }
@@ -341,8 +333,7 @@
                     "default": "mdi:screen-rotation"
                   }
                 }
-              },
-              "docs": "XY orientation. Can be one of `Portrait Upright`, `Portrait Upside Down`, `Landscape Left`, `Landscape Right`.\n\n*See also: [msa3xx Text Sensor](https://esphome.io/components/sensor/msa3xx.html#id3)*"
+              }
             },
             "orientation_z": {
               "key": "Optional",
@@ -357,8 +348,7 @@
                     "default": "mdi:screen-rotation"
                   }
                 }
-              },
-              "docs": "Z orientation. Can be one of `Upwards looking`, `Downwards looking`\n\n*See also: [msa3xx Text Sensor](https://esphome.io/components/sensor/msa3xx.html#id3)*"
+              }
             }
           }
         }

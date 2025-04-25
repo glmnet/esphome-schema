@@ -83,8 +83,7 @@
               "type": "use_id"
             },
             "uid": {
-              "key": "Required",
-              "docs": "**string**: The unique ID of the NFC/RFID tag. This is a hyphen-separated list of hexadecimal values. For example `74-10-37-94`.\n\n*See also: [pn532 Binary Sensor](https://esphome.io/components/binary_sensor/pn532.html#id2)*"
+              "key": "Required"
             }
           }
         }
