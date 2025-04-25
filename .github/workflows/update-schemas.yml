@@ -34,6 +34,20 @@ jobs:
       - name: Generate language schema
         run: |
           python esphome/script/build_language_schema.py --output-path=./schema
+          cd ..
+
+      - name: Clone ESPHome docs repository
+        run: |
+          git clone --depth=1 --branch=schema-2025-4 https://github.com/glmnet/esphome-docs.git
+
+      - name: Install ESPHome docs dependencies
+        run: |
+          cd esphome-docs
+          pip install -r requirements.txt
+
+      - name: Add docs to language schema
+        run: |
+          python -m sphinx -a -Dextensions=github,seo,sitemap,schema_doc . _build
 
       - name: Commit changes to schema folder
         run: |
