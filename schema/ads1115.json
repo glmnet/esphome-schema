@@ -2,11 +2,27 @@
   "ads1115": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
+        "is_list": true,
         "schema": {
           "config_vars": {
-            "id": {
+            "address": {
+              "data_type": "hex_uint8_t",
+              "docs": "**, int**: The i\u00b2c address of the sensor. See [I\u00b2C Addresses](https://esphome.io/components/sensor/ads1115.html#ads1115-i2c-addresses) for more information.\n\n*See also: [ads1115 Component/Hub](https://esphome.io/components/sensor/ads1115.html#configuration-variables)*",
+              "key": "Required"
+            },
+            "continuous_mode": {
+              "default": "False",
+              "docs": "**, boolean**: Set if the ADS1115 should continuously measure voltages or only measure them when an update is called. Please enable this for the [CT Clamp Current Sensor](https://esphome.io/components/sensor/ct_clamp.html) component. Defaults to `off`.\n\n*See also: [ads1115 Component/Hub](https://esphome.io/components/sensor/ads1115.html#configuration-variables)*",
+              "key": "Optional",
+              "type": "boolean"
+            },
+            "i2c_id": {
               "key": "GeneratedID",
+              "type": "use_id",
+              "use_id_type": "i2c::I2CBus"
+            },
+            "id": {
+              "docs": "**, [ID](https://esphome.io/guides/configuration-types.html#config-id)**: Manually specify the ID for this ADS1115 Hub. Use this if you want to use multiple ADS1115 hubs at once.\n\n*See also: [ads1115 Component/Hub](https://esphome.io/components/sensor/ads1115.html#configuration-variables)*",
               "id_type": {
                 "class": "ads1115::ADS1115Component",
                 "parents": [
@@ -14,134 +30,118 @@
                   "i2c::I2CDevice"
                 ]
               },
-              "docs": "**[ID](https://esphome.io/guides/configuration-types.html#config-id)**: Manually specify the ID for this ADS1115 Hub. Use this if you want to use multiple ADS1115 hubs at once.\n\n*See also: [ads1115 Component/Hub](https://esphome.io/components/sensor/ads1115.html#configuration-variables)*"
-            },
-            "continuous_mode": {
-              "key": "Optional",
-              "default": "False",
-              "type": "boolean",
-              "docs": "**boolean**: Set if the ADS1115 should continuously measure voltages or only measure them when an update is called. Please enable this for the [CT Clamp Current Sensor](https://esphome.io/components/sensor/ct_clamp.html) component. Defaults to `off`.\n\n*See also: [ads1115 Component/Hub](https://esphome.io/components/sensor/ads1115.html#configuration-variables)*"
-            },
-            "i2c_id": {
-              "key": "GeneratedID",
-              "use_id_type": "i2c::I2CBus",
-              "type": "use_id"
-            },
-            "address": {
-              "key": "Required",
-              "data_type": "hex_uint8_t",
-              "docs": "**int**: The i\u00b2c address of the sensor. See [I\u00b2C Addresses](https://esphome.io/components/sensor/ads1115.html#ads1115-i2c-addresses) for more information.\n\n*See also: [ads1115 Component/Hub](https://esphome.io/components/sensor/ads1115.html#configuration-variables)*"
+              "key": "GeneratedID"
             }
           },
           "extends": [
             "core.COMPONENT_SCHEMA"
           ]
         },
-        "is_list": true
+        "type": "schema"
       }
     }
   },
   "ads1115.sensor": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
         "schema": {
-          "extends": [
-            "sensor.SENSOR_SCHEMA",
-            "core.COMPONENT_SCHEMA"
-          ],
           "config_vars": {
-            "id": {
-              "id_type": {
-                "class": "ads1115::ADS1115Sensor",
-                "parents": [
-                  "sensor::Sensor",
-                  "EntityBase",
-                  "PollingComponent",
-                  "Component",
-                  "voltage_sampler::VoltageSampler"
-                ]
-              }
-            },
-            "unit_of_measurement": {
-              "default": "V"
-            },
             "accuracy_decimals": {
               "default": "3"
+            },
+            "ads1115_id": {
+              "docs": "**, [ID](https://esphome.io/guides/configuration-types.html#config-id)**: Manually specify the ID of the [ADS1115 Hub](https://esphome.io/components/sensor/ads1115.html#ads1115-component) you want to use this sensor.\n\n*See also: [ads1115 Sensor](https://esphome.io/components/sensor/ads1115.html#id1)*",
+              "key": "GeneratedID",
+              "type": "use_id",
+              "use_id_type": "ads1115::ADS1115Component"
             },
             "device_class": {
               "default": "voltage"
             },
-            "state_class": {
-              "default": "measurement"
+            "gain": {
+              "docs": "**, float**: The gain of this sensor.\n\n*See also: [ads1115 Sensor](https://esphome.io/components/sensor/ads1115.html#id1)*",
+              "key": "Required",
+              "type": "enum",
+              "values": {
+                "0.256": null,
+                "0.512": null,
+                "1.024": null,
+                "2.048": null,
+                "4.096": null,
+                "6.144": null
+              }
             },
-            "ads1115_id": {
-              "key": "GeneratedID",
-              "use_id_type": "ads1115::ADS1115Component",
-              "type": "use_id",
-              "docs": "**[ID](https://esphome.io/guides/configuration-types.html#config-id)**: Manually specify the ID of the [ADS1115 Hub](https://esphome.io/components/sensor/ads1115.html#ads1115-component) you want to use this sensor.\n\n*See also: [ads1115 Sensor](https://esphome.io/components/sensor/ads1115.html#id1)*"
+            "id": {
+              "id_type": {
+                "class": "ads1115::ADS1115Sensor",
+                "parents": [
+                  "Component",
+                  "EntityBase",
+                  "PollingComponent",
+                  "sensor::Sensor",
+                  "voltage_sampler::VoltageSampler"
+                ]
+              }
             },
             "multiplexer": {
+              "docs": "The multiplexer channel of this sensor. Effectively means between which pins you want to measure voltage.\n\n*See also: [ads1115 Sensor](https://esphome.io/components/sensor/ads1115.html#id1)*",
               "key": "Required",
               "type": "enum",
               "values": {
                 "A0_A1": null,
                 "A0_A3": null,
-                "A1_A3": null,
-                "A2_A3": null,
                 "A0_GND": null,
+                "A1_A3": null,
                 "A1_GND": null,
+                "A2_A3": null,
                 "A2_GND": null,
                 "A3_GND": null
-              },
-              "docs": "The multiplexer channel of this sensor. Effectively means between which pins you want to measure voltage.\n\n*See also: [ads1115 Sensor](https://esphome.io/components/sensor/ads1115.html#id1)*"
-            },
-            "gain": {
-              "key": "Required",
-              "type": "enum",
-              "values": {
-                "6.144": null,
-                "4.096": null,
-                "2.048": null,
-                "1.024": null,
-                "0.512": null,
-                "0.256": null
-              },
-              "docs": "**float**: The gain of this sensor.\n\n*See also: [ads1115 Sensor](https://esphome.io/components/sensor/ads1115.html#id1)*"
+              }
             },
             "resolution": {
-              "key": "Optional",
               "default": "16_BITS",
+              "docs": "**, string**: the resolution of this sensor. Defaults to `16 bits`.\n\n*See also: [ads1115 Sensor](https://esphome.io/components/sensor/ads1115.html#id1)*",
+              "key": "Optional",
               "type": "enum",
               "values": {
-                "16_BITS": null,
-                "12_BITS": null
-              },
-              "docs": "**string**: the resolution of this sensor. Defaults to `16 bits`.\n\n*See also: [ads1115 Sensor](https://esphome.io/components/sensor/ads1115.html#id1)*"
+                "12_BITS": null,
+                "16_BITS": null
+              }
             },
             "sample_rate": {
-              "key": "Optional",
               "default": "860",
+              "docs": "**, int**: The sample rate of this sensor. Defaults to `860`.\n\n*See also: [ads1115 Sensor](https://esphome.io/components/sensor/ads1115.html#id1)*",
+              "key": "Optional",
               "type": "enum",
               "values": {
-                "8": null,
-                "16": null,
-                "32": null,
-                "64": null,
                 "128": null,
+                "16": null,
                 "250": null,
+                "32": null,
                 "475": null,
+                "64": null,
+                "8": null,
                 "860": null
-              },
-              "docs": "**int**: The sample rate of this sensor. Defaults to `860`.\n\n*See also: [ads1115 Sensor](https://esphome.io/components/sensor/ads1115.html#id1)*"
+              }
+            },
+            "state_class": {
+              "default": "measurement"
+            },
+            "unit_of_measurement": {
+              "default": "V"
             },
             "update_interval": {
-              "key": "Optional",
               "default": "60s",
-              "docs": "**[Time](https://esphome.io/guides/configuration-types.html#config-time)**: The interval to check the sensor. Defaults to `60s`.\n\n*See also: [ads1115 Sensor](https://esphome.io/components/sensor/ads1115.html#id1)*"
+              "docs": "**, [Time](https://esphome.io/guides/configuration-types.html#config-time)**: The interval to check the sensor. Defaults to `60s`.\n\n*See also: [ads1115 Sensor](https://esphome.io/components/sensor/ads1115.html#id1)*",
+              "key": "Optional"
             }
-          }
-        }
+          },
+          "extends": [
+            "core.COMPONENT_SCHEMA",
+            "sensor.SENSOR_SCHEMA"
+          ]
+        },
+        "type": "schema"
       }
     }
   }

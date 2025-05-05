@@ -1,5 +1,41 @@
 {
   "microphone": {
+    "action": {
+      "capture": {
+        "docs": "This action will start capturing audio data from the microphone. The data will be passed to any components listening and will be available in the `on_data` trigger.\n\n*See also: [`microphone.capture` Action](https://esphome.io/components/microphone/index.html#microphone-capture-action)*",
+        "schema": {
+          "extends": [
+            "microphone.MICROPHONE_ACTION_SCHEMA"
+          ]
+        },
+        "type": "schema"
+      },
+      "mute": {
+        "schema": {
+          "extends": [
+            "microphone.MICROPHONE_ACTION_SCHEMA"
+          ]
+        },
+        "type": "schema"
+      },
+      "stop_capture": {
+        "docs": "This action will stop capturing audio data from the microphone.\n\n*See also: [`microphone.stop_capture` Action](https://esphome.io/components/microphone/index.html#microphone-stop-capture-action)*",
+        "schema": {
+          "extends": [
+            "microphone.MICROPHONE_ACTION_SCHEMA"
+          ]
+        },
+        "type": "schema"
+      },
+      "unmute": {
+        "schema": {
+          "extends": [
+            "microphone.MICROPHONE_ACTION_SCHEMA"
+          ]
+        },
+        "type": "schema"
+      }
+    },
     "components": {
       "i2s_audio": {
         "dependencies": [
@@ -8,63 +44,63 @@
         "docs": "The `i2s_audio` microphone platform allows you to receive audio via the the [I\u00b2S Audio Component](https://esphome.io/components/i2s_audio.html).\n\n*See also: [I\u00b2S Audio Microphone](https://esphome.io/components/microphone/i2s_audio.html#i2s-audio-microphone)*"
       }
     },
-    "schemas": {
-      "MICROPHONE_SCHEMA": {
-        "type": "schema",
+    "condition": {
+      "is_capturing": {
+        "docs": "This condition will check if the microphone is currently capturing audio data.\n\n*See also: [`microphone.is_capturing` Condition](https://esphome.io/components/microphone/index.html#microphone-is-capturing-condition)*",
         "schema": {
-          "config_vars": {
-            "on_data": {
-              "key": "Optional",
-              "type": "trigger",
-              "docs": "**[Automation](https://esphome.io/automations/index.html#automation)**: An automation to perform when new data is received.\n\n*See also: [Microphone Components](https://esphome.io/components/microphone/index.html#base-microphone-configuration)*"
-            }
-          }
-        }
+          "extends": [
+            "microphone.MICROPHONE_ACTION_SCHEMA"
+          ]
+        },
+        "type": "schema"
       },
+      "is_muted": {
+        "schema": {
+          "extends": [
+            "microphone.MICROPHONE_ACTION_SCHEMA"
+          ]
+        },
+        "type": "schema"
+      }
+    },
+    "schemas": {
       "MICROPHONE_ACTION_SCHEMA": {
-        "type": "schema",
         "maybe": "id",
         "schema": {
           "config_vars": {
             "id": {
+              "docs": "**, [ID](https://esphome.io/guides/configuration-types.html#config-id)**: The microphone to check. Defaults to the only one in YAML.\n\n*See also: [microphone.on_data Trigger](https://esphome.io/components/microphone/index.html#microphone-on-data-trigger)*",
               "key": "GeneratedID",
-              "use_id_type": "microphone::Microphone",
               "type": "use_id",
-              "docs": "**[ID](https://esphome.io/guides/configuration-types.html#config-id)**: The microphone to check. Defaults to the only one in YAML.\n\n*See also: [microphone.on_data Trigger](https://esphome.io/components/microphone/index.html#microphone-on-data-trigger)*"
+              "use_id_type": "microphone::Microphone"
             }
           }
-        }
-      }
-    },
-    "action": {
-      "capture": {
-        "type": "schema",
-        "schema": {
-          "extends": [
-            "microphone.MICROPHONE_ACTION_SCHEMA"
-          ]
         },
-        "docs": "This action will start capturing audio data from the microphone. The data will be passed to any components listening and will be available in the `on_data` trigger.\n\n*See also: [`microphone.capture` Action](https://esphome.io/components/microphone/index.html#microphone-capture-action)*"
+        "type": "schema"
       },
-      "stop_capture": {
-        "type": "schema",
+      "MICROPHONE_SCHEMA": {
         "schema": {
-          "extends": [
-            "microphone.MICROPHONE_ACTION_SCHEMA"
-          ]
+          "config_vars": {
+            "bits_per_sample": {
+              "key": "Optional",
+              "type": "integer"
+            },
+            "num_channels": {
+              "key": "Optional",
+              "type": "integer"
+            },
+            "on_data": {
+              "docs": "**, [Automation](https://esphome.io/automations/index.html#automation)**: An automation to perform when new data is received.\n\n*See also: [Microphone Components](https://esphome.io/components/microphone/index.html#base-microphone-configuration)*",
+              "key": "Optional",
+              "type": "trigger"
+            },
+            "sample_rate": {
+              "key": "Optional",
+              "type": "integer"
+            }
+          }
         },
-        "docs": "This action will stop capturing audio data from the microphone.\n\n*See also: [`microphone.stop_capture` Action](https://esphome.io/components/microphone/index.html#microphone-stop-capture-action)*"
-      }
-    },
-    "condition": {
-      "is_capturing": {
-        "type": "schema",
-        "schema": {
-          "extends": [
-            "microphone.MICROPHONE_ACTION_SCHEMA"
-          ]
-        },
-        "docs": "This condition will check if the microphone is currently capturing audio data.\n\n*See also: [`microphone.is_capturing` Condition](https://esphome.io/components/microphone/index.html#microphone-is-capturing-condition)*"
+        "type": "schema"
       }
     }
   }

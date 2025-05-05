@@ -1,132 +1,132 @@
 {
+  "pulse_counter": {
+    "action": {
+      "set_total_pulses": {
+        "schema": {
+          "config_vars": {
+            "id": {
+              "key": "Required",
+              "type": "use_id",
+              "use_id_type": "pulse_counter::PulseCounterSensor"
+            },
+            "value": {
+              "data_type": "uint32_t",
+              "key": "Required",
+              "templatable": true,
+              "type": "integer"
+            }
+          }
+        },
+        "type": "schema"
+      }
+    }
+  },
   "pulse_counter.sensor": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
         "schema": {
-          "extends": [
-            "sensor.SENSOR_SCHEMA",
-            "core.COMPONENT_SCHEMA"
-          ],
           "config_vars": {
-            "id": {
-              "id_type": {
-                "class": "pulse_counter::PulseCounterSensor",
-                "parents": [
-                  "sensor::Sensor",
-                  "EntityBase",
-                  "PollingComponent",
-                  "Component"
-                ]
-              }
-            },
-            "unit_of_measurement": {
-              "default": "pulses/min"
-            },
-            "icon": {
-              "default": "mdi:pulse"
-            },
             "accuracy_decimals": {
               "default": "2"
             },
-            "state_class": {
-              "default": "measurement"
-            },
-            "pin": {
-              "key": "Required"
-            },
             "count_mode": {
-              "key": "Optional",
               "default": "{'rising_edge': 'INCREMENT', 'falling_edge': 'DISABLE'}",
-              "type": "schema",
+              "key": "Optional",
               "schema": {
                 "config_vars": {
-                  "rising_edge": {
-                    "key": "Required",
-                    "type": "enum",
-                    "values": {
-                      "DISABLE": null,
-                      "INCREMENT": null,
-                      "DECREMENT": null
-                    }
-                  },
                   "falling_edge": {
                     "key": "Required",
                     "type": "enum",
                     "values": {
+                      "DECREMENT": null,
                       "DISABLE": null,
-                      "INCREMENT": null,
-                      "DECREMENT": null
+                      "INCREMENT": null
+                    }
+                  },
+                  "rising_edge": {
+                    "key": "Required",
+                    "type": "enum",
+                    "values": {
+                      "DECREMENT": null,
+                      "DISABLE": null,
+                      "INCREMENT": null
                     }
                   }
                 }
+              },
+              "type": "schema"
+            },
+            "icon": {
+              "default": "mdi:pulse"
+            },
+            "id": {
+              "id_type": {
+                "class": "pulse_counter::PulseCounterSensor",
+                "parents": [
+                  "Component",
+                  "EntityBase",
+                  "PollingComponent",
+                  "sensor::Sensor"
+                ]
               }
             },
-            "use_pcnt": {
-              "key": "Optional",
-              "type": "boolean"
-            },
             "internal_filter": {
-              "key": "Optional",
               "default": "13us",
-              "type": "schema",
+              "key": "Optional",
               "schema": {
                 "extends": [
                   "core.positive_time_period_microseconds"
                 ]
-              }
+              },
+              "type": "schema"
+            },
+            "pin": {
+              "key": "Required"
+            },
+            "state_class": {
+              "default": "measurement"
             },
             "total": {
               "key": "Optional",
-              "type": "schema",
               "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
                 "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "pulses"
+                  "accuracy_decimals": {
+                    "default": "0"
                   },
                   "icon": {
                     "default": "mdi:pulse"
                   },
-                  "accuracy_decimals": {
-                    "default": "0"
-                  },
                   "state_class": {
                     "default": "total_increasing"
+                  },
+                  "unit_of_measurement": {
+                    "default": "pulses"
                   }
-                }
-              }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "unit_of_measurement": {
+              "default": "pulses/min"
             },
             "update_interval": {
-              "key": "Optional",
-              "default": "60s"
-            }
-          }
-        }
-      }
-    }
-  },
-  "pulse_counter": {
-    "action": {
-      "set_total_pulses": {
-        "type": "schema",
-        "schema": {
-          "config_vars": {
-            "id": {
-              "key": "Required",
-              "use_id_type": "pulse_counter::PulseCounterSensor",
-              "type": "use_id"
+              "default": "60s",
+              "key": "Optional"
             },
-            "value": {
-              "key": "Required",
-              "templatable": true,
-              "type": "integer",
-              "data_type": "uint32_t"
+            "use_pcnt": {
+              "key": "Optional",
+              "type": "boolean"
             }
-          }
-        }
+          },
+          "extends": [
+            "core.COMPONENT_SCHEMA",
+            "sensor.SENSOR_SCHEMA"
+          ]
+        },
+        "type": "schema"
       }
     }
   }

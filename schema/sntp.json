@@ -2,31 +2,31 @@
   "sntp.time": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
         "schema": {
-          "extends": [
-            "time.TIME_SCHEMA",
-            "core.COMPONENT_SCHEMA"
-          ],
           "config_vars": {
             "id": {
-              "key": "GeneratedID",
               "id_type": {
                 "class": "sntp::SNTPComponent",
                 "parents": [
-                  "time::RealTimeClock",
+                  "Component",
                   "PollingComponent",
-                  "Component"
+                  "time::RealTimeClock"
                 ]
-              }
+              },
+              "key": "GeneratedID"
             },
             "servers": {
-              "key": "Optional",
               "default": "['0.pool.ntp.org', '1.pool.ntp.org', '2.pool.ntp.org']",
-              "is_list": true
+              "is_list": true,
+              "key": "Optional"
             }
-          }
-        }
+          },
+          "extends": [
+            "core.COMPONENT_SCHEMA",
+            "time.TIME_SCHEMA"
+          ]
+        },
+        "type": "schema"
       }
     }
   }

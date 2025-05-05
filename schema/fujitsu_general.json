@@ -2,27 +2,27 @@
   "fujitsu_general.climate": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
         "schema": {
-          "extends": [
-            "climate_ir.CLIMATE_IR_WITH_RECEIVER_SCHEMA"
-          ],
           "config_vars": {
             "id": {
               "id_type": {
                 "class": "fujitsu_general::FujitsuGeneralClimate",
                 "parents": [
-                  "climate_ir::ClimateIR",
-                  "climate::Climate",
-                  "EntityBase",
                   "Component",
+                  "EntityBase",
+                  "climate::Climate",
+                  "climate_ir::ClimateIR",
                   "remote_base::RemoteReceiverListener",
                   "remote_base::RemoteTransmittable"
                 ]
               }
             }
-          }
-        }
+          },
+          "extends": [
+            "climate_ir.CLIMATE_IR_WITH_RECEIVER_SCHEMA"
+          ]
+        },
+        "type": "schema"
       }
     }
   }

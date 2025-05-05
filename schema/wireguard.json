@@ -1,208 +1,198 @@
 {
   "wireguard": {
-    "schemas": {
-      "CONFIG_SCHEMA": {
-        "type": "schema",
+    "action": {
+      "disable": {
         "schema": {
           "config_vars": {
             "id": {
               "key": "GeneratedID",
+              "type": "use_id",
+              "use_id_type": "wireguard::Wireguard"
+            }
+          }
+        },
+        "type": "schema"
+      },
+      "enable": {
+        "schema": {
+          "config_vars": {
+            "id": {
+              "key": "GeneratedID",
+              "type": "use_id",
+              "use_id_type": "wireguard::Wireguard"
+            }
+          }
+        },
+        "type": "schema"
+      }
+    },
+    "condition": {
+      "enabled": {
+        "schema": {
+          "config_vars": {
+            "id": {
+              "key": "GeneratedID",
+              "type": "use_id",
+              "use_id_type": "wireguard::Wireguard"
+            }
+          }
+        },
+        "type": "schema"
+      },
+      "peer_online": {
+        "schema": {
+          "config_vars": {
+            "id": {
+              "key": "GeneratedID",
+              "type": "use_id",
+              "use_id_type": "wireguard::Wireguard"
+            }
+          }
+        },
+        "type": "schema"
+      }
+    },
+    "schemas": {
+      "CONFIG_SCHEMA": {
+        "schema": {
+          "config_vars": {
+            "address": {
+              "key": "Required"
+            },
+            "id": {
               "id_type": {
                 "class": "wireguard::Wireguard",
                 "parents": [
                   "Component",
-                  "PollingComponent",
-                  "Component"
+                  "Component",
+                  "PollingComponent"
                 ]
-              }
-            },
-            "time_id": {
-              "key": "GeneratedID",
-              "use_id_type": "time::RealTimeClock",
-              "type": "use_id"
-            },
-            "address": {
-              "key": "Required"
+              },
+              "key": "GeneratedID"
             },
             "netmask": {
-              "key": "Optional",
-              "default": "255.255.255.255"
+              "default": "255.255.255.255",
+              "key": "Optional"
             },
-            "private_key": {
-              "key": "Required"
+            "peer_allowed_ips": {
+              "default": "['0.0.0.0/0']",
+              "is_list": true,
+              "key": "Optional"
             },
             "peer_endpoint": {
               "key": "Required",
               "type": "string"
             },
-            "peer_public_key": {
-              "key": "Required"
-            },
-            "peer_port": {
-              "key": "Optional",
-              "default": "51820",
-              "type": "integer",
-              "data_type": "port"
-            },
-            "peer_preshared_key": {
-              "key": "Optional"
-            },
-            "peer_allowed_ips": {
-              "key": "Optional",
-              "default": "['0.0.0.0/0']",
-              "is_list": true
-            },
             "peer_persistent_keepalive": {
-              "key": "Optional",
               "default": "0s",
-              "type": "schema",
+              "key": "Optional",
               "schema": {
                 "extends": [
                   "core.positive_time_period_seconds"
                 ]
-              }
+              },
+              "type": "schema"
+            },
+            "peer_port": {
+              "data_type": "port",
+              "default": "51820",
+              "key": "Optional",
+              "type": "integer"
+            },
+            "peer_preshared_key": {
+              "key": "Optional"
+            },
+            "peer_public_key": {
+              "key": "Required"
+            },
+            "private_key": {
+              "key": "Required"
             },
             "reboot_timeout": {
-              "key": "Optional",
               "default": "15min",
-              "type": "schema",
+              "key": "Optional",
               "schema": {
                 "extends": [
                   "core.positive_time_period_milliseconds"
                 ]
-              }
+              },
+              "type": "schema"
             },
             "require_connection_to_proceed": {
-              "key": "Optional",
               "default": "False",
+              "key": "Optional",
               "type": "boolean"
             },
+            "time_id": {
+              "key": "GeneratedID",
+              "type": "use_id",
+              "use_id_type": "time::RealTimeClock"
+            },
             "update_interval": {
-              "key": "Optional",
-              "default": "10s"
+              "default": "10s",
+              "key": "Optional"
             }
           },
           "extends": [
             "core.COMPONENT_SCHEMA"
           ]
-        }
-      }
-    },
-    "action": {
-      "enable": {
-        "type": "schema",
-        "schema": {
-          "config_vars": {
-            "id": {
-              "key": "GeneratedID",
-              "use_id_type": "wireguard::Wireguard",
-              "type": "use_id"
-            }
-          }
-        }
-      },
-      "disable": {
-        "type": "schema",
-        "schema": {
-          "config_vars": {
-            "id": {
-              "key": "GeneratedID",
-              "use_id_type": "wireguard::Wireguard",
-              "type": "use_id"
-            }
-          }
-        }
-      }
-    },
-    "condition": {
-      "peer_online": {
-        "type": "schema",
-        "schema": {
-          "config_vars": {
-            "id": {
-              "key": "GeneratedID",
-              "use_id_type": "wireguard::Wireguard",
-              "type": "use_id"
-            }
-          }
-        }
-      },
-      "enabled": {
-        "type": "schema",
-        "schema": {
-          "config_vars": {
-            "id": {
-              "key": "GeneratedID",
-              "use_id_type": "wireguard::Wireguard",
-              "type": "use_id"
-            }
-          }
-        }
+        },
+        "type": "schema"
       }
     }
   },
   "wireguard.binary_sensor": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
         "schema": {
           "config_vars": {
-            "wireguard_id": {
-              "key": "GeneratedID",
-              "use_id_type": "wireguard::Wireguard",
-              "type": "use_id"
-            },
-            "status": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "binary_sensor.BINARY_SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "device_class": {
-                    "default": "connectivity"
-                  }
-                }
-              }
-            },
             "enabled": {
               "key": "Optional",
-              "type": "schema",
               "schema": {
-                "extends": [
-                  "binary_sensor.BINARY_SENSOR_SCHEMA"
-                ],
                 "config_vars": {
                   "entity_category": {
                     "default": "diagnostic"
                   }
-                }
-              }
+                },
+                "extends": [
+                  "binary_sensor.BINARY_SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "status": {
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
+                  "device_class": {
+                    "default": "connectivity"
+                  }
+                },
+                "extends": [
+                  "binary_sensor.BINARY_SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "wireguard_id": {
+              "key": "GeneratedID",
+              "type": "use_id",
+              "use_id_type": "wireguard::Wireguard"
             }
           }
-        }
+        },
+        "type": "schema"
       }
     }
   },
   "wireguard.sensor": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
         "schema": {
           "config_vars": {
-            "wireguard_id": {
-              "key": "GeneratedID",
-              "use_id_type": "wireguard::Wireguard",
-              "type": "use_id"
-            },
             "latest_handshake": {
               "key": "Optional",
-              "type": "schema",
               "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
                 "config_vars": {
                   "device_class": {
                     "default": "timestamp"
@@ -210,41 +200,51 @@
                   "entity_category": {
                     "default": "diagnostic"
                   }
-                }
-              }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "wireguard_id": {
+              "key": "GeneratedID",
+              "type": "use_id",
+              "use_id_type": "wireguard::Wireguard"
             }
           }
-        }
+        },
+        "type": "schema"
       }
     }
   },
   "wireguard.text_sensor": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
         "schema": {
           "config_vars": {
-            "wireguard_id": {
-              "key": "GeneratedID",
-              "use_id_type": "wireguard::Wireguard",
-              "type": "use_id"
-            },
             "address": {
               "key": "Optional",
-              "type": "schema",
               "schema": {
-                "extends": [
-                  "text_sensor.TEXT_SENSOR_SCHEMA"
-                ],
                 "config_vars": {
                   "entity_category": {
                     "default": "diagnostic"
                   }
-                }
-              }
+                },
+                "extends": [
+                  "text_sensor.TEXT_SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "wireguard_id": {
+              "key": "GeneratedID",
+              "type": "use_id",
+              "use_id_type": "wireguard::Wireguard"
             }
           }
-        }
+        },
+        "type": "schema"
       }
     }
   }

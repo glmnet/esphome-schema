@@ -2,67 +2,67 @@
   "factory_reset.button": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
         "schema": {
-          "extends": [
-            "button.BUTTON_SCHEMA",
-            "core.COMPONENT_SCHEMA"
-          ],
           "config_vars": {
-            "id": {
-              "key": "GeneratedID",
-              "id_type": {
-                "class": "factory_reset::FactoryResetButton",
-                "parents": [
-                  "button::Button",
-                  "EntityBase",
-                  "Component"
-                ]
-              }
-            },
-            "icon": {
-              "default": "mdi:restart-alert"
+            "device_class": {
+              "default": "restart"
             },
             "entity_category": {
               "default": "config"
             },
-            "device_class": {
-              "default": "restart"
+            "icon": {
+              "default": "mdi:restart-alert"
+            },
+            "id": {
+              "id_type": {
+                "class": "factory_reset::FactoryResetButton",
+                "parents": [
+                  "Component",
+                  "EntityBase",
+                  "button::Button"
+                ]
+              },
+              "key": "GeneratedID"
             }
-          }
-        }
+          },
+          "extends": [
+            "button.BUTTON_SCHEMA",
+            "core.COMPONENT_SCHEMA"
+          ]
+        },
+        "type": "schema"
       }
     }
   },
   "factory_reset.switch": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
         "schema": {
-          "extends": [
-            "switch.SWITCH_SCHEMA",
-            "core.COMPONENT_SCHEMA"
-          ],
           "config_vars": {
-            "id": {
-              "key": "GeneratedID",
-              "id_type": {
-                "class": "factory_reset::FactoryResetSwitch",
-                "parents": [
-                  "switch_::Switch",
-                  "EntityBase",
-                  "Component"
-                ]
-              }
+            "entity_category": {
+              "default": "config"
             },
             "icon": {
               "default": "mdi:restart-alert"
             },
-            "entity_category": {
-              "default": "config"
+            "id": {
+              "id_type": {
+                "class": "factory_reset::FactoryResetSwitch",
+                "parents": [
+                  "Component",
+                  "EntityBase",
+                  "switch_::Switch"
+                ]
+              },
+              "key": "GeneratedID"
             }
-          }
-        }
+          },
+          "extends": [
+            "core.COMPONENT_SCHEMA",
+            "switch.SWITCH_SCHEMA"
+          ]
+        },
+        "type": "schema"
       }
     }
   }

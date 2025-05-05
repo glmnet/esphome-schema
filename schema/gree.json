@@ -2,20 +2,16 @@
   "gree.climate": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
         "schema": {
-          "extends": [
-            "climate_ir.CLIMATE_IR_WITH_RECEIVER_SCHEMA"
-          ],
           "config_vars": {
             "id": {
               "id_type": {
                 "class": "gree::GreeClimate",
                 "parents": [
-                  "climate_ir::ClimateIR",
-                  "climate::Climate",
-                  "EntityBase",
                   "Component",
+                  "EntityBase",
+                  "climate::Climate",
+                  "climate_ir::ClimateIR",
                   "remote_base::RemoteReceiverListener",
                   "remote_base::RemoteTransmittable"
                 ]
@@ -26,15 +22,20 @@
               "type": "enum",
               "values": {
                 "generic": null,
-                "yan": null,
                 "yaa": null,
                 "yac": null,
                 "yac1fb9": null,
+                "yag": null,
+                "yan": null,
                 "yx1ff": null
               }
             }
-          }
-        }
+          },
+          "extends": [
+            "climate_ir.CLIMATE_IR_WITH_RECEIVER_SCHEMA"
+          ]
+        },
+        "type": "schema"
       }
     }
   }

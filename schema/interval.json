@@ -2,52 +2,52 @@
   "interval": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "trigger",
+        "has_required_var": true,
         "schema": {
           "config_vars": {
             "id": {
-              "key": "GeneratedID",
               "id_type": {
                 "class": "interval::IntervalTrigger",
                 "parents": [
-                  "Trigger<>",
-                  "Trigger",
+                  "Component",
                   "PollingComponent",
-                  "Component"
-                ]
-              }
-            },
-            "startup_delay": {
-              "key": "Optional",
-              "default": "0s",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "core.positive_time_period_milliseconds"
+                  "Trigger",
+                  "Trigger<>"
                 ]
               },
-              "docs": "**[Time](https://esphome.io/guides/configuration-types.html#config-time)**: An optional startup delay - defaults to zero.\n\n*See also: [Interval Component](https://esphome.io/components/interval.html#configuration-variables)*"
+              "key": "GeneratedID"
             },
             "interval": {
+              "docs": "**, [Time](https://esphome.io/guides/configuration-types.html#config-time)**: The interval to execute the action with.\n\n*See also: [Interval Component](https://esphome.io/components/interval.html#configuration-variables)*",
               "key": "Required",
-              "type": "schema",
               "schema": {
                 "extends": [
                   "core.positive_time_period_milliseconds"
                 ]
               },
-              "docs": "**[Time](https://esphome.io/guides/configuration-types.html#config-time)**: The interval to execute the action with.\n\n*See also: [Interval Component](https://esphome.io/components/interval.html#configuration-variables)*"
+              "type": "schema"
             },
             "setup_priority": {
               "key": "Optional"
             },
+            "startup_delay": {
+              "default": "0s",
+              "docs": "**, [Time](https://esphome.io/guides/configuration-types.html#config-time)**: An optional startup delay - defaults to zero.\n\n*See also: [Interval Component](https://esphome.io/components/interval.html#configuration-variables)*",
+              "key": "Optional",
+              "schema": {
+                "extends": [
+                  "core.positive_time_period_milliseconds"
+                ]
+              },
+              "type": "schema"
+            },
             "then": {
-              "type": "trigger",
-              "docs": "**[Action](https://esphome.io/automations/actions.html#config-action)**: The action to perform.\n\n*See also: [Interval Component](https://esphome.io/components/interval.html#configuration-variables)*"
+              "docs": "**, [Action](https://esphome.io/automations/actions.html#config-action)**: The action to perform.\n\n*See also: [Interval Component](https://esphome.io/components/interval.html#configuration-variables)*",
+              "type": "trigger"
             }
           }
         },
-        "has_required_var": true
+        "type": "trigger"
       }
     }
   }

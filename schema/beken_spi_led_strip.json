@@ -2,79 +2,79 @@
   "beken_spi_led_strip.light": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
         "schema": {
-          "extends": [
-            "light.ADDRESSABLE_LIGHT_SCHEMA"
-          ],
           "config_vars": {
+            "chipset": {
+              "key": "Required",
+              "type": "enum",
+              "values": {
+                "APA106": null,
+                "SK6812": null,
+                "SM16703": null,
+                "WS2812": null
+              }
+            },
+            "is_rgbw": {
+              "default": "False",
+              "key": "Optional",
+              "type": "boolean"
+            },
+            "is_wrgb": {
+              "default": "False",
+              "key": "Optional",
+              "type": "boolean"
+            },
+            "max_refresh_rate": {
+              "key": "Optional",
+              "schema": {
+                "extends": [
+                  "core.positive_time_period_microseconds"
+                ]
+              },
+              "type": "schema"
+            },
+            "num_leds": {
+              "data_type": "positive_not_null_int",
+              "key": "Required",
+              "type": "integer"
+            },
             "output_id": {
-              "key": "GeneratedID",
               "id_type": {
                 "class": "beken_spi_led_strip::BekenSPILEDStripLightOutput",
                 "parents": [
+                  "Component",
                   "light::AddressableLight",
-                  "light::LightOutput",
-                  "Component"
+                  "light::LightOutput"
                 ]
-              }
+              },
+              "key": "GeneratedID"
             },
             "pin": {
-              "key": "Required",
               "internal": true,
+              "key": "Required",
               "modes": [
                 "output"
               ],
               "type": "pin"
             },
-            "num_leds": {
-              "key": "Required",
-              "type": "integer",
-              "data_type": "positive_not_null_int"
-            },
             "rgb_order": {
               "key": "Required",
               "type": "enum",
               "values": {
-                "RGB": null,
-                "RBG": null,
-                "GRB": null,
-                "GBR": null,
                 "BGR": null,
-                "BRG": null
+                "BRG": null,
+                "GBR": null,
+                "GRB": null,
+                "RBG": null,
+                "RGB": null
               }
-            },
-            "max_refresh_rate": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "core.positive_time_period_microseconds"
-                ]
-              }
-            },
-            "chipset": {
-              "key": "Required",
-              "type": "enum",
-              "values": {
-                "WS2812": null,
-                "SK6812": null,
-                "APA106": null,
-                "SM16703": null
-              }
-            },
-            "is_rgbw": {
-              "key": "Optional",
-              "default": "False",
-              "type": "boolean"
-            },
-            "is_wrgb": {
-              "key": "Optional",
-              "default": "False",
-              "type": "boolean"
             }
-          }
-        }
+          },
+          "extends": [
+            "light.ADDRESSABLE_LIGHT_SCHEMA"
+          ]
+        },
+        "type": "schema"
       }
     }
   }

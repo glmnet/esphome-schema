@@ -2,31 +2,31 @@
   "status.binary_sensor": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
         "schema": {
-          "extends": [
-            "binary_sensor.BINARY_SENSOR_SCHEMA",
-            "core.COMPONENT_SCHEMA"
-          ],
           "config_vars": {
-            "id": {
-              "id_type": {
-                "class": "status::StatusBinarySensor",
-                "parents": [
-                  "binary_sensor::BinarySensor",
-                  "EntityBase",
-                  "Component"
-                ]
-              }
+            "device_class": {
+              "default": "connectivity"
             },
             "entity_category": {
               "default": "diagnostic"
             },
-            "device_class": {
-              "default": "connectivity"
+            "id": {
+              "id_type": {
+                "class": "status::StatusBinarySensor",
+                "parents": [
+                  "Component",
+                  "EntityBase",
+                  "binary_sensor::BinarySensor"
+                ]
+              }
             }
-          }
-        }
+          },
+          "extends": [
+            "binary_sensor.BINARY_SENSOR_SCHEMA",
+            "core.COMPONENT_SCHEMA"
+          ]
+        },
+        "type": "schema"
       }
     }
   }

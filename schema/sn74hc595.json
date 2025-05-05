@@ -1,150 +1,150 @@
 {
   "sn74hc595": {
+    "pin": {
+      "schema": {
+        "extends": [
+          "sn74hc595.SN74HC595_PIN_SCHEMA"
+        ]
+      },
+      "type": "schema"
+    },
     "schemas": {
       "CONFIG_SCHEMA": {
+        "is_list": true,
         "type": "typed",
+        "typed_key": "type",
         "types": {
           "gpio": {
-            "extends": [
-              "sn74hc595._COMMON_SCHEMA",
-              "core.COMPONENT_SCHEMA"
-            ],
             "config_vars": {
-              "id": {
+              "clock_pin": {
+                "docs": "**, [Pin Schema](https://esphome.io/guides/configuration-types.html#config-pin-schema)**: Pin connected to SN74HC595 SRCLK (SH_CP) pin\n\n*See also: [SN74HC595 I/O Expander (shift register)](https://esphome.io/components/sn74hc595.html#configuration-variables)*",
                 "key": "Required",
+                "modes": [
+                  "output"
+                ],
+                "schema": true,
+                "type": "pin"
+              },
+              "data_pin": {
+                "docs": "**, [Pin Schema](https://esphome.io/guides/configuration-types.html#config-pin-schema)**: Pin connected to SN74HC595 SER (SD) input.\n\n*See also: [SN74HC595 I/O Expander (shift register)](https://esphome.io/components/sn74hc595.html#configuration-variables)*",
+                "key": "Required",
+                "modes": [
+                  "output"
+                ],
+                "schema": true,
+                "type": "pin"
+              },
+              "id": {
+                "docs": "**, [ID](https://esphome.io/guides/configuration-types.html#config-id)**: The id to use for this SN74HC595 component.\n\n*See also: [SN74HC595 I/O Expander (shift register)](https://esphome.io/components/sn74hc595.html#configuration-variables)*",
                 "id_type": {
                   "class": "sn74hc595::SN74HC595GPIOComponent",
                   "parents": [
-                    "sn74hc595::SN74HC595Component",
-                    "Component"
+                    "Component",
+                    "sn74hc595::SN74HC595Component"
                   ]
                 },
-                "docs": "**[ID](https://esphome.io/guides/configuration-types.html#config-id)**: The id to use for this SN74HC595 component.\n\n*See also: [SN74HC595 I/O Expander (shift register)](https://esphome.io/components/sn74hc595.html#configuration-variables)*"
-              },
-              "data_pin": {
-                "key": "Required",
-                "schema": true,
-                "modes": [
-                  "output"
-                ],
-                "type": "pin",
-                "docs": "**[Pin Schema](https://esphome.io/guides/configuration-types.html#config-pin-schema)**: Pin connected to SN74HC595 SER (SD) input.\n\n*See also: [SN74HC595 I/O Expander (shift register)](https://esphome.io/components/sn74hc595.html#configuration-variables)*"
-              },
-              "clock_pin": {
-                "key": "Required",
-                "schema": true,
-                "modes": [
-                  "output"
-                ],
-                "type": "pin",
-                "docs": "**[Pin Schema](https://esphome.io/guides/configuration-types.html#config-pin-schema)**: Pin connected to SN74HC595 SRCLK (SH_CP) pin\n\n*See also: [SN74HC595 I/O Expander (shift register)](https://esphome.io/components/sn74hc595.html#configuration-variables)*"
+                "key": "Required"
               }
-            }
+            },
+            "extends": [
+              "core.COMPONENT_SCHEMA",
+              "sn74hc595._COMMON_SCHEMA"
+            ]
           },
           "spi": {
-            "extends": [
-              "sn74hc595._COMMON_SCHEMA",
-              "core.COMPONENT_SCHEMA"
-            ],
             "config_vars": {
-              "id": {
-                "key": "Required",
-                "id_type": {
-                  "class": "sn74hc595::SN74HC595SPIComponent",
-                  "parents": [
-                    "sn74hc595::SN74HC595Component",
-                    "Component",
-                    "spi::SPIDevice"
-                  ]
-                },
-                "docs": "**[ID](https://esphome.io/guides/configuration-types.html#config-id)**: The id to use for this SN74HC595 component.\n\n*See also: [SN74HC595 I/O Expander (shift register)](https://esphome.io/components/sn74hc595.html#configuration-variables)*"
-              },
-              "spi_id": {
-                "key": "GeneratedID",
-                "use_id_type": "spi::SPIComponent",
-                "type": "use_id"
+              "cs_pin": {
+                "key": "Optional",
+                "modes": [
+                  "output"
+                ],
+                "schema": true,
+                "type": "pin"
               },
               "data_rate": {
                 "key": "Optional",
                 "type": "enum",
                 "values": {
-                  "80000000.0": null,
-                  "40000000.0": null,
-                  "20000000.0": null,
-                  "10000000.0": null,
-                  "8000000.0": null,
-                  "5000000.0": null,
-                  "4000000.0": null,
-                  "2000000.0": null,
+                  "1000.0": null,
                   "1000000.0": null,
+                  "10000000.0": null,
                   "200000.0": null,
+                  "2000000.0": null,
+                  "20000000.0": null,
+                  "4000000.0": null,
+                  "40000000.0": null,
+                  "5000000.0": null,
                   "75000.0": null,
-                  "1000.0": null
+                  "8000000.0": null,
+                  "80000000.0": null
                 }
+              },
+              "id": {
+                "docs": "**, [ID](https://esphome.io/guides/configuration-types.html#config-id)**: The id to use for this SN74HC595 component.\n\n*See also: [SN74HC595 I/O Expander (shift register)](https://esphome.io/components/sn74hc595.html#configuration-variables)*",
+                "id_type": {
+                  "class": "sn74hc595::SN74HC595SPIComponent",
+                  "parents": [
+                    "Component",
+                    "sn74hc595::SN74HC595Component",
+                    "spi::SPIDevice"
+                  ]
+                },
+                "key": "Required"
+              },
+              "spi_id": {
+                "key": "GeneratedID",
+                "type": "use_id",
+                "use_id_type": "spi::SPIComponent"
               },
               "spi_mode": {
                 "key": "Optional",
                 "type": "enum",
                 "values": {
-                  "MODE0": null,
-                  "MODE1": null,
-                  "MODE2": null,
-                  "MODE3": null,
                   "0": null,
                   "1": null,
                   "2": null,
-                  "3": null
+                  "3": null,
+                  "MODE0": null,
+                  "MODE1": null,
+                  "MODE2": null,
+                  "MODE3": null
                 }
-              },
-              "cs_pin": {
-                "key": "Optional",
-                "schema": true,
-                "modes": [
-                  "output"
-                ],
-                "type": "pin"
               }
-            }
+            },
+            "extends": [
+              "core.COMPONENT_SCHEMA",
+              "sn74hc595._COMMON_SCHEMA"
+            ]
           }
-        },
-        "typed_key": "type",
-        "is_list": true
+        }
       },
       "_COMMON_SCHEMA": {
-        "type": "schema",
         "schema": {
           "config_vars": {
             "latch_pin": {
               "key": "Required",
-              "schema": true,
               "modes": [
                 "output"
               ],
+              "schema": true,
               "type": "pin"
             },
             "oe_pin": {
               "key": "Optional",
-              "schema": true,
               "modes": [
                 "output"
               ],
+              "schema": true,
               "type": "pin"
             },
             "sr_count": {
-              "key": "Optional",
               "default": "1",
+              "key": "Optional",
               "type": "integer"
             }
           }
-        }
-      }
-    },
-    "pin": {
-      "type": "schema",
-      "schema": {
-        "extends": [
-          "sn74hc595.SN74HC595_PIN_SCHEMA"
-        ]
+        },
+        "type": "schema"
       }
     }
   }

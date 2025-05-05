@@ -29976,6 +29976,20 @@
             }
           }
         }
+      },
+      "refresh": {
+        "is_list": true,
+        "type": "schema",
+        "maybe": "id",
+        "schema": {
+          "config_vars": {
+            "id": {
+              "key": "Required",
+              "use_id_type": "lv_obj_t",
+              "type": "use_id"
+            }
+          }
+        }
       }
     }
   }

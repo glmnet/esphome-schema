@@ -2,38 +2,38 @@
   "lcd_base": {
     "schemas": {
       "LCD_SCHEMA": {
-        "type": "schema",
         "schema": {
-          "extends": [
-            "display.BASIC_DISPLAY_SCHEMA",
-            "core.COMPONENT_SCHEMA"
-          ],
           "config_vars": {
             "dimensions": {
-              "key": "Required",
-              "docs": "**string**: The dimensions of the display with `COLUMNSxROWS`. If you\u2019re not sure, power the display on, turn contrast high up and just count them.\n\n*See also: [lcd_gpio Component](https://esphome.io/components/display/lcd_display.html#id1)*"
+              "docs": "**, string**: The dimensions of the display with `COLUMNSxROWS`. If you\u2019re not sure, power the display on, turn contrast high up and just count them.\n\n*See also: [lcd_gpio Component](https://esphome.io/components/display/lcd_display.html#id1)*",
+              "key": "Required"
             },
+            "update_interval": {},
             "user_characters": {
-              "key": "Optional",
               "is_list": true,
-              "type": "schema",
+              "key": "Optional",
               "schema": {
                 "config_vars": {
-                  "position": {
+                  "data": {
+                    "is_list": true,
                     "key": "Required",
                     "type": "integer"
                   },
-                  "data": {
+                  "position": {
                     "key": "Required",
-                    "is_list": true,
                     "type": "integer"
                   }
                 }
-              }
-            },
-            "update_interval": {}
-          }
-        }
+              },
+              "type": "schema"
+            }
+          },
+          "extends": [
+            "core.COMPONENT_SCHEMA",
+            "display.BASIC_DISPLAY_SCHEMA"
+          ]
+        },
+        "type": "schema"
       }
     }
   }

@@ -2,32 +2,32 @@
   "daikin_brc.climate": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
         "schema": {
-          "extends": [
-            "climate_ir.CLIMATE_IR_WITH_RECEIVER_SCHEMA"
-          ],
           "config_vars": {
             "id": {
               "id_type": {
                 "class": "daikin_brc::DaikinBrcClimate",
                 "parents": [
-                  "climate_ir::ClimateIR",
-                  "climate::Climate",
-                  "EntityBase",
                   "Component",
+                  "EntityBase",
+                  "climate::Climate",
+                  "climate_ir::ClimateIR",
                   "remote_base::RemoteReceiverListener",
                   "remote_base::RemoteTransmittable"
                 ]
               }
             },
             "use_fahrenheit": {
-              "key": "Optional",
               "default": "False",
+              "key": "Optional",
               "type": "boolean"
             }
-          }
-        }
+          },
+          "extends": [
+            "climate_ir.CLIMATE_IR_WITH_RECEIVER_SCHEMA"
+          ]
+        },
+        "type": "schema"
       }
     }
   }

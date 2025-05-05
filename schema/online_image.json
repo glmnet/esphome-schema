@@ -1,33 +1,45 @@
 {
   "online_image": {
-    "schemas": {
-      "CONFIG_SCHEMA": {
-        "type": "schema",
+    "action": {
+      "release": {
+        "maybe": "id",
         "schema": {
-          "extends": [
-            "image.IMAGE_SCHEMA",
-            "core.COMPONENT_SCHEMA"
-          ],
           "config_vars": {
             "id": {
-              "id_type": {
-                "class": "online_image::OnlineImage",
-                "parents": [
-                  "PollingComponent",
-                  "Component",
-                  "image::Image"
-                ]
-              },
-              "docs": "**[ID](https://esphome.io/guides/configuration-types.html#config-id)**: The image to update the URL for.\n\n*See also: [Online Image Component](https://esphome.io/components/online_image.html#actions)*"
-            },
-            "http_request_id": {
               "key": "GeneratedID",
-              "use_id_type": "http_request::HttpRequestComponent",
-              "type": "use_id"
+              "type": "use_id",
+              "use_id_type": "online_image::OnlineImage"
+            }
+          }
+        },
+        "type": "schema"
+      },
+      "set_url": {
+        "schema": {
+          "config_vars": {
+            "id": {
+              "key": "GeneratedID",
+              "type": "use_id",
+              "use_id_type": "online_image::OnlineImage"
             },
             "url": {
               "key": "Required",
-              "docs": "**url**: The new URL to download the image from.\n\n*See also: [Online Image Component](https://esphome.io/components/online_image.html#actions)*"
+              "templatable": true
+            }
+          }
+        },
+        "type": "schema"
+      }
+    },
+    "schemas": {
+      "CONFIG_SCHEMA": {
+        "is_list": true,
+        "schema": {
+          "config_vars": {
+            "buffer_size": {
+              "default": "65536",
+              "key": "Optional",
+              "type": "integer"
             },
             "format": {
               "key": "Required",
@@ -35,19 +47,25 @@
               "values": {
                 "BMP": null,
                 "JPEG": null,
-                "PNG": null,
-                "JPG": null
+                "JPG": null,
+                "PNG": null
               }
             },
-            "placeholder": {
-              "key": "Optional",
-              "use_id_type": "image::Image",
-              "type": "use_id"
+            "http_request_id": {
+              "key": "GeneratedID",
+              "type": "use_id",
+              "use_id_type": "http_request::HttpRequestComponent"
             },
-            "buffer_size": {
-              "key": "Optional",
-              "default": "65536",
-              "type": "integer"
+            "id": {
+              "docs": "**, [ID](https://esphome.io/guides/configuration-types.html#config-id)**: The image to update the URL for.\n\n*See also: [Online Image Component](https://esphome.io/components/online_image.html#actions)*",
+              "id_type": {
+                "class": "online_image::OnlineImage",
+                "parents": [
+                  "Component",
+                  "PollingComponent",
+                  "image::Image"
+                ]
+              }
             },
             "on_download_finished": {
               "key": "Optional",
@@ -57,44 +75,26 @@
               "key": "Optional",
               "type": "trigger"
             },
-            "update_interval": {
+            "placeholder": {
               "key": "Optional",
-              "default": "never"
-            }
-          }
-        },
-        "is_list": true
-      }
-    },
-    "action": {
-      "release": {
-        "type": "schema",
-        "schema": {
-          "config_vars": {
-            "id": {
-              "key": "GeneratedID",
-              "use_id_type": "online_image::OnlineImage",
-              "type": "use_id"
-            }
-          }
-        },
-        "maybe": "id"
-      },
-      "set_url": {
-        "type": "schema",
-        "schema": {
-          "config_vars": {
-            "id": {
-              "key": "GeneratedID",
-              "use_id_type": "online_image::OnlineImage",
-              "type": "use_id"
+              "type": "use_id",
+              "use_id_type": "image::Image"
+            },
+            "update_interval": {
+              "default": "never",
+              "key": "Optional"
             },
             "url": {
-              "key": "Required",
-              "templatable": true
+              "docs": "**, url**: The new URL to download the image from.\n\n*See also: [Online Image Component](https://esphome.io/components/online_image.html#actions)*",
+              "key": "Required"
             }
-          }
-        }
+          },
+          "extends": [
+            "core.COMPONENT_SCHEMA",
+            "image.IMAGE_SCHEMA"
+          ]
+        },
+        "type": "schema"
       }
     }
   }

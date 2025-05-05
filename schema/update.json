@@ -1,5 +1,29 @@
 {
   "update": {
+    "action": {
+      "perform": {
+        "docs": "This action allows you to trigger the update entity to start the update process.\n\n*See also: [`update.perform` Action](https://esphome.io/components/update/index.html#update-perform-action)*",
+        "maybe": "id",
+        "schema": {
+          "config_vars": {
+            "force_update": {
+              "default": "False",
+              "docs": "**, boolean**: Perform the update even if the device is already running the same version. Defaults to `false`.\n\n*See also: [Update Core](https://esphome.io/components/update/index.html#update-perform-action)*",
+              "key": "Optional",
+              "templatable": true,
+              "type": "boolean"
+            },
+            "id": {
+              "docs": "**, [ID](https://esphome.io/guides/configuration-types.html#config-id)**: The ID of the update entity.\n\n*See also: [Update Core](https://esphome.io/components/update/index.html#update-perform-action)*",
+              "key": "GeneratedID",
+              "type": "use_id",
+              "use_id_type": "update::UpdateEntity"
+            }
+          }
+        },
+        "type": "schema"
+      }
+    },
     "components": {
       "http_request": {
         "dependencies": [
@@ -8,47 +32,29 @@
         "docs": "This platform allows you to manage the deployment of updates to your ESPHome devices. It works by reading a [JSON manifest file](https://esphome.io/components/update/http_request.html#update-http-request-manifest-format) and using it to determine the presence of an update.\n\n*See also: [Managed Updates via HTTP Request](https://esphome.io/components/update/http_request.html#managed-updates-via-http-request)*"
       }
     },
+    "condition": {
+      "is_available": {
+        "docs": "This condition checks if an update is available for the device.\n\n*See also: [`update.is_available` Condition](https://esphome.io/components/update/index.html#update-is-available-condition)*",
+        "maybe": "id",
+        "schema": {
+          "config_vars": {
+            "id": {
+              "docs": "**, [ID](https://esphome.io/guides/configuration-types.html#config-id)**: The ID of the update entity.\n\n*See also: [Update Core](https://esphome.io/components/update/index.html#update-is-available-condition)*",
+              "key": "GeneratedID",
+              "type": "use_id",
+              "use_id_type": "update::UpdateEntity"
+            }
+          }
+        },
+        "type": "schema"
+      }
+    },
     "schemas": {
       "UPDATE_SCHEMA": {
-        "type": "schema",
         "schema": {
-          "extends": [
-            "core.ENTITY_BASE_SCHEMA",
-            "core.MQTT_COMMAND_COMPONENT_SCHEMA"
-          ],
           "config_vars": {
-            "web_server": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "config_vars": {
-                  "web_server_id": {
-                    "key": "Optional",
-                    "use_id_type": "web_server::WebServer",
-                    "type": "use_id"
-                  },
-                  "sorting_weight": {
-                    "key": "Optional"
-                  },
-                  "sorting_group_id": {
-                    "key": "Optional",
-                    "use_id_type": "int",
-                    "type": "use_id"
-                  }
-                }
-              }
-            },
-            "mqtt_id": {
-              "key": "Optional",
-              "id_type": {
-                "class": "mqtt::MQTTUpdateComponent",
-                "parents": [
-                  "mqtt::MQTTComponent",
-                  "Component"
-                ]
-              }
-            },
             "device_class": {
+              "docs": "**, string**: The device class for the update entity. See [https://www.home-assistant.io/integrations/binary_sensor/#device-class](https://www.home-assistant.io/integrations/binary_sensor/#device-class) for a list of available options.\n\n*See also: [Update Core](https://esphome.io/components/update/index.html#configuration-variables)*",
               "key": "Optional",
               "type": "enum",
               "values": {
@@ -56,51 +62,56 @@
                 "firmware": null
               }
             },
+            "entity_category": {
+              "default": "config",
+              "docs": "**, string**: The category of the update entity. See [https://developers.home-assistant.io/docs/core/entity/#generic-properties](https://developers.home-assistant.io/docs/core/entity/#generic-properties) for a list of available options.\n\n*See also: [Update Core](https://esphome.io/components/update/index.html#configuration-variables)*"
+            },
+            "id": {
+              "docs": "**, [ID](https://esphome.io/guides/configuration-types.html#config-id)**: Manually specify the ID used for code generation. At least one of **id** and **name** must be specified.\n\n*See also: [Update Core](https://esphome.io/components/update/index.html#configuration-variables)*"
+            },
+            "mqtt_id": {
+              "id_type": {
+                "class": "mqtt::MQTTUpdateComponent",
+                "parents": [
+                  "Component",
+                  "mqtt::MQTTComponent"
+                ]
+              },
+              "key": "Optional"
+            },
             "on_update_available": {
+              "docs": "**, [Action](https://esphome.io/automations/actions.html#config-action)**: An automation to perform when an update is available.\n\n*See also: [Update Core](https://esphome.io/components/update/index.html#configuration-variables)*",
               "key": "Optional",
               "type": "trigger"
             },
-            "entity_category": {
-              "default": "config"
-            }
-          }
-        }
-      }
-    },
-    "action": {
-      "perform": {
-        "type": "schema",
-        "maybe": "id",
-        "schema": {
-          "config_vars": {
-            "id": {
-              "key": "GeneratedID",
-              "use_id_type": "update::UpdateEntity",
-              "type": "use_id"
-            },
-            "force_update": {
+            "web_server": {
               "key": "Optional",
-              "default": "False",
-              "templatable": true,
-              "type": "boolean"
+              "schema": {
+                "config_vars": {
+                  "sorting_group_id": {
+                    "key": "Optional",
+                    "type": "use_id",
+                    "use_id_type": "int"
+                  },
+                  "sorting_weight": {
+                    "key": "Optional"
+                  },
+                  "web_server_id": {
+                    "key": "Optional",
+                    "type": "use_id",
+                    "use_id_type": "web_server::WebServer"
+                  }
+                }
+              },
+              "type": "schema"
             }
-          }
-        }
-      }
-    },
-    "condition": {
-      "is_available": {
-        "type": "schema",
-        "maybe": "id",
-        "schema": {
-          "config_vars": {
-            "id": {
-              "key": "GeneratedID",
-              "use_id_type": "update::UpdateEntity",
-              "type": "use_id"
-            }
-          }
-        }
+          },
+          "extends": [
+            "core.ENTITY_BASE_SCHEMA",
+            "core.MQTT_COMMAND_COMPONENT_SCHEMA"
+          ]
+        },
+        "type": "schema"
       }
     }
   }

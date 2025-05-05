@@ -2,11 +2,22 @@
   "mcp4728": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
+        "is_list": true,
         "schema": {
           "config_vars": {
-            "id": {
+            "address": {
+              "data_type": "hex_uint8_t",
+              "default": "96",
+              "docs": "**, int**: Manually specify the I2C address of the DAC. Defaults to `0x60`.\n\n*See also: [MCP4728 Component](https://esphome.io/components/output/mcp4728.html#configuration-variables)*",
+              "key": "Optional"
+            },
+            "i2c_id": {
               "key": "GeneratedID",
+              "type": "use_id",
+              "use_id_type": "i2c::I2CBus"
+            },
+            "id": {
+              "docs": "**, [ID](https://esphome.io/guides/configuration-types.html#config-id)**: The id to use for this output component.\n\n*See also: [MCP4728 Component](https://esphome.io/components/output/mcp4728.html#configuration-variables)*",
               "id_type": {
                 "class": "mcp4728::MCP4728Component",
                 "parents": [
@@ -14,58 +25,28 @@
                   "i2c::I2CDevice"
                 ]
               },
-              "docs": "**[ID](https://esphome.io/guides/configuration-types.html#config-id)**: The id to use for this output component.\n\n*See also: [MCP4728 Component](https://esphome.io/components/output/mcp4728.html#configuration-variables)*"
+              "key": "GeneratedID"
             },
             "store_in_eeprom": {
-              "key": "Optional",
               "default": "False",
-              "type": "boolean",
-              "docs": "**boolean**: Use SEQ_WRITE mode to also write to EEPROM sequentially. Defaults to `false`.\n\n*See also: [MCP4728 Component](https://esphome.io/components/output/mcp4728.html#configuration-variables)*"
-            },
-            "i2c_id": {
-              "key": "GeneratedID",
-              "use_id_type": "i2c::I2CBus",
-              "type": "use_id"
-            },
-            "address": {
+              "docs": "**, boolean**: Use SEQ_WRITE mode to also write to EEPROM sequentially. Defaults to `false`.\n\n*See also: [MCP4728 Component](https://esphome.io/components/output/mcp4728.html#configuration-variables)*",
               "key": "Optional",
-              "default": "96",
-              "data_type": "hex_uint8_t",
-              "docs": "**int**: Manually specify the I2C address of the DAC. Defaults to `0x60`.\n\n*See also: [MCP4728 Component](https://esphome.io/components/output/mcp4728.html#configuration-variables)*"
+              "type": "boolean"
             }
           },
           "extends": [
             "core.COMPONENT_SCHEMA"
           ]
         },
-        "is_list": true
+        "type": "schema"
       }
     }
   },
   "mcp4728.output": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
         "schema": {
-          "extends": [
-            "output.FLOAT_OUTPUT_SCHEMA"
-          ],
           "config_vars": {
-            "id": {
-              "key": "Required",
-              "id_type": {
-                "class": "mcp4728::MCP4728Channel",
-                "parents": [
-                  "output::FloatOutput",
-                  "output::BinaryOutput"
-                ]
-              }
-            },
-            "mcp4728_id": {
-              "key": "GeneratedID",
-              "use_id_type": "mcp4728::MCP4728Component",
-              "type": "use_id"
-            },
             "channel": {
               "key": "Required",
               "type": "enum",
@@ -76,37 +57,56 @@
                 "D": null
               }
             },
-            "vref": {
-              "key": "Optional",
-              "default": "vdd",
-              "type": "enum",
-              "values": {
-                "vdd": null,
-                "internal": null
-              }
-            },
-            "power_down": {
-              "key": "Optional",
-              "default": "normal",
-              "type": "enum",
-              "values": {
-                "normal": null,
-                "gnd_1k": null,
-                "gnd_100k": null,
-                "gnd_500k": null
-              }
-            },
             "gain": {
-              "key": "Optional",
               "default": "X1",
+              "key": "Optional",
               "type": "enum",
               "values": {
                 "X1": null,
                 "X2": null
               }
+            },
+            "id": {
+              "id_type": {
+                "class": "mcp4728::MCP4728Channel",
+                "parents": [
+                  "output::BinaryOutput",
+                  "output::FloatOutput"
+                ]
+              },
+              "key": "Required"
+            },
+            "mcp4728_id": {
+              "key": "GeneratedID",
+              "type": "use_id",
+              "use_id_type": "mcp4728::MCP4728Component"
+            },
+            "power_down": {
+              "default": "normal",
+              "key": "Optional",
+              "type": "enum",
+              "values": {
+                "gnd_100k": null,
+                "gnd_1k": null,
+                "gnd_500k": null,
+                "normal": null
+              }
+            },
+            "vref": {
+              "default": "vdd",
+              "key": "Optional",
+              "type": "enum",
+              "values": {
+                "internal": null,
+                "vdd": null
+              }
             }
-          }
-        }
+          },
+          "extends": [
+            "output.FLOAT_OUTPUT_SCHEMA"
+          ]
+        },
+        "type": "schema"
       }
     }
   }

@@ -2,55 +2,81 @@
   "ms8607.sensor": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
         "schema": {
           "config_vars": {
-            "id": {
-              "key": "GeneratedID",
-              "id_type": {
-                "class": "ms8607::MS8607Component",
-                "parents": [
-                  "PollingComponent",
-                  "Component",
-                  "i2c::I2CDevice"
-                ]
-              }
+            "address": {
+              "data_type": "hex_uint8_t",
+              "default": "118",
+              "docs": "**, int**: Manually specify the I\u00b2C address of the temperature & pressure sensor. Defaults to `0x76`.\n\n*See also: [MS8607 Temperature+Pressure+Humidity Sensor](https://esphome.io/components/sensor/ms8607.html#configuration-variables)*",
+              "key": "Optional"
             },
-            "temperature": {
+            "humidity": {
+              "docs": "The information for the humidity sensor.\n  * **address** (*Optional*, int): Manually specify the I\u00b2C address of the humidity sensor. Defaults to `0x40`.\n  \n  * **i2c_id** (*Optional*, [ID](https://esphome.io/guides/configuration-types.html#config-id)): Manually specify the ID of the [I\u00b2C Component](https://esphome.io/components/i2c.html#i2c) if your configuration uses multiple I\u00b2C buses. This should match the `i2c_id` documented below.\n  \n  * All other options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n  \n  \n\n*See also: [MS8607 Temperature+Pressure+Humidity Sensor](https://esphome.io/components/sensor/ms8607.html#configuration-variables)*",
               "key": "Required",
-              "type": "schema",
               "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
                 "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "\u00b0C"
-                  },
                   "accuracy_decimals": {
                     "default": "2"
                   },
+                  "address": {
+                    "data_type": "hex_uint8_t",
+                    "default": "64",
+                    "docs": "**, int**: Manually specify the I\u00b2C address of the humidity sensor. Defaults to `0x40`.\n\n*See also: [MS8607 Temperature+Pressure+Humidity Sensor](https://esphome.io/components/sensor/ms8607.html#configuration-variables)*",
+                    "key": "Optional"
+                  },
                   "device_class": {
-                    "default": "temperature"
+                    "default": "humidity"
+                  },
+                  "humidity_i2c_id": {
+                    "id_type": {
+                      "class": "ms8607::MS8607HumidityDevice",
+                      "parents": [
+                        "i2c::I2CDevice"
+                      ]
+                    },
+                    "key": "GeneratedID"
+                  },
+                  "i2c_id": {
+                    "docs": "**, [ID](https://esphome.io/guides/configuration-types.html#config-id)**: Manually specify the ID of the [I\u00b2C Component](https://esphome.io/components/i2c.html#i2c) if your configuration uses multiple I\u00b2C buses. This should match the `i2c_id` documented below.\n\n*See also: [MS8607 Temperature+Pressure+Humidity Sensor](https://esphome.io/components/sensor/ms8607.html#configuration-variables)*",
+                    "key": "GeneratedID",
+                    "type": "use_id",
+                    "use_id_type": "i2c::I2CBus"
                   },
                   "state_class": {
                     "default": "measurement"
+                  },
+                  "unit_of_measurement": {
+                    "default": "%"
                   }
-                }
-              },
-              "docs": "The information for the temperature sensor. All options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n\n*See also: [MS8607 Temperature+Pressure+Humidity Sensor](https://esphome.io/components/sensor/ms8607.html#configuration-variables)*"
-            },
-            "pressure": {
-              "key": "Required",
-              "type": "schema",
-              "schema": {
+                },
                 "extends": [
                   "sensor.SENSOR_SCHEMA"
-                ],
+                ]
+              },
+              "type": "schema"
+            },
+            "i2c_id": {
+              "docs": "**, [ID](https://esphome.io/guides/configuration-types.html#config-id)**: Manually specify the ID of the [I\u00b2C Component](https://esphome.io/components/i2c.html#i2c) if your configuration uses multiple I\u00b2C buses. This should match the `i2c_id` inside of `humidity`, documented above.\n\n*See also: [MS8607 Temperature+Pressure+Humidity Sensor](https://esphome.io/components/sensor/ms8607.html#configuration-variables)*",
+              "key": "GeneratedID",
+              "type": "use_id",
+              "use_id_type": "i2c::I2CBus"
+            },
+            "id": {
+              "id_type": {
+                "class": "ms8607::MS8607Component",
+                "parents": [
+                  "Component",
+                  "PollingComponent",
+                  "i2c::I2CDevice"
+                ]
+              },
+              "key": "GeneratedID"
+            },
+            "pressure": {
+              "docs": "The information for the pressure sensor. All options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n\n*See also: [MS8607 Temperature+Pressure+Humidity Sensor](https://esphome.io/components/sensor/ms8607.html#configuration-variables)*",
+              "key": "Required",
+              "schema": {
                 "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "hPa"
-                  },
                   "accuracy_decimals": {
                     "default": "2"
                   },
@@ -59,78 +85,52 @@
                   },
                   "state_class": {
                     "default": "measurement"
+                  },
+                  "unit_of_measurement": {
+                    "default": "hPa"
                   }
-                }
-              },
-              "docs": "The information for the pressure sensor. All options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n\n*See also: [MS8607 Temperature+Pressure+Humidity Sensor](https://esphome.io/components/sensor/ms8607.html#configuration-variables)*"
-            },
-            "humidity": {
-              "key": "Required",
-              "type": "schema",
-              "schema": {
+                },
                 "extends": [
                   "sensor.SENSOR_SCHEMA"
-                ],
+                ]
+              },
+              "type": "schema"
+            },
+            "temperature": {
+              "docs": "The information for the temperature sensor. All options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n\n*See also: [MS8607 Temperature+Pressure+Humidity Sensor](https://esphome.io/components/sensor/ms8607.html#configuration-variables)*",
+              "key": "Required",
+              "schema": {
                 "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "%"
-                  },
                   "accuracy_decimals": {
                     "default": "2"
                   },
                   "device_class": {
-                    "default": "humidity"
+                    "default": "temperature"
                   },
                   "state_class": {
                     "default": "measurement"
                   },
-                  "humidity_i2c_id": {
-                    "key": "GeneratedID",
-                    "id_type": {
-                      "class": "ms8607::MS8607HumidityDevice",
-                      "parents": [
-                        "i2c::I2CDevice"
-                      ]
-                    }
-                  },
-                  "i2c_id": {
-                    "key": "GeneratedID",
-                    "use_id_type": "i2c::I2CBus",
-                    "type": "use_id",
-                    "docs": "**[ID](https://esphome.io/guides/configuration-types.html#config-id)**: Manually specify the ID of the [I\u00b2C Component](https://esphome.io/components/i2c.html#i2c) if your configuration uses multiple I\u00b2C buses. This should match the `i2c_id` documented below.\n\n*See also: [MS8607 Temperature+Pressure+Humidity Sensor](https://esphome.io/components/sensor/ms8607.html#configuration-variables)*"
-                  },
-                  "address": {
-                    "key": "Optional",
-                    "default": "64",
-                    "data_type": "hex_uint8_t",
-                    "docs": "**int**: Manually specify the I\u00b2C address of the humidity sensor. Defaults to `0x40`.\n\n*See also: [MS8607 Temperature+Pressure+Humidity Sensor](https://esphome.io/components/sensor/ms8607.html#configuration-variables)*"
+                  "unit_of_measurement": {
+                    "default": "\u00b0C"
                   }
-                }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
               },
-              "docs": "The information for the humidity sensor.\n  * **address** (*Optional*, int): Manually specify the I\u00b2C address of the humidity sensor. Defaults to `0x40`.\n  \n  * **i2c_id** (*Optional*, [ID](https://esphome.io/guides/configuration-types.html#config-id)): Manually specify the ID of the [I\u00b2C Component](https://esphome.io/components/i2c.html#i2c) if your configuration uses multiple I\u00b2C buses. This should match the `i2c_id` documented below.\n  \n  * All other options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n  \n  \n\n*See also: [MS8607 Temperature+Pressure+Humidity Sensor](https://esphome.io/components/sensor/ms8607.html#configuration-variables)*"
+              "type": "schema"
             },
             "update_interval": {
-              "key": "Optional",
               "default": "60s",
-              "docs": "**[Time](https://esphome.io/guides/configuration-types.html#config-time)**: The interval to check the sensor. Defaults to `60s`.\n\n*See also: [MS8607 Temperature+Pressure+Humidity Sensor](https://esphome.io/components/sensor/ms8607.html#configuration-variables)*"
-            },
-            "i2c_id": {
-              "key": "GeneratedID",
-              "use_id_type": "i2c::I2CBus",
-              "type": "use_id",
-              "docs": "**[ID](https://esphome.io/guides/configuration-types.html#config-id)**: Manually specify the ID of the [I\u00b2C Component](https://esphome.io/components/i2c.html#i2c) if your configuration uses multiple I\u00b2C buses. This should match the `i2c_id` inside of `humidity`, documented above.\n\n*See also: [MS8607 Temperature+Pressure+Humidity Sensor](https://esphome.io/components/sensor/ms8607.html#configuration-variables)*"
-            },
-            "address": {
-              "key": "Optional",
-              "default": "118",
-              "data_type": "hex_uint8_t",
-              "docs": "**int**: Manually specify the I\u00b2C address of the temperature & pressure sensor. Defaults to `0x76`.\n\n*See also: [MS8607 Temperature+Pressure+Humidity Sensor](https://esphome.io/components/sensor/ms8607.html#configuration-variables)*"
+              "docs": "**, [Time](https://esphome.io/guides/configuration-types.html#config-time)**: The interval to check the sensor. Defaults to `60s`.\n\n*See also: [MS8607 Temperature+Pressure+Humidity Sensor](https://esphome.io/components/sensor/ms8607.html#configuration-variables)*",
+              "key": "Optional"
             }
           },
           "extends": [
             "core.COMPONENT_SCHEMA"
           ]
-        }
+        },
+        "type": "schema"
       }
     }
   }

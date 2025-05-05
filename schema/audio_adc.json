@@ -1,5 +1,15 @@
 {
   "audio_adc": {
+    "action": {
+      "set_mic_gain": {
+        "schema": {
+          "extends": [
+            "audio_adc.SET_MIC_GAIN_ACTION_SCHEMA"
+          ]
+        },
+        "type": "schema"
+      }
+    },
     "components": {
       "es7210": {
         "dependencies": [
@@ -16,31 +26,21 @@
     },
     "schemas": {
       "SET_MIC_GAIN_ACTION_SCHEMA": {
-        "type": "schema",
         "maybe": "mic_gain",
         "schema": {
           "config_vars": {
             "id": {
               "key": "GeneratedID",
-              "use_id_type": "audio_adc::AudioAdc",
-              "type": "use_id"
+              "type": "use_id",
+              "use_id_type": "audio_adc::AudioAdc"
             },
             "mic_gain": {
               "key": "Required",
               "templatable": true
             }
           }
-        }
-      }
-    },
-    "action": {
-      "set_mic_gain": {
-        "type": "schema",
-        "schema": {
-          "extends": [
-            "audio_adc.SET_MIC_GAIN_ACTION_SCHEMA"
-          ]
-        }
+        },
+        "type": "schema"
       }
     }
   }

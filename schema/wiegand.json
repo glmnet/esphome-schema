@@ -2,41 +2,41 @@
   "wiegand": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
+        "is_list": true,
         "schema": {
           "config_vars": {
+            "d0": {
+              "docs": "**, [Pin Schema](https://esphome.io/guides/configuration-types.html#config-pin-schema)**: The pin where the `D0` output of the Wiegand\u2019s interface connects.\n\n*See also: [Component](https://esphome.io/components/wiegand.html#component)*",
+              "internal": true,
+              "key": "Required",
+              "modes": [
+                "input"
+              ],
+              "schema": true,
+              "type": "pin"
+            },
+            "d1": {
+              "docs": "**, [Pin Schema](https://esphome.io/guides/configuration-types.html#config-pin-schema)**: The pin where the `D1` output of the Wiegand\u2019s interface connects.\n\n*See also: [Component](https://esphome.io/components/wiegand.html#component)*",
+              "internal": true,
+              "key": "Required",
+              "modes": [
+                "input"
+              ],
+              "schema": true,
+              "type": "pin"
+            },
             "id": {
-              "key": "GeneratedID",
+              "docs": "**, [ID](https://esphome.io/guides/configuration-types.html#config-id)**: Set the ID of this device for use in lambdas.\n\n*See also: [Component](https://esphome.io/components/wiegand.html#component)*",
               "id_type": {
                 "class": "wiegand::Wiegand",
                 "parents": [
-                  "key_provider::KeyProvider",
-                  "Component"
+                  "Component",
+                  "key_provider::KeyProvider"
                 ]
               },
-              "docs": "**[ID](https://esphome.io/guides/configuration-types.html#config-id)**: Set the ID of this device for use in lambdas.\n\n*See also: [Component](https://esphome.io/components/wiegand.html#component)*"
+              "key": "GeneratedID"
             },
-            "d0": {
-              "key": "Required",
-              "schema": true,
-              "internal": true,
-              "modes": [
-                "input"
-              ],
-              "type": "pin",
-              "docs": "**[Pin Schema](https://esphome.io/guides/configuration-types.html#config-pin-schema)**: The pin where the `D0` output of the Wiegand\u2019s interface connects.\n\n*See also: [Component](https://esphome.io/components/wiegand.html#component)*"
-            },
-            "d1": {
-              "key": "Required",
-              "schema": true,
-              "internal": true,
-              "modes": [
-                "input"
-              ],
-              "type": "pin",
-              "docs": "**[Pin Schema](https://esphome.io/guides/configuration-types.html#config-pin-schema)**: The pin where the `D1` output of the Wiegand\u2019s interface connects.\n\n*See also: [Component](https://esphome.io/components/wiegand.html#component)*"
-            },
-            "on_tag": {
+            "on_key": {
               "key": "Optional",
               "type": "trigger"
             },
@@ -44,13 +44,13 @@
               "key": "Optional",
               "type": "trigger"
             },
-            "on_key": {
+            "on_tag": {
               "key": "Optional",
               "type": "trigger"
             }
           }
         },
-        "is_list": true
+        "type": "schema"
       }
     }
   }

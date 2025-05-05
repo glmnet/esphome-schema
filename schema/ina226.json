@@ -2,31 +2,52 @@
   "ina226.sensor": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
         "schema": {
           "config_vars": {
-            "id": {
-              "key": "GeneratedID",
-              "id_type": {
-                "class": "ina226::INA226Component",
-                "parents": [
-                  "PollingComponent",
-                  "Component",
-                  "i2c::I2CDevice"
-                ]
+            "adc_averaging": {
+              "default": "4",
+              "docs": "**, integer**: Selects ADC sample averaging count. Defaults to `4`. Valid values are `1`, `4`, `16`, `64`, `128`, `256`, `512`, `1024`.\n\n*See also: [INA226 DC current and power sensor](https://esphome.io/components/sensor/ina226.html#configuration-variables)*",
+              "key": "Optional",
+              "type": "enum",
+              "values": {
+                "1": null,
+                "1024": null,
+                "128": null,
+                "16": null,
+                "256": null,
+                "4": null,
+                "512": null,
+                "64": null
               }
+            },
+            "adc_time": {
+              "default": "1100 us",
+              "docs": "**, [Time](https://esphome.io/guides/configuration-types.html#config-time) or both of the following nested options**: The time in microseconds to perform a single ADC conversion. Defaults to `1100us`. Valid values are `140us`, `204us`, `332us`, `588us`, `1100us`, `2116us`, `4156us`, `8244us`.\n  * **voltage** (**Required**, [Time](https://esphome.io/guides/configuration-types.html#config-time)): ADC conversion time for Bus Voltage\n  \n  * **current** (**Required**, [Time](https://esphome.io/guides/configuration-types.html#config-time)): ADC conversion time for Shunt Voltage (Current measurement)\n  \n  \n\n*See also: [INA226 DC current and power sensor](https://esphome.io/components/sensor/ina226.html#configuration-variables)*",
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
+                  "current": {
+                    "docs": "**, [Time](https://esphome.io/guides/configuration-types.html#config-time)**: ADC conversion time for Shunt Voltage (Current measurement)\n\n*See also: [INA226 DC current and power sensor](https://esphome.io/components/sensor/ina226.html#configuration-variables)*",
+                    "key": "Required"
+                  },
+                  "voltage": {
+                    "docs": "**, [Time](https://esphome.io/guides/configuration-types.html#config-time)**: ADC conversion time for Bus Voltage\n\n*See also: [INA226 DC current and power sensor](https://esphome.io/components/sensor/ina226.html#configuration-variables)*",
+                    "key": "Required"
+                  }
+                }
+              },
+              "type": "schema"
+            },
+            "address": {
+              "data_type": "hex_uint8_t",
+              "default": "64",
+              "docs": "**, integer**: Manually specify the I\u00b2C address of the sensor. Defaults to `0x40`.\n\n*See also: [INA226 DC current and power sensor](https://esphome.io/components/sensor/ina226.html#configuration-variables)*",
+              "key": "Optional"
             },
             "bus_voltage": {
               "key": "Optional",
-              "type": "schema",
               "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
                 "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "V"
-                  },
                   "accuracy_decimals": {
                     "default": "2"
                   },
@@ -35,44 +56,21 @@
                   },
                   "state_class": {
                     "default": "measurement"
-                  }
-                }
-              }
-            },
-            "shunt_voltage": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
+                  },
                   "unit_of_measurement": {
                     "default": "V"
-                  },
-                  "accuracy_decimals": {
-                    "default": "2"
-                  },
-                  "device_class": {
-                    "default": "voltage"
-                  },
-                  "state_class": {
-                    "default": "measurement"
                   }
-                }
-              }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
             },
             "current": {
               "key": "Optional",
-              "type": "schema",
               "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
                 "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "A"
-                  },
                   "accuracy_decimals": {
                     "default": "3"
                   },
@@ -81,21 +79,42 @@
                   },
                   "state_class": {
                     "default": "measurement"
+                  },
+                  "unit_of_measurement": {
+                    "default": "A"
                   }
-                }
-              }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "i2c_id": {
+              "key": "GeneratedID",
+              "type": "use_id",
+              "use_id_type": "i2c::I2CBus"
+            },
+            "id": {
+              "id_type": {
+                "class": "ina226::INA226Component",
+                "parents": [
+                  "Component",
+                  "PollingComponent",
+                  "i2c::I2CDevice"
+                ]
+              },
+              "key": "GeneratedID"
+            },
+            "max_current": {
+              "default": "3.2",
+              "docs": "**, float**: The maximum current you are expecting. ESPHome will use this to configure the sensor optimally. Defaults to `3.2A`.\n\n*See also: [INA226 DC current and power sensor](https://esphome.io/components/sensor/ina226.html#configuration-variables)*",
+              "key": "Optional"
             },
             "power": {
               "key": "Optional",
-              "type": "schema",
               "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
                 "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "W"
-                  },
                   "accuracy_decimals": {
                     "default": "2"
                   },
@@ -104,73 +123,56 @@
                   },
                   "state_class": {
                     "default": "measurement"
+                  },
+                  "unit_of_measurement": {
+                    "default": "W"
                   }
-                }
-              }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
             },
             "shunt_resistance": {
-              "key": "Optional",
               "default": "0.1",
-              "docs": "**float**: The value of the shunt resistor on the board for current calculation. Defaults to `0.1 ohm`.\n\n*See also: [INA226 DC current and power sensor](https://esphome.io/components/sensor/ina226.html#configuration-variables)*"
+              "docs": "**, float**: The value of the shunt resistor on the board for current calculation. Defaults to `0.1 ohm`.\n\n*See also: [INA226 DC current and power sensor](https://esphome.io/components/sensor/ina226.html#configuration-variables)*",
+              "key": "Optional"
             },
-            "max_current": {
+            "shunt_voltage": {
               "key": "Optional",
-              "default": "3.2",
-              "docs": "**float**: The maximum current you are expecting. ESPHome will use this to configure the sensor optimally. Defaults to `3.2A`.\n\n*See also: [INA226 DC current and power sensor](https://esphome.io/components/sensor/ina226.html#configuration-variables)*"
-            },
-            "adc_time": {
-              "key": "Optional",
-              "default": "1100 us",
-              "type": "schema",
               "schema": {
                 "config_vars": {
-                  "voltage": {
-                    "key": "Required"
+                  "accuracy_decimals": {
+                    "default": "2"
                   },
-                  "current": {
-                    "key": "Required"
+                  "device_class": {
+                    "default": "voltage"
+                  },
+                  "state_class": {
+                    "default": "measurement"
+                  },
+                  "unit_of_measurement": {
+                    "default": "V"
                   }
-                }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
               },
-              "docs": "**[Time](https://esphome.io/guides/configuration-types.html#config-time) or both of the following nested options**: The time in microseconds to perform a single ADC conversion. Defaults to `1100us`. Valid values are `140us`, `204us`, `332us`, `588us`, `1100us`, `2116us`, `4156us`, `8244us`.\n  * **voltage** (**Required**, [Time](https://esphome.io/guides/configuration-types.html#config-time)) ADC conversion time for Bus Voltage\n  \n  * **current** (**Required**, [Time](https://esphome.io/guides/configuration-types.html#config-time)) ADC conversion time for Shunt Voltage (Current measurement)\n  \n  \n\n*See also: [INA226 DC current and power sensor](https://esphome.io/components/sensor/ina226.html#configuration-variables)*"
-            },
-            "adc_averaging": {
-              "key": "Optional",
-              "default": "4",
-              "type": "enum",
-              "values": {
-                "1": null,
-                "4": null,
-                "16": null,
-                "64": null,
-                "128": null,
-                "256": null,
-                "512": null,
-                "1024": null
-              },
-              "docs": "**integer**: Selects ADC sample averaging count. Defaults to `4`. Valid values are `1`, `4`, `16`, `64`, `128`, `256`, `512`, `1024`.\n\n*See also: [INA226 DC current and power sensor](https://esphome.io/components/sensor/ina226.html#configuration-variables)*"
+              "type": "schema"
             },
             "update_interval": {
-              "key": "Optional",
               "default": "60s",
-              "docs": "**[Time](https://esphome.io/guides/configuration-types.html#config-time)**: The interval to check the sensor. Defaults to `60s`.\n\n*See also: [INA226 DC current and power sensor](https://esphome.io/components/sensor/ina226.html#configuration-variables)*"
-            },
-            "i2c_id": {
-              "key": "GeneratedID",
-              "use_id_type": "i2c::I2CBus",
-              "type": "use_id"
-            },
-            "address": {
-              "key": "Optional",
-              "default": "64",
-              "data_type": "hex_uint8_t",
-              "docs": "**integer**: Manually specify the I\u00b2C address of the sensor. Defaults to `0x40`.\n\n*See also: [INA226 DC current and power sensor](https://esphome.io/components/sensor/ina226.html#configuration-variables)*"
+              "docs": "**, [Time](https://esphome.io/guides/configuration-types.html#config-time)**: The interval to check the sensor. Defaults to `60s`.\n\n*See also: [INA226 DC current and power sensor](https://esphome.io/components/sensor/ina226.html#configuration-variables)*",
+              "key": "Optional"
             }
           },
           "extends": [
             "core.COMPONENT_SCHEMA"
           ]
-        }
+        },
+        "type": "schema"
       }
     }
   }

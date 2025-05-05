@@ -1,12 +1,31 @@
 {
   "pcf8574": {
+    "pin": {
+      "schema": {
+        "extends": [
+          "pcf8574.PCF8574_PIN_SCHEMA"
+        ]
+      },
+      "type": "schema"
+    },
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
+        "is_list": true,
         "schema": {
           "config_vars": {
+            "address": {
+              "data_type": "hex_uint8_t",
+              "default": "33",
+              "docs": "**, int**: The I\u00b2C address of the driver. Defaults to `0x21`.\n\n*See also: [PCF8574 I/O Expander](https://esphome.io/components/pcf8574.html#configuration-variables)*",
+              "key": "Optional"
+            },
+            "i2c_id": {
+              "key": "GeneratedID",
+              "type": "use_id",
+              "use_id_type": "i2c::I2CBus"
+            },
             "id": {
-              "key": "Required",
+              "docs": "**, [ID](https://esphome.io/guides/configuration-types.html#config-id)**: The id to use for this PCF8574 component.\n\n*See also: [PCF8574 I/O Expander](https://esphome.io/components/pcf8574.html#configuration-variables)*",
               "id_type": {
                 "class": "pcf8574::PCF8574Component",
                 "parents": [
@@ -14,39 +33,20 @@
                   "i2c::I2CDevice"
                 ]
               },
-              "docs": "**[ID](https://esphome.io/guides/configuration-types.html#config-id)**: The id to use for this PCF8574 component.\n\n*See also: [PCF8574 I/O Expander](https://esphome.io/components/pcf8574.html#configuration-variables)*"
+              "key": "Required"
             },
             "pcf8575": {
-              "key": "Optional",
               "default": "False",
-              "type": "boolean",
-              "docs": "**boolean**: Whether this is a 16-pin PCF8575. Defaults to `false`.\n\n*See also: [PCF8574 I/O Expander](https://esphome.io/components/pcf8574.html#configuration-variables)*"
-            },
-            "i2c_id": {
-              "key": "GeneratedID",
-              "use_id_type": "i2c::I2CBus",
-              "type": "use_id"
-            },
-            "address": {
+              "docs": "**, boolean**: Whether this is a 16-pin PCF8575. Defaults to `false`.\n\n*See also: [PCF8574 I/O Expander](https://esphome.io/components/pcf8574.html#configuration-variables)*",
               "key": "Optional",
-              "default": "33",
-              "data_type": "hex_uint8_t",
-              "docs": "**int**: The I\u00b2C address of the driver. Defaults to `0x21`.\n\n*See also: [PCF8574 I/O Expander](https://esphome.io/components/pcf8574.html#configuration-variables)*"
+              "type": "boolean"
             }
           },
           "extends": [
             "core.COMPONENT_SCHEMA"
           ]
         },
-        "is_list": true
-      }
-    },
-    "pin": {
-      "type": "schema",
-      "schema": {
-        "extends": [
-          "pcf8574.PCF8574_PIN_SCHEMA"
-        ]
+        "type": "schema"
       }
     }
   }

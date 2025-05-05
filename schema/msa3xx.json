@@ -2,144 +2,112 @@
   "msa3xx": {
     "schemas": {
       "CONFIG_SCHEMA": {
+        "is_list": true,
         "type": "typed",
+        "typed_key": "type",
         "types": {
           "MSA301": {
-            "extends": [
-              "msa3xx._COMMON_SCHEMA"
-            ],
             "config_vars": {
-              "resolution": {
-                "key": "Optional",
-                "default": "14",
-                "type": "enum",
-                "values": {
-                  "14": null,
-                  "12": null,
-                  "10": null,
-                  "8": null
-                }
+              "address": {
+                "data_type": "hex_uint8_t",
+                "default": "38",
+                "key": "Optional"
               },
               "i2c_id": {
                 "key": "GeneratedID",
-                "use_id_type": "i2c::I2CBus",
-                "type": "use_id"
+                "type": "use_id",
+                "use_id_type": "i2c::I2CBus"
               },
-              "address": {
+              "resolution": {
+                "default": "14",
                 "key": "Optional",
-                "default": "38",
-                "data_type": "hex_uint8_t"
+                "type": "enum",
+                "values": {
+                  "10": null,
+                  "12": null,
+                  "14": null,
+                  "8": null
+                }
               }
-            }
-          },
-          "MSA311": {
+            },
             "extends": [
               "msa3xx._COMMON_SCHEMA"
-            ],
+            ]
+          },
+          "MSA311": {
             "config_vars": {
+              "address": {
+                "data_type": "hex_uint8_t",
+                "default": "98",
+                "key": "Optional"
+              },
+              "i2c_id": {
+                "key": "GeneratedID",
+                "type": "use_id",
+                "use_id_type": "i2c::I2CBus"
+              },
               "resolution": {
-                "key": "Optional",
                 "default": "12",
+                "key": "Optional",
                 "type": "enum",
                 "values": {
                   "12": null
                 }
-              },
-              "i2c_id": {
-                "key": "GeneratedID",
-                "use_id_type": "i2c::I2CBus",
-                "type": "use_id"
-              },
-              "address": {
-                "key": "Optional",
-                "default": "98",
-                "data_type": "hex_uint8_t"
               }
+            },
+            "extends": [
+              "msa3xx._COMMON_SCHEMA"
+            ]
+          }
+        }
+      },
+      "MSA_SENSOR_SCHEMA": {
+        "schema": {
+          "config_vars": {
+            "msa3xx_id": {
+              "key": "GeneratedID",
+              "type": "use_id",
+              "use_id_type": "msa3xx::MSA3xxComponent"
             }
           }
         },
-        "typed_key": "type",
-        "is_list": true
+        "type": "schema"
       },
       "_COMMON_SCHEMA": {
-        "type": "schema",
         "schema": {
           "config_vars": {
-            "id": {
-              "key": "GeneratedID",
-              "id_type": {
-                "class": "msa3xx::MSA3xxComponent",
-                "parents": [
-                  "PollingComponent",
-                  "Component",
-                  "i2c::I2CDevice"
-                ]
-              }
-            },
-            "range": {
-              "key": "Optional",
-              "default": "2G",
-              "type": "enum",
-              "values": {
-                "2G": null,
-                "4G": null,
-                "8G": null,
-                "16G": null
-              }
-            },
             "calibration": {
               "key": "Optional",
-              "type": "schema",
               "schema": {
                 "config_vars": {
                   "offset_x": {
-                    "key": "Optional",
-                    "default": "0"
+                    "default": "0",
+                    "key": "Optional"
                   },
                   "offset_y": {
-                    "key": "Optional",
-                    "default": "0"
+                    "default": "0",
+                    "key": "Optional"
                   },
                   "offset_z": {
-                    "key": "Optional",
-                    "default": "0"
+                    "default": "0",
+                    "key": "Optional"
                   }
                 }
-              }
+              },
+              "type": "schema"
             },
-            "transform": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "config_vars": {
-                  "mirror_x": {
-                    "key": "Optional",
-                    "default": "False",
-                    "type": "boolean"
-                  },
-                  "mirror_y": {
-                    "key": "Optional",
-                    "default": "False",
-                    "type": "boolean"
-                  },
-                  "mirror_z": {
-                    "key": "Optional",
-                    "default": "False",
-                    "type": "boolean"
-                  },
-                  "swap_xy": {
-                    "key": "Optional",
-                    "default": "False",
-                    "type": "boolean"
-                  }
-                }
-              }
+            "id": {
+              "id_type": {
+                "class": "msa3xx::MSA3xxComponent",
+                "parents": [
+                  "Component",
+                  "PollingComponent",
+                  "i2c::I2CDevice"
+                ]
+              },
+              "key": "GeneratedID"
             },
             "on_active": {
-              "key": "Optional",
-              "type": "trigger"
-            },
-            "on_tap": {
               "key": "Optional",
               "type": "trigger"
             },
@@ -155,203 +123,235 @@
               "key": "Optional",
               "type": "trigger"
             },
-            "update_interval": {
+            "on_tap": {
               "key": "Optional",
-              "default": "10s"
+              "type": "trigger"
+            },
+            "range": {
+              "default": "2G",
+              "key": "Optional",
+              "type": "enum",
+              "values": {
+                "16G": null,
+                "2G": null,
+                "4G": null,
+                "8G": null
+              }
+            },
+            "transform": {
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
+                  "mirror_x": {
+                    "default": "False",
+                    "key": "Optional",
+                    "type": "boolean"
+                  },
+                  "mirror_y": {
+                    "default": "False",
+                    "key": "Optional",
+                    "type": "boolean"
+                  },
+                  "mirror_z": {
+                    "default": "False",
+                    "key": "Optional",
+                    "type": "boolean"
+                  },
+                  "swap_xy": {
+                    "default": "False",
+                    "key": "Optional",
+                    "type": "boolean"
+                  }
+                }
+              },
+              "type": "schema"
+            },
+            "update_interval": {
+              "default": "10s",
+              "key": "Optional"
             }
           },
           "extends": [
             "core.COMPONENT_SCHEMA"
           ]
-        }
-      },
-      "MSA_SENSOR_SCHEMA": {
-        "type": "schema",
-        "schema": {
-          "config_vars": {
-            "msa3xx_id": {
-              "key": "GeneratedID",
-              "use_id_type": "msa3xx::MSA3xxComponent",
-              "type": "use_id"
-            }
-          }
-        }
+        },
+        "type": "schema"
       }
     }
   },
   "msa3xx.binary_sensor": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
         "schema": {
-          "extends": [
-            "msa3xx.MSA_SENSOR_SCHEMA"
-          ],
           "config_vars": {
-            "tap": {
+            "active": {
               "key": "Optional",
-              "type": "schema",
               "maybe": "name",
               "schema": {
-                "extends": [
-                  "binary_sensor.BINARY_SENSOR_SCHEMA"
-                ],
                 "config_vars": {
-                  "icon": {
-                    "default": "mdi:gesture-tap"
-                  },
                   "device_class": {
                     "default": "vibration"
+                  },
+                  "icon": {
+                    "default": "mdi:vibrate"
                   }
-                }
-              }
+                },
+                "extends": [
+                  "binary_sensor.BINARY_SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
             },
             "double_tap": {
               "key": "Optional",
-              "type": "schema",
               "maybe": "name",
               "schema": {
-                "extends": [
-                  "binary_sensor.BINARY_SENSOR_SCHEMA"
-                ],
                 "config_vars": {
+                  "device_class": {
+                    "default": "vibration"
+                  },
                   "icon": {
                     "default": "mdi:gesture-double-tap"
-                  },
-                  "device_class": {
-                    "default": "vibration"
                   }
-                }
-              }
-            },
-            "active": {
-              "key": "Optional",
-              "type": "schema",
-              "maybe": "name",
-              "schema": {
+                },
                 "extends": [
                   "binary_sensor.BINARY_SENSOR_SCHEMA"
-                ],
+                ]
+              },
+              "type": "schema"
+            },
+            "tap": {
+              "key": "Optional",
+              "maybe": "name",
+              "schema": {
                 "config_vars": {
-                  "icon": {
-                    "default": "mdi:vibrate"
-                  },
                   "device_class": {
                     "default": "vibration"
+                  },
+                  "icon": {
+                    "default": "mdi:gesture-tap"
                   }
-                }
-              }
+                },
+                "extends": [
+                  "binary_sensor.BINARY_SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
             }
-          }
-        }
+          },
+          "extends": [
+            "msa3xx.MSA_SENSOR_SCHEMA"
+          ]
+        },
+        "type": "schema"
       }
     }
   },
   "msa3xx.sensor": {
     "schemas": {
+      "CONFIG_SCHEMA": {
+        "schema": {
+          "config_vars": {
+            "acceleration_x": {
+              "key": "Optional",
+              "schema": {
+                "extends": [
+                  "msa3xx.sensor.accel_schema"
+                ]
+              },
+              "type": "schema"
+            },
+            "acceleration_y": {
+              "key": "Optional",
+              "schema": {
+                "extends": [
+                  "msa3xx.sensor.accel_schema"
+                ]
+              },
+              "type": "schema"
+            },
+            "acceleration_z": {
+              "key": "Optional",
+              "schema": {
+                "extends": [
+                  "msa3xx.sensor.accel_schema"
+                ]
+              },
+              "type": "schema"
+            }
+          },
+          "extends": [
+            "msa3xx.MSA_SENSOR_SCHEMA"
+          ]
+        },
+        "type": "schema"
+      },
       "accel_schema": {
-        "type": "schema",
         "maybe": "name",
         "schema": {
-          "extends": [
-            "sensor.SENSOR_SCHEMA"
-          ],
           "config_vars": {
-            "unit_of_measurement": {
-              "default": "m/s\u00b2"
+            "accuracy_decimals": {
+              "default": "2"
             },
             "icon": {
               "default": "mdi:briefcase-download"
             },
-            "accuracy_decimals": {
-              "default": "2"
-            },
             "state_class": {
               "default": "measurement"
+            },
+            "unit_of_measurement": {
+              "default": "m/s\u00b2"
             }
-          }
-        }
-      },
-      "CONFIG_SCHEMA": {
-        "type": "schema",
-        "schema": {
+          },
           "extends": [
-            "msa3xx.MSA_SENSOR_SCHEMA"
-          ],
-          "config_vars": {
-            "acceleration_x": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "msa3xx.sensor.accel_schema"
-                ]
-              }
-            },
-            "acceleration_y": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "msa3xx.sensor.accel_schema"
-                ]
-              }
-            },
-            "acceleration_z": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "msa3xx.sensor.accel_schema"
-                ]
-              }
-            }
-          }
-        }
+            "sensor.SENSOR_SCHEMA"
+          ]
+        },
+        "type": "schema"
       }
     }
   },
   "msa3xx.text_sensor": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
         "schema": {
-          "extends": [
-            "msa3xx.MSA_SENSOR_SCHEMA"
-          ],
           "config_vars": {
             "orientation_xy": {
               "key": "Optional",
-              "type": "schema",
               "maybe": "name",
               "schema": {
-                "extends": [
-                  "text_sensor.TEXT_SENSOR_SCHEMA"
-                ],
                 "config_vars": {
                   "icon": {
                     "default": "mdi:screen-rotation"
                   }
-                }
-              }
+                },
+                "extends": [
+                  "text_sensor.TEXT_SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
             },
             "orientation_z": {
               "key": "Optional",
-              "type": "schema",
               "maybe": "name",
               "schema": {
-                "extends": [
-                  "text_sensor.TEXT_SENSOR_SCHEMA"
-                ],
                 "config_vars": {
                   "icon": {
                     "default": "mdi:screen-rotation"
                   }
-                }
-              }
+                },
+                "extends": [
+                  "text_sensor.TEXT_SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
             }
-          }
-        }
+          },
+          "extends": [
+            "msa3xx.MSA_SENSOR_SCHEMA"
+          ]
+        },
+        "type": "schema"
       }
     }
   }

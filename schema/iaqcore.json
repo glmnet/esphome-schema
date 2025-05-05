@@ -2,31 +2,19 @@
   "iaqcore.sensor": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
         "schema": {
           "config_vars": {
-            "id": {
-              "key": "GeneratedID",
-              "id_type": {
-                "class": "iaqcore::IAQCore",
-                "parents": [
-                  "PollingComponent",
-                  "Component",
-                  "i2c::I2CDevice"
-                ]
-              }
+            "address": {
+              "data_type": "hex_uint8_t",
+              "default": "90",
+              "docs": "**, int**: Manually specifiy the I\u00b2C address of the sensor. Defaults to `0x5A`.\n\n*See also: [AMS iAQ-Core Indoor Air Quality Sensor](https://esphome.io/components/sensor/iaqcore.html#configuration-variables)*",
+              "key": "Optional"
             },
             "co2": {
+              "docs": "The configuration for the CO2 sensor. All options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n\n*See also: [AMS iAQ-Core Indoor Air Quality Sensor](https://esphome.io/components/sensor/iaqcore.html#configuration-variables)*",
               "key": "Optional",
-              "type": "schema",
               "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
                 "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "ppm"
-                  },
                   "accuracy_decimals": {
                     "default": "0"
                   },
@@ -35,22 +23,39 @@
                   },
                   "state_class": {
                     "default": "measurement"
+                  },
+                  "unit_of_measurement": {
+                    "default": "ppm"
                   }
-                }
-              },
-              "docs": "The configuration for the CO2 sensor. All options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n\n*See also: [AMS iAQ-Core Indoor Air Quality Sensor](https://esphome.io/components/sensor/iaqcore.html#configuration-variables)*"
-            },
-            "tvoc": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
+                },
                 "extends": [
                   "sensor.SENSOR_SCHEMA"
-                ],
+                ]
+              },
+              "type": "schema"
+            },
+            "i2c_id": {
+              "docs": "**, ID**: The id of the I\u00b2C Bus.\n\n*See also: [AMS iAQ-Core Indoor Air Quality Sensor](https://esphome.io/components/sensor/iaqcore.html#configuration-variables)*",
+              "key": "GeneratedID",
+              "type": "use_id",
+              "use_id_type": "i2c::I2CBus"
+            },
+            "id": {
+              "id_type": {
+                "class": "iaqcore::IAQCore",
+                "parents": [
+                  "Component",
+                  "PollingComponent",
+                  "i2c::I2CDevice"
+                ]
+              },
+              "key": "GeneratedID"
+            },
+            "tvoc": {
+              "docs": "The configuration for the TVOC sensor. All options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n\n*See also: [AMS iAQ-Core Indoor Air Quality Sensor](https://esphome.io/components/sensor/iaqcore.html#configuration-variables)*",
+              "key": "Optional",
+              "schema": {
                 "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "ppb"
-                  },
                   "accuracy_decimals": {
                     "default": "0"
                   },
@@ -59,33 +64,28 @@
                   },
                   "state_class": {
                     "default": "measurement"
+                  },
+                  "unit_of_measurement": {
+                    "default": "ppb"
                   }
-                }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
               },
-              "docs": "The configuration for the TVOC sensor. All options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n\n*See also: [AMS iAQ-Core Indoor Air Quality Sensor](https://esphome.io/components/sensor/iaqcore.html#configuration-variables)*"
+              "type": "schema"
             },
             "update_interval": {
-              "key": "Optional",
               "default": "60s",
-              "docs": "**[Time](https://esphome.io/guides/configuration-types.html#config-time)**: The interval to check the sensor. Defaults to `60s`.\n\n*See also: [AMS iAQ-Core Indoor Air Quality Sensor](https://esphome.io/components/sensor/iaqcore.html#configuration-variables)*"
-            },
-            "i2c_id": {
-              "key": "GeneratedID",
-              "use_id_type": "i2c::I2CBus",
-              "type": "use_id",
-              "docs": "**ID**: The id of the I\u00b2C Bus.\n\n*See also: [AMS iAQ-Core Indoor Air Quality Sensor](https://esphome.io/components/sensor/iaqcore.html#configuration-variables)*"
-            },
-            "address": {
-              "key": "Optional",
-              "default": "90",
-              "data_type": "hex_uint8_t",
-              "docs": "**int**: Manually specifiy the I\u00b2C address of the sensor. Defaults to `0x5A`.\n\n*See also: [AMS iAQ-Core Indoor Air Quality Sensor](https://esphome.io/components/sensor/iaqcore.html#configuration-variables)*"
+              "docs": "**, [Time](https://esphome.io/guides/configuration-types.html#config-time)**: The interval to check the sensor. Defaults to `60s`.\n\n*See also: [AMS iAQ-Core Indoor Air Quality Sensor](https://esphome.io/components/sensor/iaqcore.html#configuration-variables)*",
+              "key": "Optional"
             }
           },
           "extends": [
             "core.COMPONENT_SCHEMA"
           ]
-        }
+        },
+        "type": "schema"
       }
     }
   }

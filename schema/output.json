@@ -1,5 +1,42 @@
 {
   "output": {
+    "action": {
+      "set_level": {
+        "docs": "This action sets the float output to the given level when executed. Note: This only works with floating point outputs like [ESP8266 Software PWM Output](https://esphome.io/components/output/esp8266_pwm.html), [ESP32 LEDC Output](https://esphome.io/components/output/ledc.html), [Sigma-Delta Output](https://esphome.io/components/output/sigma_delta_output.html), [Slow PWM Output](https://esphome.io/components/output/slow_pwm.html).\n\n*See also: [`output.set_level` Action](https://esphome.io/components/output/index.html#output-set-level-action)*",
+        "schema": {
+          "config_vars": {
+            "id": {
+              "key": "Required",
+              "type": "use_id",
+              "use_id_type": "output::FloatOutput"
+            },
+            "level": {
+              "key": "Required",
+              "templatable": true
+            }
+          }
+        },
+        "type": "schema"
+      },
+      "turn_off": {
+        "docs": "This action turns the output with the given ID off when executed.\n\n*See also: [`output.turn_off` Action](https://esphome.io/components/output/index.html#output-turn-off-action)*",
+        "schema": {
+          "extends": [
+            "output.BINARY_OUTPUT_ACTION_SCHEMA"
+          ]
+        },
+        "type": "schema"
+      },
+      "turn_on": {
+        "docs": "This action turns the output with the given ID on when executed.\n\n*See also: [`output.turn_on` Action](https://esphome.io/components/output/index.html#output-turn-on-action)*",
+        "schema": {
+          "extends": [
+            "output.BINARY_OUTPUT_ACTION_SCHEMA"
+          ]
+        },
+        "type": "schema"
+      }
+    },
     "components": {
       "ac_dimmer": {
         "docs": "This component has not been fully tested yet, if you are testing this component please share your experience with the dimmer hardware and light model and configuration here [https://github.com/esphome/feature-requests/issues/278](https://github.com/esphome/feature-requests/issues/278)\n\n*See also: [AC Dimmer Component](https://esphome.io/components/output/ac_dimmer.html#ac-dimmer-component)*"
@@ -192,220 +229,183 @@
       }
     },
     "schemas": {
-      "BINARY_OUTPUT_SCHEMA": {
-        "type": "schema",
-        "schema": {
-          "config_vars": {
-            "power_supply": {
-              "key": "Optional",
-              "use_id_type": "power_supply::PowerSupply",
-              "type": "use_id",
-              "docs": "**[ID](https://esphome.io/guides/configuration-types.html#config-id)**: The [power supply](https://esphome.io/components/power_supply.html) to connect to this output. When the output is enabled, the power supply will automatically be switched on too.\n\n*See also: [Base Output Configuration](https://esphome.io/components/output/index.html#base-output-configuration)*"
-            },
-            "inverted": {
-              "key": "Optional",
-              "type": "boolean",
-              "docs": "**boolean**: If the output should be treated as inverted. Defaults to `false`.\n\n*See also: [Base Output Configuration](https://esphome.io/components/output/index.html#base-output-configuration)*"
-            }
-          }
-        }
-      },
-      "FLOAT_OUTPUT_SCHEMA": {
-        "type": "schema",
-        "schema": {
-          "extends": [
-            "output.BINARY_OUTPUT_SCHEMA"
-          ],
-          "config_vars": {
-            "max_power": {
-              "key": "Optional",
-              "docs": "**float**: Sets the maximum output value of this output platform. Must be in range from min_power to 1. Defaults to `1`.\n\n*See also: [Base Output Configuration](https://esphome.io/components/output/index.html#base-output-configuration)*"
-            },
-            "min_power": {
-              "key": "Optional",
-              "docs": "**float**: Sets the minimum output value of this output platform. Must be in range from 0 to max_power. Defaults to `0`.  If zero_means_zero is `false` this will be output value when the entity is turned off.\n\n*See also: [Base Output Configuration](https://esphome.io/components/output/index.html#base-output-configuration)*"
-            },
-            "zero_means_zero": {
-              "key": "Optional",
-              "default": "False",
-              "type": "boolean",
-              "docs": "**boolean**: Sets the output to use actual 0 instead of `min_power`. Defaults to `false`.\n\n*See also: [Base Output Configuration](https://esphome.io/components/output/index.html#base-output-configuration)*"
-            },
-            "id": {
-              "docs": "**[ID](https://esphome.io/guides/configuration-types.html#config-id)**: The id to use for this output component.\n\n*See also: [Base Output Configuration](https://esphome.io/components/output/index.html#base-output-configuration)*"
-            }
-          }
-        }
-      },
       "BINARY_OUTPUT_ACTION_SCHEMA": {
-        "type": "schema",
         "maybe": "id",
         "schema": {
           "config_vars": {
             "id": {
               "key": "Required",
-              "use_id_type": "output::BinaryOutput",
-              "type": "use_id"
+              "type": "use_id",
+              "use_id_type": "output::BinaryOutput"
             }
           }
-        }
-      }
-    },
-    "action": {
-      "turn_on": {
-        "type": "schema",
-        "schema": {
-          "extends": [
-            "output.BINARY_OUTPUT_ACTION_SCHEMA"
-          ]
         },
-        "docs": "This action turns the output with the given ID on when executed.\n\n*See also: [`output.turn_on` Action](https://esphome.io/components/output/index.html#output-turn-on-action)*"
+        "type": "schema"
       },
-      "turn_off": {
-        "type": "schema",
+      "BINARY_OUTPUT_SCHEMA": {
         "schema": {
-          "extends": [
-            "output.BINARY_OUTPUT_ACTION_SCHEMA"
-          ]
+          "config_vars": {
+            "inverted": {
+              "docs": "**, boolean**: If the output should be treated as inverted. Defaults to `false`.\n\n*See also: [Base Output Configuration](https://esphome.io/components/output/index.html#base-output-configuration)*",
+              "key": "Optional",
+              "type": "boolean"
+            },
+            "power_supply": {
+              "docs": "**, [ID](https://esphome.io/guides/configuration-types.html#config-id)**: The [power supply](https://esphome.io/components/power_supply.html) to connect to this output. When the output is enabled, the power supply will automatically be switched on too.\n\n*See also: [Base Output Configuration](https://esphome.io/components/output/index.html#base-output-configuration)*",
+              "key": "Optional",
+              "type": "use_id",
+              "use_id_type": "power_supply::PowerSupply"
+            }
+          }
         },
-        "docs": "This action turns the output with the given ID off when executed.\n\n*See also: [`output.turn_off` Action](https://esphome.io/components/output/index.html#output-turn-off-action)*"
+        "type": "schema"
       },
-      "set_level": {
-        "type": "schema",
+      "FLOAT_OUTPUT_SCHEMA": {
         "schema": {
           "config_vars": {
             "id": {
-              "key": "Required",
-              "use_id_type": "output::FloatOutput",
-              "type": "use_id"
+              "docs": "**, [ID](https://esphome.io/guides/configuration-types.html#config-id)**: The id to use for this output component.\n\n*See also: [Base Output Configuration](https://esphome.io/components/output/index.html#base-output-configuration)*"
             },
-            "level": {
-              "key": "Required",
-              "templatable": true
+            "max_power": {
+              "docs": "**, float**: Sets the maximum output value of this output platform. Must be in range from min_power to 1. Defaults to `1`.\n\n*See also: [Base Output Configuration](https://esphome.io/components/output/index.html#base-output-configuration)*",
+              "key": "Optional"
+            },
+            "min_power": {
+              "docs": "**, float**: Sets the minimum output value of this output platform. Must be in range from 0 to max_power. Defaults to `0`.  If zero_means_zero is `false` this will be output value when the entity is turned off.\n\n*See also: [Base Output Configuration](https://esphome.io/components/output/index.html#base-output-configuration)*",
+              "key": "Optional"
+            },
+            "zero_means_zero": {
+              "default": "False",
+              "docs": "**, boolean**: Sets the output to use actual 0 instead of `min_power`. Defaults to `false`.\n\n*See also: [Base Output Configuration](https://esphome.io/components/output/index.html#base-output-configuration)*",
+              "key": "Optional",
+              "type": "boolean"
             }
-          }
+          },
+          "extends": [
+            "output.BINARY_OUTPUT_SCHEMA"
+          ]
         },
-        "docs": "This action sets the float output to the given level when executed. Note: This only works with floating point outputs like [ESP8266 Software PWM Output](https://esphome.io/components/output/esp8266_pwm.html), [ESP32 LEDC Output](https://esphome.io/components/output/ledc.html), [Sigma-Delta Output](https://esphome.io/components/output/sigma_delta_output.html), [Slow PWM Output](https://esphome.io/components/output/slow_pwm.html).\n\n*See also: [`output.set_level` Action](https://esphome.io/components/output/index.html#output-set-level-action)*"
+        "type": "schema"
       }
     }
   },
   "output.button": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
         "schema": {
-          "extends": [
-            "button.BUTTON_SCHEMA",
-            "core.COMPONENT_SCHEMA"
-          ],
           "config_vars": {
-            "id": {
-              "key": "GeneratedID",
-              "id_type": {
-                "class": "output::OutputButton",
-                "parents": [
-                  "button::Button",
-                  "EntityBase",
-                  "Component"
-                ]
-              }
-            },
-            "output": {
-              "key": "Required",
-              "use_id_type": "output::BinaryOutput",
-              "type": "use_id",
-              "docs": "**[ID](https://esphome.io/guides/configuration-types.html#config-id)**: The ID of the output component to use.\n\n*See also: [Generic Output Button](https://esphome.io/components/button/output.html#configuration-variables)*"
-            },
             "duration": {
+              "docs": "**, [Time](https://esphome.io/guides/configuration-types.html#config-time)**: How long the output should be set when the button is pressed.\n\n*See also: [Generic Output Button](https://esphome.io/components/button/output.html#configuration-variables)*",
               "key": "Required",
-              "type": "schema",
               "schema": {
                 "extends": [
                   "core.positive_time_period_milliseconds"
                 ]
               },
-              "docs": "**[Time](https://esphome.io/guides/configuration-types.html#config-time)**: How long the output should be set when the button is pressed.\n\n*See also: [Generic Output Button](https://esphome.io/components/button/output.html#configuration-variables)*"
+              "type": "schema"
+            },
+            "id": {
+              "id_type": {
+                "class": "output::OutputButton",
+                "parents": [
+                  "Component",
+                  "EntityBase",
+                  "button::Button"
+                ]
+              },
+              "key": "GeneratedID"
+            },
+            "output": {
+              "docs": "**, [ID](https://esphome.io/guides/configuration-types.html#config-id)**: The ID of the output component to use.\n\n*See also: [Generic Output Button](https://esphome.io/components/button/output.html#configuration-variables)*",
+              "key": "Required",
+              "type": "use_id",
+              "use_id_type": "output::BinaryOutput"
             }
-          }
-        }
+          },
+          "extends": [
+            "button.BUTTON_SCHEMA",
+            "core.COMPONENT_SCHEMA"
+          ]
+        },
+        "type": "schema"
       }
     }
   },
   "output.lock": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
         "schema": {
-          "extends": [
-            "lock.LOCK_SCHEMA",
-            "core.COMPONENT_SCHEMA"
-          ],
           "config_vars": {
             "id": {
-              "key": "GeneratedID",
               "id_type": {
                 "class": "output::OutputLock",
                 "parents": [
-                  "lock::Lock",
+                  "Component",
                   "EntityBase",
-                  "Component"
+                  "lock::Lock"
                 ]
-              }
+              },
+              "key": "GeneratedID"
             },
             "output": {
+              "docs": "**, [ID](https://esphome.io/guides/configuration-types.html#config-id)**: The ID of the output component to use.\n\n*See also: [Generic Output Lock](https://esphome.io/components/lock/output.html#configuration-variables)*",
               "key": "Required",
-              "use_id_type": "output::BinaryOutput",
               "type": "use_id",
-              "docs": "**[ID](https://esphome.io/guides/configuration-types.html#config-id)**: The ID of the output component to use.\n\n*See also: [Generic Output Lock](https://esphome.io/components/lock/output.html#configuration-variables)*"
+              "use_id_type": "output::BinaryOutput"
             }
-          }
-        }
+          },
+          "extends": [
+            "core.COMPONENT_SCHEMA",
+            "lock.LOCK_SCHEMA"
+          ]
+        },
+        "type": "schema"
       }
     }
   },
   "output.switch": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
         "schema": {
-          "extends": [
-            "switch._SWITCH_SCHEMA",
-            "core.COMPONENT_SCHEMA"
-          ],
           "config_vars": {
-            "restore_mode": {
-              "key": "Optional",
-              "default": "ALWAYS_OFF",
-              "type": "enum",
-              "values": {
-                "RESTORE_DEFAULT_OFF": null,
-                "RESTORE_DEFAULT_ON": null,
-                "ALWAYS_OFF": null,
-                "ALWAYS_ON": null,
-                "RESTORE_INVERTED_DEFAULT_OFF": null,
-                "RESTORE_INVERTED_DEFAULT_ON": null,
-                "DISABLED": null
-              }
-            },
             "id": {
-              "key": "GeneratedID",
               "id_type": {
                 "class": "output::OutputSwitch",
                 "parents": [
-                  "switch_::Switch",
+                  "Component",
                   "EntityBase",
-                  "Component"
+                  "switch_::Switch"
                 ]
-              }
+              },
+              "key": "GeneratedID"
             },
             "output": {
+              "docs": "**, [ID](https://esphome.io/guides/configuration-types.html#config-id)**: The ID of the output component to use.\n\n*See also: [Generic Output Switch](https://esphome.io/components/switch/output.html#configuration-variables)*",
               "key": "Required",
-              "use_id_type": "output::BinaryOutput",
               "type": "use_id",
-              "docs": "**[ID](https://esphome.io/guides/configuration-types.html#config-id)**: The ID of the output component to use.\n\n*See also: [Generic Output Switch](https://esphome.io/components/switch/output.html#configuration-variables)*"
+              "use_id_type": "output::BinaryOutput"
+            },
+            "restore_mode": {
+              "default": "ALWAYS_OFF",
+              "key": "Optional",
+              "type": "enum",
+              "values": {
+                "ALWAYS_OFF": null,
+                "ALWAYS_ON": null,
+                "DISABLED": null,
+                "RESTORE_DEFAULT_OFF": null,
+                "RESTORE_DEFAULT_ON": null,
+                "RESTORE_INVERTED_DEFAULT_OFF": null,
+                "RESTORE_INVERTED_DEFAULT_ON": null
+              }
             }
-          }
-        }
+          },
+          "extends": [
+            "core.COMPONENT_SCHEMA",
+            "switch._SWITCH_SCHEMA"
+          ]
+        },
+        "type": "schema"
       }
     }
   }

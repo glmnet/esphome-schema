@@ -1,303 +1,303 @@
 {
   "homeassistant": {
-    "schemas": {
-      "HOME_ASSISTANT_IMPORT_SCHEMA": {
-        "type": "schema",
-        "schema": {
-          "config_vars": {
-            "entity_id": {
-              "key": "Required",
-              "docs": "**string**: The entity ID to import from Home Assistant.\n\n*See also: [Home Assistant Text Sensor](https://esphome.io/components/text_sensor/homeassistant.html#configuration-variables)*"
-            },
-            "attribute": {
-              "key": "Optional",
-              "type": "string",
-              "docs": "**string**: The name of the state attribute to import from the specified entity. The entity state is used when this option is omitted.\n\n*See also: [Home Assistant Text Sensor](https://esphome.io/components/text_sensor/homeassistant.html#configuration-variables)*"
-            },
-            "internal": {
-              "key": "Optional",
-              "default": "True",
-              "type": "boolean"
-            }
-          }
-        }
-      },
-      "HOME_ASSISTANT_IMPORT_CONTROL_SCHEMA": {
-        "type": "schema",
-        "schema": {
-          "config_vars": {
-            "entity_id": {
-              "key": "Required",
-              "docs": "**string**: The entity ID to import / control from Home Assistant.\n\n*See also: [Home Assistant Switch](https://esphome.io/components/switch/homeassistant.html#configuration-variables)*"
-            },
-            "internal": {
-              "key": "Optional",
-              "default": "True",
-              "type": "boolean"
-            }
-          }
-        }
-      }
-    },
     "action": {
-      "service": {
-        "type": "schema",
-        "schema": {
-          "extends": [
-            "api.HOMEASSISTANT_ACTION_ACTION_SCHEMA"
-          ]
-        }
-      },
       "action": {
-        "type": "schema",
+        "docs": "Be sure to [follow the instructions above](https://esphome.io/components/api.html#api-actions) to tell Home Assistant to allow your device to perform actions.\n\n*See also: [`homeassistant.action` Action](https://esphome.io/components/api.html#homeassistant-action-action)*",
         "schema": {
           "extends": [
             "api.HOMEASSISTANT_ACTION_ACTION_SCHEMA"
           ]
         },
-        "docs": "Be sure to [follow the instructions above](https://esphome.io/components/api.html#api-actions) to tell Home Assistant to allow your device to perform actions.\n\n*See also: [`homeassistant.action` Action](https://esphome.io/components/api.html#homeassistant-action-action)*"
+        "type": "schema"
       },
       "event": {
-        "type": "schema",
+        "docs": "Be sure to [follow the instructions above](https://esphome.io/components/api.html#api-actions) to tell Home Assistant to allow your device to perform actions.\n\n*See also: [`homeassistant.event` Action](https://esphome.io/components/api.html#homeassistant-event-action)*",
         "schema": {
           "config_vars": {
-            "id": {
-              "key": "GeneratedID",
-              "use_id_type": "api::APIServer",
-              "type": "use_id"
-            },
-            "event": {
-              "key": "Required",
-              "docs": "**string**: The event to create - must begin with `esphome.`\n\n*See also: [Native API Component](https://esphome.io/components/api.html#id1)*"
-            },
             "data": {
-              "key": "Optional",
               "default": "{}",
-              "type": "schema",
+              "docs": "**, mapping**: Optional *static* data to pass along with the event.\n\n*See also: [Native API Component](https://esphome.io/components/api.html#id1)*",
+              "key": "Optional",
               "schema": {
                 "extends": [
                   "api.KEY_VALUE_SCHEMA"
                 ]
               },
-              "docs": "**mapping**: Optional *static* data to pass along with the event.\n\n*See also: [Native API Component](https://esphome.io/components/api.html#id1)*"
+              "type": "schema"
             },
             "data_template": {
-              "key": "Optional",
               "default": "{}",
-              "type": "schema",
+              "docs": "**, mapping**: Optional template data to pass along with the event. This is evaluated on the Home Assistant side with Home Assistant\u2019s templating engine.\n\n*See also: [Native API Component](https://esphome.io/components/api.html#id1)*",
+              "key": "Optional",
               "schema": {
                 "extends": [
                   "api.KEY_VALUE_SCHEMA"
                 ]
               },
-              "docs": "**mapping**: Optional template data to pass along with the event. This is evaluated on the Home Assistant side with Home Assistant\u2019s templating engine.\n\n*See also: [Native API Component](https://esphome.io/components/api.html#id1)*"
+              "type": "schema"
+            },
+            "event": {
+              "docs": "**, string**: The event to create - must begin with `esphome.`\n\n*See also: [Native API Component](https://esphome.io/components/api.html#id1)*",
+              "key": "Required"
+            },
+            "id": {
+              "key": "GeneratedID",
+              "type": "use_id",
+              "use_id_type": "api::APIServer"
             },
             "variables": {
-              "key": "Optional",
               "default": "{}",
-              "type": "schema",
+              "docs": "**, mapping**: Optional variables that can be used in the `data_template`. Values are [lambdas](https://esphome.io/automations/templates.html#config-lambda) and will be evaluated before sending the request.\n\n*See also: [Native API Component](https://esphome.io/components/api.html#id1)*",
+              "key": "Optional",
               "schema": {
                 "extends": [
                   "api.KEY_VALUE_SCHEMA"
                 ]
               },
-              "docs": "**mapping**: Optional variables that can be used in the `data_template`. Values are [lambdas](https://esphome.io/automations/templates.html#config-lambda) and will be evaluated before sending the request.\n\n*See also: [Native API Component](https://esphome.io/components/api.html#id1)*"
+              "type": "schema"
             }
           }
         },
-        "docs": "Be sure to [follow the instructions above](https://esphome.io/components/api.html#api-actions) to tell Home Assistant to allow your device to perform actions.\n\n*See also: [`homeassistant.event` Action](https://esphome.io/components/api.html#homeassistant-event-action)*"
+        "type": "schema"
+      },
+      "service": {
+        "schema": {
+          "extends": [
+            "api.HOMEASSISTANT_ACTION_ACTION_SCHEMA"
+          ]
+        },
+        "type": "schema"
       },
       "tag_scanned": {
-        "type": "schema",
+        "docs": "Be sure to [follow the instructions above](https://esphome.io/components/api.html#api-actions) to tell Home Assistant to allow your device to make action calls.\n\n*See also: [`homeassistant.tag_scanned` Action](https://esphome.io/components/api.html#homeassistant-tag-scanned-action)*",
+        "maybe": "tag",
         "schema": {
           "config_vars": {
             "id": {
               "key": "GeneratedID",
-              "use_id_type": "api::APIServer",
-              "type": "use_id"
+              "type": "use_id",
+              "use_id_type": "api::APIServer"
             },
             "tag": {
+              "docs": "**, [templatable](https://esphome.io/automations/templates.html#config-templatable), string**: The id of the scanned tag\n\n*See also: [Native API Component](https://esphome.io/components/api.html#id3)*",
               "key": "Required",
               "templatable": true,
-              "type": "string",
-              "docs": "**[templatable](https://esphome.io/automations/templates.html#config-templatable), string**: The id of the scanned tag\n\n*See also: [Native API Component](https://esphome.io/components/api.html#id3)*"
+              "type": "string"
             }
           }
         },
-        "maybe": "tag",
-        "docs": "Be sure to [follow the instructions above](https://esphome.io/components/api.html#api-actions) to tell Home Assistant to allow your device to make action calls.\n\n*See also: [`homeassistant.tag_scanned` Action](https://esphome.io/components/api.html#homeassistant-tag-scanned-action)*"
+        "type": "schema"
+      }
+    },
+    "schemas": {
+      "HOME_ASSISTANT_IMPORT_CONTROL_SCHEMA": {
+        "schema": {
+          "config_vars": {
+            "entity_id": {
+              "docs": "**, string**: The entity ID to import / control from Home Assistant.\n\n*See also: [Home Assistant Switch](https://esphome.io/components/switch/homeassistant.html#configuration-variables)*",
+              "key": "Required"
+            },
+            "internal": {
+              "default": "True",
+              "key": "Optional",
+              "type": "boolean"
+            }
+          }
+        },
+        "type": "schema"
+      },
+      "HOME_ASSISTANT_IMPORT_SCHEMA": {
+        "schema": {
+          "config_vars": {
+            "attribute": {
+              "docs": "**, string**: The name of the state attribute to import from the specified entity. The entity state is used when this option is omitted.\n\n*See also: [Home Assistant Text Sensor](https://esphome.io/components/text_sensor/homeassistant.html#configuration-variables)*",
+              "key": "Optional",
+              "type": "string"
+            },
+            "entity_id": {
+              "docs": "**, string**: The entity ID to import from Home Assistant.\n\n*See also: [Home Assistant Text Sensor](https://esphome.io/components/text_sensor/homeassistant.html#configuration-variables)*",
+              "key": "Required"
+            },
+            "internal": {
+              "default": "True",
+              "key": "Optional",
+              "type": "boolean"
+            }
+          }
+        },
+        "type": "schema"
       }
     }
   },
   "homeassistant.binary_sensor": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
         "schema": {
-          "extends": [
-            "binary_sensor.BINARY_SENSOR_SCHEMA",
-            "homeassistant.HOME_ASSISTANT_IMPORT_SCHEMA"
-          ],
           "config_vars": {
             "id": {
               "id_type": {
                 "class": "homeassistant::HomeassistantBinarySensor",
                 "parents": [
-                  "binary_sensor::BinarySensor",
+                  "Component",
                   "EntityBase",
-                  "Component"
+                  "binary_sensor::BinarySensor"
                 ]
               }
             }
-          }
-        }
+          },
+          "extends": [
+            "binary_sensor.BINARY_SENSOR_SCHEMA",
+            "homeassistant.HOME_ASSISTANT_IMPORT_SCHEMA"
+          ]
+        },
+        "type": "schema"
       }
     }
   },
   "homeassistant.number": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
         "schema": {
-          "extends": [
-            "number.NUMBER_SCHEMA",
-            "homeassistant.HOME_ASSISTANT_IMPORT_CONTROL_SCHEMA",
-            "core.COMPONENT_SCHEMA"
-          ],
           "config_vars": {
             "id": {
-              "key": "GeneratedID",
               "id_type": {
                 "class": "homeassistant::HomeassistantNumber",
                 "parents": [
-                  "number::Number",
+                  "Component",
                   "EntityBase",
-                  "Component"
+                  "number::Number"
                 ]
-              }
+              },
+              "key": "GeneratedID"
             }
-          }
-        }
+          },
+          "extends": [
+            "core.COMPONENT_SCHEMA",
+            "homeassistant.HOME_ASSISTANT_IMPORT_CONTROL_SCHEMA",
+            "number.NUMBER_SCHEMA"
+          ]
+        },
+        "type": "schema"
       }
     }
   },
   "homeassistant.sensor": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
         "schema": {
-          "extends": [
-            "sensor.SENSOR_SCHEMA",
-            "homeassistant.HOME_ASSISTANT_IMPORT_SCHEMA"
-          ],
           "config_vars": {
+            "accuracy_decimals": {
+              "default": "1"
+            },
             "id": {
               "id_type": {
                 "class": "homeassistant::HomeassistantSensor",
                 "parents": [
-                  "sensor::Sensor",
+                  "Component",
                   "EntityBase",
-                  "Component"
+                  "sensor::Sensor"
                 ]
               }
-            },
-            "accuracy_decimals": {
-              "default": "1"
             }
-          }
-        }
+          },
+          "extends": [
+            "homeassistant.HOME_ASSISTANT_IMPORT_SCHEMA",
+            "sensor.SENSOR_SCHEMA"
+          ]
+        },
+        "type": "schema"
       }
     }
   },
   "homeassistant.switch": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
         "schema": {
-          "extends": [
-            "switch._SWITCH_SCHEMA",
-            "homeassistant.HOME_ASSISTANT_IMPORT_CONTROL_SCHEMA",
-            "core.COMPONENT_SCHEMA"
-          ],
           "config_vars": {
-            "restore_mode": {
-              "key": "Optional",
-              "default": "ALWAYS_OFF",
-              "type": "enum",
-              "values": {
-                "RESTORE_DEFAULT_OFF": null,
-                "RESTORE_DEFAULT_ON": null,
-                "ALWAYS_OFF": null,
-                "ALWAYS_ON": null,
-                "RESTORE_INVERTED_DEFAULT_OFF": null,
-                "RESTORE_INVERTED_DEFAULT_ON": null,
-                "DISABLED": null
-              }
-            },
             "id": {
-              "key": "GeneratedID",
               "id_type": {
                 "class": "homeassistant::HomeassistantSwitch",
                 "parents": [
-                  "switch_::Switch",
+                  "Component",
                   "EntityBase",
-                  "Component"
+                  "switch_::Switch"
                 ]
+              },
+              "key": "GeneratedID"
+            },
+            "restore_mode": {
+              "default": "ALWAYS_OFF",
+              "key": "Optional",
+              "type": "enum",
+              "values": {
+                "ALWAYS_OFF": null,
+                "ALWAYS_ON": null,
+                "DISABLED": null,
+                "RESTORE_DEFAULT_OFF": null,
+                "RESTORE_DEFAULT_ON": null,
+                "RESTORE_INVERTED_DEFAULT_OFF": null,
+                "RESTORE_INVERTED_DEFAULT_ON": null
               }
             }
-          }
-        }
+          },
+          "extends": [
+            "core.COMPONENT_SCHEMA",
+            "homeassistant.HOME_ASSISTANT_IMPORT_CONTROL_SCHEMA",
+            "switch._SWITCH_SCHEMA"
+          ]
+        },
+        "type": "schema"
       }
     }
   },
   "homeassistant.text_sensor": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
         "schema": {
-          "extends": [
-            "text_sensor.TEXT_SENSOR_SCHEMA",
-            "homeassistant.HOME_ASSISTANT_IMPORT_SCHEMA"
-          ],
           "config_vars": {
             "id": {
               "id_type": {
                 "class": "homeassistant::HomeassistantTextSensor",
                 "parents": [
-                  "text_sensor::TextSensor",
+                  "Component",
                   "EntityBase",
-                  "Component"
+                  "text_sensor::TextSensor"
                 ]
               }
             }
-          }
-        }
+          },
+          "extends": [
+            "homeassistant.HOME_ASSISTANT_IMPORT_SCHEMA",
+            "text_sensor.TEXT_SENSOR_SCHEMA"
+          ]
+        },
+        "type": "schema"
       }
     }
   },
   "homeassistant.time": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
         "schema": {
-          "extends": [
-            "time.TIME_SCHEMA",
-            "core.COMPONENT_SCHEMA"
-          ],
           "config_vars": {
             "id": {
-              "key": "GeneratedID",
               "id_type": {
                 "class": "homeassistant::HomeassistantTime",
                 "parents": [
-                  "time::RealTimeClock",
+                  "Component",
                   "PollingComponent",
-                  "Component"
+                  "time::RealTimeClock"
                 ]
-              }
+              },
+              "key": "GeneratedID"
             }
-          }
-        }
+          },
+          "extends": [
+            "core.COMPONENT_SCHEMA",
+            "time.TIME_SCHEMA"
+          ]
+        },
+        "type": "schema"
       }
     }
   }

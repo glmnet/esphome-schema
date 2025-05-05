@@ -2,47 +2,47 @@
   "analog_threshold.binary_sensor": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
         "schema": {
-          "extends": [
-            "binary_sensor.BINARY_SENSOR_SCHEMA",
-            "core.COMPONENT_SCHEMA"
-          ],
           "config_vars": {
             "id": {
               "id_type": {
                 "class": "analog_threshold::AnalogThresholdBinarySensor",
                 "parents": [
-                  "binary_sensor::BinarySensor",
+                  "Component",
                   "EntityBase",
-                  "Component"
+                  "binary_sensor::BinarySensor"
                 ]
               }
             },
             "sensor_id": {
               "key": "Required",
-              "use_id_type": "sensor::Sensor",
-              "type": "use_id"
+              "type": "use_id",
+              "use_id_type": "sensor::Sensor"
             },
             "threshold": {
               "key": "Required",
-              "templatable": true,
-              "type": "schema",
               "schema": {
                 "config_vars": {
-                  "upper": {
+                  "lower": {
                     "key": "Required",
                     "templatable": true
                   },
-                  "lower": {
+                  "upper": {
                     "key": "Required",
                     "templatable": true
                   }
                 }
-              }
+              },
+              "templatable": true,
+              "type": "schema"
             }
-          }
-        }
+          },
+          "extends": [
+            "binary_sensor.BINARY_SENSOR_SCHEMA",
+            "core.COMPONENT_SCHEMA"
+          ]
+        },
+        "type": "schema"
       }
     }
   }

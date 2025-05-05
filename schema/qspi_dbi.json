@@ -2,414 +2,439 @@
   "qspi_dbi.display": {
     "schemas": {
       "BASE_SCHEMA": {
-        "type": "schema",
         "schema": {
-          "extends": [
-            "display.FULL_DISPLAY_SCHEMA"
-          ],
           "config_vars": {
-            "id": {
-              "key": "GeneratedID",
-              "id_type": {
-                "class": "qspi_dbi::QspiDbi",
-                "parents": [
-                  "display::Display",
-                  "PollingComponent",
-                  "Component",
-                  "display::DisplayBuffer",
-                  "display::Display",
-                  "PollingComponent",
-                  "Component",
-                  "Component",
-                  "spi::SPIDevice"
-                ]
-              }
-            },
-            "init_sequence": {
+            "brightness": {
+              "default": "208",
               "key": "Optional",
-              "is_list": true
+              "type": "integer"
+            },
+            "cs_pin": {
+              "key": "Optional",
+              "modes": [
+                "output"
+              ],
+              "schema": true,
+              "type": "pin"
+            },
+            "data_rate": {
+              "default": "10000000.0",
+              "key": "Optional",
+              "type": "enum",
+              "values": {
+                "1000.0": null,
+                "1000000.0": null,
+                "10000000.0": null,
+                "200000.0": null,
+                "2000000.0": null,
+                "20000000.0": null,
+                "4000000.0": null,
+                "40000000.0": null,
+                "5000000.0": null,
+                "75000.0": null,
+                "8000000.0": null,
+                "80000000.0": null
+              }
             },
             "dimensions": {
               "key": "Required",
-              "type": "schema",
               "schema": {
                 "config_vars": {
-                  "width": {
-                    "key": "Required"
-                  },
                   "height": {
                     "key": "Required"
                   },
                   "offset_height": {
-                    "key": "Optional",
-                    "default": "0"
+                    "default": "0",
+                    "key": "Optional"
                   },
                   "offset_width": {
-                    "key": "Optional",
-                    "default": "0"
+                    "default": "0",
+                    "key": "Optional"
+                  },
+                  "width": {
+                    "key": "Required"
                   }
                 }
-              }
+              },
+              "type": "schema"
             },
             "draw_from_origin": {
-              "key": "Optional",
               "default": "False",
-              "type": "boolean"
-            },
-            "reset_pin": {
               "key": "Optional",
-              "schema": true,
-              "modes": [
-                "output"
-              ],
-              "type": "pin"
+              "type": "boolean"
             },
             "enable_pin": {
               "key": "Optional",
-              "schema": true,
               "modes": [
                 "output"
               ],
+              "schema": true,
               "type": "pin"
             },
-            "brightness": {
+            "id": {
+              "id_type": {
+                "class": "qspi_dbi::QspiDbi",
+                "parents": [
+                  "Component",
+                  "Component",
+                  "Component",
+                  "PollingComponent",
+                  "PollingComponent",
+                  "display::Display",
+                  "display::Display",
+                  "display::DisplayBuffer",
+                  "spi::SPIDevice"
+                ]
+              },
+              "key": "GeneratedID"
+            },
+            "init_sequence": {
+              "is_list": true,
+              "key": "Optional"
+            },
+            "reset_pin": {
               "key": "Optional",
-              "default": "208",
-              "type": "integer"
+              "modes": [
+                "output"
+              ],
+              "schema": true,
+              "type": "pin"
             },
             "spi_id": {
               "key": "GeneratedID",
-              "use_id_type": "spi::QuadSPIComponent",
-              "type": "use_id"
-            },
-            "data_rate": {
-              "key": "Optional",
-              "default": "10000000.0",
-              "type": "enum",
-              "values": {
-                "80000000.0": null,
-                "40000000.0": null,
-                "20000000.0": null,
-                "10000000.0": null,
-                "8000000.0": null,
-                "5000000.0": null,
-                "4000000.0": null,
-                "2000000.0": null,
-                "1000000.0": null,
-                "200000.0": null,
-                "75000.0": null,
-                "1000.0": null
-              }
+              "type": "use_id",
+              "use_id_type": "spi::QuadSPIComponent"
             },
             "spi_mode": {
-              "key": "Optional",
               "default": "MODE0",
+              "key": "Optional",
               "type": "enum",
               "values": {
-                "MODE0": null,
-                "MODE1": null,
-                "MODE2": null,
-                "MODE3": null,
                 "0": null,
                 "1": null,
                 "2": null,
-                "3": null
+                "3": null,
+                "MODE0": null,
+                "MODE1": null,
+                "MODE2": null,
+                "MODE3": null
               }
-            },
-            "cs_pin": {
-              "key": "Optional",
-              "schema": true,
-              "modes": [
-                "output"
-              ],
-              "type": "pin"
             }
-          }
-        }
+          },
+          "extends": [
+            "display.FULL_DISPLAY_SCHEMA"
+          ]
+        },
+        "type": "schema"
       },
       "CONFIG_SCHEMA": {
+        "docs": "One of\n  * `CUSTOM`\n  \n  * `RM67162`\n  \n  * `RM690B0`\n  \n  * `JC4832W535`\n  \n  * `JC3636W518`\n  \n  * `AXS15231`\n  \n  \n\n*See also: [Quad SPI Displays](https://esphome.io/components/display/qspi_dbi.html#configuration-variables)*",
         "type": "typed",
+        "typed_key": "model",
         "types": {
-          "RM67162": {
-            "extends": [
-              "qspi_dbi.display.BASE_SCHEMA"
-            ],
-            "config_vars": {
-              "invert_colors": {
-                "key": "Optional",
-                "default": "False",
-                "type": "boolean"
-              },
-              "color_order": {
-                "key": "Optional",
-                "default": "RGB",
-                "type": "enum",
-                "values": {
-                  "RGB": null,
-                  "BGR": null
-                }
-              },
-              "draw_rounding": {
-                "key": "Optional",
-                "default": "2"
-              },
-              "transform": {
-                "key": "Optional",
-                "type": "schema",
-                "schema": {
-                  "config_vars": {
-                    "mirror_x": {
-                      "key": "Optional",
-                      "default": "False",
-                      "type": "boolean"
-                    },
-                    "mirror_y": {
-                      "key": "Optional",
-                      "default": "False",
-                      "type": "boolean"
-                    },
-                    "swap_xy": {
-                      "key": "Optional",
-                      "default": "False",
-                      "type": "boolean"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "RM690B0": {
-            "extends": [
-              "qspi_dbi.display.BASE_SCHEMA"
-            ],
-            "config_vars": {
-              "invert_colors": {
-                "key": "Optional",
-                "default": "False",
-                "type": "boolean"
-              },
-              "color_order": {
-                "key": "Optional",
-                "default": "RGB",
-                "type": "enum",
-                "values": {
-                  "RGB": null,
-                  "BGR": null
-                }
-              },
-              "draw_rounding": {
-                "key": "Optional",
-                "default": "2"
-              },
-              "transform": {
-                "key": "Optional",
-                "type": "schema",
-                "schema": {
-                  "config_vars": {
-                    "mirror_x": {
-                      "key": "Optional",
-                      "default": "False",
-                      "type": "boolean"
-                    },
-                    "mirror_y": {
-                      "key": "Optional",
-                      "default": "False",
-                      "type": "boolean"
-                    },
-                    "swap_xy": {
-                      "key": "Optional",
-                      "default": "False",
-                      "type": "boolean"
-                    }
-                  }
-                }
-              }
-            }
-          },
           "AXS15231": {
-            "extends": [
-              "qspi_dbi.display.BASE_SCHEMA"
-            ],
             "config_vars": {
-              "invert_colors": {
+              "color_order": {
+                "default": "RGB",
+                "docs": "Should be one of `rgb` (default) or `bgr`.\n\n*See also: [Quad SPI Displays](https://esphome.io/components/display/qspi_dbi.html#configuration-variables)*",
                 "key": "Optional",
+                "type": "enum",
+                "values": {
+                  "BGR": null,
+                  "RGB": null
+                }
+              },
+              "draw_rounding": {
+                "default": "8",
+                "docs": "**, int**: Caters for display chips that require partial drawing to be aligned to certain boundaries. Default is 2, must be a power of 2.\n\n*See also: [Quad SPI Displays](https://esphome.io/components/display/qspi_dbi.html#configuration-variables)*",
+                "key": "Optional"
+              },
+              "invert_colors": {
                 "default": "False",
+                "docs": "**, boolean**: With this boolean option you can invert the display colors.\n\n*See also: [Quad SPI Displays](https://esphome.io/components/display/qspi_dbi.html#configuration-variables)*",
+                "key": "Optional",
                 "type": "boolean"
               },
-              "color_order": {
-                "key": "Optional",
-                "default": "RGB",
-                "type": "enum",
-                "values": {
-                  "RGB": null,
-                  "BGR": null
-                }
-              },
-              "draw_rounding": {
-                "key": "Optional",
-                "default": "8"
-              },
               "transform": {
+                "docs": "Transform the display presentation using hardware. All defaults are `false`. This option cannot be used with `rotation`.\n  * **swap_xy** (*Optional*, boolean): If true, exchange the x and y axes. Not available for some chips\n  \n  * **mirror_x** (*Optional*, boolean): If true, mirror the x axis.\n  \n  * **mirror_y** (*Optional*, boolean): If true, mirror the y axis.\n  \n  \n\n*See also: [Quad SPI Displays](https://esphome.io/components/display/qspi_dbi.html#configuration-variables)*",
                 "key": "Optional",
-                "type": "schema",
                 "schema": {
                   "config_vars": {
                     "mirror_x": {
-                      "key": "Optional",
                       "default": "False",
+                      "key": "Optional",
                       "type": "boolean"
                     },
                     "mirror_y": {
-                      "key": "Optional",
                       "default": "False",
+                      "key": "Optional",
                       "type": "boolean"
                     }
                   }
-                }
+                },
+                "type": "schema"
               }
-            }
-          },
-          "JC4832W535": {
+            },
             "extends": [
               "qspi_dbi.display.BASE_SCHEMA"
-            ],
-            "config_vars": {
-              "invert_colors": {
-                "key": "Optional",
-                "default": "False",
-                "type": "boolean"
-              },
-              "color_order": {
-                "key": "Optional",
-                "default": "RGB",
-                "type": "enum",
-                "values": {
-                  "RGB": null,
-                  "BGR": null
-                }
-              },
-              "draw_rounding": {
-                "key": "Optional",
-                "default": "8"
-              },
-              "transform": {
-                "key": "Optional",
-                "type": "schema",
-                "schema": {
-                  "config_vars": {
-                    "mirror_x": {
-                      "key": "Optional",
-                      "default": "False",
-                      "type": "boolean"
-                    },
-                    "mirror_y": {
-                      "key": "Optional",
-                      "default": "False",
-                      "type": "boolean"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "JC3636W518": {
-            "extends": [
-              "qspi_dbi.display.BASE_SCHEMA"
-            ],
-            "config_vars": {
-              "invert_colors": {
-                "key": "Optional",
-                "default": "True",
-                "type": "boolean"
-              },
-              "color_order": {
-                "key": "Optional",
-                "default": "RGB",
-                "type": "enum",
-                "values": {
-                  "RGB": null,
-                  "BGR": null
-                }
-              },
-              "draw_rounding": {
-                "key": "Optional",
-                "default": "2"
-              },
-              "transform": {
-                "key": "Optional",
-                "type": "schema",
-                "schema": {
-                  "config_vars": {
-                    "mirror_x": {
-                      "key": "Optional",
-                      "default": "False",
-                      "type": "boolean"
-                    },
-                    "mirror_y": {
-                      "key": "Optional",
-                      "default": "False",
-                      "type": "boolean"
-                    },
-                    "swap_xy": {
-                      "key": "Optional",
-                      "default": "False",
-                      "type": "boolean"
-                    }
-                  }
-                }
-              }
-            }
+            ]
           },
           "CUSTOM": {
-            "extends": [
-              "qspi_dbi.display.BASE_SCHEMA"
-            ],
             "config_vars": {
-              "invert_colors": {
-                "key": "Optional",
-                "default": "False",
-                "type": "boolean"
-              },
               "color_order": {
-                "key": "Optional",
                 "default": "RGB",
+                "docs": "Should be one of `rgb` (default) or `bgr`.\n\n*See also: [Quad SPI Displays](https://esphome.io/components/display/qspi_dbi.html#configuration-variables)*",
+                "key": "Optional",
                 "type": "enum",
                 "values": {
-                  "RGB": null,
-                  "BGR": null
+                  "BGR": null,
+                  "RGB": null
                 }
               },
               "draw_rounding": {
+                "default": "2",
+                "docs": "**, int**: Caters for display chips that require partial drawing to be aligned to certain boundaries. Default is 2, must be a power of 2.\n\n*See also: [Quad SPI Displays](https://esphome.io/components/display/qspi_dbi.html#configuration-variables)*",
+                "key": "Optional"
+              },
+              "invert_colors": {
+                "default": "False",
+                "docs": "**, boolean**: With this boolean option you can invert the display colors.\n\n*See also: [Quad SPI Displays](https://esphome.io/components/display/qspi_dbi.html#configuration-variables)*",
                 "key": "Optional",
-                "default": "2"
+                "type": "boolean"
               },
               "transform": {
+                "docs": "Transform the display presentation using hardware. All defaults are `false`. This option cannot be used with `rotation`.\n  * **swap_xy** (*Optional*, boolean): If true, exchange the x and y axes. Not available for some chips\n  \n  * **mirror_x** (*Optional*, boolean): If true, mirror the x axis.\n  \n  * **mirror_y** (*Optional*, boolean): If true, mirror the y axis.\n  \n  \n\n*See also: [Quad SPI Displays](https://esphome.io/components/display/qspi_dbi.html#configuration-variables)*",
                 "key": "Optional",
-                "type": "schema",
                 "schema": {
                   "config_vars": {
                     "mirror_x": {
-                      "key": "Optional",
                       "default": "False",
+                      "key": "Optional",
                       "type": "boolean"
                     },
                     "mirror_y": {
-                      "key": "Optional",
                       "default": "False",
+                      "key": "Optional",
                       "type": "boolean"
                     },
                     "swap_xy": {
-                      "key": "Optional",
                       "default": "False",
+                      "key": "Optional",
                       "type": "boolean"
                     }
                   }
-                }
+                },
+                "type": "schema"
               }
-            }
+            },
+            "extends": [
+              "qspi_dbi.display.BASE_SCHEMA"
+            ]
+          },
+          "JC3636W518": {
+            "config_vars": {
+              "color_order": {
+                "default": "RGB",
+                "docs": "Should be one of `rgb` (default) or `bgr`.\n\n*See also: [Quad SPI Displays](https://esphome.io/components/display/qspi_dbi.html#configuration-variables)*",
+                "key": "Optional",
+                "type": "enum",
+                "values": {
+                  "BGR": null,
+                  "RGB": null
+                }
+              },
+              "draw_rounding": {
+                "default": "2",
+                "docs": "**, int**: Caters for display chips that require partial drawing to be aligned to certain boundaries. Default is 2, must be a power of 2.\n\n*See also: [Quad SPI Displays](https://esphome.io/components/display/qspi_dbi.html#configuration-variables)*",
+                "key": "Optional"
+              },
+              "invert_colors": {
+                "default": "True",
+                "docs": "**, boolean**: With this boolean option you can invert the display colors.\n\n*See also: [Quad SPI Displays](https://esphome.io/components/display/qspi_dbi.html#configuration-variables)*",
+                "key": "Optional",
+                "type": "boolean"
+              },
+              "transform": {
+                "docs": "Transform the display presentation using hardware. All defaults are `false`. This option cannot be used with `rotation`.\n  * **swap_xy** (*Optional*, boolean): If true, exchange the x and y axes. Not available for some chips\n  \n  * **mirror_x** (*Optional*, boolean): If true, mirror the x axis.\n  \n  * **mirror_y** (*Optional*, boolean): If true, mirror the y axis.\n  \n  \n\n*See also: [Quad SPI Displays](https://esphome.io/components/display/qspi_dbi.html#configuration-variables)*",
+                "key": "Optional",
+                "schema": {
+                  "config_vars": {
+                    "mirror_x": {
+                      "default": "False",
+                      "key": "Optional",
+                      "type": "boolean"
+                    },
+                    "mirror_y": {
+                      "default": "False",
+                      "key": "Optional",
+                      "type": "boolean"
+                    },
+                    "swap_xy": {
+                      "default": "False",
+                      "key": "Optional",
+                      "type": "boolean"
+                    }
+                  }
+                },
+                "type": "schema"
+              }
+            },
+            "extends": [
+              "qspi_dbi.display.BASE_SCHEMA"
+            ]
+          },
+          "JC4832W535": {
+            "config_vars": {
+              "color_order": {
+                "default": "RGB",
+                "docs": "Should be one of `rgb` (default) or `bgr`.\n\n*See also: [Quad SPI Displays](https://esphome.io/components/display/qspi_dbi.html#configuration-variables)*",
+                "key": "Optional",
+                "type": "enum",
+                "values": {
+                  "BGR": null,
+                  "RGB": null
+                }
+              },
+              "draw_rounding": {
+                "default": "8",
+                "docs": "**, int**: Caters for display chips that require partial drawing to be aligned to certain boundaries. Default is 2, must be a power of 2.\n\n*See also: [Quad SPI Displays](https://esphome.io/components/display/qspi_dbi.html#configuration-variables)*",
+                "key": "Optional"
+              },
+              "invert_colors": {
+                "default": "False",
+                "docs": "**, boolean**: With this boolean option you can invert the display colors.\n\n*See also: [Quad SPI Displays](https://esphome.io/components/display/qspi_dbi.html#configuration-variables)*",
+                "key": "Optional",
+                "type": "boolean"
+              },
+              "transform": {
+                "docs": "Transform the display presentation using hardware. All defaults are `false`. This option cannot be used with `rotation`.\n  * **swap_xy** (*Optional*, boolean): If true, exchange the x and y axes. Not available for some chips\n  \n  * **mirror_x** (*Optional*, boolean): If true, mirror the x axis.\n  \n  * **mirror_y** (*Optional*, boolean): If true, mirror the y axis.\n  \n  \n\n*See also: [Quad SPI Displays](https://esphome.io/components/display/qspi_dbi.html#configuration-variables)*",
+                "key": "Optional",
+                "schema": {
+                  "config_vars": {
+                    "mirror_x": {
+                      "default": "False",
+                      "key": "Optional",
+                      "type": "boolean"
+                    },
+                    "mirror_y": {
+                      "default": "False",
+                      "key": "Optional",
+                      "type": "boolean"
+                    }
+                  }
+                },
+                "type": "schema"
+              }
+            },
+            "extends": [
+              "qspi_dbi.display.BASE_SCHEMA"
+            ]
+          },
+          "RM67162": {
+            "config_vars": {
+              "color_order": {
+                "default": "RGB",
+                "docs": "Should be one of `rgb` (default) or `bgr`.\n\n*See also: [Quad SPI Displays](https://esphome.io/components/display/qspi_dbi.html#configuration-variables)*",
+                "key": "Optional",
+                "type": "enum",
+                "values": {
+                  "BGR": null,
+                  "RGB": null
+                }
+              },
+              "draw_rounding": {
+                "default": "2",
+                "docs": "**, int**: Caters for display chips that require partial drawing to be aligned to certain boundaries. Default is 2, must be a power of 2.\n\n*See also: [Quad SPI Displays](https://esphome.io/components/display/qspi_dbi.html#configuration-variables)*",
+                "key": "Optional"
+              },
+              "invert_colors": {
+                "default": "False",
+                "docs": "**, boolean**: With this boolean option you can invert the display colors.\n\n*See also: [Quad SPI Displays](https://esphome.io/components/display/qspi_dbi.html#configuration-variables)*",
+                "key": "Optional",
+                "type": "boolean"
+              },
+              "transform": {
+                "docs": "Transform the display presentation using hardware. All defaults are `false`. This option cannot be used with `rotation`.\n  * **swap_xy** (*Optional*, boolean): If true, exchange the x and y axes. Not available for some chips\n  \n  * **mirror_x** (*Optional*, boolean): If true, mirror the x axis.\n  \n  * **mirror_y** (*Optional*, boolean): If true, mirror the y axis.\n  \n  \n\n*See also: [Quad SPI Displays](https://esphome.io/components/display/qspi_dbi.html#configuration-variables)*",
+                "key": "Optional",
+                "schema": {
+                  "config_vars": {
+                    "mirror_x": {
+                      "default": "False",
+                      "key": "Optional",
+                      "type": "boolean"
+                    },
+                    "mirror_y": {
+                      "default": "False",
+                      "key": "Optional",
+                      "type": "boolean"
+                    },
+                    "swap_xy": {
+                      "default": "False",
+                      "key": "Optional",
+                      "type": "boolean"
+                    }
+                  }
+                },
+                "type": "schema"
+              }
+            },
+            "extends": [
+              "qspi_dbi.display.BASE_SCHEMA"
+            ]
+          },
+          "RM690B0": {
+            "config_vars": {
+              "color_order": {
+                "default": "RGB",
+                "docs": "Should be one of `rgb` (default) or `bgr`.\n\n*See also: [Quad SPI Displays](https://esphome.io/components/display/qspi_dbi.html#configuration-variables)*",
+                "key": "Optional",
+                "type": "enum",
+                "values": {
+                  "BGR": null,
+                  "RGB": null
+                }
+              },
+              "draw_rounding": {
+                "default": "2",
+                "docs": "**, int**: Caters for display chips that require partial drawing to be aligned to certain boundaries. Default is 2, must be a power of 2.\n\n*See also: [Quad SPI Displays](https://esphome.io/components/display/qspi_dbi.html#configuration-variables)*",
+                "key": "Optional"
+              },
+              "invert_colors": {
+                "default": "False",
+                "docs": "**, boolean**: With this boolean option you can invert the display colors.\n\n*See also: [Quad SPI Displays](https://esphome.io/components/display/qspi_dbi.html#configuration-variables)*",
+                "key": "Optional",
+                "type": "boolean"
+              },
+              "transform": {
+                "docs": "Transform the display presentation using hardware. All defaults are `false`. This option cannot be used with `rotation`.\n  * **swap_xy** (*Optional*, boolean): If true, exchange the x and y axes. Not available for some chips\n  \n  * **mirror_x** (*Optional*, boolean): If true, mirror the x axis.\n  \n  * **mirror_y** (*Optional*, boolean): If true, mirror the y axis.\n  \n  \n\n*See also: [Quad SPI Displays](https://esphome.io/components/display/qspi_dbi.html#configuration-variables)*",
+                "key": "Optional",
+                "schema": {
+                  "config_vars": {
+                    "mirror_x": {
+                      "default": "False",
+                      "key": "Optional",
+                      "type": "boolean"
+                    },
+                    "mirror_y": {
+                      "default": "False",
+                      "key": "Optional",
+                      "type": "boolean"
+                    },
+                    "swap_xy": {
+                      "default": "False",
+                      "key": "Optional",
+                      "type": "boolean"
+                    }
+                  }
+                },
+                "type": "schema"
+              }
+            },
+            "extends": [
+              "qspi_dbi.display.BASE_SCHEMA"
+            ]
           }
-        },
-        "typed_key": "model"
+        }
       }
     }
   }

@@ -112,7 +112,7 @@
         "docs": "The `seeed_mr24hpc1` text sensor allows you to get information about your device.\n\n*See also: [seeed_mr24hpc1 Text Sensor](https://esphome.io/components/seeed_mr24hpc1.html#text-sensor)*"
       },
       "sml": {
-        "docs": "**string**: Specify the OBIS code you want to retrieve data for from the device. The format must be (A-B:C.D.E, e.g. 1-0:1.8.0)\n\n*See also: [sml Text Sensor](https://esphome.io/components/sml.html#text-sensor)*"
+        "docs": "**, string**: Specify the OBIS code you want to retrieve data for from the device. The format must be (A-B:C.D.E, e.g. 1-0:1.8.0)\n\n*See also: [sml Text Sensor](https://esphome.io/components/sml.html#text-sensor)*"
       },
       "sun": {
         "dependencies": [
@@ -124,7 +124,7 @@
         "docs": "**sun_gtil2_id** (*Optional*): Manually specify the ID of the sun_gtil2 instance if there are multiple.\n\n*See also: [sun_gtil2 Text Sensor](https://esphome.io/components/sun_gtil2.html#text-sensor)*"
       },
       "teleinfo": {
-        "docs": "**string**: Specify the tag you want to retrieve from the Teleinformation.\n\n*See also: [teleinfo Text Sensor](https://esphome.io/components/sensor/teleinfo.html#text-sensor)*"
+        "docs": "**, string**: Specify the tag you want to retrieve from the Teleinformation.\n\n*See also: [teleinfo Text Sensor](https://esphome.io/components/sensor/teleinfo.html#text-sensor)*"
       },
       "template": {
         "docs": "The `template` text sensor platform allows you to create a text sensor with templated values using [lambdas](https://esphome.io/automations/templates.html#config-lambda).\n\n*See also: [Template Text Sensor](https://esphome.io/components/text_sensor/template.html#template-text-sensor)*"
@@ -159,114 +159,35 @@
         "docs": "The `wl_134` text sensor platform exposes the last read pet tag as text sensor.\n\n*See also: [WL-134 Pet Tag Sensor](https://esphome.io/components/text_sensor/wl_134.html#wl-134-pet-tag-sensor)*"
       }
     },
-    "schemas": {
-      "TEXT_SENSOR_SCHEMA": {
-        "type": "schema",
-        "schema": {
-          "extends": [
-            "core.ENTITY_BASE_SCHEMA",
-            "core.MQTT_COMPONENT_SCHEMA"
-          ],
-          "config_vars": {
-            "web_server": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "config_vars": {
-                  "web_server_id": {
-                    "key": "Optional",
-                    "use_id_type": "web_server::WebServer",
-                    "type": "use_id"
-                  },
-                  "sorting_weight": {
-                    "key": "Optional"
-                  },
-                  "sorting_group_id": {
-                    "key": "Optional",
-                    "use_id_type": "int",
-                    "type": "use_id"
-                  }
-                }
-              }
-            },
-            "mqtt_id": {
-              "key": "Optional",
-              "id_type": {
-                "class": "mqtt::MQTTTextSensor",
-                "parents": [
-                  "mqtt::MQTTComponent",
-                  "Component"
-                ]
-              }
-            },
-            "id": {
-              "key": "GeneratedID",
-              "id_type": {
-                "class": "text_sensor::TextSensor",
-                "parents": [
-                  "EntityBase"
-                ]
-              },
-              "docs": "**string**: Manually specify the ID for code generation. At least one of **id** and **name** must be specified.\n\n*See also: [Text Sensor Component](https://esphome.io/components/text_sensor/index.html#base-text-sensor-configuration)*"
-            },
-            "device_class": {
-              "key": "Optional",
-              "type": "enum",
-              "values": {
-                "date": null,
-                "": null,
-                "timestamp": null
-              },
-              "docs": "**string**: The device class for the sensor. Only the `timestamp` and `date` device classes are supported. Set to `\"\"` to remove the default device class of a sensor. Requires Home Assistant 2024.3 or newer.\n\n*See also: [Text Sensor Component](https://esphome.io/components/text_sensor/index.html#base-text-sensor-configuration)*"
-            },
-            "filters": {
-              "key": "Optional",
-              "type": "registry",
-              "is_list": true,
-              "registry": "text_sensor.filter"
-            },
-            "on_value": {
-              "key": "Optional",
-              "type": "trigger",
-              "docs": "**[Automation](https://esphome.io/automations/index.html#automation)**: An automation to perform when a new value is published. See [on_value](https://esphome.io/components/text_sensor/index.html#text-sensor-on-value).\n\n*See also: [Text Sensor Component](https://esphome.io/components/text_sensor/index.html#base-text-sensor-configuration)*"
-            },
-            "on_raw_value": {
-              "key": "Optional",
-              "type": "trigger",
-              "docs": "**[Automation](https://esphome.io/automations/index.html#automation)**: An automation to perform when a new value is received that hasn\u2019t passed through any filters. See [on_raw_value](https://esphome.io/components/text_sensor/index.html#text-sensor-on-raw-value).\n\n*See also: [Text Sensor Component](https://esphome.io/components/text_sensor/index.html#base-text-sensor-configuration)*"
-            }
-          }
-        }
-      }
-    },
     "condition": {
       "state": {
-        "type": "schema",
+        "docs": "This [Condition](https://esphome.io/automations/actions.html#config-condition) allows you to check if a given text sensor has a specific state.\n\n*See also: [`text_sensor.state` Condition](https://esphome.io/components/text_sensor/index.html#text-sensor-state-condition)*",
         "schema": {
           "config_vars": {
             "id": {
+              "docs": "**, [ID](https://esphome.io/guides/configuration-types.html#config-id)**: The text sensor ID.\n\n*See also: [Text Sensor Component](https://esphome.io/components/text_sensor/index.html#text-sensor-state-condition)*",
               "key": "Required",
-              "use_id_type": "text_sensor::TextSensor",
               "type": "use_id",
-              "docs": "**[ID](https://esphome.io/guides/configuration-types.html#config-id)**: The text sensor ID.\n\n*See also: [Text Sensor Component](https://esphome.io/components/text_sensor/index.html#text-sensor-state-condition)*"
+              "use_id_type": "text_sensor::TextSensor"
             },
             "state": {
+              "docs": "**, [templatable](https://esphome.io/automations/templates.html#config-templatable), string**: The state to compare to.\n\n*See also: [Text Sensor Component](https://esphome.io/components/text_sensor/index.html#text-sensor-state-condition)*",
               "key": "Required",
               "templatable": true,
-              "type": "string",
-              "docs": "**[templatable](https://esphome.io/automations/templates.html#config-templatable), string**: The state to compare to.\n\n*See also: [Text Sensor Component](https://esphome.io/components/text_sensor/index.html#text-sensor-state-condition)*"
+              "type": "string"
             }
           }
         },
-        "docs": "This [Condition](https://esphome.io/automations/actions.html#config-condition) allows you to check if a given text sensor has a specific state.\n\n*See also: [`text_sensor.state` Condition](https://esphome.io/components/text_sensor/index.html#text-sensor-state-condition)*"
+        "type": "schema"
       }
     },
     "filter": {
-      "lambda": {},
-      "to_upper": {},
-      "to_lower": {},
       "append": {
         "type": "string"
+      },
+      "lambda": {},
+      "map": {
+        "is_list": true
       },
       "prepend": {
         "type": "string"
@@ -274,8 +195,87 @@
       "substitute": {
         "is_list": true
       },
-      "map": {
-        "is_list": true
+      "to_lower": {},
+      "to_upper": {}
+    },
+    "schemas": {
+      "TEXT_SENSOR_SCHEMA": {
+        "schema": {
+          "config_vars": {
+            "device_class": {
+              "docs": "**, string**: The device class for the sensor. Only the `timestamp` and `date` device classes are supported. Set to `\"\"` to remove the default device class of a sensor. Requires Home Assistant 2024.3 or newer.\n\n*See also: [Text Sensor Component](https://esphome.io/components/text_sensor/index.html#base-text-sensor-configuration)*",
+              "key": "Optional",
+              "type": "enum",
+              "values": {
+                "": null,
+                "date": null,
+                "timestamp": null
+              }
+            },
+            "filters": {
+              "is_list": true,
+              "key": "Optional",
+              "registry": "text_sensor.filter",
+              "type": "registry"
+            },
+            "id": {
+              "docs": "**, string**: Manually specify the ID for code generation. At least one of **id** and **name** must be specified.\n\n*See also: [Text Sensor Component](https://esphome.io/components/text_sensor/index.html#base-text-sensor-configuration)*",
+              "id_type": {
+                "class": "text_sensor::TextSensor",
+                "parents": [
+                  "EntityBase"
+                ]
+              },
+              "key": "GeneratedID"
+            },
+            "mqtt_id": {
+              "id_type": {
+                "class": "mqtt::MQTTTextSensor",
+                "parents": [
+                  "Component",
+                  "mqtt::MQTTComponent"
+                ]
+              },
+              "key": "Optional"
+            },
+            "on_raw_value": {
+              "docs": "**, [Automation](https://esphome.io/automations/index.html#automation)**: An automation to perform when a new value is received that hasn\u2019t passed through any filters. See [on_raw_value](https://esphome.io/components/text_sensor/index.html#text-sensor-on-raw-value).\n\n*See also: [Text Sensor Component](https://esphome.io/components/text_sensor/index.html#base-text-sensor-configuration)*",
+              "key": "Optional",
+              "type": "trigger"
+            },
+            "on_value": {
+              "docs": "**, [Automation](https://esphome.io/automations/index.html#automation)**: An automation to perform when a new value is published. See [on_value](https://esphome.io/components/text_sensor/index.html#text-sensor-on-value).\n\n*See also: [Text Sensor Component](https://esphome.io/components/text_sensor/index.html#base-text-sensor-configuration)*",
+              "key": "Optional",
+              "type": "trigger"
+            },
+            "web_server": {
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
+                  "sorting_group_id": {
+                    "key": "Optional",
+                    "type": "use_id",
+                    "use_id_type": "int"
+                  },
+                  "sorting_weight": {
+                    "key": "Optional"
+                  },
+                  "web_server_id": {
+                    "key": "Optional",
+                    "type": "use_id",
+                    "use_id_type": "web_server::WebServer"
+                  }
+                }
+              },
+              "type": "schema"
+            }
+          },
+          "extends": [
+            "core.ENTITY_BASE_SCHEMA",
+            "core.MQTT_COMPONENT_SCHEMA"
+          ]
+        },
+        "type": "schema"
       }
     }
   }

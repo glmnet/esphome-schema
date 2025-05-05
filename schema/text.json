@@ -1,5 +1,24 @@
 {
   "text": {
+    "action": {
+      "set": {
+        "docs": "This is an [Action](https://esphome.io/automations/actions.html#config-action) for setting a text state.\n\n*See also: [`text.set` Action](https://esphome.io/components/text/index.html#text-set-action)*",
+        "schema": {
+          "config_vars": {
+            "value": {
+              "docs": "**, string, [templatable](https://esphome.io/automations/templates.html#config-templatable)**: The value to set the text to.\n\n*See also: [Text Component](https://esphome.io/components/text/index.html#text-set-action)*",
+              "key": "Required",
+              "templatable": true,
+              "type": "string"
+            }
+          },
+          "extends": [
+            "text.OPERATION_BASE_SCHEMA"
+          ]
+        },
+        "type": "schema"
+      }
+    },
     "components": {
       "copy": {},
       "lvgl": {
@@ -10,103 +29,84 @@
       }
     },
     "schemas": {
-      "TEXT_SCHEMA": {
-        "type": "schema",
+      "OPERATION_BASE_SCHEMA": {
         "schema": {
-          "extends": [
-            "core.ENTITY_BASE_SCHEMA",
-            "core.MQTT_COMPONENT_SCHEMA"
-          ],
           "config_vars": {
-            "web_server": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "config_vars": {
-                  "web_server_id": {
-                    "key": "Optional",
-                    "use_id_type": "web_server::WebServer",
-                    "type": "use_id"
-                  },
-                  "sorting_weight": {
-                    "key": "Optional"
-                  },
-                  "sorting_group_id": {
-                    "key": "Optional",
-                    "use_id_type": "int",
-                    "type": "use_id"
-                  }
-                }
-              }
-            },
-            "mqtt_id": {
-              "key": "Optional",
-              "id_type": {
-                "class": "mqtt::MQTTTextComponent",
-                "parents": [
-                  "mqtt::MQTTComponent",
-                  "Component"
-                ]
-              }
-            },
             "id": {
-              "key": "GeneratedID",
+              "docs": "**, [ID](https://esphome.io/guides/configuration-types.html#config-id)**: The ID of the text to set.\n\n*See also: [Text Component](https://esphome.io/components/text/index.html#text-set-action)*",
+              "key": "Required",
+              "type": "use_id",
+              "use_id_type": "text::Text"
+            }
+          }
+        },
+        "type": "schema"
+      },
+      "TEXT_SCHEMA": {
+        "schema": {
+          "config_vars": {
+            "id": {
+              "docs": "**, string**: Manually specify the ID for code generation. At least one of **id** and **name** must be specified.\n\n*See also: [Text Component](https://esphome.io/components/text/index.html#base-text-configuration)*",
               "id_type": {
                 "class": "text::Text",
                 "parents": [
                   "EntityBase"
                 ]
               },
-              "docs": "**string**: Manually specify the ID for code generation. At least one of **id** and **name** must be specified.\n\n*See also: [Text Component](https://esphome.io/components/text/index.html#base-text-configuration)*"
-            },
-            "on_value": {
-              "key": "Optional",
-              "type": "trigger",
-              "docs": "**[Automation](https://esphome.io/automations/index.html#automation)**: An automation to perform when a new value is published. See [on_value](https://esphome.io/components/text/index.html#text-on-value).\n\n*See also: [Text Component](https://esphome.io/components/text/index.html#base-text-configuration)*"
+              "key": "GeneratedID"
             },
             "mode": {
+              "docs": "**, string**: Defines how the text should be displayed in the frontend. One of `text` or `password`.\n\n*See also: [Text Component](https://esphome.io/components/text/index.html#base-text-configuration)*",
               "key": "Required",
               "type": "enum",
               "values": {
-                "TEXT": null,
-                "PASSWORD": null
+                "PASSWORD": null,
+                "TEXT": null
+              }
+            },
+            "mqtt_id": {
+              "id_type": {
+                "class": "mqtt::MQTTTextComponent",
+                "parents": [
+                  "Component",
+                  "mqtt::MQTTComponent"
+                ]
               },
-              "docs": "**string**: Defines how the text should be displayed in the frontend. One of `text` or `password`.\n\n*See also: [Text Component](https://esphome.io/components/text/index.html#base-text-configuration)*"
+              "key": "Optional"
+            },
+            "on_value": {
+              "docs": "**, [Automation](https://esphome.io/automations/index.html#automation)**: An automation to perform when a new value is published. See [on_value](https://esphome.io/components/text/index.html#text-on-value).\n\n*See also: [Text Component](https://esphome.io/components/text/index.html#base-text-configuration)*",
+              "key": "Optional",
+              "type": "trigger"
+            },
+            "web_server": {
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
+                  "sorting_group_id": {
+                    "key": "Optional",
+                    "type": "use_id",
+                    "use_id_type": "int"
+                  },
+                  "sorting_weight": {
+                    "key": "Optional"
+                  },
+                  "web_server_id": {
+                    "key": "Optional",
+                    "type": "use_id",
+                    "use_id_type": "web_server::WebServer"
+                  }
+                }
+              },
+              "type": "schema"
             }
-          }
-        }
-      },
-      "OPERATION_BASE_SCHEMA": {
-        "type": "schema",
-        "schema": {
-          "config_vars": {
-            "id": {
-              "key": "Required",
-              "use_id_type": "text::Text",
-              "type": "use_id",
-              "docs": "**[ID](https://esphome.io/guides/configuration-types.html#config-id)**: The ID of the text to set.\n\n*See also: [Text Component](https://esphome.io/components/text/index.html#text-set-action)*"
-            }
-          }
-        }
-      }
-    },
-    "action": {
-      "set": {
-        "type": "schema",
-        "schema": {
+          },
           "extends": [
-            "text.OPERATION_BASE_SCHEMA"
-          ],
-          "config_vars": {
-            "value": {
-              "key": "Required",
-              "templatable": true,
-              "type": "string",
-              "docs": "**string, [templatable](https://esphome.io/automations/templates.html#config-templatable)**: The value to set the text to.\n\n*See also: [Text Component](https://esphome.io/components/text/index.html#text-set-action)*"
-            }
-          }
+            "core.ENTITY_BASE_SCHEMA",
+            "core.MQTT_COMPONENT_SCHEMA"
+          ]
         },
-        "docs": "This is an [Action](https://esphome.io/automations/actions.html#config-action) for setting a text state.\n\n*See also: [`text.set` Action](https://esphome.io/components/text/index.html#text-set-action)*"
+        "type": "schema"
       }
     }
   }

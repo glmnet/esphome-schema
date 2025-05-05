@@ -2,184 +2,162 @@
   "emc2101": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
+        "is_list": true,
         "schema": {
           "config_vars": {
-            "id": {
+            "address": {
+              "data_type": "hex_uint8_t",
+              "default": "76",
+              "docs": "**, int**: Manually specify the I\u00b2C address of the sensor. Defaults to `0x4C`.\n\n*See also: [EMC2101 Component](https://esphome.io/components/emc2101.html#configuration-variables)*",
+              "key": "Optional"
+            },
+            "dac": {
+              "docs": "Enable DAC output.\n  * **conversion_rate** (*Optional*, string): The number of digital to analog conversions perfomed per second. One of `1/16`, `1/8`, `1/4`, `1/2`, `1`, `2`, `4`, `8`, `16`, `32`. Defaults to `16`.\n  \n  \n\n*See also: [EMC2101 Component](https://esphome.io/components/emc2101.html#configuration-variables)*",
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
+                  "conversion_rate": {
+                    "default": "16",
+                    "docs": "**, string**: The number of digital to analog conversions perfomed per second. One of `1/16`, `1/8`, `1/4`, `1/2`, `1`, `2`, `4`, `8`, `16`, `32`. Defaults to `16`.\n\n*See also: [EMC2101 Component](https://esphome.io/components/emc2101.html#configuration-variables)*",
+                    "key": "Optional",
+                    "type": "enum",
+                    "values": {
+                      "1": null,
+                      "1/16": null,
+                      "1/2": null,
+                      "1/4": null,
+                      "1/8": null,
+                      "16": null,
+                      "2": null,
+                      "32": null,
+                      "4": null,
+                      "8": null
+                    }
+                  }
+                }
+              },
+              "type": "schema"
+            },
+            "i2c_id": {
               "key": "GeneratedID",
+              "type": "use_id",
+              "use_id_type": "i2c::I2CBus"
+            },
+            "id": {
               "id_type": {
                 "class": "emc2101::Emc2101Component",
                 "parents": [
                   "Component",
                   "i2c::I2CDevice"
                 ]
-              }
-            },
-            "pwm": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "config_vars": {
-                  "resolution": {
-                    "key": "Optional",
-                    "default": "23",
-                    "type": "integer",
-                    "docs": "**int**: Determines effective resolution and the frequency of the PWM signal. Defaults to `23`.\n\n*See also: [EMC2101 Component](https://esphome.io/components/emc2101.html#configuration-variables)*"
-                  },
-                  "divider": {
-                    "key": "Optional",
-                    "default": "1",
-                    "type": "integer",
-                    "data_type": "uint8_t",
-                    "docs": "**int**: Value for the frequency divider. Defaults to `1`.\n\n*See also: [EMC2101 Component](https://esphome.io/components/emc2101.html#configuration-variables)*"
-                  }
-                }
               },
-              "docs": "Enable PWM output.\n  * **resolution** (*Optional*, int): Determines effective resolution and the frequency of the PWM signal. Defaults to `23`.\n  \n  * **divider** (*Optional*, int): Value for the frequency divider. Defaults to `1`.\n  \n  \n\n*See also: [EMC2101 Component](https://esphome.io/components/emc2101.html#configuration-variables)*"
-            },
-            "dac": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "config_vars": {
-                  "conversion_rate": {
-                    "key": "Optional",
-                    "default": "16",
-                    "type": "enum",
-                    "values": {
-                      "1/16": null,
-                      "1/8": null,
-                      "1/4": null,
-                      "1/2": null,
-                      "1": null,
-                      "2": null,
-                      "4": null,
-                      "8": null,
-                      "16": null,
-                      "32": null
-                    },
-                    "docs": "**string**: The number of digital to analog conversions perfomed per second. One of `1/16`, `1/8`, `1/4`, `1/2`, `1`, `2`, `4`, `8`, `16`, `32`. Defaults to `16`.\n\n*See also: [EMC2101 Component](https://esphome.io/components/emc2101.html#configuration-variables)*"
-                  }
-                }
-              },
-              "docs": "Enable DAC output.\n  * **conversion_rate** (*Optional*, string): The number of digital to analog conversions perfomed per second. One of `1/16`, `1/8`, `1/4`, `1/2`, `1`, `2`, `4`, `8`, `16`, `32`. Defaults to `16`.\n  \n  \n\n*See also: [EMC2101 Component](https://esphome.io/components/emc2101.html#configuration-variables)*"
+              "key": "GeneratedID"
             },
             "inverted": {
-              "key": "Optional",
               "default": "False",
-              "type": "boolean",
-              "docs": "**boolean**: Inverts the output so 0 means 100% duty cycle and 1 means 0%.  Defaults to `false`.\n\n*See also: [EMC2101 Component](https://esphome.io/components/emc2101.html#configuration-variables)*"
-            },
-            "i2c_id": {
-              "key": "GeneratedID",
-              "use_id_type": "i2c::I2CBus",
-              "type": "use_id"
-            },
-            "address": {
+              "docs": "**, boolean**: Inverts the output so 0 means 100% duty cycle and 1 means 0%.  Defaults to `false`.\n\n*See also: [EMC2101 Component](https://esphome.io/components/emc2101.html#configuration-variables)*",
               "key": "Optional",
-              "default": "76",
-              "data_type": "hex_uint8_t",
-              "docs": "**int**: Manually specify the I\u00b2C address of the sensor. Defaults to `0x4C`.\n\n*See also: [EMC2101 Component](https://esphome.io/components/emc2101.html#configuration-variables)*"
+              "type": "boolean"
+            },
+            "pwm": {
+              "docs": "Enable PWM output.\n  * **resolution** (*Optional*, int): Determines effective resolution and the frequency of the PWM signal. Defaults to `23`.\n  \n  * **divider** (*Optional*, int): Value for the frequency divider. Defaults to `1`.\n  \n  \n\n*See also: [EMC2101 Component](https://esphome.io/components/emc2101.html#configuration-variables)*",
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
+                  "divider": {
+                    "data_type": "uint8_t",
+                    "default": "1",
+                    "docs": "**, int**: Value for the frequency divider. Defaults to `1`.\n\n*See also: [EMC2101 Component](https://esphome.io/components/emc2101.html#configuration-variables)*",
+                    "key": "Optional",
+                    "type": "integer"
+                  },
+                  "resolution": {
+                    "default": "23",
+                    "docs": "**, int**: Determines effective resolution and the frequency of the PWM signal. Defaults to `23`.\n\n*See also: [EMC2101 Component](https://esphome.io/components/emc2101.html#configuration-variables)*",
+                    "key": "Optional",
+                    "type": "integer"
+                  }
+                }
+              },
+              "type": "schema"
             }
           },
           "extends": [
             "core.COMPONENT_SCHEMA"
           ]
         },
-        "is_list": true
+        "type": "schema"
       },
       "EMC2101_COMPONENT_SCHEMA": {
-        "type": "schema",
         "schema": {
           "config_vars": {
             "emc2101_id": {
               "key": "GeneratedID",
-              "use_id_type": "emc2101::Emc2101Component",
-              "type": "use_id"
+              "type": "use_id",
+              "use_id_type": "emc2101::Emc2101Component"
             }
           }
-        }
+        },
+        "type": "schema"
       }
     }
   },
   "emc2101.output": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
         "schema": {
-          "extends": [
-            "emc2101.EMC2101_COMPONENT_SCHEMA"
-          ],
           "config_vars": {
             "id": {
-              "key": "Required",
               "id_type": {
                 "class": "emc2101::EMC2101Output",
                 "parents": [
-                  "output::FloatOutput",
-                  "output::BinaryOutput"
+                  "output::BinaryOutput",
+                  "output::FloatOutput"
                 ]
-              }
+              },
+              "key": "Required"
             }
-          }
-        }
+          },
+          "extends": [
+            "emc2101.EMC2101_COMPONENT_SCHEMA"
+          ]
+        },
+        "type": "schema"
       }
     }
   },
   "emc2101.sensor": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
         "schema": {
-          "extends": [
-            "emc2101.EMC2101_COMPONENT_SCHEMA",
-            "core.COMPONENT_SCHEMA"
-          ],
           "config_vars": {
-            "id": {
-              "key": "GeneratedID",
-              "id_type": {
-                "class": "emc2101::EMC2101Sensor",
-                "parents": [
-                  "PollingComponent",
-                  "Component"
-                ]
-              }
-            },
-            "internal_temperature": {
+            "duty_cycle": {
               "key": "Optional",
-              "type": "schema",
               "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
                 "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "\u00b0C"
-                  },
                   "accuracy_decimals": {
-                    "default": "0"
+                    "default": "2"
                   },
-                  "device_class": {
-                    "default": "temperature"
+                  "icon": {
+                    "default": "mdi:percent"
                   },
                   "state_class": {
                     "default": "measurement"
+                  },
+                  "unit_of_measurement": {
+                    "default": "%"
                   }
-                }
-              }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
             },
             "external_temperature": {
               "key": "Optional",
-              "type": "schema",
               "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
                 "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "\u00b0C"
-                  },
                   "accuracy_decimals": {
                     "default": "3"
                   },
@@ -188,62 +166,84 @@
                   },
                   "state_class": {
                     "default": "measurement"
+                  },
+                  "unit_of_measurement": {
+                    "default": "\u00b0C"
                   }
-                }
-              }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "id": {
+              "id_type": {
+                "class": "emc2101::EMC2101Sensor",
+                "parents": [
+                  "Component",
+                  "PollingComponent"
+                ]
+              },
+              "key": "GeneratedID"
+            },
+            "internal_temperature": {
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
+                  "accuracy_decimals": {
+                    "default": "0"
+                  },
+                  "device_class": {
+                    "default": "temperature"
+                  },
+                  "state_class": {
+                    "default": "measurement"
+                  },
+                  "unit_of_measurement": {
+                    "default": "\u00b0C"
+                  }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
             },
             "speed": {
               "key": "Optional",
-              "type": "schema",
               "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
                 "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "RPM"
+                  "accuracy_decimals": {
+                    "default": "2"
                   },
                   "icon": {
                     "default": "mdi:fan"
                   },
-                  "accuracy_decimals": {
-                    "default": "2"
-                  },
                   "state_class": {
                     "default": "measurement"
+                  },
+                  "unit_of_measurement": {
+                    "default": "RPM"
                   }
-                }
-              }
-            },
-            "duty_cycle": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
+                },
                 "extends": [
                   "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "%"
-                  },
-                  "icon": {
-                    "default": "mdi:percent"
-                  },
-                  "accuracy_decimals": {
-                    "default": "2"
-                  },
-                  "state_class": {
-                    "default": "measurement"
-                  }
-                }
-              }
+                ]
+              },
+              "type": "schema"
             },
             "update_interval": {
-              "key": "Optional",
-              "default": "60s"
+              "default": "60s",
+              "key": "Optional"
             }
-          }
-        }
+          },
+          "extends": [
+            "core.COMPONENT_SCHEMA",
+            "emc2101.EMC2101_COMPONENT_SCHEMA"
+          ]
+        },
+        "type": "schema"
       }
     }
   }

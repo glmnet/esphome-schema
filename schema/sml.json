@@ -2,11 +2,11 @@
   "sml": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
+        "is_list": true,
         "schema": {
           "config_vars": {
             "id": {
-              "key": "GeneratedID",
+              "docs": "**, [ID](https://esphome.io/guides/configuration-types.html#config-id)**: Manually specify the ID used for code generation.\n\n*See also: [sml Component/Hub](https://esphome.io/components/sml.html#component-hub)*",
               "id_type": {
                 "class": "sml::Sml",
                 "parents": [
@@ -14,108 +14,108 @@
                   "uart::UARTDevice"
                 ]
               },
-              "docs": "**[ID](https://esphome.io/guides/configuration-types.html#config-id)**: Manually specify the ID used for code generation.\n\n*See also: [sml Component/Hub](https://esphome.io/components/sml.html#component-hub)*"
+              "key": "GeneratedID"
             },
             "on_data": {
               "key": "Optional",
               "type": "trigger"
             },
             "uart_id": {
+              "docs": "**, [ID](https://esphome.io/guides/configuration-types.html#config-id)**: Manually specify the ID of the [UART Component](https://esphome.io/components/uart.html#uart) if you want to use multiple UART buses.\n\n*See also: [sml Component/Hub](https://esphome.io/components/sml.html#component-hub)*",
               "key": "GeneratedID",
-              "use_id_type": "uart::UARTComponent",
               "type": "use_id",
-              "docs": "**[ID](https://esphome.io/guides/configuration-types.html#config-id)**: Manually specify the ID of the [UART Component](https://esphome.io/components/uart.html#uart) if you want to use multiple UART buses.\n\n*See also: [sml Component/Hub](https://esphome.io/components/sml.html#component-hub)*"
+              "use_id_type": "uart::UARTComponent"
             }
           }
         },
-        "is_list": true
+        "type": "schema"
       }
     }
   },
   "sml.sensor": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
         "schema": {
-          "extends": [
-            "sensor.SENSOR_SCHEMA"
-          ],
           "config_vars": {
             "id": {
               "id_type": {
                 "class": "sml::SmlSensor",
                 "parents": [
-                  "sensor::Sensor",
+                  "Component",
                   "EntityBase",
-                  "Component"
+                  "sensor::Sensor"
                 ]
               }
-            },
-            "sml_id": {
-              "key": "GeneratedID",
-              "use_id_type": "sml::Sml",
-              "type": "use_id"
             },
             "obis_code": {
               "key": "Required"
             },
             "server_id": {
-              "key": "Optional",
               "default": "",
+              "key": "Optional",
               "type": "string"
+            },
+            "sml_id": {
+              "key": "GeneratedID",
+              "type": "use_id",
+              "use_id_type": "sml::Sml"
             }
-          }
-        }
+          },
+          "extends": [
+            "sensor.SENSOR_SCHEMA"
+          ]
+        },
+        "type": "schema"
       }
     }
   },
   "sml.text_sensor": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
         "schema": {
-          "extends": [
-            "text_sensor.TEXT_SENSOR_SCHEMA"
-          ],
           "config_vars": {
+            "format": {
+              "default": "",
+              "key": "Optional",
+              "type": "enum",
+              "values": {
+                "": null,
+                "bool": null,
+                "hex": null,
+                "int": null,
+                "text": null,
+                "uint": null
+              }
+            },
             "id": {
               "id_type": {
                 "class": "sml::SmlTextSensor",
                 "parents": [
-                  "text_sensor::TextSensor",
+                  "Component",
                   "EntityBase",
-                  "Component"
+                  "text_sensor::TextSensor"
                 ]
               }
-            },
-            "sml_id": {
-              "key": "GeneratedID",
-              "use_id_type": "sml::Sml",
-              "type": "use_id"
             },
             "obis_code": {
               "key": "Required"
             },
             "server_id": {
-              "key": "Optional",
               "default": "",
+              "key": "Optional",
               "type": "string"
             },
-            "format": {
-              "key": "Optional",
-              "default": "",
-              "type": "enum",
-              "values": {
-                "text": null,
-                "bool": null,
-                "int": null,
-                "uint": null,
-                "hex": null,
-                "": null
-              }
+            "sml_id": {
+              "key": "GeneratedID",
+              "type": "use_id",
+              "use_id_type": "sml::Sml"
             }
-          }
-        }
+          },
+          "extends": [
+            "text_sensor.TEXT_SENSOR_SCHEMA"
+          ]
+        },
+        "type": "schema"
       }
     }
   }

@@ -1,5 +1,31 @@
 {
   "audio_dac": {
+    "action": {
+      "mute_off": {
+        "schema": {
+          "extends": [
+            "audio_dac.MUTE_ACTION_SCHEMA"
+          ]
+        },
+        "type": "schema"
+      },
+      "mute_on": {
+        "schema": {
+          "extends": [
+            "audio_dac.MUTE_ACTION_SCHEMA"
+          ]
+        },
+        "type": "schema"
+      },
+      "set_volume": {
+        "schema": {
+          "extends": [
+            "audio_dac.SET_VOLUME_ACTION_SCHEMA"
+          ]
+        },
+        "type": "schema"
+      }
+    },
     "components": {
       "aic3204": {
         "dependencies": [
@@ -22,60 +48,34 @@
     },
     "schemas": {
       "MUTE_ACTION_SCHEMA": {
-        "type": "schema",
         "maybe": "id",
         "schema": {
           "config_vars": {
             "id": {
               "key": "GeneratedID",
-              "use_id_type": "audio_dac::AudioDac",
-              "type": "use_id"
+              "type": "use_id",
+              "use_id_type": "audio_dac::AudioDac"
             }
           }
-        }
+        },
+        "type": "schema"
       },
       "SET_VOLUME_ACTION_SCHEMA": {
-        "type": "schema",
         "maybe": "volume",
         "schema": {
           "config_vars": {
             "id": {
               "key": "GeneratedID",
-              "use_id_type": "audio_dac::AudioDac",
-              "type": "use_id"
+              "type": "use_id",
+              "use_id_type": "audio_dac::AudioDac"
             },
             "volume": {
               "key": "Required",
               "templatable": true
             }
           }
-        }
-      }
-    },
-    "action": {
-      "mute_on": {
-        "type": "schema",
-        "schema": {
-          "extends": [
-            "audio_dac.MUTE_ACTION_SCHEMA"
-          ]
-        }
-      },
-      "mute_off": {
-        "type": "schema",
-        "schema": {
-          "extends": [
-            "audio_dac.MUTE_ACTION_SCHEMA"
-          ]
-        }
-      },
-      "set_volume": {
-        "type": "schema",
-        "schema": {
-          "extends": [
-            "audio_dac.SET_VOLUME_ACTION_SCHEMA"
-          ]
-        }
+        },
+        "type": "schema"
       }
     }
   }

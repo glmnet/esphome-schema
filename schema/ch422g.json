@@ -1,12 +1,25 @@
 {
   "ch422g": {
+    "pin": {
+      "schema": {
+        "extends": [
+          "ch422g.CH422G_PIN_SCHEMA"
+        ]
+      },
+      "type": "schema"
+    },
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
+        "is_list": true,
         "schema": {
           "config_vars": {
-            "id": {
+            "i2c_id": {
               "key": "GeneratedID",
+              "type": "use_id",
+              "use_id_type": "i2c::I2CBus"
+            },
+            "id": {
+              "docs": "**, [ID](https://esphome.io/guides/configuration-types.html#config-id)**: The id to use for this `ch422g` component.\n\n*See also: [CH422G I/O Expander](https://esphome.io/components/ch422g.html#configuration-variables)*",
               "id_type": {
                 "class": "ch422g::CH422GComponent",
                 "parents": [
@@ -14,27 +27,14 @@
                   "i2c::I2CDevice"
                 ]
               },
-              "docs": "**[ID](https://esphome.io/guides/configuration-types.html#config-id)**: The id to use for this `ch422g` component.\n\n*See also: [CH422G I/O Expander](https://esphome.io/components/ch422g.html#configuration-variables)*"
-            },
-            "i2c_id": {
-              "key": "GeneratedID",
-              "use_id_type": "i2c::I2CBus",
-              "type": "use_id"
+              "key": "GeneratedID"
             }
           },
           "extends": [
             "core.COMPONENT_SCHEMA"
           ]
         },
-        "is_list": true
-      }
-    },
-    "pin": {
-      "type": "schema",
-      "schema": {
-        "extends": [
-          "ch422g.CH422G_PIN_SCHEMA"
-        ]
+        "type": "schema"
       }
     }
   }

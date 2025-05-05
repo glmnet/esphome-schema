@@ -2,1132 +2,1132 @@
   "haier.binary_sensor": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
         "schema": {
           "config_vars": {
-            "haier_id": {
-              "key": "GeneratedID",
-              "use_id_type": "haier::HonClimate",
-              "type": "use_id",
-              "docs": "**[ID](https://esphome.io/guides/configuration-types.html#config-id)**: The id of haier climate component\n\n*See also: [Haier Climate Binary Sensors](https://esphome.io/components/binary_sensor/haier.html#configuration-variables)*"
-            },
-            "outdoor_fan_status": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "binary_sensor.BINARY_SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "icon": {
-                    "default": "mdi:fan"
-                  },
-                  "entity_category": {
-                    "default": "diagnostic"
-                  }
-                }
-              },
-              "docs": "A binary sensor that indicates outdoor fan activity. All options from [Binary Sensor](https://esphome.io/components/binary_sensor/index.html#config-binary-sensor).\n\n*See also: [Haier Climate Binary Sensors](https://esphome.io/components/binary_sensor/haier.html#configuration-variables)*"
-            },
-            "defrost_status": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "binary_sensor.BINARY_SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "icon": {
-                    "default": "mdi:snowflake-thermometer"
-                  },
-                  "entity_category": {
-                    "default": "diagnostic"
-                  }
-                }
-              },
-              "docs": "A binary sensor that indicates defrost procedure activity. All options from [Binary Sensor](https://esphome.io/components/binary_sensor/index.html#config-binary-sensor).\n\n*See also: [Haier Climate Binary Sensors](https://esphome.io/components/binary_sensor/haier.html#configuration-variables)*"
-            },
             "compressor_status": {
+              "docs": "A binary sensor that indicates Haier climate compressor activity. All options from [Binary Sensor](https://esphome.io/components/binary_sensor/index.html#config-binary-sensor).\n\n*See also: [Haier Climate Binary Sensors](https://esphome.io/components/binary_sensor/haier.html#configuration-variables)*",
               "key": "Optional",
-              "type": "schema",
               "schema": {
-                "extends": [
-                  "binary_sensor.BINARY_SENSOR_SCHEMA"
-                ],
                 "config_vars": {
+                  "entity_category": {
+                    "default": "diagnostic"
+                  },
                   "icon": {
                     "default": "mdi:hvac"
-                  },
-                  "entity_category": {
-                    "default": "diagnostic"
                   }
-                }
-              },
-              "docs": "A binary sensor that indicates Haier climate compressor activity. All options from [Binary Sensor](https://esphome.io/components/binary_sensor/index.html#config-binary-sensor).\n\n*See also: [Haier Climate Binary Sensors](https://esphome.io/components/binary_sensor/haier.html#configuration-variables)*"
-            },
-            "indoor_fan_status": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
+                },
                 "extends": [
                   "binary_sensor.BINARY_SENSOR_SCHEMA"
-                ],
+                ]
+              },
+              "type": "schema"
+            },
+            "defrost_status": {
+              "docs": "A binary sensor that indicates defrost procedure activity. All options from [Binary Sensor](https://esphome.io/components/binary_sensor/index.html#config-binary-sensor).\n\n*See also: [Haier Climate Binary Sensors](https://esphome.io/components/binary_sensor/haier.html#configuration-variables)*",
+              "key": "Optional",
+              "schema": {
                 "config_vars": {
-                  "icon": {
-                    "default": "mdi:fan"
-                  },
                   "entity_category": {
                     "default": "diagnostic"
+                  },
+                  "icon": {
+                    "default": "mdi:snowflake-thermometer"
                   }
-                }
+                },
+                "extends": [
+                  "binary_sensor.BINARY_SENSOR_SCHEMA"
+                ]
               },
-              "docs": "A binary sensor that indicates indoor fan activity. All options from [Binary Sensor](https://esphome.io/components/binary_sensor/index.html#config-binary-sensor).\n\n*See also: [Haier Climate Binary Sensors](https://esphome.io/components/binary_sensor/haier.html#configuration-variables)*"
+              "type": "schema"
             },
             "four_way_valve_status": {
+              "docs": "A binary sensor that indicates four way valve status. All options from [Binary Sensor](https://esphome.io/components/binary_sensor/index.html#config-binary-sensor).\n\n*See also: [Haier Climate Binary Sensors](https://esphome.io/components/binary_sensor/haier.html#configuration-variables)*",
               "key": "Optional",
-              "type": "schema",
               "schema": {
-                "extends": [
-                  "binary_sensor.BINARY_SENSOR_SCHEMA"
-                ],
                 "config_vars": {
+                  "entity_category": {
+                    "default": "diagnostic"
+                  },
                   "icon": {
                     "default": "mdi:valve"
-                  },
-                  "entity_category": {
-                    "default": "diagnostic"
                   }
-                }
-              },
-              "docs": "A binary sensor that indicates four way valve status. All options from [Binary Sensor](https://esphome.io/components/binary_sensor/index.html#config-binary-sensor).\n\n*See also: [Haier Climate Binary Sensors](https://esphome.io/components/binary_sensor/haier.html#configuration-variables)*"
-            },
-            "indoor_electric_heating_status": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
+                },
                 "extends": [
                   "binary_sensor.BINARY_SENSOR_SCHEMA"
-                ],
+                ]
+              },
+              "type": "schema"
+            },
+            "haier_id": {
+              "docs": "**, [ID](https://esphome.io/guides/configuration-types.html#config-id)**: The id of haier climate component\n\n*See also: [Haier Climate Binary Sensors](https://esphome.io/components/binary_sensor/haier.html#configuration-variables)*",
+              "key": "GeneratedID",
+              "type": "use_id",
+              "use_id_type": "haier::HonClimate"
+            },
+            "indoor_electric_heating_status": {
+              "docs": "A binary sensor that indicates electrical heating system activity. All options from [Binary Sensor](https://esphome.io/components/binary_sensor/index.html#config-binary-sensor).\n\n*See also: [Haier Climate Binary Sensors](https://esphome.io/components/binary_sensor/haier.html#configuration-variables)*",
+              "key": "Optional",
+              "schema": {
                 "config_vars": {
-                  "icon": {
-                    "default": "mdi:radiator"
-                  },
                   "entity_category": {
                     "default": "diagnostic"
+                  },
+                  "icon": {
+                    "default": "mdi:radiator"
                   }
-                }
+                },
+                "extends": [
+                  "binary_sensor.BINARY_SENSOR_SCHEMA"
+                ]
               },
-              "docs": "A binary sensor that indicates electrical heating system activity. All options from [Binary Sensor](https://esphome.io/components/binary_sensor/index.html#config-binary-sensor).\n\n*See also: [Haier Climate Binary Sensors](https://esphome.io/components/binary_sensor/haier.html#configuration-variables)*"
+              "type": "schema"
+            },
+            "indoor_fan_status": {
+              "docs": "A binary sensor that indicates indoor fan activity. All options from [Binary Sensor](https://esphome.io/components/binary_sensor/index.html#config-binary-sensor).\n\n*See also: [Haier Climate Binary Sensors](https://esphome.io/components/binary_sensor/haier.html#configuration-variables)*",
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
+                  "entity_category": {
+                    "default": "diagnostic"
+                  },
+                  "icon": {
+                    "default": "mdi:fan"
+                  }
+                },
+                "extends": [
+                  "binary_sensor.BINARY_SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "outdoor_fan_status": {
+              "docs": "A binary sensor that indicates outdoor fan activity. All options from [Binary Sensor](https://esphome.io/components/binary_sensor/index.html#config-binary-sensor).\n\n*See also: [Haier Climate Binary Sensors](https://esphome.io/components/binary_sensor/haier.html#configuration-variables)*",
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
+                  "entity_category": {
+                    "default": "diagnostic"
+                  },
+                  "icon": {
+                    "default": "mdi:fan"
+                  }
+                },
+                "extends": [
+                  "binary_sensor.BINARY_SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
             }
           }
-        }
+        },
+        "type": "schema"
       }
     }
   },
   "haier.button": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
         "schema": {
           "config_vars": {
             "haier_id": {
+              "docs": "**, [ID](https://esphome.io/guides/configuration-types.html#config-id)**: The id of Haier climate component\n\n*See also: [Haier Climate Buttons](https://esphome.io/components/button/haier.html#configuration-variables)*",
               "key": "GeneratedID",
-              "use_id_type": "haier::HonClimate",
               "type": "use_id",
-              "docs": "**[ID](https://esphome.io/guides/configuration-types.html#config-id)**: The id of Haier climate component\n\n*See also: [Haier Climate Buttons](https://esphome.io/components/button/haier.html#configuration-variables)*"
+              "use_id_type": "haier::HonClimate"
             },
             "self_cleaning": {
+              "docs": "A button that starts Haier climate self cleaning. All options from [Button](https://esphome.io/components/button/index.html#config-button).\n\n*See also: [Haier Climate Buttons](https://esphome.io/components/button/haier.html#configuration-variables)*",
               "key": "Optional",
-              "type": "schema",
               "schema": {
-                "extends": [
-                  "button.BUTTON_SCHEMA"
-                ],
                 "config_vars": {
+                  "icon": {
+                    "default": "mdi:spray-bottle"
+                  },
                   "id": {
-                    "key": "GeneratedID",
                     "id_type": {
                       "class": "haier::SelfCleaningButton",
                       "parents": [
-                        "button::Button",
-                        "EntityBase"
+                        "EntityBase",
+                        "button::Button"
                       ]
-                    }
-                  },
-                  "icon": {
-                    "default": "mdi:spray-bottle"
+                    },
+                    "key": "GeneratedID"
                   }
-                }
-              },
-              "docs": "A button that starts Haier climate self cleaning. All options from [Button](https://esphome.io/components/button/index.html#config-button).\n\n*See also: [Haier Climate Buttons](https://esphome.io/components/button/haier.html#configuration-variables)*"
-            },
-            "steri_cleaning": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
+                },
                 "extends": [
                   "button.BUTTON_SCHEMA"
-                ],
+                ]
+              },
+              "type": "schema"
+            },
+            "steri_cleaning": {
+              "docs": "A button that starts Haier climate 56\u00b0C Steri-Clean. All options from [Button](https://esphome.io/components/button/index.html#config-button).\n\n*See also: [Haier Climate Buttons](https://esphome.io/components/button/haier.html#configuration-variables)*",
+              "key": "Optional",
+              "schema": {
                 "config_vars": {
+                  "icon": {
+                    "default": "mdi:spray-bottle"
+                  },
                   "id": {
-                    "key": "GeneratedID",
                     "id_type": {
                       "class": "haier::SteriCleaningButton",
                       "parents": [
-                        "button::Button",
-                        "EntityBase"
+                        "EntityBase",
+                        "button::Button"
                       ]
-                    }
-                  },
-                  "icon": {
-                    "default": "mdi:spray-bottle"
+                    },
+                    "key": "GeneratedID"
                   }
-                }
+                },
+                "extends": [
+                  "button.BUTTON_SCHEMA"
+                ]
               },
-              "docs": "A button that starts Haier climate 56\u00b0C Steri-Clean. All options from [Button](https://esphome.io/components/button/index.html#config-button).\n\n*See also: [Haier Climate Buttons](https://esphome.io/components/button/haier.html#configuration-variables)*"
+              "type": "schema"
             }
           }
-        }
+        },
+        "type": "schema"
       }
     }
   },
   "haier.climate": {
-    "schemas": {
-      "BASE_CONFIG_SCHEMA": {
-        "type": "schema",
+    "action": {
+      "beeper_off": {
         "schema": {
           "extends": [
-            "climate.CLIMATE_SCHEMA",
-            "core.COMPONENT_SCHEMA"
-          ],
-          "config_vars": {
-            "supported_modes": {
-              "key": "Optional",
-              "is_list": true,
-              "type": "enum",
-              "values": {
-                "OFF": null,
-                "HEAT_COOL": null,
-                "COOL": null,
-                "HEAT": null,
-                "DRY": null,
-                "FAN_ONLY": null
-              }
-            },
-            "supported_swing_modes": {
-              "key": "Optional",
-              "default": "['VERTICAL', 'HORIZONTAL', 'BOTH']",
-              "is_list": true,
-              "type": "enum",
-              "values": {
-                "OFF": null,
-                "VERTICAL": null,
-                "HORIZONTAL": null,
-                "BOTH": null
-              }
-            },
-            "wifi_signal": {
-              "key": "Optional",
-              "default": "False",
-              "type": "boolean"
-            },
-            "display": {
-              "key": "Optional",
-              "type": "boolean"
-            },
-            "answer_timeout": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "core.positive_time_period_milliseconds"
-                ]
-              }
-            },
-            "on_status_message": {
-              "key": "Optional",
-              "type": "trigger"
-            },
-            "uart_id": {
-              "key": "GeneratedID",
-              "use_id_type": "uart::UARTComponent",
-              "type": "use_id"
-            }
-          }
-        }
+            "haier.climate.HAIER_HON_BASE_ACTION_SCHEMA"
+          ]
+        },
+        "type": "schema"
       },
-      "CONFIG_SCHEMA": {
-        "type": "typed",
-        "types": {
-          "SMARTAIR2": {
-            "extends": [
-              "haier.climate.BASE_CONFIG_SCHEMA"
-            ],
-            "config_vars": {
-              "id": {
-                "key": "GeneratedID",
-                "id_type": {
-                  "class": "haier::Smartair2Climate",
-                  "parents": [
-                    "haier::HaierClimateBase",
-                    "uart::UARTDevice",
-                    "climate::Climate",
-                    "EntityBase",
-                    "Component"
-                  ]
-                }
-              },
-              "alternative_swing_control": {
-                "key": "Optional",
-                "default": "False",
-                "type": "boolean",
-                "docs": "**boolean**: (supported by smartAir2 only) If `true` - use alternative values to control swing mode. Use only if the original control method is not working for your AC.\n\n*See also: [Haier Climate](https://esphome.io/components/climate/haier.html#configuration-variables)*"
-              },
-              "supported_presets": {
-                "key": "Optional",
-                "default": "['BOOST', 'COMFORT']",
-                "is_list": true,
-                "type": "enum",
-                "values": {
-                  "AWAY": null,
-                  "BOOST": null,
-                  "COMFORT": null
-                },
-                "docs": "**list**: Can be used to disable some presets. Possible values for smartair2 are: `AWAY`, `BOOST`, `COMFORT`. Possible values for hOn are: `AWAY`, `BOOST`, `SLEEP`. `AWAY` preset can be enabled only in `HEAT` mode, it is disabled by default.\n\n*See also: [Haier Climate](https://esphome.io/components/climate/haier.html#configuration-variables)*"
+      "beeper_on": {
+        "schema": {
+          "extends": [
+            "haier.climate.HAIER_HON_BASE_ACTION_SCHEMA"
+          ]
+        },
+        "type": "schema"
+      },
+      "display_off": {
+        "schema": {
+          "extends": [
+            "haier.climate.HAIER_BASE_ACTION_SCHEMA"
+          ]
+        },
+        "type": "schema"
+      },
+      "display_on": {
+        "schema": {
+          "extends": [
+            "haier.climate.HAIER_BASE_ACTION_SCHEMA"
+          ]
+        },
+        "type": "schema"
+      },
+      "health_off": {
+        "schema": {
+          "extends": [
+            "haier.climate.HAIER_BASE_ACTION_SCHEMA"
+          ]
+        },
+        "type": "schema"
+      },
+      "health_on": {
+        "schema": {
+          "extends": [
+            "haier.climate.HAIER_BASE_ACTION_SCHEMA"
+          ]
+        },
+        "type": "schema"
+      },
+      "power_off": {
+        "schema": {
+          "extends": [
+            "haier.climate.HAIER_BASE_ACTION_SCHEMA"
+          ]
+        },
+        "type": "schema"
+      },
+      "power_on": {
+        "schema": {
+          "extends": [
+            "haier.climate.HAIER_BASE_ACTION_SCHEMA"
+          ]
+        },
+        "type": "schema"
+      },
+      "power_toggle": {
+        "schema": {
+          "extends": [
+            "haier.climate.HAIER_BASE_ACTION_SCHEMA"
+          ]
+        },
+        "type": "schema"
+      },
+      "set_horizontal_airflow": {
+        "schema": {
+          "config_vars": {
+            "horizontal_airflow": {
+              "key": "Required",
+              "templatable": true,
+              "type": "enum",
+              "values": {
+                "CENTER": null,
+                "LEFT": null,
+                "MAX_LEFT": null,
+                "MAX_RIGHT": null,
+                "RIGHT": null
               }
-            }
-          },
-          "HON": {
-            "extends": [
-              "haier.climate.BASE_CONFIG_SCHEMA"
-            ],
-            "config_vars": {
-              "id": {
-                "key": "GeneratedID",
-                "id_type": {
-                  "class": "haier::HonClimate",
-                  "parents": [
-                    "haier::HaierClimateBase",
-                    "uart::UARTDevice",
-                    "climate::Climate",
-                    "EntityBase",
-                    "Component"
-                  ]
-                }
-              },
-              "control_method": {
-                "key": "Optional",
-                "default": "SET_GROUP_PARAMETERS",
-                "is_list": true,
-                "type": "enum",
-                "values": {
-                  "MONITOR_ONLY": null,
-                  "SET_GROUP_PARAMETERS": null,
-                  "SET_SINGLE_PARAMETER": null
-                },
-                "docs": "**list**: (supported only by hOn) Defines control method (should be supported by AC). Supported values: `MONITOR_ONLY` - no control, just monitor status, `SET_GROUP_PARAMETERS` - set all AC parameters with one command (default method), `SET_SINGLE_PARAMETER` - set each parameter individually (this method is supported by some new ceiling ACs like AD71S2SM3FA)\n\n*See also: [Haier Climate](https://esphome.io/components/climate/haier.html#configuration-variables)*"
-              },
-              "control_packet_size": {
-                "key": "Optional",
-                "default": "10",
-                "type": "integer",
-                "docs": "**int**: (supported only by hOn) Define the size of the control packet. Can help with some newer models of ACs that use bigger packets. The default value: `10`.\n\n*See also: [Haier Climate](https://esphome.io/components/climate/haier.html#configuration-variables)*"
-              },
-              "sensors_packet_size": {
-                "key": "Optional",
-                "default": "22",
-                "type": "integer",
-                "docs": "**int**: (supported only by hOn) Define the size of the sensor packet of the status message. Can help with some models of ACs that have bigger sensor packet. The default value: `22`, minimum value: `18`.\n\n*See also: [Haier Climate](https://esphome.io/components/climate/haier.html#configuration-variables)*"
-              },
-              "status_message_header_size": {
-                "key": "Optional",
-                "default": "0",
-                "type": "integer",
-                "docs": "**int**: (supported only by hOn) Define the header size of the status message. Can be used to handle some protocol variations. Use only if you are sure what you are doing. The default value: `0`.\n\n*See also: [Haier Climate](https://esphome.io/components/climate/haier.html#configuration-variables)*"
-              },
-              "supported_presets": {
-                "key": "Optional",
-                "default": "['BOOST', 'SLEEP']",
-                "is_list": true,
-                "type": "enum",
-                "values": {
-                  "AWAY": null,
-                  "BOOST": null,
-                  "SLEEP": null
-                },
-                "docs": "**list**: Can be used to disable some presets. Possible values for smartair2 are: `AWAY`, `BOOST`, `COMFORT`. Possible values for hOn are: `AWAY`, `BOOST`, `SLEEP`. `AWAY` preset can be enabled only in `HEAT` mode, it is disabled by default.\n\n*See also: [Haier Climate](https://esphome.io/components/climate/haier.html#configuration-variables)*"
-              },
-              "on_alarm_start": {
-                "key": "Optional",
-                "type": "trigger",
-                "docs": "**[Automation](https://esphome.io/automations/index.html#automation)**: (supported only by hOn) Automation to perform when AC activates a new alarm. See [on_alarm_start Trigger](https://esphome.io/components/climate/haier.html#haier-on-alarm-start).\n\n*See also: [Haier Climate](https://esphome.io/components/climate/haier.html#configuration-variables)*"
-              },
-              "on_alarm_end": {
-                "key": "Optional",
-                "type": "trigger",
-                "docs": "**[Automation](https://esphome.io/automations/index.html#automation)**: (supported only by hOn) Automation to perform when AC deactivates a new alarm. See [on_alarm_end Trigger](https://esphome.io/components/climate/haier.html#haier-on-alarm-end).\n\n*See also: [Haier Climate](https://esphome.io/components/climate/haier.html#configuration-variables)*"
-              }
+            },
+            "id": {
+              "key": "GeneratedID",
+              "type": "use_id",
+              "use_id_type": "haier::HonClimate"
             }
           }
         },
-        "typed_key": "protocol",
-        "docs": "**string**: Defines communication protocol with AC. Possible values: `hon` or `smartair2`. The default value is `smartair2`.\n\n*See also: [Haier Climate](https://esphome.io/components/climate/haier.html#configuration-variables)*"
-      },
-      "HAIER_BASE_ACTION_SCHEMA": {
-        "type": "schema",
-        "maybe": "id",
-        "schema": {
-          "config_vars": {
-            "id": {
-              "key": "GeneratedID",
-              "use_id_type": "haier::HaierClimateBase",
-              "type": "use_id"
-            }
-          }
-        }
-      },
-      "HAIER_HON_BASE_ACTION_SCHEMA": {
-        "type": "schema",
-        "maybe": "id",
-        "schema": {
-          "config_vars": {
-            "id": {
-              "key": "GeneratedID",
-              "use_id_type": "haier::HonClimate",
-              "type": "use_id"
-            }
-          }
-        }
-      }
-    },
-    "action": {
-      "display_off": {
-        "type": "schema",
-        "schema": {
-          "extends": [
-            "haier.climate.HAIER_BASE_ACTION_SCHEMA"
-          ]
-        }
-      },
-      "display_on": {
-        "type": "schema",
-        "schema": {
-          "extends": [
-            "haier.climate.HAIER_BASE_ACTION_SCHEMA"
-          ]
-        }
-      },
-      "beeper_off": {
-        "type": "schema",
-        "schema": {
-          "extends": [
-            "haier.climate.HAIER_HON_BASE_ACTION_SCHEMA"
-          ]
-        }
-      },
-      "beeper_on": {
-        "type": "schema",
-        "schema": {
-          "extends": [
-            "haier.climate.HAIER_HON_BASE_ACTION_SCHEMA"
-          ]
-        }
-      },
-      "start_steri_cleaning": {
-        "type": "schema",
-        "schema": {
-          "extends": [
-            "haier.climate.HAIER_HON_BASE_ACTION_SCHEMA"
-          ]
-        }
-      },
-      "start_self_cleaning": {
-        "type": "schema",
-        "schema": {
-          "extends": [
-            "haier.climate.HAIER_HON_BASE_ACTION_SCHEMA"
-          ]
-        }
+        "type": "schema"
       },
       "set_vertical_airflow": {
-        "type": "schema",
         "schema": {
           "config_vars": {
             "id": {
               "key": "GeneratedID",
-              "use_id_type": "haier::HonClimate",
-              "type": "use_id"
+              "type": "use_id",
+              "use_id_type": "haier::HonClimate"
             },
             "vertical_airflow": {
               "key": "Required",
               "templatable": true,
               "type": "enum",
               "values": {
-                "HEALTH_UP": null,
-                "MAX_UP": null,
-                "UP": null,
                 "CENTER": null,
                 "DOWN": null,
-                "HEALTH_DOWN": null
+                "HEALTH_DOWN": null,
+                "HEALTH_UP": null,
+                "MAX_UP": null,
+                "UP": null
               }
             }
           }
+        },
+        "type": "schema"
+      },
+      "start_self_cleaning": {
+        "schema": {
+          "extends": [
+            "haier.climate.HAIER_HON_BASE_ACTION_SCHEMA"
+          ]
+        },
+        "type": "schema"
+      },
+      "start_steri_cleaning": {
+        "schema": {
+          "extends": [
+            "haier.climate.HAIER_HON_BASE_ACTION_SCHEMA"
+          ]
+        },
+        "type": "schema"
+      }
+    },
+    "schemas": {
+      "BASE_CONFIG_SCHEMA": {
+        "schema": {
+          "config_vars": {
+            "answer_timeout": {
+              "key": "Optional",
+              "schema": {
+                "extends": [
+                  "core.positive_time_period_milliseconds"
+                ]
+              },
+              "type": "schema"
+            },
+            "display": {
+              "key": "Optional",
+              "type": "boolean"
+            },
+            "on_status_message": {
+              "key": "Optional",
+              "type": "trigger"
+            },
+            "supported_modes": {
+              "is_list": true,
+              "key": "Optional",
+              "type": "enum",
+              "values": {
+                "COOL": null,
+                "DRY": null,
+                "FAN_ONLY": null,
+                "HEAT": null,
+                "HEAT_COOL": null,
+                "OFF": null
+              }
+            },
+            "supported_swing_modes": {
+              "default": "['VERTICAL', 'HORIZONTAL', 'BOTH']",
+              "is_list": true,
+              "key": "Optional",
+              "type": "enum",
+              "values": {
+                "BOTH": null,
+                "HORIZONTAL": null,
+                "OFF": null,
+                "VERTICAL": null
+              }
+            },
+            "uart_id": {
+              "key": "GeneratedID",
+              "type": "use_id",
+              "use_id_type": "uart::UARTComponent"
+            },
+            "wifi_signal": {
+              "default": "False",
+              "key": "Optional",
+              "type": "boolean"
+            }
+          },
+          "extends": [
+            "climate.CLIMATE_SCHEMA",
+            "core.COMPONENT_SCHEMA"
+          ]
+        },
+        "type": "schema"
+      },
+      "CONFIG_SCHEMA": {
+        "docs": "**, string**: Defines communication protocol with AC. Possible values: `hon` or `smartair2`. The default value is `smartair2`.\n\n*See also: [Haier Climate](https://esphome.io/components/climate/haier.html#configuration-variables)*",
+        "type": "typed",
+        "typed_key": "protocol",
+        "types": {
+          "HON": {
+            "config_vars": {
+              "control_method": {
+                "default": "SET_GROUP_PARAMETERS",
+                "docs": "**, list**: (supported only by hOn) Defines control method (should be supported by AC). Supported values: `MONITOR_ONLY` - no control, just monitor status, `SET_GROUP_PARAMETERS` - set all AC parameters with one command (default method), `SET_SINGLE_PARAMETER` - set each parameter individually (this method is supported by some new ceiling ACs like AD71S2SM3FA)\n\n*See also: [Haier Climate](https://esphome.io/components/climate/haier.html#configuration-variables)*",
+                "is_list": true,
+                "key": "Optional",
+                "type": "enum",
+                "values": {
+                  "MONITOR_ONLY": null,
+                  "SET_GROUP_PARAMETERS": null,
+                  "SET_SINGLE_PARAMETER": null
+                }
+              },
+              "control_packet_size": {
+                "default": "10",
+                "docs": "**, int**: (supported only by hOn) Define the size of the control packet. Can help with some newer models of ACs that use bigger packets. The default value: `10`.\n\n*See also: [Haier Climate](https://esphome.io/components/climate/haier.html#configuration-variables)*",
+                "key": "Optional",
+                "type": "integer"
+              },
+              "id": {
+                "id_type": {
+                  "class": "haier::HonClimate",
+                  "parents": [
+                    "Component",
+                    "EntityBase",
+                    "climate::Climate",
+                    "haier::HaierClimateBase",
+                    "uart::UARTDevice"
+                  ]
+                },
+                "key": "GeneratedID"
+              },
+              "on_alarm_end": {
+                "docs": "**, [Automation](https://esphome.io/automations/index.html#automation)**: (supported only by hOn) Automation to perform when AC deactivates a new alarm. See [on_alarm_end Trigger](https://esphome.io/components/climate/haier.html#haier-on-alarm-end).\n\n*See also: [Haier Climate](https://esphome.io/components/climate/haier.html#configuration-variables)*",
+                "key": "Optional",
+                "type": "trigger"
+              },
+              "on_alarm_start": {
+                "docs": "**, [Automation](https://esphome.io/automations/index.html#automation)**: (supported only by hOn) Automation to perform when AC activates a new alarm. See [on_alarm_start Trigger](https://esphome.io/components/climate/haier.html#haier-on-alarm-start).\n\n*See also: [Haier Climate](https://esphome.io/components/climate/haier.html#configuration-variables)*",
+                "key": "Optional",
+                "type": "trigger"
+              },
+              "sensors_packet_size": {
+                "default": "22",
+                "docs": "**, int**: (supported only by hOn) Define the size of the sensor packet of the status message. Can help with some models of ACs that have bigger sensor packet. The default value: `22`, minimum value: `18`.\n\n*See also: [Haier Climate](https://esphome.io/components/climate/haier.html#configuration-variables)*",
+                "key": "Optional",
+                "type": "integer"
+              },
+              "status_message_header_size": {
+                "default": "0",
+                "docs": "**, int**: (supported only by hOn) Define the header size of the status message. Can be used to handle some protocol variations. Use only if you are sure what you are doing. The default value: `0`.\n\n*See also: [Haier Climate](https://esphome.io/components/climate/haier.html#configuration-variables)*",
+                "key": "Optional",
+                "type": "integer"
+              },
+              "supported_presets": {
+                "default": "['BOOST', 'SLEEP']",
+                "docs": "**, list**: Can be used to disable some presets. Possible values for smartair2 are: `AWAY`, `BOOST`, `COMFORT`. Possible values for hOn are: `AWAY`, `BOOST`, `SLEEP`. `AWAY` preset can be enabled only in `HEAT` mode, it is disabled by default.\n\n*See also: [Haier Climate](https://esphome.io/components/climate/haier.html#configuration-variables)*",
+                "is_list": true,
+                "key": "Optional",
+                "type": "enum",
+                "values": {
+                  "AWAY": null,
+                  "BOOST": null,
+                  "SLEEP": null
+                }
+              }
+            },
+            "extends": [
+              "haier.climate.BASE_CONFIG_SCHEMA"
+            ]
+          },
+          "SMARTAIR2": {
+            "config_vars": {
+              "alternative_swing_control": {
+                "default": "False",
+                "docs": "**, boolean**: (supported by smartAir2 only) If `true` - use alternative values to control swing mode. Use only if the original control method is not working for your AC.\n\n*See also: [Haier Climate](https://esphome.io/components/climate/haier.html#configuration-variables)*",
+                "key": "Optional",
+                "type": "boolean"
+              },
+              "id": {
+                "id_type": {
+                  "class": "haier::Smartair2Climate",
+                  "parents": [
+                    "Component",
+                    "EntityBase",
+                    "climate::Climate",
+                    "haier::HaierClimateBase",
+                    "uart::UARTDevice"
+                  ]
+                },
+                "key": "GeneratedID"
+              },
+              "supported_presets": {
+                "default": "['BOOST', 'COMFORT']",
+                "docs": "**, list**: Can be used to disable some presets. Possible values for smartair2 are: `AWAY`, `BOOST`, `COMFORT`. Possible values for hOn are: `AWAY`, `BOOST`, `SLEEP`. `AWAY` preset can be enabled only in `HEAT` mode, it is disabled by default.\n\n*See also: [Haier Climate](https://esphome.io/components/climate/haier.html#configuration-variables)*",
+                "is_list": true,
+                "key": "Optional",
+                "type": "enum",
+                "values": {
+                  "AWAY": null,
+                  "BOOST": null,
+                  "COMFORT": null
+                }
+              }
+            },
+            "extends": [
+              "haier.climate.BASE_CONFIG_SCHEMA"
+            ]
+          }
         }
       },
-      "set_horizontal_airflow": {
-        "type": "schema",
+      "HAIER_BASE_ACTION_SCHEMA": {
+        "maybe": "id",
         "schema": {
           "config_vars": {
             "id": {
               "key": "GeneratedID",
-              "use_id_type": "haier::HonClimate",
-              "type": "use_id"
-            },
-            "horizontal_airflow": {
-              "key": "Required",
-              "templatable": true,
-              "type": "enum",
-              "values": {
-                "MAX_LEFT": null,
-                "LEFT": null,
-                "CENTER": null,
-                "RIGHT": null,
-                "MAX_RIGHT": null
-              }
+              "type": "use_id",
+              "use_id_type": "haier::HaierClimateBase"
             }
           }
-        }
+        },
+        "type": "schema"
       },
-      "health_off": {
-        "type": "schema",
+      "HAIER_HON_BASE_ACTION_SCHEMA": {
+        "maybe": "id",
         "schema": {
-          "extends": [
-            "haier.climate.HAIER_BASE_ACTION_SCHEMA"
-          ]
-        }
-      },
-      "health_on": {
-        "type": "schema",
-        "schema": {
-          "extends": [
-            "haier.climate.HAIER_BASE_ACTION_SCHEMA"
-          ]
-        }
-      },
-      "power_toggle": {
-        "type": "schema",
-        "schema": {
-          "extends": [
-            "haier.climate.HAIER_BASE_ACTION_SCHEMA"
-          ]
-        }
-      },
-      "power_off": {
-        "type": "schema",
-        "schema": {
-          "extends": [
-            "haier.climate.HAIER_BASE_ACTION_SCHEMA"
-          ]
-        }
-      },
-      "power_on": {
-        "type": "schema",
-        "schema": {
-          "extends": [
-            "haier.climate.HAIER_BASE_ACTION_SCHEMA"
-          ]
-        }
+          "config_vars": {
+            "id": {
+              "key": "GeneratedID",
+              "type": "use_id",
+              "use_id_type": "haier::HonClimate"
+            }
+          }
+        },
+        "type": "schema"
       }
     }
   },
   "haier.sensor": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
         "schema": {
           "config_vars": {
-            "haier_id": {
-              "key": "GeneratedID",
-              "use_id_type": "haier::HonClimate",
-              "type": "use_id",
-              "docs": "**[ID](https://esphome.io/guides/configuration-types.html#config-id)**: The id of haier climate component\n\n*See also: [Haier Climate Sensors](https://esphome.io/components/sensor/haier.html#configuration-variables)*"
-            },
             "compressor_current": {
+              "docs": "Sensor for climate compressor current. Make sure that your climate model supports this type of sensor. All options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n\n*See also: [Haier Climate Sensors](https://esphome.io/components/sensor/haier.html#configuration-variables)*",
               "key": "Optional",
-              "type": "schema",
               "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
                 "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "A"
-                  },
-                  "icon": {
-                    "default": "mdi:current-ac"
-                  },
                   "accuracy_decimals": {
                     "default": "1"
                   },
                   "device_class": {
                     "default": "current"
                   },
+                  "entity_category": {
+                    "default": "diagnostic"
+                  },
+                  "icon": {
+                    "default": "mdi:current-ac"
+                  },
                   "state_class": {
                     "default": "measurement"
                   },
-                  "entity_category": {
-                    "default": "diagnostic"
+                  "unit_of_measurement": {
+                    "default": "A"
                   }
-                }
-              },
-              "docs": "Sensor for climate compressor current. Make sure that your climate model supports this type of sensor. All options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n\n*See also: [Haier Climate Sensors](https://esphome.io/components/sensor/haier.html#configuration-variables)*"
-            },
-            "compressor_frequency": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
+                },
                 "extends": [
                   "sensor.SENSOR_SCHEMA"
-                ],
+                ]
+              },
+              "type": "schema"
+            },
+            "compressor_frequency": {
+              "docs": "Sensor for climate compressor frequency. Make sure that your climate model supports this type of sensor. All options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n\n*See also: [Haier Climate Sensors](https://esphome.io/components/sensor/haier.html#configuration-variables)*",
+              "key": "Optional",
+              "schema": {
                 "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "Hz"
-                  },
-                  "icon": {
-                    "default": "mdi:pulse"
-                  },
                   "accuracy_decimals": {
                     "default": "0"
                   },
                   "device_class": {
                     "default": "frequency"
                   },
+                  "entity_category": {
+                    "default": "diagnostic"
+                  },
+                  "icon": {
+                    "default": "mdi:pulse"
+                  },
                   "state_class": {
                     "default": "measurement"
                   },
-                  "entity_category": {
-                    "default": "diagnostic"
+                  "unit_of_measurement": {
+                    "default": "Hz"
                   }
-                }
-              },
-              "docs": "Sensor for climate compressor frequency. Make sure that your climate model supports this type of sensor. All options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n\n*See also: [Haier Climate Sensors](https://esphome.io/components/sensor/haier.html#configuration-variables)*"
-            },
-            "expansion_valve_open_degree": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
+                },
                 "extends": [
                   "sensor.SENSOR_SCHEMA"
-                ],
+                ]
+              },
+              "type": "schema"
+            },
+            "expansion_valve_open_degree": {
+              "docs": "Sensor for climate\u2019s expansion valve open degree. Make sure that your climate model supports this type of sensor. All options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n\n*See also: [Haier Climate Sensors](https://esphome.io/components/sensor/haier.html#configuration-variables)*",
+              "key": "Optional",
+              "schema": {
                 "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "%"
+                  "accuracy_decimals": {
+                    "default": "2"
+                  },
+                  "entity_category": {
+                    "default": "diagnostic"
                   },
                   "icon": {
                     "default": "mdi:gauge"
                   },
-                  "accuracy_decimals": {
-                    "default": "2"
-                  },
                   "state_class": {
                     "default": "measurement"
                   },
-                  "entity_category": {
-                    "default": "diagnostic"
-                  }
-                }
-              },
-              "docs": "Sensor for climate\u2019s expansion valve open degree. Make sure that your climate model supports this type of sensor. All options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n\n*See also: [Haier Climate Sensors](https://esphome.io/components/sensor/haier.html#configuration-variables)*"
-            },
-            "humidity": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
                   "unit_of_measurement": {
                     "default": "%"
-                  },
-                  "icon": {
-                    "default": "mdi:water-percent"
-                  },
+                  }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "haier_id": {
+              "docs": "**, [ID](https://esphome.io/guides/configuration-types.html#config-id)**: The id of haier climate component\n\n*See also: [Haier Climate Sensors](https://esphome.io/components/sensor/haier.html#configuration-variables)*",
+              "key": "GeneratedID",
+              "type": "use_id",
+              "use_id_type": "haier::HonClimate"
+            },
+            "humidity": {
+              "docs": "Sensor for indoor humidity. Make sure that your climate model supports this type of sensor. All options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n\n*See also: [Haier Climate Sensors](https://esphome.io/components/sensor/haier.html#configuration-variables)*",
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
                   "accuracy_decimals": {
                     "default": "0"
                   },
                   "device_class": {
                     "default": "humidity"
                   },
+                  "icon": {
+                    "default": "mdi:water-percent"
+                  },
                   "state_class": {
                     "default": "measurement"
+                  },
+                  "unit_of_measurement": {
+                    "default": "%"
                   }
-                }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
               },
-              "docs": "Sensor for indoor humidity. Make sure that your climate model supports this type of sensor. All options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n\n*See also: [Haier Climate Sensors](https://esphome.io/components/sensor/haier.html#configuration-variables)*"
+              "type": "schema"
             },
             "indoor_coil_temperature": {
+              "docs": "Temperature sensor for indoor coil temperature. Make sure that your climate model supports this type of sensor. All options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n\n*See also: [Haier Climate Sensors](https://esphome.io/components/sensor/haier.html#configuration-variables)*",
               "key": "Optional",
-              "type": "schema",
               "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
                 "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "\u00b0C"
-                  },
-                  "icon": {
-                    "default": "mdi:heating-coil"
-                  },
                   "accuracy_decimals": {
                     "default": "0"
                   },
                   "device_class": {
                     "default": "temperature"
                   },
+                  "entity_category": {
+                    "default": "diagnostic"
+                  },
+                  "icon": {
+                    "default": "mdi:heating-coil"
+                  },
                   "state_class": {
                     "default": "measurement"
                   },
-                  "entity_category": {
-                    "default": "diagnostic"
+                  "unit_of_measurement": {
+                    "default": "\u00b0C"
                   }
-                }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
               },
-              "docs": "Temperature sensor for indoor coil temperature. Make sure that your climate model supports this type of sensor. All options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n\n*See also: [Haier Climate Sensors](https://esphome.io/components/sensor/haier.html#configuration-variables)*"
+              "type": "schema"
             },
             "outdoor_coil_temperature": {
+              "docs": "Temperature sensor for outdoor coil temperature. Make sure that your climate model supports this type of sensor. All options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n\n*See also: [Haier Climate Sensors](https://esphome.io/components/sensor/haier.html#configuration-variables)*",
               "key": "Optional",
-              "type": "schema",
               "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
                 "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "\u00b0C"
-                  },
-                  "icon": {
-                    "default": "mdi:heating-coil"
-                  },
                   "accuracy_decimals": {
                     "default": "0"
                   },
                   "device_class": {
                     "default": "temperature"
                   },
+                  "entity_category": {
+                    "default": "diagnostic"
+                  },
+                  "icon": {
+                    "default": "mdi:heating-coil"
+                  },
                   "state_class": {
                     "default": "measurement"
                   },
-                  "entity_category": {
-                    "default": "diagnostic"
-                  }
-                }
-              },
-              "docs": "Temperature sensor for outdoor coil temperature. Make sure that your climate model supports this type of sensor. All options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n\n*See also: [Haier Climate Sensors](https://esphome.io/components/sensor/haier.html#configuration-variables)*"
-            },
-            "outdoor_defrost_temperature": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
                   "unit_of_measurement": {
                     "default": "\u00b0C"
+                  }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "outdoor_defrost_temperature": {
+              "docs": "Temperature sensor for outdoor defrost temperature. Make sure that your climate model supports this type of sensor. All options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n\n*See also: [Haier Climate Sensors](https://esphome.io/components/sensor/haier.html#configuration-variables)*",
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
+                  "accuracy_decimals": {
+                    "default": "0"
+                  },
+                  "device_class": {
+                    "default": "temperature"
+                  },
+                  "entity_category": {
+                    "default": "diagnostic"
                   },
                   "icon": {
                     "default": "mdi:snowflake-thermometer"
                   },
-                  "accuracy_decimals": {
-                    "default": "0"
-                  },
-                  "device_class": {
-                    "default": "temperature"
-                  },
                   "state_class": {
                     "default": "measurement"
                   },
-                  "entity_category": {
-                    "default": "diagnostic"
+                  "unit_of_measurement": {
+                    "default": "\u00b0C"
                   }
-                }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
               },
-              "docs": "Temperature sensor for outdoor defrost temperature. Make sure that your climate model supports this type of sensor. All options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n\n*See also: [Haier Climate Sensors](https://esphome.io/components/sensor/haier.html#configuration-variables)*"
+              "type": "schema"
             },
             "outdoor_in_air_temperature": {
+              "docs": "Temperature sensor incoming air temperature. All options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n\n*See also: [Haier Climate Sensors](https://esphome.io/components/sensor/haier.html#configuration-variables)*",
               "key": "Optional",
-              "type": "schema",
               "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
                 "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "\u00b0C"
-                  },
-                  "icon": {
-                    "default": "mdi:weather-windy"
-                  },
                   "accuracy_decimals": {
                     "default": "0"
                   },
                   "device_class": {
                     "default": "temperature"
                   },
+                  "entity_category": {
+                    "default": "diagnostic"
+                  },
+                  "icon": {
+                    "default": "mdi:weather-windy"
+                  },
                   "state_class": {
                     "default": "measurement"
                   },
-                  "entity_category": {
-                    "default": "diagnostic"
+                  "unit_of_measurement": {
+                    "default": "\u00b0C"
                   }
-                }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
               },
-              "docs": "Temperature sensor incoming air temperature. All options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n\n*See also: [Haier Climate Sensors](https://esphome.io/components/sensor/haier.html#configuration-variables)*"
+              "type": "schema"
             },
             "outdoor_out_air_temperature": {
+              "docs": "Temperature sensor for outgoing air temperature. All options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n\n*See also: [Haier Climate Sensors](https://esphome.io/components/sensor/haier.html#configuration-variables)*",
               "key": "Optional",
-              "type": "schema",
               "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
                 "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "\u00b0C"
-                  },
-                  "icon": {
-                    "default": "mdi:weather-windy"
-                  },
                   "accuracy_decimals": {
                     "default": "0"
                   },
                   "device_class": {
                     "default": "temperature"
                   },
+                  "entity_category": {
+                    "default": "diagnostic"
+                  },
+                  "icon": {
+                    "default": "mdi:weather-windy"
+                  },
                   "state_class": {
                     "default": "measurement"
                   },
-                  "entity_category": {
-                    "default": "diagnostic"
-                  }
-                }
-              },
-              "docs": "Temperature sensor for outgoing air temperature. All options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n\n*See also: [Haier Climate Sensors](https://esphome.io/components/sensor/haier.html#configuration-variables)*"
-            },
-            "outdoor_temperature": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
                   "unit_of_measurement": {
                     "default": "\u00b0C"
+                  }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "outdoor_temperature": {
+              "docs": "Temperature sensor for outdoor temperature. All options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n\n*See also: [Haier Climate Sensors](https://esphome.io/components/sensor/haier.html#configuration-variables)*",
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
+                  "accuracy_decimals": {
+                    "default": "0"
+                  },
+                  "device_class": {
+                    "default": "temperature"
                   },
                   "icon": {
                     "default": "mdi:thermometer"
                   },
-                  "accuracy_decimals": {
-                    "default": "0"
-                  },
-                  "device_class": {
-                    "default": "temperature"
-                  },
                   "state_class": {
                     "default": "measurement"
+                  },
+                  "unit_of_measurement": {
+                    "default": "\u00b0C"
                   }
-                }
-              },
-              "docs": "Temperature sensor for outdoor temperature. All options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n\n*See also: [Haier Climate Sensors](https://esphome.io/components/sensor/haier.html#configuration-variables)*"
-            },
-            "power": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
+                },
                 "extends": [
                   "sensor.SENSOR_SCHEMA"
-                ],
+                ]
+              },
+              "type": "schema"
+            },
+            "power": {
+              "docs": "Sensor for climate power consumption. Make sure that your climate model supports this type of sensor. All options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n\n*See also: [Haier Climate Sensors](https://esphome.io/components/sensor/haier.html#configuration-variables)*",
+              "key": "Optional",
+              "schema": {
                 "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "W"
-                  },
-                  "icon": {
-                    "default": "mdi:flash"
-                  },
                   "accuracy_decimals": {
                     "default": "0"
                   },
                   "device_class": {
                     "default": "power"
                   },
+                  "entity_category": {
+                    "default": "diagnostic"
+                  },
+                  "icon": {
+                    "default": "mdi:flash"
+                  },
                   "state_class": {
                     "default": "measurement"
                   },
-                  "entity_category": {
-                    "default": "diagnostic"
+                  "unit_of_measurement": {
+                    "default": "W"
                   }
-                }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
               },
-              "docs": "Sensor for climate power consumption. Make sure that your climate model supports this type of sensor. All options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n\n*See also: [Haier Climate Sensors](https://esphome.io/components/sensor/haier.html#configuration-variables)*"
+              "type": "schema"
             }
           }
-        }
+        },
+        "type": "schema"
       }
     }
   },
   "haier.switch": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
         "schema": {
           "config_vars": {
-            "haier_id": {
-              "key": "GeneratedID",
-              "use_id_type": "haier::HaierClimateBase",
-              "type": "use_id",
-              "docs": "**[ID](https://esphome.io/guides/configuration-types.html#config-id)**: The id of Haier climate component\n\n*See also: [Haier Climate Switches](https://esphome.io/components/switch/haier.html#configuration-variables)*"
-            },
-            "display": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "switch._SWITCH_SCHEMA"
-                ],
-                "config_vars": {
-                  "restore_mode": {
-                    "key": "Optional",
-                    "default": "DISABLED",
-                    "type": "enum",
-                    "values": {
-                      "RESTORE_DEFAULT_OFF": null,
-                      "RESTORE_DEFAULT_ON": null,
-                      "ALWAYS_OFF": null,
-                      "ALWAYS_ON": null,
-                      "RESTORE_INVERTED_DEFAULT_OFF": null,
-                      "RESTORE_INVERTED_DEFAULT_ON": null,
-                      "DISABLED": null
-                    }
-                  },
-                  "id": {
-                    "key": "GeneratedID",
-                    "id_type": {
-                      "class": "haier::DisplaySwitch",
-                      "parents": [
-                        "switch_::Switch",
-                        "EntityBase"
-                      ]
-                    }
-                  },
-                  "entity_category": {
-                    "default": "config"
-                  },
-                  "icon": {
-                    "default": "mdi:led-on"
-                  }
-                }
-              },
-              "docs": "A switch that enables or disables Haier climate led display. All options from [Switch](https://esphome.io/components/switch/index.html#config-switch).\n\n*See also: [Haier Climate Switches](https://esphome.io/components/switch/haier.html#configuration-variables)*"
-            },
-            "health_mode": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "switch._SWITCH_SCHEMA"
-                ],
-                "config_vars": {
-                  "restore_mode": {
-                    "key": "Optional",
-                    "default": "DISABLED",
-                    "type": "enum",
-                    "values": {
-                      "RESTORE_DEFAULT_OFF": null,
-                      "RESTORE_DEFAULT_ON": null,
-                      "ALWAYS_OFF": null,
-                      "ALWAYS_ON": null,
-                      "RESTORE_INVERTED_DEFAULT_OFF": null,
-                      "RESTORE_INVERTED_DEFAULT_ON": null,
-                      "DISABLED": null
-                    }
-                  },
-                  "id": {
-                    "key": "GeneratedID",
-                    "id_type": {
-                      "class": "haier::HealthModeSwitch",
-                      "parents": [
-                        "switch_::Switch",
-                        "EntityBase"
-                      ]
-                    }
-                  },
-                  "icon": {
-                    "default": "mdi:leaf"
-                  }
-                }
-              },
-              "docs": "A switch that enables or disables Haier climate health mode ([UV light sterilization](https://www.haierhvac.eu/en/node/1809)). All options from [Switch](https://esphome.io/components/switch/index.html#config-switch).\n\n*See also: [Haier Climate Switches](https://esphome.io/components/switch/haier.html#configuration-variables)*"
-            },
             "beeper": {
+              "docs": "(supported only by hOn) A switch that enables or disables Haier climate sound feedback. All options from [Switch](https://esphome.io/components/switch/index.html#config-switch).\n\n*See also: [Haier Climate Switches](https://esphome.io/components/switch/haier.html#configuration-variables)*",
               "key": "Optional",
-              "type": "schema",
               "schema": {
-                "extends": [
-                  "switch._SWITCH_SCHEMA"
-                ],
                 "config_vars": {
-                  "restore_mode": {
-                    "key": "Optional",
-                    "default": "DISABLED",
-                    "type": "enum",
-                    "values": {
-                      "RESTORE_DEFAULT_OFF": null,
-                      "RESTORE_DEFAULT_ON": null,
-                      "ALWAYS_OFF": null,
-                      "ALWAYS_ON": null,
-                      "RESTORE_INVERTED_DEFAULT_OFF": null,
-                      "RESTORE_INVERTED_DEFAULT_ON": null,
-                      "DISABLED": null
-                    }
-                  },
-                  "id": {
-                    "key": "GeneratedID",
-                    "id_type": {
-                      "class": "haier::BeeperSwitch",
-                      "parents": [
-                        "switch_::Switch",
-                        "EntityBase"
-                      ]
-                    }
-                  },
                   "entity_category": {
                     "default": "config"
                   },
                   "icon": {
                     "default": "mdi:volume-high"
-                  }
-                }
-              },
-              "docs": "(supported only by hOn) A switch that enables or disables Haier climate sound feedback. All options from [Switch](https://esphome.io/components/switch/index.html#config-switch).\n\n*See also: [Haier Climate Switches](https://esphome.io/components/switch/haier.html#configuration-variables)*"
-            },
-            "quiet_mode": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "switch._SWITCH_SCHEMA"
-                ],
-                "config_vars": {
-                  "restore_mode": {
-                    "key": "Optional",
-                    "default": "DISABLED",
-                    "type": "enum",
-                    "values": {
-                      "RESTORE_DEFAULT_OFF": null,
-                      "RESTORE_DEFAULT_ON": null,
-                      "ALWAYS_OFF": null,
-                      "ALWAYS_ON": null,
-                      "RESTORE_INVERTED_DEFAULT_OFF": null,
-                      "RESTORE_INVERTED_DEFAULT_ON": null,
-                      "DISABLED": null
-                    }
                   },
                   "id": {
-                    "key": "GeneratedID",
                     "id_type": {
-                      "class": "haier::QuietModeSwitch",
+                      "class": "haier::BeeperSwitch",
                       "parents": [
-                        "switch_::Switch",
-                        "EntityBase"
+                        "EntityBase",
+                        "switch_::Switch"
                       ]
-                    }
+                    },
+                    "key": "GeneratedID"
                   },
+                  "restore_mode": {
+                    "default": "DISABLED",
+                    "key": "Optional",
+                    "type": "enum",
+                    "values": {
+                      "ALWAYS_OFF": null,
+                      "ALWAYS_ON": null,
+                      "DISABLED": null,
+                      "RESTORE_DEFAULT_OFF": null,
+                      "RESTORE_DEFAULT_ON": null,
+                      "RESTORE_INVERTED_DEFAULT_OFF": null,
+                      "RESTORE_INVERTED_DEFAULT_ON": null
+                    }
+                  }
+                },
+                "extends": [
+                  "switch._SWITCH_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "display": {
+              "docs": "A switch that enables or disables Haier climate led display. All options from [Switch](https://esphome.io/components/switch/index.html#config-switch).\n\n*See also: [Haier Climate Switches](https://esphome.io/components/switch/haier.html#configuration-variables)*",
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
+                  "entity_category": {
+                    "default": "config"
+                  },
+                  "icon": {
+                    "default": "mdi:led-on"
+                  },
+                  "id": {
+                    "id_type": {
+                      "class": "haier::DisplaySwitch",
+                      "parents": [
+                        "EntityBase",
+                        "switch_::Switch"
+                      ]
+                    },
+                    "key": "GeneratedID"
+                  },
+                  "restore_mode": {
+                    "default": "DISABLED",
+                    "key": "Optional",
+                    "type": "enum",
+                    "values": {
+                      "ALWAYS_OFF": null,
+                      "ALWAYS_ON": null,
+                      "DISABLED": null,
+                      "RESTORE_DEFAULT_OFF": null,
+                      "RESTORE_DEFAULT_ON": null,
+                      "RESTORE_INVERTED_DEFAULT_OFF": null,
+                      "RESTORE_INVERTED_DEFAULT_ON": null
+                    }
+                  }
+                },
+                "extends": [
+                  "switch._SWITCH_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "haier_id": {
+              "docs": "**, [ID](https://esphome.io/guides/configuration-types.html#config-id)**: The id of Haier climate component\n\n*See also: [Haier Climate Switches](https://esphome.io/components/switch/haier.html#configuration-variables)*",
+              "key": "GeneratedID",
+              "type": "use_id",
+              "use_id_type": "haier::HaierClimateBase"
+            },
+            "health_mode": {
+              "docs": "A switch that enables or disables Haier climate health mode ([UV light sterilization](https://www.haierhvac.eu/en/node/1809)). All options from [Switch](https://esphome.io/components/switch/index.html#config-switch).\n\n*See also: [Haier Climate Switches](https://esphome.io/components/switch/haier.html#configuration-variables)*",
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
+                  "icon": {
+                    "default": "mdi:leaf"
+                  },
+                  "id": {
+                    "id_type": {
+                      "class": "haier::HealthModeSwitch",
+                      "parents": [
+                        "EntityBase",
+                        "switch_::Switch"
+                      ]
+                    },
+                    "key": "GeneratedID"
+                  },
+                  "restore_mode": {
+                    "default": "DISABLED",
+                    "key": "Optional",
+                    "type": "enum",
+                    "values": {
+                      "ALWAYS_OFF": null,
+                      "ALWAYS_ON": null,
+                      "DISABLED": null,
+                      "RESTORE_DEFAULT_OFF": null,
+                      "RESTORE_DEFAULT_ON": null,
+                      "RESTORE_INVERTED_DEFAULT_OFF": null,
+                      "RESTORE_INVERTED_DEFAULT_ON": null
+                    }
+                  }
+                },
+                "extends": [
+                  "switch._SWITCH_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "quiet_mode": {
+              "docs": "(supported only by hOn) A switch that enables or disables Haier climate quiet mode. Quiet mode not supported in Fan only mode. All options from [Switch](https://esphome.io/components/switch/index.html#config-switch).\n\n*See also: [Haier Climate Switches](https://esphome.io/components/switch/haier.html#configuration-variables)*",
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
                   "entity_category": {
                     "default": "config"
                   },
                   "icon": {
                     "default": "mdi:volume-off"
+                  },
+                  "id": {
+                    "id_type": {
+                      "class": "haier::QuietModeSwitch",
+                      "parents": [
+                        "EntityBase",
+                        "switch_::Switch"
+                      ]
+                    },
+                    "key": "GeneratedID"
+                  },
+                  "restore_mode": {
+                    "default": "DISABLED",
+                    "key": "Optional",
+                    "type": "enum",
+                    "values": {
+                      "ALWAYS_OFF": null,
+                      "ALWAYS_ON": null,
+                      "DISABLED": null,
+                      "RESTORE_DEFAULT_OFF": null,
+                      "RESTORE_DEFAULT_ON": null,
+                      "RESTORE_INVERTED_DEFAULT_OFF": null,
+                      "RESTORE_INVERTED_DEFAULT_ON": null
+                    }
                   }
-                }
+                },
+                "extends": [
+                  "switch._SWITCH_SCHEMA"
+                ]
               },
-              "docs": "(supported only by hOn) A switch that enables or disables Haier climate quiet mode. Quiet mode not supported in Fan only mode. All options from [Switch](https://esphome.io/components/switch/index.html#config-switch).\n\n*See also: [Haier Climate Switches](https://esphome.io/components/switch/haier.html#configuration-variables)*"
+              "type": "schema"
             }
           }
-        }
+        },
+        "type": "schema"
       }
     }
   },
   "haier.text_sensor": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
         "schema": {
           "config_vars": {
-            "haier_id": {
-              "key": "GeneratedID",
-              "use_id_type": "haier::HonClimate",
-              "type": "use_id",
-              "docs": "**[ID](https://esphome.io/guides/configuration-types.html#config-id)**: The id of haier climate component\n\n*See also: [Haier Climate Text Sensors](https://esphome.io/components/text_sensor/haier.html#configuration-variables)*"
+            "appliance_name": {
+              "docs": "A text sensor that indicates Haier appliance name. All options from [Text Sensor](https://esphome.io/components/text_sensor/index.html#config-text-sensor).\n\n*See also: [Haier Climate Text Sensors](https://esphome.io/components/text_sensor/haier.html#configuration-variables)*",
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
+                  "entity_category": {
+                    "default": "diagnostic"
+                  },
+                  "icon": {
+                    "default": "mdi:text-box-outline"
+                  }
+                },
+                "extends": [
+                  "text_sensor.TEXT_SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
             },
             "cleaning_status": {
+              "docs": "A text sensor that indicates cleaning status. Possible values \u201cNo cleaning\u201d, \u201cSelf clean\u201d, \u201c56\u00b0C Steri-Clean\u201d. All options from [Text Sensor](https://esphome.io/components/text_sensor/index.html#config-text-sensor).\n\n*See also: [Haier Climate Text Sensors](https://esphome.io/components/text_sensor/haier.html#configuration-variables)*",
               "key": "Optional",
-              "type": "schema",
               "schema": {
-                "extends": [
-                  "text_sensor.TEXT_SENSOR_SCHEMA"
-                ],
                 "config_vars": {
-                  "icon": {
-                    "default": "mdi:spray-bottle"
-                  },
                   "entity_category": {
                     "default": ""
+                  },
+                  "icon": {
+                    "default": "mdi:spray-bottle"
                   }
-                }
+                },
+                "extends": [
+                  "text_sensor.TEXT_SENSOR_SCHEMA"
+                ]
               },
-              "docs": "A text sensor that indicates cleaning status. Possible values \u201cNo cleaning\u201d, \u201cSelf clean\u201d, \u201c56\u00b0C Steri-Clean\u201d. All options from [Text Sensor](https://esphome.io/components/text_sensor/index.html#config-text-sensor).\n\n*See also: [Haier Climate Text Sensors](https://esphome.io/components/text_sensor/haier.html#configuration-variables)*"
+              "type": "schema"
+            },
+            "haier_id": {
+              "docs": "**, [ID](https://esphome.io/guides/configuration-types.html#config-id)**: The id of haier climate component\n\n*See also: [Haier Climate Text Sensors](https://esphome.io/components/text_sensor/haier.html#configuration-variables)*",
+              "key": "GeneratedID",
+              "type": "use_id",
+              "use_id_type": "haier::HonClimate"
             },
             "protocol_version": {
+              "docs": "A text sensor that indicates Haier protocol version. All options from [Text Sensor](https://esphome.io/components/text_sensor/index.html#config-text-sensor).\n\n*See also: [Haier Climate Text Sensors](https://esphome.io/components/text_sensor/haier.html#configuration-variables)*",
               "key": "Optional",
-              "type": "schema",
               "schema": {
-                "extends": [
-                  "text_sensor.TEXT_SENSOR_SCHEMA"
-                ],
                 "config_vars": {
-                  "icon": {
-                    "default": "mdi:text-box-outline"
-                  },
                   "entity_category": {
                     "default": "diagnostic"
-                  }
-                }
-              },
-              "docs": "A text sensor that indicates Haier protocol version. All options from [Text Sensor](https://esphome.io/components/text_sensor/index.html#config-text-sensor).\n\n*See also: [Haier Climate Text Sensors](https://esphome.io/components/text_sensor/haier.html#configuration-variables)*"
-            },
-            "appliance_name": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "text_sensor.TEXT_SENSOR_SCHEMA"
-                ],
-                "config_vars": {
+                  },
                   "icon": {
                     "default": "mdi:text-box-outline"
-                  },
-                  "entity_category": {
-                    "default": "diagnostic"
                   }
-                }
+                },
+                "extends": [
+                  "text_sensor.TEXT_SENSOR_SCHEMA"
+                ]
               },
-              "docs": "A text sensor that indicates Haier appliance name. All options from [Text Sensor](https://esphome.io/components/text_sensor/index.html#config-text-sensor).\n\n*See also: [Haier Climate Text Sensors](https://esphome.io/components/text_sensor/haier.html#configuration-variables)*"
+              "type": "schema"
             }
           }
-        }
+        },
+        "type": "schema"
       }
     }
   }

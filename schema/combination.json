@@ -1,315 +1,317 @@
 {
   "combination.sensor": {
     "schemas": {
-      "SENSOR_ONLY_SOURCE_SCHEMA": {
-        "type": "schema",
-        "schema": {
-          "config_vars": {
-            "source": {
-              "key": "Required",
-              "use_id_type": "sensor::Sensor",
-              "type": "use_id"
-            }
-          }
-        }
-      },
       "CONFIG_SCHEMA": {
+        "docs": "**, enum**: Combination statistic type, should be one of `KALMAN`, `LINEAR`, `MAXIMUM`, `MEAN`, `MEDIAN`, `MINIMUM`, `MOST_RECENTLY_UPDATED`, `RANGE`, or `SUM`.\n\n*See also: [Combine the state of several sensors](https://esphome.io/components/sensor/combination.html#configuration-variables)*",
         "type": "typed",
+        "typed_key": "type",
         "types": {
           "kalman": {
-            "extends": [
-              "sensor.SENSOR_SCHEMA",
-              "core.COMPONENT_SCHEMA"
-            ],
             "config_vars": {
               "id": {
                 "id_type": {
                   "class": "combination::KalmanCombinationComponent",
                   "parents": [
                     "Component",
-                    "sensor::Sensor",
-                    "EntityBase"
+                    "EntityBase",
+                    "sensor::Sensor"
                   ]
                 }
               },
               "process_std_dev": {
-                "key": "Required",
-                "data_type": "positive_float"
+                "data_type": "positive_float",
+                "docs": "**, only for `KALMAN` type, float**: The standard deviation of the measurement\u2019s change per second (e.g. `1/3600 = 0.000277` if the temperature usually changes at most by one Kelvin per hour). A low value here will place high importance on the current state and be slow to respond to changes in the measured samples. A high value will update faster, but also be more noisy.\n\n*See also: [Combine the state of several sensors](https://esphome.io/components/sensor/combination.html#configuration-variables)*",
+                "key": "Required"
               },
               "sources": {
-                "key": "Required",
+                "docs": "**, list**: A list of sensors to use as source.\n  * **source** (**Required**, [ID](https://esphome.io/guides/configuration-types.html#config-id) of a [Sensor Component](https://esphome.io/components/sensor/index.html)): The sensor id that is used as sample source.\n  \n  * **error** (**Required**, only for `KALMAN` type, float, [templatable](https://esphome.io/automations/templates.html#config-templatable)): The standard deviation of the sensor\u2019s measurements. This works like the `process_std_dev` parameter, with low values marking accurate data. If implemented as a template, the measurement is in parameter `x`.\n  \n  * **coeffecient** (**Required**, only for `LINEAR` type, float, [templatable](https://esphome.io/automations/templates.html#config-templatable)): The coeffecient to multiply the sensor\u2019s state by before summing all source sensor states. If implemented as a template, the measurement is in parameter `x`.\n  \n  \n\n*See also: [Combine the state of several sensors](https://esphome.io/components/sensor/combination.html#configuration-variables)*",
                 "is_list": true,
-                "type": "schema",
+                "key": "Required",
                 "schema": {
                   "config_vars": {
+                    "error": {
+                      "data_type": "positive_float",
+                      "key": "Required",
+                      "templatable": true
+                    },
                     "source": {
                       "key": "Required",
-                      "use_id_type": "sensor::Sensor",
-                      "type": "use_id"
-                    },
-                    "error": {
-                      "key": "Required",
-                      "templatable": true,
-                      "data_type": "positive_float"
+                      "type": "use_id",
+                      "use_id_type": "sensor::Sensor"
                     }
                   }
                 },
-                "docs": "**list**: A list of sensors to use as source.\n  * **source** (**Required**, [ID](https://esphome.io/guides/configuration-types.html#config-id) of a [Sensor Component](https://esphome.io/components/sensor/index.html)): The sensor id that is used as sample source.\n  \n  * **error** (**Required** - only for `KALMAN` type, float, [templatable](https://esphome.io/automations/templates.html#config-templatable)): The standard deviation of the sensor\u2019s measurements. This works like the `process_std_dev` parameter, with low values marking accurate data. If implemented as a template, the measurement is in parameter `x`.\n  \n  * **coeffecient** (**Required** - only for `LINEAR` type, float, [templatable](https://esphome.io/automations/templates.html#config-templatable)): The coeffecient to multiply the sensor\u2019s state by before summing all source sensor states. If implemented as a template, the measurement is in parameter `x`.\n  \n  \n\n*See also: [Combine the state of several sensors](https://esphome.io/components/sensor/combination.html#configuration-variables)*"
+                "type": "schema"
               },
               "std_dev": {
+                "docs": "**, only for `KALMAN` type, [Sensor](https://esphome.io/components/sensor/index.html#config-sensor)**: A sensor that publishes the current standard deviation of the state with each update.\n\n*See also: [Combine the state of several sensors](https://esphome.io/components/sensor/combination.html#configuration-variables)*",
                 "key": "Optional",
-                "type": "schema",
                 "schema": {
                   "extends": [
                     "sensor.SENSOR_SCHEMA"
                   ]
-                }
+                },
+                "type": "schema"
               }
-            }
+            },
+            "extends": [
+              "core.COMPONENT_SCHEMA",
+              "sensor.SENSOR_SCHEMA"
+            ]
           },
           "linear": {
-            "extends": [
-              "sensor.SENSOR_SCHEMA",
-              "core.COMPONENT_SCHEMA"
-            ],
             "config_vars": {
               "id": {
                 "id_type": {
                   "class": "combination::LinearCombinationComponent",
                   "parents": [
                     "Component",
-                    "sensor::Sensor",
-                    "EntityBase"
+                    "EntityBase",
+                    "sensor::Sensor"
                   ]
                 }
               },
               "sources": {
-                "key": "Required",
+                "docs": "**, list**: A list of sensors to use as source.\n  * **source** (**Required**, [ID](https://esphome.io/guides/configuration-types.html#config-id) of a [Sensor Component](https://esphome.io/components/sensor/index.html)): The sensor id that is used as sample source.\n  \n  * **error** (**Required**, only for `KALMAN` type, float, [templatable](https://esphome.io/automations/templates.html#config-templatable)): The standard deviation of the sensor\u2019s measurements. This works like the `process_std_dev` parameter, with low values marking accurate data. If implemented as a template, the measurement is in parameter `x`.\n  \n  * **coeffecient** (**Required**, only for `LINEAR` type, float, [templatable](https://esphome.io/automations/templates.html#config-templatable)): The coeffecient to multiply the sensor\u2019s state by before summing all source sensor states. If implemented as a template, the measurement is in parameter `x`.\n  \n  \n\n*See also: [Combine the state of several sensors](https://esphome.io/components/sensor/combination.html#configuration-variables)*",
                 "is_list": true,
-                "type": "schema",
+                "key": "Required",
                 "schema": {
                   "config_vars": {
-                    "source": {
-                      "key": "Required",
-                      "use_id_type": "sensor::Sensor",
-                      "type": "use_id"
-                    },
                     "coeffecient": {
                       "key": "Required",
                       "templatable": true
+                    },
+                    "source": {
+                      "key": "Required",
+                      "type": "use_id",
+                      "use_id_type": "sensor::Sensor"
                     }
                   }
                 },
-                "docs": "**list**: A list of sensors to use as source.\n  * **source** (**Required**, [ID](https://esphome.io/guides/configuration-types.html#config-id) of a [Sensor Component](https://esphome.io/components/sensor/index.html)): The sensor id that is used as sample source.\n  \n  * **error** (**Required** - only for `KALMAN` type, float, [templatable](https://esphome.io/automations/templates.html#config-templatable)): The standard deviation of the sensor\u2019s measurements. This works like the `process_std_dev` parameter, with low values marking accurate data. If implemented as a template, the measurement is in parameter `x`.\n  \n  * **coeffecient** (**Required** - only for `LINEAR` type, float, [templatable](https://esphome.io/automations/templates.html#config-templatable)): The coeffecient to multiply the sensor\u2019s state by before summing all source sensor states. If implemented as a template, the measurement is in parameter `x`.\n  \n  \n\n*See also: [Combine the state of several sensors](https://esphome.io/components/sensor/combination.html#configuration-variables)*"
+                "type": "schema"
               }
-            }
+            },
+            "extends": [
+              "core.COMPONENT_SCHEMA",
+              "sensor.SENSOR_SCHEMA"
+            ]
           },
           "max": {
-            "extends": [
-              "sensor.SENSOR_SCHEMA",
-              "core.COMPONENT_SCHEMA"
-            ],
             "config_vars": {
               "id": {
                 "id_type": {
                   "class": "combination::MaximumCombinationComponent",
                   "parents": [
                     "Component",
-                    "sensor::Sensor",
-                    "EntityBase"
+                    "EntityBase",
+                    "sensor::Sensor"
                   ]
                 }
               },
               "sources": {
-                "key": "Required",
+                "docs": "**, list**: A list of sensors to use as source.\n  * **source** (**Required**, [ID](https://esphome.io/guides/configuration-types.html#config-id) of a [Sensor Component](https://esphome.io/components/sensor/index.html)): The sensor id that is used as sample source.\n  \n  * **error** (**Required**, only for `KALMAN` type, float, [templatable](https://esphome.io/automations/templates.html#config-templatable)): The standard deviation of the sensor\u2019s measurements. This works like the `process_std_dev` parameter, with low values marking accurate data. If implemented as a template, the measurement is in parameter `x`.\n  \n  * **coeffecient** (**Required**, only for `LINEAR` type, float, [templatable](https://esphome.io/automations/templates.html#config-templatable)): The coeffecient to multiply the sensor\u2019s state by before summing all source sensor states. If implemented as a template, the measurement is in parameter `x`.\n  \n  \n\n*See also: [Combine the state of several sensors](https://esphome.io/components/sensor/combination.html#configuration-variables)*",
                 "is_list": true,
-                "type": "schema",
+                "key": "Required",
                 "schema": {
                   "extends": [
                     "combination.sensor.SENSOR_ONLY_SOURCE_SCHEMA"
                   ]
                 },
-                "docs": "**list**: A list of sensors to use as source.\n  * **source** (**Required**, [ID](https://esphome.io/guides/configuration-types.html#config-id) of a [Sensor Component](https://esphome.io/components/sensor/index.html)): The sensor id that is used as sample source.\n  \n  * **error** (**Required** - only for `KALMAN` type, float, [templatable](https://esphome.io/automations/templates.html#config-templatable)): The standard deviation of the sensor\u2019s measurements. This works like the `process_std_dev` parameter, with low values marking accurate data. If implemented as a template, the measurement is in parameter `x`.\n  \n  * **coeffecient** (**Required** - only for `LINEAR` type, float, [templatable](https://esphome.io/automations/templates.html#config-templatable)): The coeffecient to multiply the sensor\u2019s state by before summing all source sensor states. If implemented as a template, the measurement is in parameter `x`.\n  \n  \n\n*See also: [Combine the state of several sensors](https://esphome.io/components/sensor/combination.html#configuration-variables)*"
+                "type": "schema"
               }
-            }
+            },
+            "extends": [
+              "core.COMPONENT_SCHEMA",
+              "sensor.SENSOR_SCHEMA"
+            ]
           },
           "mean": {
-            "extends": [
-              "sensor.SENSOR_SCHEMA",
-              "core.COMPONENT_SCHEMA"
-            ],
             "config_vars": {
               "id": {
                 "id_type": {
                   "class": "combination::MeanCombinationComponent",
                   "parents": [
                     "Component",
-                    "sensor::Sensor",
-                    "EntityBase"
+                    "EntityBase",
+                    "sensor::Sensor"
                   ]
                 }
               },
               "sources": {
-                "key": "Required",
+                "docs": "**, list**: A list of sensors to use as source.\n  * **source** (**Required**, [ID](https://esphome.io/guides/configuration-types.html#config-id) of a [Sensor Component](https://esphome.io/components/sensor/index.html)): The sensor id that is used as sample source.\n  \n  * **error** (**Required**, only for `KALMAN` type, float, [templatable](https://esphome.io/automations/templates.html#config-templatable)): The standard deviation of the sensor\u2019s measurements. This works like the `process_std_dev` parameter, with low values marking accurate data. If implemented as a template, the measurement is in parameter `x`.\n  \n  * **coeffecient** (**Required**, only for `LINEAR` type, float, [templatable](https://esphome.io/automations/templates.html#config-templatable)): The coeffecient to multiply the sensor\u2019s state by before summing all source sensor states. If implemented as a template, the measurement is in parameter `x`.\n  \n  \n\n*See also: [Combine the state of several sensors](https://esphome.io/components/sensor/combination.html#configuration-variables)*",
                 "is_list": true,
-                "type": "schema",
+                "key": "Required",
                 "schema": {
                   "extends": [
                     "combination.sensor.SENSOR_ONLY_SOURCE_SCHEMA"
                   ]
                 },
-                "docs": "**list**: A list of sensors to use as source.\n  * **source** (**Required**, [ID](https://esphome.io/guides/configuration-types.html#config-id) of a [Sensor Component](https://esphome.io/components/sensor/index.html)): The sensor id that is used as sample source.\n  \n  * **error** (**Required** - only for `KALMAN` type, float, [templatable](https://esphome.io/automations/templates.html#config-templatable)): The standard deviation of the sensor\u2019s measurements. This works like the `process_std_dev` parameter, with low values marking accurate data. If implemented as a template, the measurement is in parameter `x`.\n  \n  * **coeffecient** (**Required** - only for `LINEAR` type, float, [templatable](https://esphome.io/automations/templates.html#config-templatable)): The coeffecient to multiply the sensor\u2019s state by before summing all source sensor states. If implemented as a template, the measurement is in parameter `x`.\n  \n  \n\n*See also: [Combine the state of several sensors](https://esphome.io/components/sensor/combination.html#configuration-variables)*"
+                "type": "schema"
               }
-            }
+            },
+            "extends": [
+              "core.COMPONENT_SCHEMA",
+              "sensor.SENSOR_SCHEMA"
+            ]
           },
           "median": {
-            "extends": [
-              "sensor.SENSOR_SCHEMA",
-              "core.COMPONENT_SCHEMA"
-            ],
             "config_vars": {
               "id": {
                 "id_type": {
                   "class": "combination::MedianCombinationComponent",
                   "parents": [
                     "Component",
-                    "sensor::Sensor",
-                    "EntityBase"
+                    "EntityBase",
+                    "sensor::Sensor"
                   ]
                 }
               },
               "sources": {
-                "key": "Required",
+                "docs": "**, list**: A list of sensors to use as source.\n  * **source** (**Required**, [ID](https://esphome.io/guides/configuration-types.html#config-id) of a [Sensor Component](https://esphome.io/components/sensor/index.html)): The sensor id that is used as sample source.\n  \n  * **error** (**Required**, only for `KALMAN` type, float, [templatable](https://esphome.io/automations/templates.html#config-templatable)): The standard deviation of the sensor\u2019s measurements. This works like the `process_std_dev` parameter, with low values marking accurate data. If implemented as a template, the measurement is in parameter `x`.\n  \n  * **coeffecient** (**Required**, only for `LINEAR` type, float, [templatable](https://esphome.io/automations/templates.html#config-templatable)): The coeffecient to multiply the sensor\u2019s state by before summing all source sensor states. If implemented as a template, the measurement is in parameter `x`.\n  \n  \n\n*See also: [Combine the state of several sensors](https://esphome.io/components/sensor/combination.html#configuration-variables)*",
                 "is_list": true,
-                "type": "schema",
+                "key": "Required",
                 "schema": {
                   "extends": [
                     "combination.sensor.SENSOR_ONLY_SOURCE_SCHEMA"
                   ]
                 },
-                "docs": "**list**: A list of sensors to use as source.\n  * **source** (**Required**, [ID](https://esphome.io/guides/configuration-types.html#config-id) of a [Sensor Component](https://esphome.io/components/sensor/index.html)): The sensor id that is used as sample source.\n  \n  * **error** (**Required** - only for `KALMAN` type, float, [templatable](https://esphome.io/automations/templates.html#config-templatable)): The standard deviation of the sensor\u2019s measurements. This works like the `process_std_dev` parameter, with low values marking accurate data. If implemented as a template, the measurement is in parameter `x`.\n  \n  * **coeffecient** (**Required** - only for `LINEAR` type, float, [templatable](https://esphome.io/automations/templates.html#config-templatable)): The coeffecient to multiply the sensor\u2019s state by before summing all source sensor states. If implemented as a template, the measurement is in parameter `x`.\n  \n  \n\n*See also: [Combine the state of several sensors](https://esphome.io/components/sensor/combination.html#configuration-variables)*"
+                "type": "schema"
               }
-            }
+            },
+            "extends": [
+              "core.COMPONENT_SCHEMA",
+              "sensor.SENSOR_SCHEMA"
+            ]
           },
           "min": {
-            "extends": [
-              "sensor.SENSOR_SCHEMA",
-              "core.COMPONENT_SCHEMA"
-            ],
             "config_vars": {
               "id": {
                 "id_type": {
                   "class": "combination::MinimumCombinationComponent",
                   "parents": [
                     "Component",
-                    "sensor::Sensor",
-                    "EntityBase"
+                    "EntityBase",
+                    "sensor::Sensor"
                   ]
                 }
               },
               "sources": {
-                "key": "Required",
+                "docs": "**, list**: A list of sensors to use as source.\n  * **source** (**Required**, [ID](https://esphome.io/guides/configuration-types.html#config-id) of a [Sensor Component](https://esphome.io/components/sensor/index.html)): The sensor id that is used as sample source.\n  \n  * **error** (**Required**, only for `KALMAN` type, float, [templatable](https://esphome.io/automations/templates.html#config-templatable)): The standard deviation of the sensor\u2019s measurements. This works like the `process_std_dev` parameter, with low values marking accurate data. If implemented as a template, the measurement is in parameter `x`.\n  \n  * **coeffecient** (**Required**, only for `LINEAR` type, float, [templatable](https://esphome.io/automations/templates.html#config-templatable)): The coeffecient to multiply the sensor\u2019s state by before summing all source sensor states. If implemented as a template, the measurement is in parameter `x`.\n  \n  \n\n*See also: [Combine the state of several sensors](https://esphome.io/components/sensor/combination.html#configuration-variables)*",
                 "is_list": true,
-                "type": "schema",
+                "key": "Required",
                 "schema": {
                   "extends": [
                     "combination.sensor.SENSOR_ONLY_SOURCE_SCHEMA"
                   ]
                 },
-                "docs": "**list**: A list of sensors to use as source.\n  * **source** (**Required**, [ID](https://esphome.io/guides/configuration-types.html#config-id) of a [Sensor Component](https://esphome.io/components/sensor/index.html)): The sensor id that is used as sample source.\n  \n  * **error** (**Required** - only for `KALMAN` type, float, [templatable](https://esphome.io/automations/templates.html#config-templatable)): The standard deviation of the sensor\u2019s measurements. This works like the `process_std_dev` parameter, with low values marking accurate data. If implemented as a template, the measurement is in parameter `x`.\n  \n  * **coeffecient** (**Required** - only for `LINEAR` type, float, [templatable](https://esphome.io/automations/templates.html#config-templatable)): The coeffecient to multiply the sensor\u2019s state by before summing all source sensor states. If implemented as a template, the measurement is in parameter `x`.\n  \n  \n\n*See also: [Combine the state of several sensors](https://esphome.io/components/sensor/combination.html#configuration-variables)*"
+                "type": "schema"
               }
-            }
+            },
+            "extends": [
+              "core.COMPONENT_SCHEMA",
+              "sensor.SENSOR_SCHEMA"
+            ]
           },
           "most_recently_updated": {
-            "extends": [
-              "sensor.SENSOR_SCHEMA",
-              "core.COMPONENT_SCHEMA"
-            ],
             "config_vars": {
               "id": {
                 "id_type": {
                   "class": "combination::MostRecentCombinationComponent",
                   "parents": [
                     "Component",
-                    "sensor::Sensor",
-                    "EntityBase"
+                    "EntityBase",
+                    "sensor::Sensor"
                   ]
                 }
               },
               "sources": {
-                "key": "Required",
+                "docs": "**, list**: A list of sensors to use as source.\n  * **source** (**Required**, [ID](https://esphome.io/guides/configuration-types.html#config-id) of a [Sensor Component](https://esphome.io/components/sensor/index.html)): The sensor id that is used as sample source.\n  \n  * **error** (**Required**, only for `KALMAN` type, float, [templatable](https://esphome.io/automations/templates.html#config-templatable)): The standard deviation of the sensor\u2019s measurements. This works like the `process_std_dev` parameter, with low values marking accurate data. If implemented as a template, the measurement is in parameter `x`.\n  \n  * **coeffecient** (**Required**, only for `LINEAR` type, float, [templatable](https://esphome.io/automations/templates.html#config-templatable)): The coeffecient to multiply the sensor\u2019s state by before summing all source sensor states. If implemented as a template, the measurement is in parameter `x`.\n  \n  \n\n*See also: [Combine the state of several sensors](https://esphome.io/components/sensor/combination.html#configuration-variables)*",
                 "is_list": true,
-                "type": "schema",
+                "key": "Required",
                 "schema": {
                   "extends": [
                     "combination.sensor.SENSOR_ONLY_SOURCE_SCHEMA"
                   ]
                 },
-                "docs": "**list**: A list of sensors to use as source.\n  * **source** (**Required**, [ID](https://esphome.io/guides/configuration-types.html#config-id) of a [Sensor Component](https://esphome.io/components/sensor/index.html)): The sensor id that is used as sample source.\n  \n  * **error** (**Required** - only for `KALMAN` type, float, [templatable](https://esphome.io/automations/templates.html#config-templatable)): The standard deviation of the sensor\u2019s measurements. This works like the `process_std_dev` parameter, with low values marking accurate data. If implemented as a template, the measurement is in parameter `x`.\n  \n  * **coeffecient** (**Required** - only for `LINEAR` type, float, [templatable](https://esphome.io/automations/templates.html#config-templatable)): The coeffecient to multiply the sensor\u2019s state by before summing all source sensor states. If implemented as a template, the measurement is in parameter `x`.\n  \n  \n\n*See also: [Combine the state of several sensors](https://esphome.io/components/sensor/combination.html#configuration-variables)*"
+                "type": "schema"
               }
-            }
+            },
+            "extends": [
+              "core.COMPONENT_SCHEMA",
+              "sensor.SENSOR_SCHEMA"
+            ]
           },
           "range": {
-            "extends": [
-              "sensor.SENSOR_SCHEMA",
-              "core.COMPONENT_SCHEMA"
-            ],
             "config_vars": {
               "id": {
                 "id_type": {
                   "class": "combination::RangeCombinationComponent",
                   "parents": [
                     "Component",
-                    "sensor::Sensor",
-                    "EntityBase"
+                    "EntityBase",
+                    "sensor::Sensor"
                   ]
                 }
               },
               "sources": {
-                "key": "Required",
+                "docs": "**, list**: A list of sensors to use as source.\n  * **source** (**Required**, [ID](https://esphome.io/guides/configuration-types.html#config-id) of a [Sensor Component](https://esphome.io/components/sensor/index.html)): The sensor id that is used as sample source.\n  \n  * **error** (**Required**, only for `KALMAN` type, float, [templatable](https://esphome.io/automations/templates.html#config-templatable)): The standard deviation of the sensor\u2019s measurements. This works like the `process_std_dev` parameter, with low values marking accurate data. If implemented as a template, the measurement is in parameter `x`.\n  \n  * **coeffecient** (**Required**, only for `LINEAR` type, float, [templatable](https://esphome.io/automations/templates.html#config-templatable)): The coeffecient to multiply the sensor\u2019s state by before summing all source sensor states. If implemented as a template, the measurement is in parameter `x`.\n  \n  \n\n*See also: [Combine the state of several sensors](https://esphome.io/components/sensor/combination.html#configuration-variables)*",
                 "is_list": true,
-                "type": "schema",
+                "key": "Required",
                 "schema": {
                   "extends": [
                     "combination.sensor.SENSOR_ONLY_SOURCE_SCHEMA"
                   ]
                 },
-                "docs": "**list**: A list of sensors to use as source.\n  * **source** (**Required**, [ID](https://esphome.io/guides/configuration-types.html#config-id) of a [Sensor Component](https://esphome.io/components/sensor/index.html)): The sensor id that is used as sample source.\n  \n  * **error** (**Required** - only for `KALMAN` type, float, [templatable](https://esphome.io/automations/templates.html#config-templatable)): The standard deviation of the sensor\u2019s measurements. This works like the `process_std_dev` parameter, with low values marking accurate data. If implemented as a template, the measurement is in parameter `x`.\n  \n  * **coeffecient** (**Required** - only for `LINEAR` type, float, [templatable](https://esphome.io/automations/templates.html#config-templatable)): The coeffecient to multiply the sensor\u2019s state by before summing all source sensor states. If implemented as a template, the measurement is in parameter `x`.\n  \n  \n\n*See also: [Combine the state of several sensors](https://esphome.io/components/sensor/combination.html#configuration-variables)*"
+                "type": "schema"
               }
-            }
+            },
+            "extends": [
+              "core.COMPONENT_SCHEMA",
+              "sensor.SENSOR_SCHEMA"
+            ]
           },
           "sum": {
-            "extends": [
-              "sensor.SENSOR_SCHEMA",
-              "core.COMPONENT_SCHEMA"
-            ],
             "config_vars": {
               "id": {
                 "id_type": {
                   "class": "combination::SumCombinationComponent",
                   "parents": [
                     "Component",
-                    "sensor::Sensor",
-                    "EntityBase"
+                    "EntityBase",
+                    "sensor::Sensor"
                   ]
                 }
               },
               "sources": {
-                "key": "Required",
+                "docs": "**, list**: A list of sensors to use as source.\n  * **source** (**Required**, [ID](https://esphome.io/guides/configuration-types.html#config-id) of a [Sensor Component](https://esphome.io/components/sensor/index.html)): The sensor id that is used as sample source.\n  \n  * **error** (**Required**, only for `KALMAN` type, float, [templatable](https://esphome.io/automations/templates.html#config-templatable)): The standard deviation of the sensor\u2019s measurements. This works like the `process_std_dev` parameter, with low values marking accurate data. If implemented as a template, the measurement is in parameter `x`.\n  \n  * **coeffecient** (**Required**, only for `LINEAR` type, float, [templatable](https://esphome.io/automations/templates.html#config-templatable)): The coeffecient to multiply the sensor\u2019s state by before summing all source sensor states. If implemented as a template, the measurement is in parameter `x`.\n  \n  \n\n*See also: [Combine the state of several sensors](https://esphome.io/components/sensor/combination.html#configuration-variables)*",
                 "is_list": true,
-                "type": "schema",
+                "key": "Required",
                 "schema": {
                   "extends": [
                     "combination.sensor.SENSOR_ONLY_SOURCE_SCHEMA"
                   ]
                 },
-                "docs": "**list**: A list of sensors to use as source.\n  * **source** (**Required**, [ID](https://esphome.io/guides/configuration-types.html#config-id) of a [Sensor Component](https://esphome.io/components/sensor/index.html)): The sensor id that is used as sample source.\n  \n  * **error** (**Required** - only for `KALMAN` type, float, [templatable](https://esphome.io/automations/templates.html#config-templatable)): The standard deviation of the sensor\u2019s measurements. This works like the `process_std_dev` parameter, with low values marking accurate data. If implemented as a template, the measurement is in parameter `x`.\n  \n  * **coeffecient** (**Required** - only for `LINEAR` type, float, [templatable](https://esphome.io/automations/templates.html#config-templatable)): The coeffecient to multiply the sensor\u2019s state by before summing all source sensor states. If implemented as a template, the measurement is in parameter `x`.\n  \n  \n\n*See also: [Combine the state of several sensors](https://esphome.io/components/sensor/combination.html#configuration-variables)*"
+                "type": "schema"
               }
+            },
+            "extends": [
+              "core.COMPONENT_SCHEMA",
+              "sensor.SENSOR_SCHEMA"
+            ]
+          }
+        }
+      },
+      "SENSOR_ONLY_SOURCE_SCHEMA": {
+        "schema": {
+          "config_vars": {
+            "source": {
+              "key": "Required",
+              "type": "use_id",
+              "use_id_type": "sensor::Sensor"
             }
           }
         },
-        "typed_key": "type",
-        "docs": "**enum**: Combination statistic type, should be one of `KALMAN`, `LINEAR`, `MAXIMUM`, `MEAN`, `MEDIAN`, `MINIMUM`, `MOST_RECENTLY_UPDATED`, `RANGE`, or `SUM`.\n\n*See also: [Combine the state of several sensors](https://esphome.io/components/sensor/combination.html#configuration-variables)*"
+        "type": "schema"
       }
     }
   }

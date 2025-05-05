@@ -1,229 +1,299 @@
 {
   "voice_assistant": {
-    "schemas": {
-      "CONFIG_SCHEMA": {
-        "type": "schema",
+    "action": {
+      "start": {
+        "docs": "Listens for one voice command then stops.\n\n*See also: [`voice_assistant.start` Action](https://esphome.io/components/voice_assistant.html#voice-assistant-start-action)*",
         "schema": {
           "config_vars": {
+            "silence_detection": {
+              "default": "True",
+              "docs": "**, boolean**: Enable silence detection. Defaults to `true`.\n\n*See also: [Voice Assistant](https://esphome.io/components/voice_assistant.html#voice-assistant-start-action)*",
+              "key": "Optional",
+              "type": "boolean"
+            },
+            "wake_word": {
+              "docs": "**, string**: The wake word that was used to trigger the voice assistant when using on-device wake word such as [Micro Wake Word](https://esphome.io/components/micro_wake_word.html).\n\n*See also: [Voice Assistant](https://esphome.io/components/voice_assistant.html#voice-assistant-start-action)*",
+              "key": "Optional",
+              "templatable": true,
+              "type": "string"
+            }
+          },
+          "extends": [
+            "voice_assistant.VOICE_ASSISTANT_ACTION_SCHEMA"
+          ]
+        },
+        "type": "schema"
+      },
+      "start_continuous": {
+        "docs": "Start listening for voice commands. This will start listening again after the response audio has finished playing. Some errors will stop the cycle. Call `voice_assistant.stop` to stop the cycle.\n\n*See also: [`voice_assistant.start_continuous` Action](https://esphome.io/components/voice_assistant.html#voice-assistant-start-continuous-action)*",
+        "schema": {
+          "extends": [
+            "voice_assistant.VOICE_ASSISTANT_ACTION_SCHEMA"
+          ]
+        },
+        "type": "schema"
+      },
+      "stop": {
+        "docs": "Stop listening for voice commands.\n\n*See also: [`voice_assistant.stop` Action](https://esphome.io/components/voice_assistant.html#voice-assistant-stop-action)*",
+        "schema": {
+          "extends": [
+            "voice_assistant.VOICE_ASSISTANT_ACTION_SCHEMA"
+          ]
+        },
+        "type": "schema"
+      }
+    },
+    "condition": {
+      "connected": {
+        "docs": "Returns true if the voice assistant is currently connected to Home Assistant.\n\n*See also: [`voice_assistant.connected` Condition](https://esphome.io/components/voice_assistant.html#voice-assistant-connected-condition)*",
+        "schema": {
+          "extends": [
+            "voice_assistant.VOICE_ASSISTANT_ACTION_SCHEMA"
+          ]
+        },
+        "type": "schema"
+      },
+      "is_running": {
+        "docs": "Returns true if the voice assistant is currently running.\n\n*See also: [`voice_assistant.is_running` Condition](https://esphome.io/components/voice_assistant.html#voice-assistant-is-running-condition)*",
+        "schema": {
+          "extends": [
+            "voice_assistant.VOICE_ASSISTANT_ACTION_SCHEMA"
+          ]
+        },
+        "type": "schema"
+      }
+    },
+    "schemas": {
+      "CONFIG_SCHEMA": {
+        "schema": {
+          "config_vars": {
+            "auto_gain": {
+              "default": "0dBFS",
+              "docs": "**, dBFS**: Auto gain level to apply to the assist pipeline. Between 0dBFS and 31dBFS inclusive. Defaults to 0 (disabled).\n\n*See also: [Voice Assistant](https://esphome.io/components/voice_assistant.html#configuration-variables)*",
+              "key": "Optional",
+              "type": "integer"
+            },
+            "conversation_timeout": {
+              "default": "300s",
+              "docs": "**, [Time](https://esphome.io/guides/configuration-types.html#config-time)**: How long to wait before resetting the `conversation_id` sent to the voice assist pipeline, which contains the context of the current assist pipeline. Defaults to `300s`.\n\n*See also: [Voice Assistant](https://esphome.io/components/voice_assistant.html#configuration-variables)*",
+              "key": "Optional",
+              "schema": {
+                "extends": [
+                  "core.positive_time_period_milliseconds"
+                ]
+              },
+              "type": "schema"
+            },
             "id": {
-              "key": "GeneratedID",
               "id_type": {
                 "class": "voice_assistant::VoiceAssistant",
                 "parents": [
                   "Component"
                 ]
-              }
-            },
-            "microphone": {
-              "key": "GeneratedID",
-              "use_id_type": "microphone::Microphone",
-              "type": "use_id"
-            },
-            "speaker": {
-              "key": "Optional",
-              "use_id_type": "speaker::Speaker",
-              "type": "use_id"
+              },
+              "key": "GeneratedID"
             },
             "media_player": {
+              "docs": "**, [ID](https://esphome.io/guides/configuration-types.html#config-id)**: The [media_player](https://esphome.io/components/media_player/index.html) to use to output the response. Cannot be used with `speaker` above.\n\n*See also: [Voice Assistant](https://esphome.io/components/voice_assistant.html#configuration-variables)*",
               "key": "Optional",
-              "use_id_type": "media_player::MediaPlayer",
-              "type": "use_id"
+              "type": "use_id",
+              "use_id_type": "media_player::MediaPlayer"
             },
-            "use_wake_word": {
+            "micro_wake_word": {
               "key": "Optional",
-              "default": "False",
-              "type": "boolean"
+              "type": "use_id",
+              "use_id_type": "micro_wake_word::MicroWakeWord"
             },
-            "vad_threshold": {
+            "microphone": {
+              "default": "{}",
+              "docs": "**, [ID](https://esphome.io/guides/configuration-types.html#config-id)**: The [microphone](https://esphome.io/components/microphone/index.html) to use for input.\n\n*See also: [Voice Assistant](https://esphome.io/components/voice_assistant.html#configuration-variables)*",
               "key": "Optional",
-              "type": "integer",
-              "data_type": "uint8_t"
+              "maybe": "microphone",
+              "schema": {
+                "config_vars": {
+                  "bits_per_sample": {
+                    "default": "16",
+                    "key": "Optional",
+                    "type": "integer"
+                  },
+                  "channels": {
+                    "default": "0",
+                    "is_list": true,
+                    "key": "Optional",
+                    "type": "integer"
+                  },
+                  "gain_factor": {
+                    "default": "1",
+                    "key": "Optional",
+                    "type": "integer"
+                  },
+                  "id": {
+                    "id_type": {
+                      "class": "microphone::MicrophoneSource",
+                      "parents": []
+                    },
+                    "key": "GeneratedID"
+                  },
+                  "microphone": {
+                    "key": "GeneratedID",
+                    "type": "use_id",
+                    "use_id_type": "microphone::Microphone"
+                  }
+                }
+              },
+              "type": "schema"
             },
             "noise_suppression_level": {
-              "key": "Optional",
               "default": "0",
+              "docs": "**, integer**: The noise suppression level to apply to the assist pipeline. Between 0 and 4 inclusive. Defaults to 0 (disabled).\n\n*See also: [Voice Assistant](https://esphome.io/components/voice_assistant.html#configuration-variables)*",
+              "key": "Optional",
               "type": "integer"
-            },
-            "auto_gain": {
-              "key": "Optional",
-              "default": "0dBFS",
-              "type": "integer"
-            },
-            "conversation_timeout": {
-              "key": "Optional",
-              "default": "300s",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "core.positive_time_period_milliseconds"
-                ]
-              }
-            },
-            "volume_multiplier": {
-              "key": "Optional",
-              "default": "1.0"
-            },
-            "on_listening": {
-              "key": "Optional",
-              "type": "trigger"
-            },
-            "on_start": {
-              "key": "Optional",
-              "type": "trigger"
-            },
-            "on_wake_word_detected": {
-              "key": "Optional",
-              "type": "trigger"
-            },
-            "on_stt_end": {
-              "key": "Optional",
-              "type": "trigger"
-            },
-            "on_tts_start": {
-              "key": "Optional",
-              "type": "trigger"
-            },
-            "on_tts_end": {
-              "key": "Optional",
-              "type": "trigger"
-            },
-            "on_end": {
-              "key": "Optional",
-              "type": "trigger"
-            },
-            "on_error": {
-              "key": "Optional",
-              "type": "trigger"
             },
             "on_client_connected": {
+              "docs": "**, [Automation](https://esphome.io/automations/index.html#automation)**: An automation to perform when Home Assistant has connected and is waiting for Voice Assistant commands.\n\n*See also: [Voice Assistant](https://esphome.io/components/voice_assistant.html#configuration-variables)*",
               "key": "Optional",
               "type": "trigger"
             },
             "on_client_disconnected": {
+              "docs": "**, [Automation](https://esphome.io/automations/index.html#automation)**: An automation to perform when Home Assistant disconnects from the Voice Assistant.\n\n*See also: [Voice Assistant](https://esphome.io/components/voice_assistant.html#configuration-variables)*",
               "key": "Optional",
               "type": "trigger"
             },
-            "on_intent_start": {
+            "on_end": {
+              "docs": "**, [Automation](https://esphome.io/automations/index.html#automation)**: An automation to perform when the voice assistant is finished all tasks.\n\n*See also: [Voice Assistant](https://esphome.io/components/voice_assistant.html#configuration-variables)*",
               "key": "Optional",
               "type": "trigger"
             },
-            "on_intent_end": {
-              "key": "Optional",
-              "type": "trigger"
-            },
-            "on_stt_vad_start": {
-              "key": "Optional",
-              "type": "trigger"
-            },
-            "on_stt_vad_end": {
-              "key": "Optional",
-              "type": "trigger"
-            },
-            "on_tts_stream_start": {
-              "key": "Optional",
-              "type": "trigger"
-            },
-            "on_tts_stream_end": {
+            "on_error": {
+              "docs": "**, [Automation](https://esphome.io/automations/index.html#automation)**: An automation to perform when the voice assistant has encountered an error. The error code and message are available to automations as the variables `code` and `message`.\n\n*See also: [Voice Assistant](https://esphome.io/components/voice_assistant.html#configuration-variables)*",
               "key": "Optional",
               "type": "trigger"
             },
             "on_idle": {
+              "docs": "**, [Automation](https://esphome.io/automations/index.html#automation)**: An automation to perform when the voice assistant is idle (no other actions/states are in progress).\n\n*See also: [Voice Assistant](https://esphome.io/components/voice_assistant.html#configuration-variables)*",
               "key": "Optional",
               "type": "trigger"
             },
-            "on_timer_started": {
+            "on_intent_end": {
+              "docs": "**, [Automation](https://esphome.io/automations/index.html#automation)**: An automation to perform when intent processing ends.\n\n*See also: [Voice Assistant](https://esphome.io/components/voice_assistant.html#configuration-variables)*",
               "key": "Optional",
               "type": "trigger"
             },
-            "on_timer_updated": {
+            "on_intent_start": {
+              "docs": "**, [Automation](https://esphome.io/automations/index.html#automation)**: An automation to perform when intent processing starts.\n\n*See also: [Voice Assistant](https://esphome.io/components/voice_assistant.html#configuration-variables)*",
+              "key": "Optional",
+              "type": "trigger"
+            },
+            "on_listening": {
+              "docs": "**, [Automation](https://esphome.io/automations/index.html#automation)**: An automation to perform when the voice assistant microphone starts listening.\n\n*See also: [Voice Assistant](https://esphome.io/components/voice_assistant.html#configuration-variables)*",
+              "key": "Optional",
+              "type": "trigger"
+            },
+            "on_start": {
+              "docs": "**, [Automation](https://esphome.io/automations/index.html#automation)**: An automation to perform when the assist pipeline is started.\n\n*See also: [Voice Assistant](https://esphome.io/components/voice_assistant.html#configuration-variables)*",
+              "key": "Optional",
+              "type": "trigger"
+            },
+            "on_stt_end": {
+              "docs": "**, [Automation](https://esphome.io/automations/index.html#automation)**: An automation to perform when the voice assistant has finished speech-to-text. The resulting text is available to automations as the variable `x`.\n\n*See also: [Voice Assistant](https://esphome.io/components/voice_assistant.html#configuration-variables)*",
+              "key": "Optional",
+              "type": "trigger"
+            },
+            "on_stt_vad_end": {
+              "docs": "**, [Automation](https://esphome.io/automations/index.html#automation)**: An automation to perform when voice activity detection ends speech-to-text processing.\n\n*See also: [Voice Assistant](https://esphome.io/components/voice_assistant.html#configuration-variables)*",
+              "key": "Optional",
+              "type": "trigger"
+            },
+            "on_stt_vad_start": {
+              "docs": "**, [Automation](https://esphome.io/automations/index.html#automation)**: An automation to perform when voice activity detection starts speech-to-text processing.\n\n*See also: [Voice Assistant](https://esphome.io/components/voice_assistant.html#configuration-variables)*",
               "key": "Optional",
               "type": "trigger"
             },
             "on_timer_cancelled": {
+              "docs": "**, [Automation](https://esphome.io/automations/index.html#automation)**: An automation to perform when a voice assistant timer has been cancelled. The timer is available as `timer` of type :apistruct:`voice_assistant::Timer`.\n\n*See also: [Voice Assistant](https://esphome.io/components/voice_assistant.html#configuration-variables)*",
               "key": "Optional",
               "type": "trigger"
             },
             "on_timer_finished": {
+              "docs": "**, [Automation](https://esphome.io/automations/index.html#automation)**: An automation to perform when a voice assistant timer has finished. The timer is available as `timer` of type :apistruct:`voice_assistant::Timer`.\n\n*See also: [Voice Assistant](https://esphome.io/components/voice_assistant.html#configuration-variables)*",
+              "key": "Optional",
+              "type": "trigger"
+            },
+            "on_timer_started": {
+              "docs": "**, [Automation](https://esphome.io/automations/index.html#automation)**: An automation to perform when a voice assistant timer has started. The timer is available as `timer` of type :apistruct:`voice_assistant::Timer`.\n\n*See also: [Voice Assistant](https://esphome.io/components/voice_assistant.html#configuration-variables)*",
               "key": "Optional",
               "type": "trigger"
             },
             "on_timer_tick": {
+              "docs": "**, [Automation](https://esphome.io/automations/index.html#automation)**: An automation to perform when the voice assistant timers tick is triggered. This is called every **1 second** while there are timers on this device. The timers are available as `timers` which is a `std::vector` (array) of type :apistruct:`voice_assistant::Timer`.\n\n*See also: [Voice Assistant](https://esphome.io/components/voice_assistant.html#configuration-variables)*",
               "key": "Optional",
               "type": "trigger"
+            },
+            "on_timer_updated": {
+              "docs": "**, [Automation](https://esphome.io/automations/index.html#automation)**: An automation to perform when a voice assistant timer has been updated (paused/resumed/duration changed). The timer is available as `timer` of type :apistruct:`voice_assistant::Timer`.\n\n*See also: [Voice Assistant](https://esphome.io/components/voice_assistant.html#configuration-variables)*",
+              "key": "Optional",
+              "type": "trigger"
+            },
+            "on_tts_end": {
+              "docs": "**, [Automation](https://esphome.io/automations/index.html#automation)**: An automation to perform when the voice assistant has finished text-to-speech. A URL containing the audio response is available to automations as the variable `x`.\n\n*See also: [Voice Assistant](https://esphome.io/components/voice_assistant.html#configuration-variables)*",
+              "key": "Optional",
+              "type": "trigger"
+            },
+            "on_tts_start": {
+              "docs": "**, [Automation](https://esphome.io/automations/index.html#automation)**: An automation to perform when the voice assistant has started text-to-speech. The text to be spoken is available to automations as the variable `x`.\n\n*See also: [Voice Assistant](https://esphome.io/components/voice_assistant.html#configuration-variables)*",
+              "key": "Optional",
+              "type": "trigger"
+            },
+            "on_tts_stream_end": {
+              "docs": "**, [Automation](https://esphome.io/automations/index.html#automation)**: An automation to perform when audio stream (voice response) playback ends. Requires `speaker` to be configured.\n\n*See also: [Voice Assistant](https://esphome.io/components/voice_assistant.html#configuration-variables)*",
+              "key": "Optional",
+              "type": "trigger"
+            },
+            "on_tts_stream_start": {
+              "docs": "**, [Automation](https://esphome.io/automations/index.html#automation)**: An automation to perform when audio stream (voice response) playback starts. Requires `speaker` to be configured.\n\n*See also: [Voice Assistant](https://esphome.io/components/voice_assistant.html#configuration-variables)*",
+              "key": "Optional",
+              "type": "trigger"
+            },
+            "on_wake_word_detected": {
+              "docs": "**, [Automation](https://esphome.io/automations/index.html#automation)**: An automation to perform when the assist pipeline has detected a wake word.\n\n*See also: [Voice Assistant](https://esphome.io/components/voice_assistant.html#configuration-variables)*",
+              "key": "Optional",
+              "type": "trigger"
+            },
+            "speaker": {
+              "docs": "**, [ID](https://esphome.io/guides/configuration-types.html#config-id)**: The [speaker](https://esphome.io/components/speaker/index.html) to use to output the response. Cannot be used with `media_player` below.\n\n*See also: [Voice Assistant](https://esphome.io/components/voice_assistant.html#configuration-variables)*",
+              "key": "Optional",
+              "type": "use_id",
+              "use_id_type": "speaker::Speaker"
+            },
+            "use_wake_word": {
+              "default": "False",
+              "docs": "**, boolean**: Enable wake word on the assist pipeline. Defaults to `false`.\n\n*See also: [Voice Assistant](https://esphome.io/components/voice_assistant.html#configuration-variables)*",
+              "key": "Optional",
+              "type": "boolean"
+            },
+            "volume_multiplier": {
+              "default": "1.0",
+              "docs": "**, float**: Volume multiplier to apply to the assist pipeline. Must be larger than 0. Defaults to 1 (disabled).\n\n*See also: [Voice Assistant](https://esphome.io/components/voice_assistant.html#configuration-variables)*",
+              "key": "Optional"
             }
           },
           "extends": [
             "core.COMPONENT_SCHEMA"
           ]
-        }
+        },
+        "type": "schema"
       },
       "VOICE_ASSISTANT_ACTION_SCHEMA": {
-        "type": "schema",
         "schema": {
           "config_vars": {
             "id": {
               "key": "GeneratedID",
-              "use_id_type": "voice_assistant::VoiceAssistant",
-              "type": "use_id"
+              "type": "use_id",
+              "use_id_type": "voice_assistant::VoiceAssistant"
             }
           }
-        }
-      }
-    },
-    "action": {
-      "start": {
-        "type": "schema",
-        "schema": {
-          "extends": [
-            "voice_assistant.VOICE_ASSISTANT_ACTION_SCHEMA"
-          ],
-          "config_vars": {
-            "silence_detection": {
-              "key": "Optional",
-              "default": "True",
-              "type": "boolean"
-            },
-            "wake_word": {
-              "key": "Optional",
-              "templatable": true,
-              "type": "string"
-            }
-          }
-        }
-      },
-      "start_continuous": {
-        "type": "schema",
-        "schema": {
-          "extends": [
-            "voice_assistant.VOICE_ASSISTANT_ACTION_SCHEMA"
-          ]
-        }
-      },
-      "stop": {
-        "type": "schema",
-        "schema": {
-          "extends": [
-            "voice_assistant.VOICE_ASSISTANT_ACTION_SCHEMA"
-          ]
-        }
-      }
-    },
-    "condition": {
-      "is_running": {
-        "type": "schema",
-        "schema": {
-          "extends": [
-            "voice_assistant.VOICE_ASSISTANT_ACTION_SCHEMA"
-          ]
-        }
-      },
-      "connected": {
-        "type": "schema",
-        "schema": {
-          "extends": [
-            "voice_assistant.VOICE_ASSISTANT_ACTION_SCHEMA"
-          ]
-        }
+        },
+        "type": "schema"
       }
     }
   }

@@ -7,12 +7,7 @@
     },
     "schemas": {
       "_DATETIME_SCHEMA": {
-        "type": "schema",
         "schema": {
-          "extends": [
-            "core.ENTITY_BASE_SCHEMA",
-            "core.MQTT_COMMAND_COMPONENT_SCHEMA"
-          ],
           "config_vars": {
             "on_value": {
               "key": "Optional",
@@ -20,51 +15,56 @@
             },
             "time_id": {
               "key": "Optional",
-              "use_id_type": "time::RealTimeClock",
-              "type": "use_id"
+              "type": "use_id",
+              "use_id_type": "time::RealTimeClock"
             },
             "web_server": {
               "key": "Optional",
-              "type": "schema",
               "schema": {
                 "config_vars": {
-                  "web_server_id": {
+                  "sorting_group_id": {
                     "key": "Optional",
-                    "use_id_type": "web_server::WebServer",
-                    "type": "use_id"
+                    "type": "use_id",
+                    "use_id_type": "int"
                   },
                   "sorting_weight": {
                     "key": "Optional"
                   },
-                  "sorting_group_id": {
+                  "web_server_id": {
                     "key": "Optional",
-                    "use_id_type": "int",
-                    "type": "use_id"
+                    "type": "use_id",
+                    "use_id_type": "web_server::WebServer"
                   }
                 }
-              }
+              },
+              "type": "schema"
             }
-          }
-        }
+          },
+          "extends": [
+            "core.ENTITY_BASE_SCHEMA",
+            "core.MQTT_COMMAND_COMPONENT_SCHEMA"
+          ]
+        },
+        "type": "schema"
       }
     }
   },
   "datetime.datetime": {
     "action": {
       "set": {
-        "type": "schema",
         "schema": {
           "config_vars": {
-            "id": {
-              "key": "Required",
-              "use_id_type": "datetime::DateTimeEntity",
-              "type": "use_id"
-            },
             "datetime": {
               "key": "Required"
+            },
+            "id": {
+              "key": "Required",
+              "type": "use_id",
+              "use_id_type": "datetime::DateTimeEntity"
             }
           }
-        }
+        },
+        "type": "schema"
       }
     }
   }

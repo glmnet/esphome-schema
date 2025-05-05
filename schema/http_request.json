@@ -1,362 +1,365 @@
 {
   "http_request": {
-    "schemas": {
-      "CONFIG_SCHEMA": {
-        "type": "schema",
+    "action": {
+      "get": {
+        "docs": "This [action](https://esphome.io/automations/actions.html#config-action) sends a GET request.\n\n*See also: [`http_request.get` Action](https://esphome.io/components/http_request.html#http-request-get-action)*",
+        "maybe": "url",
         "schema": {
           "config_vars": {
+            "method": {
+              "default": "GET",
+              "key": "Optional",
+              "type": "enum",
+              "values": {
+                "GET": null
+              }
+            }
+          },
+          "extends": [
+            "http_request.HTTP_REQUEST_ACTION_SCHEMA"
+          ]
+        },
+        "type": "schema"
+      },
+      "post": {
+        "docs": "This [action](https://esphome.io/automations/actions.html#config-action) sends a POST request.\n\n*See also: [`http_request.post` Action](https://esphome.io/components/http_request.html#http-request-post-action)*",
+        "maybe": "url",
+        "schema": {
+          "config_vars": {
+            "body": {
+              "docs": "**, string, [templatable](https://esphome.io/automations/templates.html#config-templatable)**: A HTTP body string to send with request.\n\n*See also: [HTTP Request](https://esphome.io/components/http_request.html#http-request-post-action)*",
+              "key": "Optional",
+              "templatable": true,
+              "type": "string"
+            },
+            "json": {
+              "docs": "**, mapping**: A HTTP body in JSON format. Values are [templatable](https://esphome.io/automations/templates.html#config-templatable). See [Examples](https://esphome.io/components/http_request.html#http-request-examples).\n\n*See also: [HTTP Request](https://esphome.io/components/http_request.html#http-request-post-action)*",
+              "key": "String",
+              "key_type": "string",
+              "schema": {
+                "config_vars": {
+                  "string": {
+                    "templatable": true,
+                    "type": "string"
+                  }
+                }
+              },
+              "type": "schema"
+            },
+            "method": {
+              "default": "POST",
+              "key": "Optional",
+              "type": "enum",
+              "values": {
+                "POST": null
+              }
+            }
+          },
+          "extends": [
+            "http_request.HTTP_REQUEST_ACTION_SCHEMA"
+          ]
+        },
+        "type": "schema"
+      },
+      "send": {
+        "docs": "This [action](https://esphome.io/automations/actions.html#config-action) sends a request.\n\n*See also: [`http_request.send` Action](https://esphome.io/components/http_request.html#http-request-send-action)*",
+        "schema": {
+          "config_vars": {
+            "body": {
+              "key": "Optional",
+              "templatable": true,
+              "type": "string"
+            },
+            "json": {
+              "key": "String",
+              "key_type": "string",
+              "schema": {
+                "config_vars": {
+                  "string": {
+                    "templatable": true,
+                    "type": "string"
+                  }
+                }
+              },
+              "type": "schema"
+            },
+            "method": {
+              "docs": "**, string**: HTTP method to use (`GET`, `POST`, `PUT`, `DELETE`, `PATCH`).\n\n*See also: [HTTP Request](https://esphome.io/components/http_request.html#http-request-send-action)*",
+              "key": "Required",
+              "type": "enum",
+              "values": {
+                "DELETE": null,
+                "GET": null,
+                "PATCH": null,
+                "POST": null,
+                "PUT": null
+              }
+            }
+          },
+          "extends": [
+            "http_request.HTTP_REQUEST_ACTION_SCHEMA"
+          ]
+        },
+        "type": "schema"
+      }
+    },
+    "schemas": {
+      "CONFIG_SCHEMA": {
+        "schema": {
+          "config_vars": {
+            "buffer_size_rx": {
+              "data_type": "uint16_t",
+              "docs": "**, integer**: Change HTTP receive buffer size. Defaults to `512`.\n\n*See also: [HTTP Request](https://esphome.io/components/http_request.html#configuration-variables)*",
+              "key": "Optional",
+              "type": "integer"
+            },
+            "buffer_size_tx": {
+              "data_type": "uint16_t",
+              "docs": "**, integer**: Change HTTP transmit buffer size. Defaults to `512`.\n\n*See also: [HTTP Request](https://esphome.io/components/http_request.html#configuration-variables)*",
+              "key": "Optional",
+              "type": "integer"
+            },
+            "ca_certificate_path": {
+              "key": "Optional"
+            },
+            "esp8266_disable_ssl_support": {
+              "default": "False",
+              "docs": "**, boolean**: Determines whether to include HTTPS/SSL support in the firmware binary. Excluding the SSL libraries from your build will result in a smaller binary, which may be necessary for memory-constrained devices (512 kB or 1 MB). If you see `Error: ESP does not have enough space to store OTA file` in your device\u2019s logs, you may need to enable this option. Defaults to `false`. By setting this option to `true`:\n  * HTTPS connections will not be possible\n  \n  * `verify_ssl: false` is implied\n  \n  \n\n*See also: [HTTP Request](https://esphome.io/components/http_request.html#configuration-variables)*",
+              "key": "Optional",
+              "type": "boolean"
+            },
+            "follow_redirects": {
+              "default": "True",
+              "docs": "**, boolean**: Enable following HTTP redirects. Defaults to `true`.\n\n*See also: [HTTP Request](https://esphome.io/components/http_request.html#configuration-variables)*",
+              "key": "Optional",
+              "type": "boolean"
+            },
             "id": {
-              "key": "GeneratedID",
+              "docs": "**, [ID](https://esphome.io/guides/configuration-types.html#config-id)**: Manually specify the ID used for code generation.\n\n*See also: [HTTP Request](https://esphome.io/components/http_request.html#configuration-variables)*",
               "id_type": {
                 "class": "http_request::HttpRequestComponent",
                 "parents": [
                   "Component"
                 ]
               },
-              "docs": "**[ID](https://esphome.io/guides/configuration-types.html#config-id)**: Manually specify the ID used for code generation.\n\n*See also: [HTTP Request](https://esphome.io/components/http_request.html#configuration-variables)*"
-            },
-            "useragent": {
-              "key": "Optional",
-              "default": "ESPHome/2025.5.0-dev (https://esphome.io)",
-              "type": "string",
-              "docs": "**string**: User-Agent header for requests. Defaults to `ESPHome/<version> (https://esphome.io)` where `<version>` is the version of ESPHome the device is running. For example: `ESPHome/2024.6.0 (https://esphome.io)`\n\n*See also: [HTTP Request](https://esphome.io/components/http_request.html#configuration-variables)*"
-            },
-            "follow_redirects": {
-              "key": "Optional",
-              "default": "True",
-              "type": "boolean",
-              "docs": "**boolean**: Enable following HTTP redirects. Defaults to `true`.\n\n*See also: [HTTP Request](https://esphome.io/components/http_request.html#configuration-variables)*"
+              "key": "GeneratedID"
             },
             "redirect_limit": {
-              "key": "Optional",
               "default": "3",
-              "type": "integer",
-              "docs": "**integer**: Maximum amount of redirects to follow when enabled. Defaults to `3`.\n\n*See also: [HTTP Request](https://esphome.io/components/http_request.html#configuration-variables)*"
+              "docs": "**, integer**: Maximum amount of redirects to follow when enabled. Defaults to `3`.\n\n*See also: [HTTP Request](https://esphome.io/components/http_request.html#configuration-variables)*",
+              "key": "Optional",
+              "type": "integer"
             },
             "timeout": {
-              "key": "Optional",
               "default": "4.5s",
-              "type": "schema",
+              "docs": "**, [Time](https://esphome.io/guides/configuration-types.html#config-time)**: Timeout for request. Defaults to `4.5s`.\n\n*See also: [HTTP Request](https://esphome.io/components/http_request.html#configuration-variables)*",
+              "key": "Optional",
               "schema": {
                 "extends": [
                   "core.positive_time_period_milliseconds"
                 ]
               },
-              "docs": "**[Time](https://esphome.io/guides/configuration-types.html#config-time)**: Timeout for request. Defaults to `4.5s`.\n\n*See also: [HTTP Request](https://esphome.io/components/http_request.html#configuration-variables)*"
+              "type": "schema"
             },
-            "esp8266_disable_ssl_support": {
+            "useragent": {
+              "default": "ESPHome/2025.5.0-dev (https://esphome.io)",
+              "docs": "**, string**: User-Agent header for requests. Defaults to `ESPHome/<version> (https://esphome.io)` where `<version>` is the version of ESPHome the device is running. For example: `ESPHome/2024.6.0 (https://esphome.io)`\n\n*See also: [HTTP Request](https://esphome.io/components/http_request.html#configuration-variables)*",
               "key": "Optional",
-              "default": "False",
-              "type": "boolean",
-              "docs": "**boolean**: Determines whether to include HTTPS/SSL support in the firmware binary. Excluding the SSL libraries from your build will result in a smaller binary, which may be necessary for memory-constrained devices (512 kB or 1 MB). If you see `Error: ESP does not have enough space to store OTA file` in your device\u2019s logs, you may need to enable this option. Defaults to `false`. By setting this option to `true`:\n  * HTTPS connections will not be possible\n  \n  * `verify_ssl: false` is implied\n  \n  \n\n*See also: [HTTP Request](https://esphome.io/components/http_request.html#configuration-variables)*"
+              "type": "string"
             },
             "verify_ssl": {
-              "key": "Optional",
               "default": "True",
-              "type": "boolean",
-              "docs": "**boolean**: When set to `true` (default), SSL/TLS certificates will be validated upon connection; if invalid, the connection will be aborted. To accomplish this, ESP-IDF\u2019s default ESP x509 certificate bundle is included in the build. This certificate bundle includes the complete list of root certificates from Mozilla\u2019s NSS root certificate store. **May only be set to true when using the ESP-IDF framework; must be explicitly set to false when using the Arduino framework.**\n\n*See also: [HTTP Request](https://esphome.io/components/http_request.html#configuration-variables)*"
+              "docs": "**, boolean**: When set to `true` (default), SSL/TLS certificates will be validated upon connection; if invalid, the connection will be aborted. To accomplish this, ESP-IDF\u2019s default ESP x509 certificate bundle is included in the build. This certificate bundle includes the complete list of root certificates from Mozilla\u2019s NSS root certificate store. **May only be set to true when using the ESP-IDF framework; must be explicitly set to false when using the Arduino framework.**\n\n*See also: [HTTP Request](https://esphome.io/components/http_request.html#configuration-variables)*",
+              "key": "Optional",
+              "type": "boolean"
             },
             "watchdog_timeout": {
+              "docs": "**, [Time](https://esphome.io/guides/configuration-types.html#config-time)**: Change the watchdog timeout during connection/data transfer. May be useful on slow connections or connections with high latency. **Do not change this value unless you are experiencing device reboots due to watchdog timeouts;** doing so may prevent the device from rebooting due to a legitimate problem. **Only available on ESP32 and RP2040**.\n\n*See also: [HTTP Request](https://esphome.io/components/http_request.html#configuration-variables)*",
               "key": "Optional",
-              "type": "schema",
               "schema": {
                 "extends": [
                   "core.time_period_dict"
                 ]
               },
-              "docs": "**[Time](https://esphome.io/guides/configuration-types.html#config-time)**: Change the watchdog timeout during connection/data transfer. May be useful on slow connections or connections with high latency. **Do not change this value unless you are experiencing device reboots due to watchdog timeouts;** doing so may prevent the device from rebooting due to a legitimate problem. **Only available on ESP32 and RP2040**.\n\n*See also: [HTTP Request](https://esphome.io/components/http_request.html#configuration-variables)*"
-            },
-            "buffer_size_rx": {
-              "key": "Optional",
-              "type": "integer",
-              "data_type": "uint16_t",
-              "docs": "**integer**: Change HTTP receive buffer size. Defaults to `512`.\n\n*See also: [HTTP Request](https://esphome.io/components/http_request.html#configuration-variables)*"
-            },
-            "buffer_size_tx": {
-              "key": "Optional",
-              "type": "integer",
-              "data_type": "uint16_t",
-              "docs": "**integer**: Change HTTP transmit buffer size. Defaults to `512`.\n\n*See also: [HTTP Request](https://esphome.io/components/http_request.html#configuration-variables)*"
+              "type": "schema"
             }
           },
           "extends": [
             "core.COMPONENT_SCHEMA"
           ]
-        }
+        },
+        "type": "schema"
       },
       "HTTP_REQUEST_ACTION_SCHEMA": {
-        "type": "schema",
         "schema": {
           "config_vars": {
-            "id": {
-              "key": "GeneratedID",
-              "use_id_type": "http_request::HttpRequestComponent",
-              "type": "use_id"
-            },
-            "url": {
-              "key": "Required",
-              "templatable": true,
-              "docs": "**string, [templatable](https://esphome.io/automations/templates.html#config-templatable)**: URL to which to send the request.\n\n*See also: [HTTP Request](https://esphome.io/components/http_request.html#http-request-get-action)*"
-            },
-            "request_headers": {
-              "key": "String",
-              "key_type": "string",
-              "type": "schema",
-              "schema": {
-                "config_vars": {
-                  "string": {
-                    "templatable": true,
-                    "type": "string"
-                  }
-                }
-              }
-            },
-            "collect_headers": {
-              "key": "Optional",
-              "is_list": true,
-              "type": "string"
-            },
             "capture_response": {
-              "key": "Optional",
               "default": "False",
+              "key": "Optional",
               "type": "boolean"
             },
-            "on_response": {
+            "collect_headers": {
+              "is_list": true,
               "key": "Optional",
-              "type": "trigger"
+              "type": "string"
+            },
+            "id": {
+              "key": "GeneratedID",
+              "type": "use_id",
+              "use_id_type": "http_request::HttpRequestComponent"
+            },
+            "max_response_buffer_size": {
+              "default": "1kB",
+              "key": "Optional"
             },
             "on_error": {
               "key": "Optional",
               "type": "trigger"
             },
-            "max_response_buffer_size": {
+            "on_response": {
               "key": "Optional",
-              "default": "1kB"
-            }
-          }
-        }
-      }
-    },
-    "action": {
-      "send": {
-        "type": "schema",
-        "schema": {
-          "extends": [
-            "http_request.HTTP_REQUEST_ACTION_SCHEMA"
-          ],
-          "config_vars": {
-            "method": {
+              "type": "trigger"
+            },
+            "request_headers": {
+              "key": "String",
+              "key_type": "string",
+              "schema": {
+                "config_vars": {
+                  "string": {
+                    "templatable": true,
+                    "type": "string"
+                  }
+                }
+              },
+              "type": "schema"
+            },
+            "url": {
+              "docs": "**, string, [templatable](https://esphome.io/automations/templates.html#config-templatable)**: URL to which to send the request.\n\n*See also: [HTTP Request](https://esphome.io/components/http_request.html#http-request-get-action)*",
               "key": "Required",
-              "type": "enum",
-              "values": {
-                "GET": null,
-                "POST": null,
-                "PUT": null,
-                "DELETE": null,
-                "PATCH": null
-              },
-              "docs": "**string**: HTTP method to use (`GET`, `POST`, `PUT`, `DELETE`, `PATCH`).\n\n*See also: [HTTP Request](https://esphome.io/components/http_request.html#http-request-send-action)*"
-            },
-            "body": {
-              "key": "Optional",
-              "templatable": true,
-              "type": "string"
-            },
-            "json": {
-              "key": "String",
-              "key_type": "string",
-              "type": "schema",
-              "schema": {
-                "config_vars": {
-                  "string": {
-                    "templatable": true,
-                    "type": "string"
-                  }
-                }
-              }
+              "templatable": true
             }
           }
         },
-        "docs": "This [action](https://esphome.io/automations/actions.html#config-action) sends a request.\n\n*See also: [`http_request.send` Action](https://esphome.io/components/http_request.html#http-request-send-action)*"
-      },
-      "post": {
-        "type": "schema",
-        "schema": {
-          "extends": [
-            "http_request.HTTP_REQUEST_ACTION_SCHEMA"
-          ],
-          "config_vars": {
-            "method": {
-              "key": "Optional",
-              "default": "POST",
-              "type": "enum",
-              "values": {
-                "POST": null
-              }
-            },
-            "body": {
-              "key": "Optional",
-              "templatable": true,
-              "type": "string",
-              "docs": "**string, [templatable](https://esphome.io/automations/templates.html#config-templatable)**: A HTTP body string to send with request.\n\n*See also: [HTTP Request](https://esphome.io/components/http_request.html#http-request-post-action)*"
-            },
-            "json": {
-              "key": "String",
-              "key_type": "string",
-              "type": "schema",
-              "schema": {
-                "config_vars": {
-                  "string": {
-                    "templatable": true,
-                    "type": "string"
-                  }
-                }
-              },
-              "docs": "**mapping**: A HTTP body in JSON format. Values are [templatable](https://esphome.io/automations/templates.html#config-templatable). See [Examples](https://esphome.io/components/http_request.html#http-request-examples).\n\n*See also: [HTTP Request](https://esphome.io/components/http_request.html#http-request-post-action)*"
-            }
-          }
-        },
-        "maybe": "url",
-        "docs": "This [action](https://esphome.io/automations/actions.html#config-action) sends a POST request.\n\n*See also: [`http_request.post` Action](https://esphome.io/components/http_request.html#http-request-post-action)*"
-      },
-      "get": {
-        "type": "schema",
-        "schema": {
-          "extends": [
-            "http_request.HTTP_REQUEST_ACTION_SCHEMA"
-          ],
-          "config_vars": {
-            "method": {
-              "key": "Optional",
-              "default": "GET",
-              "type": "enum",
-              "values": {
-                "GET": null
-              }
-            }
-          }
-        },
-        "maybe": "url",
-        "docs": "This [action](https://esphome.io/automations/actions.html#config-action) sends a GET request.\n\n*See also: [`http_request.get` Action](https://esphome.io/components/http_request.html#http-request-get-action)*"
+        "type": "schema"
       }
     }
   },
   "http_request.ota": {
-    "schemas": {
-      "CONFIG_SCHEMA": {
-        "type": "schema",
-        "schema": {
-          "config_vars": {
-            "id": {
-              "key": "GeneratedID",
-              "id_type": {
-                "class": "http_request::OtaHttpRequestComponent",
-                "parents": [
-                  "ota::OTAComponent",
-                  "Component"
-                ]
-              }
-            },
-            "http_request_id": {
-              "key": "GeneratedID",
-              "use_id_type": "http_request::HttpRequestComponent",
-              "type": "use_id"
-            }
-          },
-          "extends": [
-            "ota.BASE_OTA_SCHEMA",
-            "core.COMPONENT_SCHEMA"
-          ]
-        }
-      }
-    },
     "action": {
       "flash": {
-        "type": "schema",
+        "docs": "This action triggers the download and installation of the updated firmware from the configured URL. As it\u2019s an ESPHome [action](https://esphome.io/automations/actions.html#config-action), it may be used in any ESPHome [automation(s)](https://esphome.io/automations/index.html#automation).\n\n*See also: [`ota.http_request.flash` Action](https://esphome.io/components/ota/http_request.html#ota-http-request-flash-action)*",
         "schema": {
           "config_vars": {
             "id": {
               "key": "GeneratedID",
-              "use_id_type": "http_request::OtaHttpRequestComponent",
-              "type": "use_id"
-            },
-            "md5_url": {
-              "key": "Optional",
-              "templatable": true,
-              "docs": "**string, [templatable](https://esphome.io/automations/templates.html#config-templatable)**: The URL of the file containing an [MD5sum](https://en.wikipedia.org/wiki/Md5sum) of the firmware file pointed to by `url` (below). May not be used with `md5` (above); must be specified if `md5` is not.\n\n*See also: [OTA Update via HTTP Request](https://esphome.io/components/ota/http_request.html#id2)*"
+              "type": "use_id",
+              "use_id_type": "http_request::OtaHttpRequestComponent"
             },
             "md5": {
+              "docs": "**, string, [templatable](https://esphome.io/automations/templates.html#config-templatable)**: The [MD5sum](https://en.wikipedia.org/wiki/Md5sum) of the firmware file pointed to by `url` (below). May not be used with `md5_url` (below); must be specified if `md5_url` is not.\n\n*See also: [OTA Update via HTTP Request](https://esphome.io/components/ota/http_request.html#id2)*",
               "key": "Optional",
               "templatable": true,
-              "type": "string",
-              "docs": "**string, [templatable](https://esphome.io/automations/templates.html#config-templatable)**: The [MD5sum](https://en.wikipedia.org/wiki/Md5sum) of the firmware file pointed to by `url` (below). May not be used with `md5_url` (below); must be specified if `md5_url` is not.\n\n*See also: [OTA Update via HTTP Request](https://esphome.io/components/ota/http_request.html#id2)*"
+              "type": "string"
+            },
+            "md5_url": {
+              "docs": "**, string, [templatable](https://esphome.io/automations/templates.html#config-templatable)**: The URL of the file containing an [MD5sum](https://en.wikipedia.org/wiki/Md5sum) of the firmware file pointed to by `url` (below). May not be used with `md5` (above); must be specified if `md5` is not.\n\n*See also: [OTA Update via HTTP Request](https://esphome.io/components/ota/http_request.html#id2)*",
+              "key": "Optional",
+              "templatable": true
             },
             "password": {
+              "docs": "**, string, [templatable](https://esphome.io/automations/templates.html#config-templatable)**: The password to use for HTTP basic authentication.\n\n*See also: [OTA Update via HTTP Request](https://esphome.io/components/ota/http_request.html#id2)*",
               "key": "Optional",
               "templatable": true,
-              "type": "string",
-              "docs": "**string, [templatable](https://esphome.io/automations/templates.html#config-templatable)**: The password to use for HTTP basic authentication.\n\n*See also: [OTA Update via HTTP Request](https://esphome.io/components/ota/http_request.html#id2)*"
-            },
-            "username": {
-              "key": "Optional",
-              "templatable": true,
-              "type": "string",
-              "docs": "**string, [templatable](https://esphome.io/automations/templates.html#config-templatable)**: The username to use for HTTP basic authentication.\n\n*See also: [OTA Update via HTTP Request](https://esphome.io/components/ota/http_request.html#id2)*"
+              "type": "string"
             },
             "url": {
+              "docs": "**, string, [templatable](https://esphome.io/automations/templates.html#config-templatable)**: The URL of the binary file containing the (new) firmware to be installed.\n\n*See also: [OTA Update via HTTP Request](https://esphome.io/components/ota/http_request.html#id2)*",
               "key": "Required",
+              "templatable": true
+            },
+            "username": {
+              "docs": "**, string, [templatable](https://esphome.io/automations/templates.html#config-templatable)**: The username to use for HTTP basic authentication.\n\n*See also: [OTA Update via HTTP Request](https://esphome.io/components/ota/http_request.html#id2)*",
+              "key": "Optional",
               "templatable": true,
-              "docs": "**string, [templatable](https://esphome.io/automations/templates.html#config-templatable)**: The URL of the binary file containing the (new) firmware to be installed.\n\n*See also: [OTA Update via HTTP Request](https://esphome.io/components/ota/http_request.html#id2)*"
+              "type": "string"
             }
           }
         },
-        "docs": "This action triggers the download and installation of the updated firmware from the configured URL. As it\u2019s an ESPHome [action](https://esphome.io/automations/actions.html#config-action), it may be used in any ESPHome [automation(s)](https://esphome.io/automations/index.html#automation).\n\n*See also: [`ota.http_request.flash` Action](https://esphome.io/components/ota/http_request.html#ota-http-request-flash-action)*"
+        "type": "schema"
+      }
+    },
+    "schemas": {
+      "CONFIG_SCHEMA": {
+        "schema": {
+          "config_vars": {
+            "http_request_id": {
+              "key": "GeneratedID",
+              "type": "use_id",
+              "use_id_type": "http_request::HttpRequestComponent"
+            },
+            "id": {
+              "id_type": {
+                "class": "http_request::OtaHttpRequestComponent",
+                "parents": [
+                  "Component",
+                  "ota::OTAComponent"
+                ]
+              },
+              "key": "GeneratedID"
+            }
+          },
+          "extends": [
+            "core.COMPONENT_SCHEMA",
+            "ota.BASE_OTA_SCHEMA"
+          ]
+        },
+        "type": "schema"
       }
     }
   },
   "http_request.update": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
         "schema": {
-          "extends": [
-            "update.UPDATE_SCHEMA",
-            "core.COMPONENT_SCHEMA"
-          ],
           "config_vars": {
-            "id": {
+            "http_request_id": {
               "key": "GeneratedID",
+              "type": "use_id",
+              "use_id_type": "http_request::HttpRequestComponent"
+            },
+            "id": {
               "id_type": {
                 "class": "http_request::HttpRequestUpdate",
                 "parents": [
-                  "update::UpdateEntity",
+                  "Component",
                   "EntityBase",
                   "PollingComponent",
-                  "Component"
+                  "update::UpdateEntity"
                 ]
-              }
+              },
+              "key": "GeneratedID"
             },
             "ota_id": {
               "key": "GeneratedID",
-              "use_id_type": "http_request::OtaHttpRequestComponent",
-              "type": "use_id"
-            },
-            "http_request_id": {
-              "key": "GeneratedID",
-              "use_id_type": "http_request::HttpRequestComponent",
-              "type": "use_id"
+              "type": "use_id",
+              "use_id_type": "http_request::OtaHttpRequestComponent"
             },
             "source": {
-              "key": "Required",
-              "docs": "**string**: The URL of the YAML manifest file containing the firmware metadata.\n\n*See also: [Managed Updates via HTTP Request](https://esphome.io/components/update/http_request.html#configuration-variables)*"
+              "docs": "**, string**: The URL of the YAML manifest file containing the firmware metadata.\n\n*See also: [Managed Updates via HTTP Request](https://esphome.io/components/update/http_request.html#configuration-variables)*",
+              "key": "Required"
             },
             "update_interval": {
-              "key": "Optional",
               "default": "6h",
-              "docs": "**[Time](https://esphome.io/guides/configuration-types.html#config-time)**: The interval at which to check for (**not install**) updates. Defaults to 6 hours.\n\n*See also: [Managed Updates via HTTP Request](https://esphome.io/components/update/http_request.html#configuration-variables)*"
+              "docs": "**, [Time](https://esphome.io/guides/configuration-types.html#config-time)**: The interval at which to check for (**not install**) updates. Defaults to 6 hours.\n\n*See also: [Managed Updates via HTTP Request](https://esphome.io/components/update/http_request.html#configuration-variables)*",
+              "key": "Optional"
             }
-          }
-        }
+          },
+          "extends": [
+            "core.COMPONENT_SCHEMA",
+            "update.UPDATE_SCHEMA"
+          ]
+        },
+        "type": "schema"
       }
     }
   }

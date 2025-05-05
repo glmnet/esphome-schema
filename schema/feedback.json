@@ -2,54 +2,21 @@
   "feedback.cover": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
         "schema": {
-          "extends": [
-            "cover.COVER_SCHEMA",
-            "core.COMPONENT_SCHEMA"
-          ],
           "config_vars": {
-            "id": {
-              "id_type": {
-                "class": "feedback::FeedbackCover",
-                "parents": [
-                  "cover::Cover",
-                  "EntityBase",
-                  "Component"
-                ]
-              }
-            },
-            "stop_action": {
-              "key": "Required",
-              "type": "trigger"
-            },
-            "open_action": {
-              "key": "Required",
-              "type": "trigger"
-            },
-            "open_duration": {
-              "key": "Required",
-              "type": "schema",
+            "acceleration_wait_time": {
+              "default": "0s",
+              "key": "Optional",
               "schema": {
                 "extends": [
                   "core.positive_time_period_milliseconds"
                 ]
-              }
+              },
+              "type": "schema"
             },
-            "open_endstop": {
+            "assumed_state": {
               "key": "Optional",
-              "use_id_type": "binary_sensor::BinarySensor",
-              "type": "use_id"
-            },
-            "open_sensor": {
-              "key": "Optional",
-              "use_id_type": "binary_sensor::BinarySensor",
-              "type": "use_id"
-            },
-            "open_obstacle_sensor": {
-              "key": "Optional",
-              "use_id_type": "binary_sensor::BinarySensor",
-              "type": "use_id"
+              "type": "boolean"
             },
             "close_action": {
               "key": "Required",
@@ -57,86 +24,119 @@
             },
             "close_duration": {
               "key": "Required",
-              "type": "schema",
               "schema": {
                 "extends": [
                   "core.positive_time_period_milliseconds"
                 ]
-              }
+              },
+              "type": "schema"
             },
             "close_endstop": {
               "key": "Optional",
-              "use_id_type": "binary_sensor::BinarySensor",
-              "type": "use_id"
-            },
-            "close_sensor": {
-              "key": "Optional",
-              "use_id_type": "binary_sensor::BinarySensor",
-              "type": "use_id"
+              "type": "use_id",
+              "use_id_type": "binary_sensor::BinarySensor"
             },
             "close_obstacle_sensor": {
               "key": "Optional",
-              "use_id_type": "binary_sensor::BinarySensor",
-              "type": "use_id"
+              "type": "use_id",
+              "use_id_type": "binary_sensor::BinarySensor"
             },
-            "max_duration": {
+            "close_sensor": {
               "key": "Optional",
-              "type": "schema",
+              "type": "use_id",
+              "use_id_type": "binary_sensor::BinarySensor"
+            },
+            "direction_change_wait_time": {
+              "key": "Optional",
               "schema": {
                 "extends": [
                   "core.positive_time_period_milliseconds"
                 ]
-              }
+              },
+              "type": "schema"
             },
             "has_built_in_endstop": {
-              "key": "Optional",
               "default": "False",
-              "type": "boolean"
-            },
-            "assumed_state": {
               "key": "Optional",
               "type": "boolean"
             },
-            "update_interval": {
-              "key": "Optional",
-              "default": "1000ms",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "core.positive_time_period_milliseconds"
+            "id": {
+              "id_type": {
+                "class": "feedback::FeedbackCover",
+                "parents": [
+                  "Component",
+                  "EntityBase",
+                  "cover::Cover"
                 ]
               }
             },
             "infer_endstop_from_movement": {
-              "key": "Optional",
               "default": "False",
+              "key": "Optional",
               "type": "boolean"
             },
-            "direction_change_wait_time": {
+            "max_duration": {
               "key": "Optional",
-              "type": "schema",
               "schema": {
                 "extends": [
                   "core.positive_time_period_milliseconds"
                 ]
-              }
-            },
-            "acceleration_wait_time": {
-              "key": "Optional",
-              "default": "0s",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "core.positive_time_period_milliseconds"
-                ]
-              }
+              },
+              "type": "schema"
             },
             "obstacle_rollback": {
+              "default": "10%",
+              "key": "Optional"
+            },
+            "open_action": {
+              "key": "Required",
+              "type": "trigger"
+            },
+            "open_duration": {
+              "key": "Required",
+              "schema": {
+                "extends": [
+                  "core.positive_time_period_milliseconds"
+                ]
+              },
+              "type": "schema"
+            },
+            "open_endstop": {
               "key": "Optional",
-              "default": "10%"
+              "type": "use_id",
+              "use_id_type": "binary_sensor::BinarySensor"
+            },
+            "open_obstacle_sensor": {
+              "key": "Optional",
+              "type": "use_id",
+              "use_id_type": "binary_sensor::BinarySensor"
+            },
+            "open_sensor": {
+              "key": "Optional",
+              "type": "use_id",
+              "use_id_type": "binary_sensor::BinarySensor"
+            },
+            "stop_action": {
+              "key": "Required",
+              "type": "trigger"
+            },
+            "update_interval": {
+              "default": "1000ms",
+              "key": "Optional",
+              "schema": {
+                "extends": [
+                  "core.positive_time_period_milliseconds"
+                ]
+              },
+              "type": "schema"
             }
-          }
-        }
+          },
+          "extends": [
+            "core.COMPONENT_SCHEMA",
+            "cover.COVER_SCHEMA"
+          ]
+        },
+        "type": "schema"
       }
     }
   }

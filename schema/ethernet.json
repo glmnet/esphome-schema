@@ -1,19 +1,63 @@
 {
   "ethernet": {
     "schemas": {
+      "BASE_SCHEMA": {
+        "schema": {
+          "config_vars": {
+            "domain": {
+              "default": ".local",
+              "key": "Optional"
+            },
+            "id": {
+              "id_type": {
+                "class": "ethernet::EthernetComponent",
+                "parents": [
+                  "Component"
+                ]
+              },
+              "key": "GeneratedID"
+            },
+            "manual_ip": {
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
+                  "dns1": {
+                    "default": "0.0.0.0",
+                    "key": "Optional"
+                  },
+                  "dns2": {
+                    "default": "0.0.0.0",
+                    "key": "Optional"
+                  },
+                  "gateway": {
+                    "key": "Required"
+                  },
+                  "static_ip": {
+                    "key": "Required"
+                  },
+                  "subnet": {
+                    "key": "Required"
+                  }
+                }
+              },
+              "type": "schema"
+            },
+            "use_address": {
+              "key": "Optional",
+              "type": "string"
+            }
+          },
+          "extends": [
+            "core.COMPONENT_SCHEMA"
+          ]
+        },
+        "type": "schema"
+      },
       "CONFIG_SCHEMA": {
+        "docs": "**, string**: The type of LAN chipset/phy.Supported chipsets are:\n  * `LAN8720` (RMII)\n  \n  * `RTL8201` (RMII)\n  \n  * `DP83848` (RMII)\n  \n  * `IP101` (RMII)\n  \n  * `JL1101` (RMII)\n  \n  * `KSZ8081` (RMII)\n  \n  * `KSZ8081RNA` (RMII)\n  \n  * `W5500` (SPI)\n  \n  * `OPENETH` (QEMU, ESP-IDF only)\n  \n  \n\n*See also: [Ethernet Component](https://esphome.io/components/ethernet.html#configuration-variables)*",
         "type": "typed",
+        "typed_key": "type",
         "types": {
-          "LAN8720": {
-            "extends": [
-              "ethernet.RMII_SCHEMA"
-            ]
-          },
-          "RTL8201": {
-            "extends": [
-              "ethernet.RMII_SCHEMA"
-            ]
-          },
           "DP83848": {
             "extends": [
               "ethernet.RMII_SCHEMA"
@@ -39,162 +83,98 @@
               "ethernet.RMII_SCHEMA"
             ]
           },
-          "W5500": {
+          "LAN8720": {
+            "extends": [
+              "ethernet.RMII_SCHEMA"
+            ]
+          },
+          "OPENETH": {
             "extends": [
               "ethernet.BASE_SCHEMA"
-            ],
+            ]
+          },
+          "RTL8201": {
+            "extends": [
+              "ethernet.RMII_SCHEMA"
+            ]
+          },
+          "W5500": {
             "config_vars": {
               "clk_pin": {
+                "internal": true,
                 "key": "Required",
-                "internal": true,
-                "modes": [
-                  "output"
-                ],
-                "type": "pin"
-              },
-              "miso_pin": {
-                "key": "Required",
-                "internal": true,
-                "modes": [
-                  "input"
-                ],
-                "type": "pin"
-              },
-              "mosi_pin": {
-                "key": "Required",
-                "internal": true,
-                "modes": [
-                  "output"
-                ],
-                "type": "pin"
-              },
-              "cs_pin": {
-                "key": "Required",
-                "internal": true,
-                "modes": [
-                  "output"
-                ],
-                "type": "pin"
-              },
-              "interrupt_pin": {
-                "key": "Optional",
-                "internal": true,
-                "modes": [
-                  "input"
-                ],
-                "type": "pin"
-              },
-              "reset_pin": {
-                "key": "Optional",
-                "internal": true,
                 "modes": [
                   "output"
                 ],
                 "type": "pin"
               },
               "clock_speed": {
-                "key": "Optional",
                 "default": "26.67MHz",
+                "key": "Optional",
                 "type": "integer"
+              },
+              "cs_pin": {
+                "internal": true,
+                "key": "Required",
+                "modes": [
+                  "output"
+                ],
+                "type": "pin"
+              },
+              "interrupt_pin": {
+                "internal": true,
+                "key": "Optional",
+                "modes": [
+                  "input"
+                ],
+                "type": "pin"
+              },
+              "miso_pin": {
+                "internal": true,
+                "key": "Required",
+                "modes": [
+                  "input"
+                ],
+                "type": "pin"
+              },
+              "mosi_pin": {
+                "internal": true,
+                "key": "Required",
+                "modes": [
+                  "output"
+                ],
+                "type": "pin"
               },
               "polling_interval": {
                 "key": "Optional",
-                "type": "schema",
                 "schema": {
                   "extends": [
                     "core.positive_time_period_milliseconds"
                   ]
-                }
+                },
+                "type": "schema"
+              },
+              "reset_pin": {
+                "internal": true,
+                "key": "Optional",
+                "modes": [
+                  "output"
+                ],
+                "type": "pin"
               }
-            }
-          },
-          "OPENETH": {
+            },
             "extends": [
               "ethernet.BASE_SCHEMA"
             ]
           }
-        },
-        "typed_key": "type",
-        "docs": "**string**: The type of LAN chipset/phy.Supported chipsets are:\n  * `LAN8720` (RMII)\n  \n  * `RTL8201` (RMII)\n  \n  * `DP83848` (RMII)\n  \n  * `IP101` (RMII)\n  \n  * `JL1101` (RMII)\n  \n  * `KSZ8081` (RMII)\n  \n  * `KSZ8081RNA` (RMII)\n  \n  * `W5500` (SPI)\n  \n  * `OPENETH` (QEMU, ESP-IDF only)\n  \n  \n\n*See also: [Ethernet Component](https://esphome.io/components/ethernet.html#configuration-variables)*"
-      },
-      "BASE_SCHEMA": {
-        "type": "schema",
-        "schema": {
-          "config_vars": {
-            "id": {
-              "key": "GeneratedID",
-              "id_type": {
-                "class": "ethernet::EthernetComponent",
-                "parents": [
-                  "Component"
-                ]
-              }
-            },
-            "manual_ip": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "config_vars": {
-                  "static_ip": {
-                    "key": "Required"
-                  },
-                  "gateway": {
-                    "key": "Required"
-                  },
-                  "subnet": {
-                    "key": "Required"
-                  },
-                  "dns1": {
-                    "key": "Optional",
-                    "default": "0.0.0.0"
-                  },
-                  "dns2": {
-                    "key": "Optional",
-                    "default": "0.0.0.0"
-                  }
-                }
-              }
-            },
-            "domain": {
-              "key": "Optional",
-              "default": ".local"
-            },
-            "use_address": {
-              "key": "Optional",
-              "type": "string"
-            }
-          },
-          "extends": [
-            "core.COMPONENT_SCHEMA"
-          ]
         }
       },
       "RMII_SCHEMA": {
-        "type": "schema",
         "schema": {
-          "extends": [
-            "ethernet.BASE_SCHEMA"
-          ],
           "config_vars": {
-            "mdc_pin": {
-              "key": "Required",
-              "internal": true,
-              "modes": [
-                "output"
-              ],
-              "type": "pin"
-            },
-            "mdio_pin": {
-              "key": "Required",
-              "internal": true,
-              "modes": [
-                "output"
-              ],
-              "type": "pin"
-            },
             "clk_mode": {
-              "key": "Optional",
               "default": "GPIO0_IN",
+              "key": "Optional",
               "type": "enum",
               "values": {
                 "GPIO0_IN": null,
@@ -203,39 +183,59 @@
                 "GPIO17_OUT": null
               }
             },
-            "phy_addr": {
-              "key": "Optional",
-              "default": "0",
-              "type": "integer"
-            },
-            "power_pin": {
-              "key": "Optional",
+            "mdc_pin": {
               "internal": true,
+              "key": "Required",
               "modes": [
                 "output"
               ],
               "type": "pin"
             },
-            "phy_registers": {
+            "mdio_pin": {
+              "internal": true,
+              "key": "Required",
+              "modes": [
+                "output"
+              ],
+              "type": "pin"
+            },
+            "phy_addr": {
+              "default": "0",
               "key": "Optional",
+              "type": "integer"
+            },
+            "phy_registers": {
               "is_list": true,
-              "type": "schema",
+              "key": "Optional",
               "schema": {
                 "config_vars": {
                   "address": {
                     "key": "Required"
                   },
-                  "value": {
-                    "key": "Required"
-                  },
                   "page_id": {
                     "key": "Optional"
+                  },
+                  "value": {
+                    "key": "Required"
                   }
                 }
-              }
+              },
+              "type": "schema"
+            },
+            "power_pin": {
+              "internal": true,
+              "key": "Optional",
+              "modes": [
+                "output"
+              ],
+              "type": "pin"
             }
-          }
-        }
+          },
+          "extends": [
+            "ethernet.BASE_SCHEMA"
+          ]
+        },
+        "type": "schema"
       }
     }
   }

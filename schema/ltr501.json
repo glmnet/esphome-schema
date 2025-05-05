@@ -2,86 +2,179 @@
   "ltr501.sensor": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
         "schema": {
           "config_vars": {
-            "id": {
+            "actual_gain": {
+              "key": "Optional",
+              "maybe": "name",
+              "schema": {
+                "config_vars": {
+                  "accuracy_decimals": {
+                    "default": "0"
+                  },
+                  "device_class": {
+                    "default": "illuminance"
+                  },
+                  "icon": {
+                    "default": "mdi:multiplication"
+                  },
+                  "state_class": {
+                    "default": "measurement"
+                  }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "actual_integration_time": {
+              "key": "Optional",
+              "maybe": "name",
+              "schema": {
+                "config_vars": {
+                  "accuracy_decimals": {
+                    "default": "0"
+                  },
+                  "icon": {
+                    "default": "mdi:timer-outline"
+                  },
+                  "state_class": {
+                    "default": "measurement"
+                  },
+                  "unit_of_measurement": {
+                    "default": "ms"
+                  }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "address": {
+              "data_type": "hex_uint8_t",
+              "default": "35",
+              "key": "Optional"
+            },
+            "ambient_light": {
+              "key": "Optional",
+              "maybe": "name",
+              "schema": {
+                "config_vars": {
+                  "accuracy_decimals": {
+                    "default": "1"
+                  },
+                  "device_class": {
+                    "default": "illuminance"
+                  },
+                  "icon": {
+                    "default": "mdi:brightness-6"
+                  },
+                  "state_class": {
+                    "default": "measurement"
+                  },
+                  "unit_of_measurement": {
+                    "default": "lx"
+                  }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "auto_mode": {
+              "default": "True",
+              "key": "Optional",
+              "type": "boolean"
+            },
+            "full_spectrum_counts": {
+              "key": "Optional",
+              "maybe": "name",
+              "schema": {
+                "config_vars": {
+                  "accuracy_decimals": {
+                    "default": "0"
+                  },
+                  "device_class": {
+                    "default": "illuminance"
+                  },
+                  "icon": {
+                    "default": "mdi:brightness-7"
+                  },
+                  "state_class": {
+                    "default": "measurement"
+                  },
+                  "unit_of_measurement": {
+                    "default": "#"
+                  }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "gain": {
+              "default": "1X",
+              "key": "Optional",
+              "type": "enum",
+              "values": {
+                "150X": null,
+                "1X": null
+              }
+            },
+            "glass_attenuation_factor": {
+              "default": "1.0",
+              "key": "Optional"
+            },
+            "i2c_id": {
               "key": "GeneratedID",
+              "type": "use_id",
+              "use_id_type": "i2c::I2CBus"
+            },
+            "id": {
               "id_type": {
                 "class": "ltr501::LTRAlsPs501Component",
                 "parents": [
-                  "PollingComponent",
                   "Component",
+                  "PollingComponent",
                   "i2c::I2CDevice"
                 ]
-              }
+              },
+              "key": "GeneratedID"
             },
-            "type": {
+            "infrared_counts": {
               "key": "Optional",
-              "default": "ALS_PS",
-              "type": "enum",
-              "values": {
-                "ALS": null,
-                "PS": null,
-                "ALS_PS": null
-              }
-            },
-            "auto_mode": {
-              "key": "Optional",
-              "default": "True",
-              "type": "boolean"
-            },
-            "gain": {
-              "key": "Optional",
-              "default": "1X",
-              "type": "enum",
-              "values": {
-                "1X": null,
-                "150X": null
-              }
+              "maybe": "name",
+              "schema": {
+                "config_vars": {
+                  "accuracy_decimals": {
+                    "default": "0"
+                  },
+                  "device_class": {
+                    "default": "illuminance"
+                  },
+                  "icon": {
+                    "default": "mdi:brightness-5"
+                  },
+                  "state_class": {
+                    "default": "measurement"
+                  },
+                  "unit_of_measurement": {
+                    "default": "#"
+                  }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
             },
             "integration_time": {
-              "key": "Optional",
-              "default": "100ms"
-            },
-            "repeat": {
-              "key": "Optional",
-              "default": "500ms"
-            },
-            "glass_attenuation_factor": {
-              "key": "Optional",
-              "default": "1.0"
-            },
-            "ps_cooldown": {
-              "key": "Optional",
-              "default": "5s",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "core.positive_time_period_seconds"
-                ]
-              }
-            },
-            "ps_gain": {
-              "key": "Optional",
-              "default": "1X",
-              "type": "enum",
-              "values": {
-                "1X": null,
-                "4X": null,
-                "8X": null,
-                "16X": null
-              }
-            },
-            "ps_high_threshold": {
-              "key": "Optional",
-              "default": "65535",
-              "type": "integer"
-            },
-            "ps_low_threshold": {
-              "key": "Optional",
-              "default": "0",
-              "type": "integer"
+              "default": "100ms",
+              "key": "Optional"
             },
             "on_ps_high_threshold": {
               "key": "Optional",
@@ -91,181 +184,88 @@
               "key": "Optional",
               "type": "trigger"
             },
-            "ambient_light": {
+            "ps_cooldown": {
+              "default": "5s",
               "key": "Optional",
-              "type": "schema",
-              "maybe": "name",
               "schema": {
                 "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "lx"
-                  },
-                  "icon": {
-                    "default": "mdi:brightness-6"
-                  },
-                  "accuracy_decimals": {
-                    "default": "1"
-                  },
-                  "device_class": {
-                    "default": "illuminance"
-                  },
-                  "state_class": {
-                    "default": "measurement"
-                  }
-                }
-              }
-            },
-            "infrared_counts": {
-              "key": "Optional",
-              "type": "schema",
-              "maybe": "name",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "#"
-                  },
-                  "icon": {
-                    "default": "mdi:brightness-5"
-                  },
-                  "accuracy_decimals": {
-                    "default": "0"
-                  },
-                  "device_class": {
-                    "default": "illuminance"
-                  },
-                  "state_class": {
-                    "default": "measurement"
-                  }
-                }
-              }
-            },
-            "full_spectrum_counts": {
-              "key": "Optional",
-              "type": "schema",
-              "maybe": "name",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "#"
-                  },
-                  "icon": {
-                    "default": "mdi:brightness-7"
-                  },
-                  "accuracy_decimals": {
-                    "default": "0"
-                  },
-                  "device_class": {
-                    "default": "illuminance"
-                  },
-                  "state_class": {
-                    "default": "measurement"
-                  }
-                }
-              }
+                  "core.positive_time_period_seconds"
+                ]
+              },
+              "type": "schema"
             },
             "ps_counts": {
               "key": "Optional",
-              "type": "schema",
               "maybe": "name",
               "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
                 "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "#"
-                  },
-                  "icon": {
-                    "default": "mdi:hand-wave-outline"
-                  },
                   "accuracy_decimals": {
                     "default": "0"
                   },
                   "device_class": {
                     "default": "distance"
                   },
-                  "state_class": {
-                    "default": "measurement"
-                  }
-                }
-              }
-            },
-            "actual_gain": {
-              "key": "Optional",
-              "type": "schema",
-              "maybe": "name",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
                   "icon": {
-                    "default": "mdi:multiplication"
-                  },
-                  "accuracy_decimals": {
-                    "default": "0"
-                  },
-                  "device_class": {
-                    "default": "illuminance"
+                    "default": "mdi:hand-wave-outline"
                   },
                   "state_class": {
                     "default": "measurement"
-                  }
-                }
-              }
-            },
-            "actual_integration_time": {
-              "key": "Optional",
-              "type": "schema",
-              "maybe": "name",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
+                  },
                   "unit_of_measurement": {
-                    "default": "ms"
-                  },
-                  "icon": {
-                    "default": "mdi:timer-outline"
-                  },
-                  "accuracy_decimals": {
-                    "default": "0"
-                  },
-                  "state_class": {
-                    "default": "measurement"
+                    "default": "#"
                   }
-                }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "ps_gain": {
+              "default": "1X",
+              "key": "Optional",
+              "type": "enum",
+              "values": {
+                "16X": null,
+                "1X": null,
+                "4X": null,
+                "8X": null
+              }
+            },
+            "ps_high_threshold": {
+              "default": "65535",
+              "key": "Optional",
+              "type": "integer"
+            },
+            "ps_low_threshold": {
+              "default": "0",
+              "key": "Optional",
+              "type": "integer"
+            },
+            "repeat": {
+              "default": "500ms",
+              "key": "Optional"
+            },
+            "type": {
+              "default": "ALS_PS",
+              "key": "Optional",
+              "type": "enum",
+              "values": {
+                "ALS": null,
+                "ALS_PS": null,
+                "PS": null
               }
             },
             "update_interval": {
-              "key": "Optional",
-              "default": "60s"
-            },
-            "i2c_id": {
-              "key": "GeneratedID",
-              "use_id_type": "i2c::I2CBus",
-              "type": "use_id"
-            },
-            "address": {
-              "key": "Optional",
-              "default": "35",
-              "data_type": "hex_uint8_t"
+              "default": "60s",
+              "key": "Optional"
             }
           },
           "extends": [
             "core.COMPONENT_SCHEMA"
           ]
-        }
+        },
+        "type": "schema"
       }
     }
   }

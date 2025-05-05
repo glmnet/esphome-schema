@@ -2,75 +2,57 @@
   "am43.cover": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
         "schema": {
-          "extends": [
-            "cover.COVER_SCHEMA",
-            "core.COMPONENT_SCHEMA"
-          ],
           "config_vars": {
+            "ble_client_id": {
+              "docs": "**, [ID](https://esphome.io/guides/configuration-types.html#config-id)**: The id of the `ble_client` entry associated with the device.\n\n*See also: [AM43 Cover](https://esphome.io/components/cover/am43.html#configuration-variables)*",
+              "key": "GeneratedID",
+              "type": "use_id",
+              "use_id_type": "ble_client::BLEClient"
+            },
             "id": {
               "id_type": {
                 "class": "am43::Am43Component",
                 "parents": [
-                  "cover::Cover",
+                  "Component",
                   "EntityBase",
                   "ble_client::BLEClientNode",
-                  "Component"
+                  "cover::Cover"
                 ]
               }
             },
-            "pin": {
-              "key": "Optional",
-              "default": "8888",
-              "type": "integer",
-              "docs": "**int**: The pin for the device, as set in the app. The default is usually printed on the device. Defaults to `8888`.\n\n*See also: [AM43 Cover](https://esphome.io/components/cover/am43.html#configuration-variables)*"
-            },
             "invert_position": {
-              "key": "Optional",
               "default": "False",
-              "type": "boolean",
-              "docs": "**boolean**: Inverts the position value to and from the device. Set if ESPHome is swapping around the open/close state of the cover.\n\n*See also: [AM43 Cover](https://esphome.io/components/cover/am43.html#configuration-variables)*"
+              "docs": "**, boolean**: Inverts the position value to and from the device. Set if ESPHome is swapping around the open/close state of the cover.\n\n*See also: [AM43 Cover](https://esphome.io/components/cover/am43.html#configuration-variables)*",
+              "key": "Optional",
+              "type": "boolean"
             },
-            "ble_client_id": {
-              "key": "GeneratedID",
-              "use_id_type": "ble_client::BLEClient",
-              "type": "use_id",
-              "docs": "**[ID](https://esphome.io/guides/configuration-types.html#config-id)**: The id of the `ble_client` entry associated with the device.\n\n*See also: [AM43 Cover](https://esphome.io/components/cover/am43.html#configuration-variables)*"
+            "pin": {
+              "default": "8888",
+              "docs": "**, int**: The pin for the device, as set in the app. The default is usually printed on the device. Defaults to `8888`.\n\n*See also: [AM43 Cover](https://esphome.io/components/cover/am43.html#configuration-variables)*",
+              "key": "Optional",
+              "type": "integer"
             }
-          }
-        }
+          },
+          "extends": [
+            "core.COMPONENT_SCHEMA",
+            "cover.COVER_SCHEMA"
+          ]
+        },
+        "type": "schema"
       }
     }
   },
   "am43.sensor": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
         "schema": {
           "config_vars": {
-            "id": {
-              "key": "GeneratedID",
-              "id_type": {
-                "class": "am43::Am43",
-                "parents": [
-                  "ble_client::BLEClientNode",
-                  "PollingComponent",
-                  "Component"
-                ]
-              }
-            },
             "battery_level": {
+              "docs": "The information for the battery level sensor.\n  * All options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n  \n  \n\n*See also: [AM43 Sensor](https://esphome.io/components/sensor/am43.html#configuration-variables)*",
               "key": "Optional",
-              "type": "schema",
               "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
                 "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "%"
-                  },
                   "accuracy_decimals": {
                     "default": "0"
                   },
@@ -79,48 +61,66 @@
                   },
                   "entity_category": {
                     "default": "diagnostic"
-                  }
-                }
-              },
-              "docs": "The information for the battery level sensor.\n  * All options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n  \n  \n\n*See also: [AM43 Sensor](https://esphome.io/components/sensor/am43.html#configuration-variables)*"
-            },
-            "illuminance": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
+                  },
                   "unit_of_measurement": {
                     "default": "%"
+                  }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "ble_client_id": {
+              "docs": "**, [ID](https://esphome.io/guides/configuration-types.html#config-id)**: The id of the `ble_client` entry associated with the device.\n\n*See also: [AM43 Sensor](https://esphome.io/components/sensor/am43.html#configuration-variables)*",
+              "key": "GeneratedID",
+              "type": "use_id",
+              "use_id_type": "ble_client::BLEClient"
+            },
+            "id": {
+              "id_type": {
+                "class": "am43::Am43",
+                "parents": [
+                  "Component",
+                  "PollingComponent",
+                  "ble_client::BLEClientNode"
+                ]
+              },
+              "key": "GeneratedID"
+            },
+            "illuminance": {
+              "docs": "The information for the light level sensor.\n  * All options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n  \n  \n\n*See also: [AM43 Sensor](https://esphome.io/components/sensor/am43.html#configuration-variables)*",
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
+                  "accuracy_decimals": {
+                    "default": "0"
                   },
                   "icon": {
                     "default": "mdi:brightness-5"
                   },
-                  "accuracy_decimals": {
-                    "default": "0"
+                  "unit_of_measurement": {
+                    "default": "%"
                   }
-                }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
               },
-              "docs": "The information for the light level sensor.\n  * All options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n  \n  \n\n*See also: [AM43 Sensor](https://esphome.io/components/sensor/am43.html#configuration-variables)*"
-            },
-            "ble_client_id": {
-              "key": "GeneratedID",
-              "use_id_type": "ble_client::BLEClient",
-              "type": "use_id",
-              "docs": "**[ID](https://esphome.io/guides/configuration-types.html#config-id)**: The id of the `ble_client` entry associated with the device.\n\n*See also: [AM43 Sensor](https://esphome.io/components/sensor/am43.html#configuration-variables)*"
+              "type": "schema"
             },
             "update_interval": {
-              "key": "Optional",
               "default": "120s",
-              "docs": "**[Time](https://esphome.io/guides/configuration-types.html#config-time)**: The interval to check the sensor. Defaults to `60s`.\n\n*See also: [AM43 Sensor](https://esphome.io/components/sensor/am43.html#configuration-variables)*"
+              "docs": "**, [Time](https://esphome.io/guides/configuration-types.html#config-time)**: The interval to check the sensor. Defaults to `60s`.\n\n*See also: [AM43 Sensor](https://esphome.io/components/sensor/am43.html#configuration-variables)*",
+              "key": "Optional"
             }
           },
           "extends": [
             "core.COMPONENT_SCHEMA"
           ]
-        }
+        },
+        "type": "schema"
       }
     }
   }

@@ -1,0 +1,64 @@
+{
+  "syslog": {
+    "schemas": {
+      "CONFIG_SCHEMA": {
+        "type": "schema",
+        "schema": {
+          "config_vars": {
+            "udp_id": {
+              "key": "GeneratedID",
+              "use_id_type": "udp::UDPComponent",
+              "type": "use_id"
+            },
+            "id": {
+              "key": "GeneratedID",
+              "id_type": {
+                "class": "syslog::Syslog",
+                "parents": [
+                  "Component",
+                  "Parented<udp::UDPComponent>",
+                  "Parented"
+                ]
+              }
+            },
+            "time_id": {
+              "key": "GeneratedID",
+              "use_id_type": "time::RealTimeClock",
+              "type": "use_id"
+            },
+            "port": {
+              "key": "Optional",
+              "default": "514",
+              "type": "integer",
+              "data_type": "port"
+            },
+            "level": {
+              "key": "Optional",
+              "default": "DEBUG",
+              "type": "enum",
+              "values": {
+                "NONE": null,
+                "ERROR": null,
+                "WARN": null,
+                "INFO": null,
+                "DEBUG": null,
+                "VERBOSE": null,
+                "VERY_VERBOSE": null
+              }
+            },
+            "strip": {
+              "key": "Optional",
+              "default": "True",
+              "type": "boolean"
+            },
+            "facility": {
+              "key": "Optional",
+              "default": "16",
+              "type": "integer"
+            }
+          }
+        }
+      }
+    }
+  }
+}

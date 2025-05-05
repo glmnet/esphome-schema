@@ -13,8 +13,8 @@
       },
       "inkplate6": {
         "dependencies": [
-          "i2c",
-          "esp32"
+          "esp32",
+          "i2c"
         ],
         "docs": "All-in-one e-paper display `Inkplate 5`, `Inkplate 6`, `Inkplate 10` and `Inkplate 6 Plus`.\n\n*See also: [Inkplate 5, 6, 10 and 6 Plus](https://esphome.io/components/display/inkplate6.html#inkplate-5-6-10-and-6-plus)*"
       },
@@ -129,8 +129,8 @@
       },
       "st7701s": {
         "dependencies": [
-          "spi",
-          "esp32"
+          "esp32",
+          "spi"
         ],
         "docs": "This display driver supports displays with 16 bit parallel interfaces, often referred to as \u201cRGB\u201d. It currently supports the ST7701S chip.\n\n*See also: [ST7701S Display Driver](https://esphome.io/components/display/st7701s.html#st7701s-display-driver)*"
       },
@@ -168,109 +168,109 @@
         "docs": "The `waveshare_epaper` display platform allows you to use some E-Paper displays sold by [Waveshare](https://www.waveshare.com/product/displays/e-paper.htm) with ESPHome. The 2.13\u201d [TTGO module](https://github.com/lewisxhe/TTGO-EPaper-Series) and the [Waveshare Cloud Module](https://www.waveshare.com/wiki/2.13inch_e-Paper_Cloud_Module) with an ESP32 on the board are supported as well. Depending on your specific revision of the TTGO board you might need to try out the `-b73` or `-b1` version (see below). The 1.54\u201d [Good Display gdew0154m09](https://www.good-display.com/product/206.html) as used in the [M5Stack Core Ink](https://shop.m5stack.com/products/m5stack-esp32-core-ink-development-kit1-54-elnk-display) is also supported. Similar modules sold by other vendors might also work but not have been tested yet.\n\n*See also: [Waveshare E-Paper Display](https://esphome.io/components/display/waveshare_epaper.html#waveshare-e-paper-display)*"
       }
     },
+    "condition": {
+      "is_displaying_page": {
+        "maybe": "page_id",
+        "schema": {
+          "config_vars": {
+            "id": {
+              "key": "GeneratedID",
+              "type": "use_id",
+              "use_id_type": "display::Display"
+            },
+            "page_id": {
+              "key": "Required",
+              "type": "use_id",
+              "use_id_type": "display::DisplayPage"
+            }
+          }
+        },
+        "type": "schema"
+      }
+    },
     "schemas": {
       "BASIC_DISPLAY_SCHEMA": {
-        "type": "schema",
         "schema": {
           "config_vars": {
             "lambda": {
-              "key": "Optional",
-              "docs": "**[lambda](https://esphome.io/automations/templates.html#config-lambda)**: The lambda to use for rendering the content on the display. See [Display Rendering Engine](https://esphome.io/components/display/index.html#display-engine) for more information.\n\n*See also: [Waveshare E-Paper Display](https://esphome.io/components/display/waveshare_epaper.html#configuration-variables)*"
+              "docs": "**, [lambda](https://esphome.io/automations/templates.html#config-lambda)**: The lambda to use for rendering the content on the display. See [Display Rendering Engine](https://esphome.io/components/display/index.html#display-engine) for more information.\n\n*See also: [Waveshare E-Paper Display](https://esphome.io/components/display/waveshare_epaper.html#configuration-variables)*",
+              "key": "Optional"
             },
             "update_interval": {
-              "key": "Optional",
               "default": "1s",
-              "docs": "**[Time](https://esphome.io/guides/configuration-types.html#config-time)**: The interval to re-draw the screen. Defaults to `5s`.\n\n*See also: [ST7701S Display Driver](https://esphome.io/components/display/st7701s.html#configuration-variables)*"
+              "docs": "**, [Time](https://esphome.io/guides/configuration-types.html#config-time)**: The interval to re-draw the screen. Defaults to `5s`.\n\n*See also: [ST7701S Display Driver](https://esphome.io/components/display/st7701s.html#configuration-variables)*",
+              "key": "Optional"
             }
           },
           "extends": [
             "core.COMPONENT_SCHEMA"
           ]
-        }
+        },
+        "type": "schema"
       },
       "FULL_DISPLAY_SCHEMA": {
-        "type": "schema",
         "schema": {
-          "extends": [
-            "display.BASIC_DISPLAY_SCHEMA"
-          ],
           "config_vars": {
-            "rotation": {
+            "auto_clear_enabled": {
+              "default": "unspecified",
+              "docs": "**, boolean**: If the display should be cleared before each update. Defaults to `true` if a lambda or pages are configured, false otherwise.\n\n*See also: [ST7701S Display Driver](https://esphome.io/components/display/st7701s.html#configuration-variables)*",
+              "key": "Optional"
+            },
+            "on_page_change": {
               "key": "Optional",
-              "docs": "Set the rotation of the display. Everything you draw in `lambda:` will be rotated by this option. One of `0\u00b0` (default), `90\u00b0`, `180\u00b0`, `270\u00b0`.\n\n*See also: [Waveshare E-Paper Display](https://esphome.io/components/display/waveshare_epaper.html#configuration-variables)*"
+              "schema": {
+                "config_vars": {
+                  "from": {
+                    "key": "Optional",
+                    "type": "use_id",
+                    "use_id_type": "display::DisplayPage"
+                  },
+                  "then": {
+                    "type": "trigger"
+                  },
+                  "to": {
+                    "key": "Optional",
+                    "type": "use_id",
+                    "use_id_type": "display::DisplayPage"
+                  }
+                }
+              },
+              "type": "trigger"
             },
             "pages": {
-              "key": "Optional",
+              "docs": "**, list**: Show pages instead of a single lambda. See [Display Pages](https://esphome.io/components/display/index.html#display-pages).\n\n*See also: [Waveshare E-Paper Display](https://esphome.io/components/display/waveshare_epaper.html#configuration-variables)*",
               "is_list": true,
-              "type": "schema",
+              "key": "Optional",
               "schema": {
                 "config_vars": {
                   "id": {
-                    "key": "GeneratedID",
                     "id_type": {
                       "class": "display::DisplayPage",
                       "parents": []
-                    }
+                    },
+                    "key": "GeneratedID"
                   },
                   "lambda": {
                     "key": "Required"
                   }
                 }
               },
-              "docs": "**list**: Show pages instead of a single lambda. See [Display Pages](https://esphome.io/components/display/index.html#display-pages).\n\n*See also: [Waveshare E-Paper Display](https://esphome.io/components/display/waveshare_epaper.html#configuration-variables)*"
+              "type": "schema"
             },
-            "on_page_change": {
-              "key": "Optional",
-              "type": "trigger",
-              "schema": {
-                "config_vars": {
-                  "from": {
-                    "key": "Optional",
-                    "use_id_type": "display::DisplayPage",
-                    "type": "use_id"
-                  },
-                  "to": {
-                    "key": "Optional",
-                    "use_id_type": "display::DisplayPage",
-                    "type": "use_id"
-                  },
-                  "then": {
-                    "type": "trigger"
-                  }
-                }
-              }
-            },
-            "auto_clear_enabled": {
-              "key": "Optional",
-              "default": "unspecified",
-              "docs": "**boolean**: If the display should be cleared before each update. Defaults to `true` if a lambda or pages are configured, false otherwise.\n\n*See also: [ST7701S Display Driver](https://esphome.io/components/display/st7701s.html#configuration-variables)*"
+            "rotation": {
+              "docs": "Set the rotation of the display. Everything you draw in `lambda:` will be rotated by this option. One of `0\u00b0` (default), `90\u00b0`, `180\u00b0`, `270\u00b0`.\n\n*See also: [Waveshare E-Paper Display](https://esphome.io/components/display/waveshare_epaper.html#configuration-variables)*",
+              "key": "Optional"
             },
             "show_test_card": {
               "key": "Optional",
               "type": "boolean"
             }
-          }
-        }
-      }
-    },
-    "condition": {
-      "is_displaying_page": {
-        "type": "schema",
-        "maybe": "page_id",
-        "schema": {
-          "config_vars": {
-            "id": {
-              "key": "GeneratedID",
-              "use_id_type": "display::Display",
-              "type": "use_id"
-            },
-            "page_id": {
-              "key": "Required",
-              "use_id_type": "display::DisplayPage",
-              "type": "use_id"
-            }
-          }
-        }
+          },
+          "extends": [
+            "display.BASIC_DISPLAY_SCHEMA"
+          ]
+        },
+        "type": "schema"
       }
     }
   }

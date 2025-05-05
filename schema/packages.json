@@ -2,67 +2,85 @@
   "packages": {
     "schemas": {
       "CONFIG_SCHEMA": {
+        "is_list": true,
         "key": "String",
         "key_type": "<class 'str'>",
-        "type": "schema",
         "schema": {
           "config_vars": {
             "string": {
-              "type": "schema",
+              "schema": {
+                "extends": [
+                  "packages.PACKAGE_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            }
+          },
+          "extends": [
+            "packages.PACKAGE_SCHEMA"
+          ]
+        },
+        "type": "schema"
+      },
+      "PACKAGE_SCHEMA": {
+        "schema": {
+          "config_vars": {
+            "file": {
+              "key": "Optional"
+            },
+            "files": {
+              "docs": "List of files to include. Can be one of:\n  * list of file paths\n  \n  * list of objects containing `path` and `vars`\n  \n  \n\n*See also: [Packages](https://esphome.io/components/packages.html#configuration-variables)*",
+              "is_list": true,
+              "key": "Optional",
               "schema": {
                 "config_vars": {
-                  "url": {
+                  "path": {
                     "key": "Required"
                   },
-                  "username": {
-                    "key": "Optional",
-                    "type": "string"
-                  },
-                  "password": {
-                    "key": "Optional",
-                    "type": "string"
-                  },
-                  "file": {
-                    "key": "Optional"
-                  },
-                  "files": {
-                    "key": "Optional",
-                    "is_list": true,
-                    "type": "schema",
+                  "vars": {
+                    "default": "{}",
+                    "key": "String",
+                    "key_type": "string",
                     "schema": {
                       "config_vars": {
-                        "path": {
-                          "key": "Required"
-                        },
-                        "vars": {
-                          "key": "String",
-                          "default": "{}",
-                          "key_type": "string",
-                          "type": "schema",
-                          "schema": {
-                            "config_vars": {
-                              "string": {
-                                "type": "string"
-                              }
-                            }
-                          }
+                        "string": {
+                          "type": "string"
                         }
                       }
-                    }
-                  },
-                  "ref": {
-                    "key": "Optional"
-                  },
-                  "refresh": {
-                    "key": "Optional",
-                    "default": "1d",
-                    "type": "string"
+                    },
+                    "type": "schema"
                   }
                 }
-              }
+              },
+              "type": "schema"
+            },
+            "password": {
+              "docs": "**, string**: Password to be used for authentication, if required.\n\n*See also: [Packages](https://esphome.io/components/packages.html#configuration-variables)*",
+              "key": "Optional",
+              "type": "string"
+            },
+            "ref": {
+              "docs": "**, string**: The Git ref(erence) to be used when pulling content from the repository.\n\n*See also: [Packages](https://esphome.io/components/packages.html#configuration-variables)*",
+              "key": "Optional"
+            },
+            "refresh": {
+              "default": "1d",
+              "docs": "**, [Time](https://esphome.io/guides/configuration-types.html#config-time)**: The interval at which the content from the repository should be refreshed.\n\n*See also: [Packages](https://esphome.io/components/packages.html#configuration-variables)*",
+              "key": "Optional",
+              "type": "string"
+            },
+            "url": {
+              "docs": "**, string**: The URL for the repository.\n\n*See also: [Packages](https://esphome.io/components/packages.html#configuration-variables)*",
+              "key": "Required"
+            },
+            "username": {
+              "docs": "**, string**: Username to be used for authentication, if required.\n\n*See also: [Packages](https://esphome.io/components/packages.html#configuration-variables)*",
+              "key": "Optional",
+              "type": "string"
             }
           }
-        }
+        },
+        "type": "schema"
       }
     }
   }

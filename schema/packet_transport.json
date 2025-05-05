@@ -1,0 +1,181 @@
+{
+  "packet_transport": {
+    "components": {
+      "uart": {
+        "dependencies": [
+          "uart"
+        ]
+      },
+      "udp": {}
+    },
+    "schemas": {
+      "ENCRYPTION_SCHEMA": {
+        "type": "schema",
+        "schema": {
+          "config_vars": {
+            "encryption": {
+              "key": "Optional",
+              "type": "schema",
+              "maybe": "key",
+              "schema": {
+                "config_vars": {
+                  "key": {
+                    "key": "Required",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "PROVIDER_SCHEMA": {
+        "type": "schema",
+        "schema": {
+          "config_vars": {
+            "name": {
+              "key": "Required"
+            }
+          },
+          "extends": [
+            "packet_transport.ENCRYPTION_SCHEMA"
+          ]
+        }
+      },
+      "TRANSPORT_SCHEMA": {
+        "type": "schema",
+        "schema": {
+          "extends": [
+            "core.COMPONENT_SCHEMA",
+            "packet_transport.ENCRYPTION_SCHEMA"
+          ],
+          "config_vars": {
+            "update_interval": {
+              "key": "Optional",
+              "default": "15s"
+            },
+            "rolling_code_enable": {
+              "key": "Optional",
+              "default": "False",
+              "type": "boolean"
+            },
+            "ping_pong_enable": {
+              "key": "Optional",
+              "default": "False",
+              "type": "boolean"
+            },
+            "ping_pong_recycle_time": {
+              "key": "Optional",
+              "default": "600s",
+              "type": "schema",
+              "schema": {
+                "extends": [
+                  "core.positive_time_period_seconds"
+                ]
+              }
+            },
+            "sensors": {
+              "key": "Optional",
+              "is_list": true,
+              "type": "schema",
+              "maybe": "id",
+              "schema": {
+                "config_vars": {
+                  "id": {
+                    "key": "Required",
+                    "use_id_type": "sensor::Sensor",
+                    "type": "use_id"
+                  },
+                  "broadcast_id": {
+                    "key": "Optional"
+                  }
+                }
+              }
+            },
+            "binary_sensors": {
+              "key": "Optional",
+              "is_list": true,
+              "type": "schema",
+              "maybe": "id",
+              "schema": {
+                "config_vars": {
+                  "id": {
+                    "key": "Required",
+                    "use_id_type": "binary_sensor::BinarySensor",
+                    "type": "use_id"
+                  },
+                  "broadcast_id": {
+                    "key": "Optional"
+                  }
+                }
+              }
+            },
+            "providers": {
+              "key": "Optional",
+              "default": "[]",
+              "is_list": true,
+              "type": "schema",
+              "schema": {
+                "extends": [
+                  "packet_transport.PROVIDER_SCHEMA"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "packet_transport.binary_sensor": {
+    "schemas": {
+      "CONFIG_SCHEMA": {
+        "type": "schema",
+        "schema": {
+          "extends": [
+            "binary_sensor.BINARY_SENSOR_SCHEMA"
+          ],
+          "config_vars": {
+            "transport_id": {
+              "key": "GeneratedID",
+              "use_id_type": "packet_transport::PacketTransport",
+              "type": "use_id"
+            },
+            "remote_id": {
+              "key": "Optional",
+              "type": "string"
+            },
+            "provider": {
+              "key": "Required"
+            }
+          }
+        }
+      }
+    }
+  },
+  "packet_transport.sensor": {
+    "schemas": {
+      "CONFIG_SCHEMA": {
+        "type": "schema",
+        "schema": {
+          "extends": [
+            "sensor.SENSOR_SCHEMA"
+          ],
+          "config_vars": {
+            "transport_id": {
+              "key": "GeneratedID",
+              "use_id_type": "packet_transport::PacketTransport",
+              "type": "use_id"
+            },
+            "remote_id": {
+              "key": "Optional",
+              "type": "string"
+            },
+            "provider": {
+              "key": "Required"
+            }
+          }
+        }
+      }
+    }
+  }
+}

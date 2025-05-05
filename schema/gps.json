@@ -2,116 +2,95 @@
   "gps": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
+        "is_list": true,
         "schema": {
           "config_vars": {
+            "altitude": {
+              "docs": "Include the measured altitude as a sensor\n  * All options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n  \n  \n\n*See also: [GPS Component](https://esphome.io/components/gps.html#configuration-variables)*",
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
+                  "accuracy_decimals": {
+                    "default": "1"
+                  },
+                  "unit_of_measurement": {
+                    "default": "m"
+                  }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "course": {
+              "docs": "Include the measured course as a sensor\n  * All options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n  \n  \n\n*See also: [GPS Component](https://esphome.io/components/gps.html#configuration-variables)*",
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
+                  "accuracy_decimals": {
+                    "default": "2"
+                  },
+                  "unit_of_measurement": {
+                    "default": "\u00b0"
+                  }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
             "id": {
-              "key": "GeneratedID",
               "id_type": {
                 "class": "gps::GPS",
                 "parents": [
                   "Component",
                   "uart::UARTDevice"
                 ]
-              }
+              },
+              "key": "GeneratedID"
             },
             "latitude": {
+              "docs": "Include the Latitude as a sensor\n  * All options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n  \n  \n\n*See also: [GPS Component](https://esphome.io/components/gps.html#configuration-variables)*",
               "key": "Optional",
-              "type": "schema",
               "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
                 "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "\u00b0"
-                  },
                   "accuracy_decimals": {
                     "default": "6"
+                  },
+                  "unit_of_measurement": {
+                    "default": "\u00b0"
                   }
-                }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
               },
-              "docs": "Include the Latitude as a sensor\n  * All options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n  \n  \n\n*See also: [GPS Component](https://esphome.io/components/gps.html#configuration-variables)*"
+              "type": "schema"
             },
             "longitude": {
+              "docs": "Include the Longitude as a sensor\n  * All options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n  \n  \n\n*See also: [GPS Component](https://esphome.io/components/gps.html#configuration-variables)*",
               "key": "Optional",
-              "type": "schema",
               "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
                 "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "\u00b0"
-                  },
                   "accuracy_decimals": {
                     "default": "6"
-                  }
-                }
-              },
-              "docs": "Include the Longitude as a sensor\n  * All options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n  \n  \n\n*See also: [GPS Component](https://esphome.io/components/gps.html#configuration-variables)*"
-            },
-            "speed": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "km/h"
                   },
-                  "accuracy_decimals": {
-                    "default": "6"
-                  }
-                }
-              },
-              "docs": "Include the measured speed as a sensor\n  * All options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n  \n  \n\n*See also: [GPS Component](https://esphome.io/components/gps.html#configuration-variables)*"
-            },
-            "course": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
                   "unit_of_measurement": {
                     "default": "\u00b0"
-                  },
-                  "accuracy_decimals": {
-                    "default": "2"
                   }
-                }
-              },
-              "docs": "Include the measured course as a sensor\n  * All options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n  \n  \n\n*See also: [GPS Component](https://esphome.io/components/gps.html#configuration-variables)*"
-            },
-            "altitude": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
+                },
                 "extends": [
                   "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "m"
-                  },
-                  "accuracy_decimals": {
-                    "default": "1"
-                  }
-                }
+                ]
               },
-              "docs": "Include the measured altitude as a sensor\n  * All options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n  \n  \n\n*See also: [GPS Component](https://esphome.io/components/gps.html#configuration-variables)*"
+              "type": "schema"
             },
             "satellites": {
+              "docs": "Include the number of tracking satellites being used as a sensor\n  * All options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n  \n  \n\n*See also: [GPS Component](https://esphome.io/components/gps.html#configuration-variables)*",
               "key": "Optional",
-              "type": "schema",
               "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
                 "config_vars": {
                   "accuracy_decimals": {
                     "default": "0"
@@ -119,62 +98,83 @@
                   "state_class": {
                     "default": "measurement"
                   }
-                }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
               },
-              "docs": "Include the number of tracking satellites being used as a sensor\n  * All options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n  \n  \n\n*See also: [GPS Component](https://esphome.io/components/gps.html#configuration-variables)*"
+              "type": "schema"
             },
-            "update_interval": {
+            "speed": {
+              "docs": "Include the measured speed as a sensor\n  * All options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n  \n  \n\n*See also: [GPS Component](https://esphome.io/components/gps.html#configuration-variables)*",
               "key": "Optional",
-              "default": "20s"
+              "schema": {
+                "config_vars": {
+                  "accuracy_decimals": {
+                    "default": "6"
+                  },
+                  "unit_of_measurement": {
+                    "default": "km/h"
+                  }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
             },
             "uart_id": {
               "key": "GeneratedID",
-              "use_id_type": "uart::UARTComponent",
-              "type": "use_id"
+              "type": "use_id",
+              "use_id_type": "uart::UARTComponent"
+            },
+            "update_interval": {
+              "default": "20s",
+              "key": "Optional"
             }
           },
           "extends": [
             "core.COMPONENT_SCHEMA"
           ]
         },
-        "is_list": true
+        "type": "schema"
       }
     }
   },
   "gps.time": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
         "schema": {
-          "extends": [
-            "time.TIME_SCHEMA",
-            "core.COMPONENT_SCHEMA"
-          ],
           "config_vars": {
-            "id": {
+            "gps_id": {
               "key": "GeneratedID",
+              "type": "use_id",
+              "use_id_type": "gps::GPS"
+            },
+            "id": {
               "id_type": {
                 "class": "gps::GPSTime",
                 "parents": [
-                  "PollingComponent",
                   "Component",
-                  "time::RealTimeClock",
-                  "PollingComponent",
                   "Component",
-                  "gps::GPSListener"
+                  "PollingComponent",
+                  "PollingComponent",
+                  "gps::GPSListener",
+                  "time::RealTimeClock"
                 ]
-              }
-            },
-            "gps_id": {
-              "key": "GeneratedID",
-              "use_id_type": "gps::GPS",
-              "type": "use_id"
+              },
+              "key": "GeneratedID"
             },
             "update_interval": {
               "default": "5min"
             }
-          }
-        }
+          },
+          "extends": [
+            "core.COMPONENT_SCHEMA",
+            "time.TIME_SCHEMA"
+          ]
+        },
+        "type": "schema"
       }
     }
   }

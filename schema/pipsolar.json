@@ -2,1985 +2,1985 @@
   "pipsolar": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
+        "is_list": true,
         "schema": {
           "config_vars": {
             "id": {
-              "key": "GeneratedID",
+              "docs": "**, [ID](https://esphome.io/guides/configuration-types.html#config-id)**: The id to use for this pipsolar component.\n\n*See also: [PipSolar PV Inverter](https://esphome.io/components/pipsolar.html#configuration-variables)*",
               "id_type": {
                 "class": "pipsolar::Pipsolar",
                 "parents": [
                   "Component"
                 ]
               },
-              "docs": "**[ID](https://esphome.io/guides/configuration-types.html#config-id)**: The id to use for this pipsolar component.\n\n*See also: [PipSolar PV Inverter](https://esphome.io/components/pipsolar.html#configuration-variables)*"
-            },
-            "update_interval": {
-              "key": "Optional",
-              "default": "1s"
+              "key": "GeneratedID"
             },
             "uart_id": {
+              "docs": "The uart Bus ID\n\n*See also: [PipSolar PV Inverter](https://esphome.io/components/pipsolar.html#configuration-variables)*",
               "key": "GeneratedID",
-              "use_id_type": "uart::UARTComponent",
               "type": "use_id",
-              "docs": "The uart Bus ID\n\n*See also: [PipSolar PV Inverter](https://esphome.io/components/pipsolar.html#configuration-variables)*"
+              "use_id_type": "uart::UARTComponent"
+            },
+            "update_interval": {
+              "default": "1s",
+              "key": "Optional"
             }
           },
           "extends": [
             "core.COMPONENT_SCHEMA"
           ]
         },
-        "is_list": true
+        "type": "schema"
       },
       "PIPSOLAR_COMPONENT_SCHEMA": {
-        "type": "schema",
         "schema": {
           "config_vars": {
             "pipsolar_id": {
               "key": "Required",
-              "use_id_type": "pipsolar::Pipsolar",
-              "type": "use_id"
+              "type": "use_id",
+              "use_id_type": "pipsolar::Pipsolar"
             }
           }
-        }
+        },
+        "type": "schema"
       }
     }
   },
   "pipsolar.binary_sensor": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
         "schema": {
-          "extends": [
-            "pipsolar.PIPSOLAR_COMPONENT_SCHEMA"
-          ],
           "config_vars": {
-            "add_sbu_priority_version": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "binary_sensor.BINARY_SENSOR_SCHEMA"
-                ]
-              },
-              "docs": "add sbu priority version\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*"
-            },
-            "configuration_status": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "binary_sensor.BINARY_SENSOR_SCHEMA"
-                ]
-              },
-              "docs": "configuration status\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*"
-            },
-            "scc_firmware_version": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "binary_sensor.BINARY_SENSOR_SCHEMA"
-                ]
-              },
-              "docs": "scc firmware version\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*"
-            },
-            "load_status": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "binary_sensor.BINARY_SENSOR_SCHEMA"
-                ]
-              },
-              "docs": "load status\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*"
-            },
-            "battery_voltage_to_steady_while_charging": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "binary_sensor.BINARY_SENSOR_SCHEMA"
-                ]
-              },
-              "docs": "battery voltage to steady while charging\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*"
-            },
-            "charging_status": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "binary_sensor.BINARY_SENSOR_SCHEMA"
-                ]
-              },
-              "docs": "charging status\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*"
-            },
-            "scc_charging_status": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "binary_sensor.BINARY_SENSOR_SCHEMA"
-                ]
-              },
-              "docs": "scc charging status\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*"
-            },
             "ac_charging_status": {
+              "docs": "ac charging status\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*",
               "key": "Optional",
-              "type": "schema",
               "schema": {
                 "extends": [
                   "binary_sensor.BINARY_SENSOR_SCHEMA"
                 ]
               },
-              "docs": "ac charging status\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*"
+              "type": "schema"
             },
-            "charging_to_floating_mode": {
+            "add_sbu_priority_version": {
+              "docs": "add sbu priority version\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*",
               "key": "Optional",
-              "type": "schema",
               "schema": {
                 "extends": [
                   "binary_sensor.BINARY_SENSOR_SCHEMA"
                 ]
               },
-              "docs": "charging to floating mode\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*"
-            },
-            "switch_on": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "binary_sensor.BINARY_SENSOR_SCHEMA"
-                ]
-              },
-              "docs": "switch on\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*"
-            },
-            "dustproof_installed": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "binary_sensor.BINARY_SENSOR_SCHEMA"
-                ]
-              },
-              "docs": "dustproof installed\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*"
-            },
-            "silence_buzzer_open_buzzer": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "binary_sensor.BINARY_SENSOR_SCHEMA"
-                ]
-              },
-              "docs": "silence buzzer open buzzer\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*"
-            },
-            "overload_bypass_function": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "binary_sensor.BINARY_SENSOR_SCHEMA"
-                ]
-              },
-              "docs": "overload bypass function\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*"
-            },
-            "lcd_escape_to_default": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "binary_sensor.BINARY_SENSOR_SCHEMA"
-                ]
-              },
-              "docs": "lcd escape to default\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*"
-            },
-            "overload_restart_function": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "binary_sensor.BINARY_SENSOR_SCHEMA"
-                ]
-              },
-              "docs": "overload restart function\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*"
-            },
-            "over_temperature_restart_function": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "binary_sensor.BINARY_SENSOR_SCHEMA"
-                ]
-              },
-              "docs": "over temperature restart function\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*"
-            },
-            "backlight_on": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "binary_sensor.BINARY_SENSOR_SCHEMA"
-                ]
-              },
-              "docs": "backlight on\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*"
+              "type": "schema"
             },
             "alarm_on_when_primary_source_interrupt": {
+              "docs": "alarm on when primary source interrupt\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*",
               "key": "Optional",
-              "type": "schema",
               "schema": {
                 "extends": [
                   "binary_sensor.BINARY_SENSOR_SCHEMA"
                 ]
               },
-              "docs": "alarm on when primary source interrupt\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*"
+              "type": "schema"
             },
-            "fault_code_record": {
+            "backlight_on": {
+              "docs": "backlight on\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*",
               "key": "Optional",
-              "type": "schema",
               "schema": {
                 "extends": [
                   "binary_sensor.BINARY_SENSOR_SCHEMA"
                 ]
               },
-              "docs": "fault code record\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*"
+              "type": "schema"
             },
-            "power_saving": {
+            "battery_voltage_to_steady_while_charging": {
+              "docs": "battery voltage to steady while charging\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*",
               "key": "Optional",
-              "type": "schema",
               "schema": {
                 "extends": [
                   "binary_sensor.BINARY_SENSOR_SCHEMA"
                 ]
               },
-              "docs": "power saving\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*"
+              "type": "schema"
             },
-            "warnings_present": {
+            "charging_status": {
+              "docs": "charging status\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*",
               "key": "Optional",
-              "type": "schema",
               "schema": {
                 "extends": [
                   "binary_sensor.BINARY_SENSOR_SCHEMA"
                 ]
               },
-              "docs": "warnings present\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*"
+              "type": "schema"
             },
-            "faults_present": {
+            "charging_to_floating_mode": {
+              "docs": "charging to floating mode\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*",
               "key": "Optional",
-              "type": "schema",
               "schema": {
                 "extends": [
                   "binary_sensor.BINARY_SENSOR_SCHEMA"
                 ]
               },
-              "docs": "faults present\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*"
+              "type": "schema"
             },
-            "warning_power_loss": {
+            "configuration_status": {
+              "docs": "configuration status\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*",
               "key": "Optional",
-              "type": "schema",
               "schema": {
                 "extends": [
                   "binary_sensor.BINARY_SENSOR_SCHEMA"
                 ]
               },
-              "docs": "warning power loss\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*"
+              "type": "schema"
             },
-            "fault_inverter_fault": {
+            "dustproof_installed": {
+              "docs": "dustproof installed\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*",
               "key": "Optional",
-              "type": "schema",
               "schema": {
                 "extends": [
                   "binary_sensor.BINARY_SENSOR_SCHEMA"
                 ]
               },
-              "docs": "fault inverter fault\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*"
-            },
-            "fault_bus_over": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "binary_sensor.BINARY_SENSOR_SCHEMA"
-                ]
-              },
-              "docs": "fault bus over\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*"
-            },
-            "fault_bus_under": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "binary_sensor.BINARY_SENSOR_SCHEMA"
-                ]
-              },
-              "docs": "fault bus under\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*"
-            },
-            "fault_bus_soft_fail": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "binary_sensor.BINARY_SENSOR_SCHEMA"
-                ]
-              },
-              "docs": "fault bus soft fail\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*"
-            },
-            "warning_line_fail": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "binary_sensor.BINARY_SENSOR_SCHEMA"
-                ]
-              },
-              "docs": "warning line fail\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*"
-            },
-            "fault_opvshort": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "binary_sensor.BINARY_SENSOR_SCHEMA"
-                ]
-              },
-              "docs": "fault opvshort\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*"
-            },
-            "fault_inverter_voltage_too_low": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "binary_sensor.BINARY_SENSOR_SCHEMA"
-                ]
-              },
-              "docs": "fault inverter voltage too low\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*"
-            },
-            "fault_inverter_voltage_too_high": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "binary_sensor.BINARY_SENSOR_SCHEMA"
-                ]
-              },
-              "docs": "fault inverter voltage too high\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*"
-            },
-            "warning_over_temperature": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "binary_sensor.BINARY_SENSOR_SCHEMA"
-                ]
-              },
-              "docs": "warning over temperature\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*"
-            },
-            "warning_fan_lock": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "binary_sensor.BINARY_SENSOR_SCHEMA"
-                ]
-              },
-              "docs": "warning fan lock\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*"
-            },
-            "warning_battery_voltage_high": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "binary_sensor.BINARY_SENSOR_SCHEMA"
-                ]
-              },
-              "docs": "warning battery voltage high\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*"
-            },
-            "warning_battery_low_alarm": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "binary_sensor.BINARY_SENSOR_SCHEMA"
-                ]
-              },
-              "docs": "warning battery low alarm\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*"
-            },
-            "warning_battery_under_shutdown": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "binary_sensor.BINARY_SENSOR_SCHEMA"
-                ]
-              },
-              "docs": "warning battery under shutdown\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*"
-            },
-            "warning_battery_derating": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "binary_sensor.BINARY_SENSOR_SCHEMA"
-                ]
-              },
-              "docs": "warning battery derating\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*"
-            },
-            "warning_over_load": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "binary_sensor.BINARY_SENSOR_SCHEMA"
-                ]
-              },
-              "docs": "warning over load\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*"
-            },
-            "warning_eeprom_failed": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "binary_sensor.BINARY_SENSOR_SCHEMA"
-                ]
-              },
-              "docs": "warning eeprom failed\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*"
-            },
-            "fault_inverter_over_current": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "binary_sensor.BINARY_SENSOR_SCHEMA"
-                ]
-              },
-              "docs": "fault inverter over current\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*"
-            },
-            "fault_inverter_soft_failed": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "binary_sensor.BINARY_SENSOR_SCHEMA"
-                ]
-              },
-              "docs": "fault inverter soft failed\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*"
-            },
-            "fault_self_test_failed": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "binary_sensor.BINARY_SENSOR_SCHEMA"
-                ]
-              },
-              "docs": "fault_self_test_failed\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*"
-            },
-            "fault_op_dc_voltage_over": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "binary_sensor.BINARY_SENSOR_SCHEMA"
-                ]
-              },
-              "docs": "fault op dc voltage over\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*"
+              "type": "schema"
             },
             "fault_battery_open": {
+              "docs": "fault battery open\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*",
               "key": "Optional",
-              "type": "schema",
               "schema": {
                 "extends": [
                   "binary_sensor.BINARY_SENSOR_SCHEMA"
                 ]
               },
-              "docs": "fault battery open\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*"
-            },
-            "fault_current_sensor_failed": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "binary_sensor.BINARY_SENSOR_SCHEMA"
-                ]
-              },
-              "docs": "fault current sensor failed\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*"
+              "type": "schema"
             },
             "fault_battery_short": {
+              "docs": "fault battery short\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*",
               "key": "Optional",
-              "type": "schema",
               "schema": {
                 "extends": [
                   "binary_sensor.BINARY_SENSOR_SCHEMA"
                 ]
               },
-              "docs": "fault battery short\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*"
+              "type": "schema"
             },
-            "warning_power_limit": {
+            "fault_bus_over": {
+              "docs": "fault bus over\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*",
               "key": "Optional",
-              "type": "schema",
               "schema": {
                 "extends": [
                   "binary_sensor.BINARY_SENSOR_SCHEMA"
                 ]
               },
-              "docs": "warning power limit\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*"
+              "type": "schema"
             },
-            "warning_pv_voltage_high": {
+            "fault_bus_soft_fail": {
+              "docs": "fault bus soft fail\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*",
               "key": "Optional",
-              "type": "schema",
               "schema": {
                 "extends": [
                   "binary_sensor.BINARY_SENSOR_SCHEMA"
                 ]
               },
-              "docs": "warning pv voltage high\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*"
+              "type": "schema"
             },
-            "fault_mppt_overload": {
+            "fault_bus_under": {
+              "docs": "fault bus under\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*",
               "key": "Optional",
-              "type": "schema",
               "schema": {
                 "extends": [
                   "binary_sensor.BINARY_SENSOR_SCHEMA"
                 ]
               },
-              "docs": "fault mppt overload\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*"
-            },
-            "warning_mppt_overload": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "binary_sensor.BINARY_SENSOR_SCHEMA"
-                ]
-              },
-              "docs": "warning mppt overload\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*"
-            },
-            "warning_battery_too_low_to_charge": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "binary_sensor.BINARY_SENSOR_SCHEMA"
-                ]
-              },
-              "docs": "warning battery too low to charge\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*"
-            },
-            "fault_dc_dc_over_current": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "binary_sensor.BINARY_SENSOR_SCHEMA"
-                ]
-              },
-              "docs": "fault dc dc over current\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*"
+              "type": "schema"
             },
             "fault_code": {
+              "docs": "fault code\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*",
               "key": "Optional",
-              "type": "schema",
               "schema": {
                 "extends": [
                   "binary_sensor.BINARY_SENSOR_SCHEMA"
                 ]
               },
-              "docs": "fault code\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*"
+              "type": "schema"
             },
-            "warnung_low_pv_energy": {
+            "fault_code_record": {
+              "docs": "fault code record\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*",
               "key": "Optional",
-              "type": "schema",
               "schema": {
                 "extends": [
                   "binary_sensor.BINARY_SENSOR_SCHEMA"
                 ]
-              }
+              },
+              "type": "schema"
             },
-            "warning_high_ac_input_during_bus_soft_start": {
+            "fault_current_sensor_failed": {
+              "docs": "fault current sensor failed\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*",
               "key": "Optional",
-              "type": "schema",
               "schema": {
                 "extends": [
                   "binary_sensor.BINARY_SENSOR_SCHEMA"
                 ]
-              }
+              },
+              "type": "schema"
+            },
+            "fault_dc_dc_over_current": {
+              "docs": "fault dc dc over current\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*",
+              "key": "Optional",
+              "schema": {
+                "extends": [
+                  "binary_sensor.BINARY_SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "fault_inverter_fault": {
+              "docs": "fault inverter fault\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*",
+              "key": "Optional",
+              "schema": {
+                "extends": [
+                  "binary_sensor.BINARY_SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "fault_inverter_over_current": {
+              "docs": "fault inverter over current\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*",
+              "key": "Optional",
+              "schema": {
+                "extends": [
+                  "binary_sensor.BINARY_SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "fault_inverter_soft_failed": {
+              "docs": "fault inverter soft failed\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*",
+              "key": "Optional",
+              "schema": {
+                "extends": [
+                  "binary_sensor.BINARY_SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "fault_inverter_voltage_too_high": {
+              "docs": "fault inverter voltage too high\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*",
+              "key": "Optional",
+              "schema": {
+                "extends": [
+                  "binary_sensor.BINARY_SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "fault_inverter_voltage_too_low": {
+              "docs": "fault inverter voltage too low\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*",
+              "key": "Optional",
+              "schema": {
+                "extends": [
+                  "binary_sensor.BINARY_SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "fault_mppt_overload": {
+              "docs": "fault mppt overload\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*",
+              "key": "Optional",
+              "schema": {
+                "extends": [
+                  "binary_sensor.BINARY_SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "fault_op_dc_voltage_over": {
+              "docs": "fault op dc voltage over\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*",
+              "key": "Optional",
+              "schema": {
+                "extends": [
+                  "binary_sensor.BINARY_SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "fault_opvshort": {
+              "docs": "fault opvshort\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*",
+              "key": "Optional",
+              "schema": {
+                "extends": [
+                  "binary_sensor.BINARY_SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "fault_self_test_failed": {
+              "docs": "fault_self_test_failed\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*",
+              "key": "Optional",
+              "schema": {
+                "extends": [
+                  "binary_sensor.BINARY_SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "faults_present": {
+              "docs": "faults present\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*",
+              "key": "Optional",
+              "schema": {
+                "extends": [
+                  "binary_sensor.BINARY_SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "lcd_escape_to_default": {
+              "docs": "lcd escape to default\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*",
+              "key": "Optional",
+              "schema": {
+                "extends": [
+                  "binary_sensor.BINARY_SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "load_status": {
+              "docs": "load status\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*",
+              "key": "Optional",
+              "schema": {
+                "extends": [
+                  "binary_sensor.BINARY_SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "over_temperature_restart_function": {
+              "docs": "over temperature restart function\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*",
+              "key": "Optional",
+              "schema": {
+                "extends": [
+                  "binary_sensor.BINARY_SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "overload_bypass_function": {
+              "docs": "overload bypass function\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*",
+              "key": "Optional",
+              "schema": {
+                "extends": [
+                  "binary_sensor.BINARY_SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "overload_restart_function": {
+              "docs": "overload restart function\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*",
+              "key": "Optional",
+              "schema": {
+                "extends": [
+                  "binary_sensor.BINARY_SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "power_saving": {
+              "docs": "power saving\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*",
+              "key": "Optional",
+              "schema": {
+                "extends": [
+                  "binary_sensor.BINARY_SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "scc_charging_status": {
+              "docs": "scc charging status\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*",
+              "key": "Optional",
+              "schema": {
+                "extends": [
+                  "binary_sensor.BINARY_SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "scc_firmware_version": {
+              "docs": "scc firmware version\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*",
+              "key": "Optional",
+              "schema": {
+                "extends": [
+                  "binary_sensor.BINARY_SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "silence_buzzer_open_buzzer": {
+              "docs": "silence buzzer open buzzer\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*",
+              "key": "Optional",
+              "schema": {
+                "extends": [
+                  "binary_sensor.BINARY_SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "switch_on": {
+              "docs": "switch on\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*",
+              "key": "Optional",
+              "schema": {
+                "extends": [
+                  "binary_sensor.BINARY_SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "warning_battery_derating": {
+              "docs": "warning battery derating\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*",
+              "key": "Optional",
+              "schema": {
+                "extends": [
+                  "binary_sensor.BINARY_SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
             },
             "warning_battery_equalization": {
               "key": "Optional",
-              "type": "schema",
               "schema": {
                 "extends": [
                   "binary_sensor.BINARY_SENSOR_SCHEMA"
                 ]
-              }
+              },
+              "type": "schema"
+            },
+            "warning_battery_low_alarm": {
+              "docs": "warning battery low alarm\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*",
+              "key": "Optional",
+              "schema": {
+                "extends": [
+                  "binary_sensor.BINARY_SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "warning_battery_too_low_to_charge": {
+              "docs": "warning battery too low to charge\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*",
+              "key": "Optional",
+              "schema": {
+                "extends": [
+                  "binary_sensor.BINARY_SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "warning_battery_under_shutdown": {
+              "docs": "warning battery under shutdown\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*",
+              "key": "Optional",
+              "schema": {
+                "extends": [
+                  "binary_sensor.BINARY_SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "warning_battery_voltage_high": {
+              "docs": "warning battery voltage high\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*",
+              "key": "Optional",
+              "schema": {
+                "extends": [
+                  "binary_sensor.BINARY_SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "warning_eeprom_failed": {
+              "docs": "warning eeprom failed\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*",
+              "key": "Optional",
+              "schema": {
+                "extends": [
+                  "binary_sensor.BINARY_SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "warning_fan_lock": {
+              "docs": "warning fan lock\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*",
+              "key": "Optional",
+              "schema": {
+                "extends": [
+                  "binary_sensor.BINARY_SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "warning_high_ac_input_during_bus_soft_start": {
+              "key": "Optional",
+              "schema": {
+                "extends": [
+                  "binary_sensor.BINARY_SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "warning_line_fail": {
+              "docs": "warning line fail\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*",
+              "key": "Optional",
+              "schema": {
+                "extends": [
+                  "binary_sensor.BINARY_SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "warning_mppt_overload": {
+              "docs": "warning mppt overload\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*",
+              "key": "Optional",
+              "schema": {
+                "extends": [
+                  "binary_sensor.BINARY_SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "warning_over_load": {
+              "docs": "warning over load\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*",
+              "key": "Optional",
+              "schema": {
+                "extends": [
+                  "binary_sensor.BINARY_SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "warning_over_temperature": {
+              "docs": "warning over temperature\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*",
+              "key": "Optional",
+              "schema": {
+                "extends": [
+                  "binary_sensor.BINARY_SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "warning_power_limit": {
+              "docs": "warning power limit\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*",
+              "key": "Optional",
+              "schema": {
+                "extends": [
+                  "binary_sensor.BINARY_SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "warning_power_loss": {
+              "docs": "warning power loss\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*",
+              "key": "Optional",
+              "schema": {
+                "extends": [
+                  "binary_sensor.BINARY_SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "warning_pv_voltage_high": {
+              "docs": "warning pv voltage high\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*",
+              "key": "Optional",
+              "schema": {
+                "extends": [
+                  "binary_sensor.BINARY_SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "warnings_present": {
+              "docs": "warnings present\n\n*See also: [pipsolar Binary Sensor](https://esphome.io/components/pipsolar.html#id2)*",
+              "key": "Optional",
+              "schema": {
+                "extends": [
+                  "binary_sensor.BINARY_SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "warnung_low_pv_energy": {
+              "key": "Optional",
+              "schema": {
+                "extends": [
+                  "binary_sensor.BINARY_SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
             }
-          }
-        }
+          },
+          "extends": [
+            "pipsolar.PIPSOLAR_COMPONENT_SCHEMA"
+          ]
+        },
+        "type": "schema"
       }
     }
   },
   "pipsolar.output": {
-    "schemas": {
-      "CONFIG_SCHEMA": {
-        "type": "schema",
-        "schema": {
-          "extends": [
-            "pipsolar.PIPSOLAR_COMPONENT_SCHEMA"
-          ],
-          "config_vars": {
-            "battery_recharge_voltage": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "output.FLOAT_OUTPUT_SCHEMA"
-                ],
-                "config_vars": {
-                  "id": {
-                    "key": "Required",
-                    "id_type": {
-                      "class": "pipsolar::PipsolarOutput",
-                      "parents": [
-                        "output::FloatOutput",
-                        "output::BinaryOutput"
-                      ]
-                    }
-                  },
-                  "possible_values": {
-                    "key": "Optional",
-                    "default": "[44.0, 45.0, 46.0, 47.0, 48.0, 49.0, 50.0, 51.0]",
-                    "is_list": true,
-                    "data_type": "positive_float",
-                    "docs": "**list**: a list of possible values default: 44.0,45.0,46.0,47.0,48.0,49.0,50.0,51.0\n\n*See also: [pipsolar Output](https://esphome.io/components/pipsolar.html#id5)*"
-                  }
-                }
-              },
-              "docs": "battery recharge voltage;\n  * **possible_values** (*Optional*, list): a list of possible values default: 44.0,45.0,46.0,47.0,48.0,49.0,50.0,51.0\n  \n  \n\n*See also: [pipsolar Output](https://esphome.io/components/pipsolar.html#id5)*"
-            },
-            "battery_under_voltage": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "output.FLOAT_OUTPUT_SCHEMA"
-                ],
-                "config_vars": {
-                  "id": {
-                    "key": "Required",
-                    "id_type": {
-                      "class": "pipsolar::PipsolarOutput",
-                      "parents": [
-                        "output::FloatOutput",
-                        "output::BinaryOutput"
-                      ]
-                    }
-                  },
-                  "possible_values": {
-                    "key": "Optional",
-                    "default": "[40.0, 40.1, 42, 43, 44, 45, 46, 47, 48.0]",
-                    "is_list": true,
-                    "data_type": "positive_float",
-                    "docs": "**list**: a list of possible values default: 40.0,40.1,42,43,44,45,46,47,48.0\n\n*See also: [pipsolar Output](https://esphome.io/components/pipsolar.html#id5)*"
-                  }
-                }
-              },
-              "docs": "battery under voltage;\n  * **possible_values** (*Optional*, list): a list of possible values default: 40.0,40.1,42,43,44,45,46,47,48.0\n  \n  \n\n*See also: [pipsolar Output](https://esphome.io/components/pipsolar.html#id5)*"
-            },
-            "battery_float_voltage": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "output.FLOAT_OUTPUT_SCHEMA"
-                ],
-                "config_vars": {
-                  "id": {
-                    "key": "Required",
-                    "id_type": {
-                      "class": "pipsolar::PipsolarOutput",
-                      "parents": [
-                        "output::FloatOutput",
-                        "output::BinaryOutput"
-                      ]
-                    }
-                  },
-                  "possible_values": {
-                    "key": "Optional",
-                    "default": "[48.0, 49.0, 50.0, 51.0]",
-                    "is_list": true,
-                    "data_type": "positive_float",
-                    "docs": "**list**: a list of possible values default: 48.0,49.0,50.0,51.0\n\n*See also: [pipsolar Output](https://esphome.io/components/pipsolar.html#id5)*"
-                  }
-                }
-              },
-              "docs": "battery float voltage;\n  * **possible_values** (*Optional*, list): a list of possible values default: 48.0,49.0,50.0,51.0\n  \n  \n\n*See also: [pipsolar Output](https://esphome.io/components/pipsolar.html#id5)*"
-            },
-            "battery_type": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "output.FLOAT_OUTPUT_SCHEMA"
-                ],
-                "config_vars": {
-                  "id": {
-                    "key": "Required",
-                    "id_type": {
-                      "class": "pipsolar::PipsolarOutput",
-                      "parents": [
-                        "output::FloatOutput",
-                        "output::BinaryOutput"
-                      ]
-                    }
-                  },
-                  "possible_values": {
-                    "key": "Optional",
-                    "default": "[0, 1, 2]",
-                    "is_list": true,
-                    "data_type": "positive_float",
-                    "docs": "**list**: a list of possible values default: 0,1,2\n\n*See also: [pipsolar Output](https://esphome.io/components/pipsolar.html#id5)*"
-                  }
-                }
-              },
-              "docs": "battery type;\n  * **possible_values** (*Optional*, list): a list of possible values default: 0,1,2\n  \n  \n\n*See also: [pipsolar Output](https://esphome.io/components/pipsolar.html#id5)*"
-            },
-            "current_max_ac_charging_current": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "output.FLOAT_OUTPUT_SCHEMA"
-                ],
-                "config_vars": {
-                  "id": {
-                    "key": "Required",
-                    "id_type": {
-                      "class": "pipsolar::PipsolarOutput",
-                      "parents": [
-                        "output::FloatOutput",
-                        "output::BinaryOutput"
-                      ]
-                    }
-                  },
-                  "possible_values": {
-                    "key": "Optional",
-                    "default": "[2, 10, 20]",
-                    "is_list": true,
-                    "data_type": "positive_float",
-                    "docs": "**list**: a list of possible values default: 2,10,20\n\n*See also: [pipsolar Output](https://esphome.io/components/pipsolar.html#id5)*"
-                  }
-                }
-              },
-              "docs": "current max ac charging current;\n  * **possible_values** (*Optional*, list): a list of possible values default: 2,10,20\n  \n  \n\n*See also: [pipsolar Output](https://esphome.io/components/pipsolar.html#id5)*"
-            },
-            "current_max_charging_current": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "output.FLOAT_OUTPUT_SCHEMA"
-                ],
-                "config_vars": {
-                  "id": {
-                    "key": "Required",
-                    "id_type": {
-                      "class": "pipsolar::PipsolarOutput",
-                      "parents": [
-                        "output::FloatOutput",
-                        "output::BinaryOutput"
-                      ]
-                    }
-                  },
-                  "possible_values": {
-                    "key": "Optional",
-                    "default": "[10, 20, 30, 40]",
-                    "is_list": true,
-                    "data_type": "positive_float",
-                    "docs": "**list**: a list of possible values default: 10,20,30,40\n\n*See also: [pipsolar Output](https://esphome.io/components/pipsolar.html#id5)*"
-                  }
-                }
-              },
-              "docs": "current max charging current;\n  * **possible_values** (*Optional*, list): a list of possible values default: 10,20,30,40\n  \n  \n\n*See also: [pipsolar Output](https://esphome.io/components/pipsolar.html#id5)*"
-            },
-            "output_source_priority": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "output.FLOAT_OUTPUT_SCHEMA"
-                ],
-                "config_vars": {
-                  "id": {
-                    "key": "Required",
-                    "id_type": {
-                      "class": "pipsolar::PipsolarOutput",
-                      "parents": [
-                        "output::FloatOutput",
-                        "output::BinaryOutput"
-                      ]
-                    }
-                  },
-                  "possible_values": {
-                    "key": "Optional",
-                    "default": "[0, 1, 2]",
-                    "is_list": true,
-                    "data_type": "positive_float",
-                    "docs": "**list**: a list of possible values default: 0,1,2\n\n*See also: [pipsolar Output](https://esphome.io/components/pipsolar.html#id5)*"
-                  }
-                }
-              },
-              "docs": "output source priority;\n  * **possible_values** (*Optional*, list): a list of possible values default: 0,1,2\n  \n  \n\n*See also: [pipsolar Output](https://esphome.io/components/pipsolar.html#id5)*"
-            },
-            "charger_source_priority": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "output.FLOAT_OUTPUT_SCHEMA"
-                ],
-                "config_vars": {
-                  "id": {
-                    "key": "Required",
-                    "id_type": {
-                      "class": "pipsolar::PipsolarOutput",
-                      "parents": [
-                        "output::FloatOutput",
-                        "output::BinaryOutput"
-                      ]
-                    }
-                  },
-                  "possible_values": {
-                    "key": "Optional",
-                    "default": "[0, 1, 2, 3]",
-                    "is_list": true,
-                    "data_type": "positive_float",
-                    "docs": "**list**: a list of possible values default: 0,1,2,3\n\n*See also: [pipsolar Output](https://esphome.io/components/pipsolar.html#id5)*"
-                  }
-                }
-              },
-              "docs": "charger source priority;\n  * **possible_values** (*Optional*, list): a list of possible values default: 0,1,2,3\n  \n  \n\n*See also: [pipsolar Output](https://esphome.io/components/pipsolar.html#id5)*"
-            },
-            "battery_redischarge_voltage": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "output.FLOAT_OUTPUT_SCHEMA"
-                ],
-                "config_vars": {
-                  "id": {
-                    "key": "Required",
-                    "id_type": {
-                      "class": "pipsolar::PipsolarOutput",
-                      "parents": [
-                        "output::FloatOutput",
-                        "output::BinaryOutput"
-                      ]
-                    }
-                  },
-                  "possible_values": {
-                    "key": "Optional",
-                    "default": "[0, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58]",
-                    "is_list": true,
-                    "data_type": "positive_float",
-                    "docs": "**list**: a list of possible values default: 00.0,48.0,49,50.0,51.0,52,53,54,55,56,57,58\n\n*See also: [pipsolar Output](https://esphome.io/components/pipsolar.html#id5)*"
-                  }
-                }
-              },
-              "docs": "battery redischarge voltage;\n  * **possible_values** (*Optional*, list): a list of possible values default: 00.0,48.0,49,50.0,51.0,52,53,54,55,56,57,58\n  \n  \n\n*See also: [pipsolar Output](https://esphome.io/components/pipsolar.html#id5)*"
-            }
-          }
-        }
-      }
-    },
     "action": {
       "set_level": {
-        "type": "schema",
+        "docs": "To use your outputs in [automations](https://esphome.io/automations/index.html#automation) or templates, you can use this action to set the target level of the output.\n\n*See also: [`output.pipsolar.set_level` Action](https://esphome.io/components/pipsolar.html#output-pipsolar-set-level-action)*",
         "schema": {
           "config_vars": {
             "id": {
+              "docs": "**, [ID](https://esphome.io/guides/configuration-types.html#config-id)**: The ID of the output.\n\n*See also: [pipsolar Output](https://esphome.io/components/pipsolar.html#output-pipsolar-set-level-action)*",
               "key": "Required",
-              "use_id_type": "id",
-              "docs": "**[ID](https://esphome.io/guides/configuration-types.html#config-id)**: The ID of the output.\n\n*See also: [pipsolar Output](https://esphome.io/components/pipsolar.html#output-pipsolar-set-level-action)*"
+              "use_id_type": "id"
             },
             "value": {
-              "key": "Required",
-              "templatable": true,
               "data_type": "positive_float",
-              "docs": "**percentage, [templatable](https://esphome.io/automations/templates.html#config-templatable)**: The target level.\n\n*See also: [pipsolar Output](https://esphome.io/components/pipsolar.html#output-pipsolar-set-level-action)*"
+              "docs": "**, percentage, [templatable](https://esphome.io/automations/templates.html#config-templatable)**: The target level.\n\n*See also: [pipsolar Output](https://esphome.io/components/pipsolar.html#output-pipsolar-set-level-action)*",
+              "key": "Required",
+              "templatable": true
             }
           }
         },
-        "docs": "To use your outputs in [automations](https://esphome.io/automations/index.html#automation) or templates, you can use this action to set the target level of the output.\n\n*See also: [`output.pipsolar.set_level` Action](https://esphome.io/components/pipsolar.html#output-pipsolar-set-level-action)*"
+        "type": "schema"
+      }
+    },
+    "schemas": {
+      "CONFIG_SCHEMA": {
+        "schema": {
+          "config_vars": {
+            "battery_float_voltage": {
+              "docs": "battery float voltage;\n  * **possible_values** (*Optional*, list): a list of possible values default: 48.0,49.0,50.0,51.0\n  \n  \n\n*See also: [pipsolar Output](https://esphome.io/components/pipsolar.html#id5)*",
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
+                  "id": {
+                    "id_type": {
+                      "class": "pipsolar::PipsolarOutput",
+                      "parents": [
+                        "output::BinaryOutput",
+                        "output::FloatOutput"
+                      ]
+                    },
+                    "key": "Required"
+                  },
+                  "possible_values": {
+                    "data_type": "positive_float",
+                    "default": "[48.0, 49.0, 50.0, 51.0]",
+                    "docs": "**, list**: a list of possible values default: 48.0,49.0,50.0,51.0\n\n*See also: [pipsolar Output](https://esphome.io/components/pipsolar.html#id5)*",
+                    "is_list": true,
+                    "key": "Optional"
+                  }
+                },
+                "extends": [
+                  "output.FLOAT_OUTPUT_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "battery_recharge_voltage": {
+              "docs": "battery recharge voltage;\n  * **possible_values** (*Optional*, list): a list of possible values default: 44.0,45.0,46.0,47.0,48.0,49.0,50.0,51.0\n  \n  \n\n*See also: [pipsolar Output](https://esphome.io/components/pipsolar.html#id5)*",
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
+                  "id": {
+                    "id_type": {
+                      "class": "pipsolar::PipsolarOutput",
+                      "parents": [
+                        "output::BinaryOutput",
+                        "output::FloatOutput"
+                      ]
+                    },
+                    "key": "Required"
+                  },
+                  "possible_values": {
+                    "data_type": "positive_float",
+                    "default": "[44.0, 45.0, 46.0, 47.0, 48.0, 49.0, 50.0, 51.0]",
+                    "docs": "**, list**: a list of possible values default: 44.0,45.0,46.0,47.0,48.0,49.0,50.0,51.0\n\n*See also: [pipsolar Output](https://esphome.io/components/pipsolar.html#id5)*",
+                    "is_list": true,
+                    "key": "Optional"
+                  }
+                },
+                "extends": [
+                  "output.FLOAT_OUTPUT_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "battery_redischarge_voltage": {
+              "docs": "battery redischarge voltage;\n  * **possible_values** (*Optional*, list): a list of possible values default: 00.0,48.0,49,50.0,51.0,52,53,54,55,56,57,58\n  \n  \n\n*See also: [pipsolar Output](https://esphome.io/components/pipsolar.html#id5)*",
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
+                  "id": {
+                    "id_type": {
+                      "class": "pipsolar::PipsolarOutput",
+                      "parents": [
+                        "output::BinaryOutput",
+                        "output::FloatOutput"
+                      ]
+                    },
+                    "key": "Required"
+                  },
+                  "possible_values": {
+                    "data_type": "positive_float",
+                    "default": "[0, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58]",
+                    "docs": "**, list**: a list of possible values default: 00.0,48.0,49,50.0,51.0,52,53,54,55,56,57,58\n\n*See also: [pipsolar Output](https://esphome.io/components/pipsolar.html#id5)*",
+                    "is_list": true,
+                    "key": "Optional"
+                  }
+                },
+                "extends": [
+                  "output.FLOAT_OUTPUT_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "battery_type": {
+              "docs": "battery type;\n  * **possible_values** (*Optional*, list): a list of possible values default: 0,1,2\n  \n  \n\n*See also: [pipsolar Output](https://esphome.io/components/pipsolar.html#id5)*",
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
+                  "id": {
+                    "id_type": {
+                      "class": "pipsolar::PipsolarOutput",
+                      "parents": [
+                        "output::BinaryOutput",
+                        "output::FloatOutput"
+                      ]
+                    },
+                    "key": "Required"
+                  },
+                  "possible_values": {
+                    "data_type": "positive_float",
+                    "default": "[0, 1, 2]",
+                    "docs": "**, list**: a list of possible values default: 0,1,2\n\n*See also: [pipsolar Output](https://esphome.io/components/pipsolar.html#id5)*",
+                    "is_list": true,
+                    "key": "Optional"
+                  }
+                },
+                "extends": [
+                  "output.FLOAT_OUTPUT_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "battery_under_voltage": {
+              "docs": "battery under voltage;\n  * **possible_values** (*Optional*, list): a list of possible values default: 40.0,40.1,42,43,44,45,46,47,48.0\n  \n  \n\n*See also: [pipsolar Output](https://esphome.io/components/pipsolar.html#id5)*",
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
+                  "id": {
+                    "id_type": {
+                      "class": "pipsolar::PipsolarOutput",
+                      "parents": [
+                        "output::BinaryOutput",
+                        "output::FloatOutput"
+                      ]
+                    },
+                    "key": "Required"
+                  },
+                  "possible_values": {
+                    "data_type": "positive_float",
+                    "default": "[40.0, 40.1, 42, 43, 44, 45, 46, 47, 48.0]",
+                    "docs": "**, list**: a list of possible values default: 40.0,40.1,42,43,44,45,46,47,48.0\n\n*See also: [pipsolar Output](https://esphome.io/components/pipsolar.html#id5)*",
+                    "is_list": true,
+                    "key": "Optional"
+                  }
+                },
+                "extends": [
+                  "output.FLOAT_OUTPUT_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "charger_source_priority": {
+              "docs": "charger source priority;\n  * **possible_values** (*Optional*, list): a list of possible values default: 0,1,2,3\n  \n  \n\n*See also: [pipsolar Output](https://esphome.io/components/pipsolar.html#id5)*",
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
+                  "id": {
+                    "id_type": {
+                      "class": "pipsolar::PipsolarOutput",
+                      "parents": [
+                        "output::BinaryOutput",
+                        "output::FloatOutput"
+                      ]
+                    },
+                    "key": "Required"
+                  },
+                  "possible_values": {
+                    "data_type": "positive_float",
+                    "default": "[0, 1, 2, 3]",
+                    "docs": "**, list**: a list of possible values default: 0,1,2,3\n\n*See also: [pipsolar Output](https://esphome.io/components/pipsolar.html#id5)*",
+                    "is_list": true,
+                    "key": "Optional"
+                  }
+                },
+                "extends": [
+                  "output.FLOAT_OUTPUT_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "current_max_ac_charging_current": {
+              "docs": "current max ac charging current;\n  * **possible_values** (*Optional*, list): a list of possible values default: 2,10,20\n  \n  \n\n*See also: [pipsolar Output](https://esphome.io/components/pipsolar.html#id5)*",
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
+                  "id": {
+                    "id_type": {
+                      "class": "pipsolar::PipsolarOutput",
+                      "parents": [
+                        "output::BinaryOutput",
+                        "output::FloatOutput"
+                      ]
+                    },
+                    "key": "Required"
+                  },
+                  "possible_values": {
+                    "data_type": "positive_float",
+                    "default": "[2, 10, 20]",
+                    "docs": "**, list**: a list of possible values default: 2,10,20\n\n*See also: [pipsolar Output](https://esphome.io/components/pipsolar.html#id5)*",
+                    "is_list": true,
+                    "key": "Optional"
+                  }
+                },
+                "extends": [
+                  "output.FLOAT_OUTPUT_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "current_max_charging_current": {
+              "docs": "current max charging current;\n  * **possible_values** (*Optional*, list): a list of possible values default: 10,20,30,40\n  \n  \n\n*See also: [pipsolar Output](https://esphome.io/components/pipsolar.html#id5)*",
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
+                  "id": {
+                    "id_type": {
+                      "class": "pipsolar::PipsolarOutput",
+                      "parents": [
+                        "output::BinaryOutput",
+                        "output::FloatOutput"
+                      ]
+                    },
+                    "key": "Required"
+                  },
+                  "possible_values": {
+                    "data_type": "positive_float",
+                    "default": "[10, 20, 30, 40]",
+                    "docs": "**, list**: a list of possible values default: 10,20,30,40\n\n*See also: [pipsolar Output](https://esphome.io/components/pipsolar.html#id5)*",
+                    "is_list": true,
+                    "key": "Optional"
+                  }
+                },
+                "extends": [
+                  "output.FLOAT_OUTPUT_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "output_source_priority": {
+              "docs": "output source priority;\n  * **possible_values** (*Optional*, list): a list of possible values default: 0,1,2\n  \n  \n\n*See also: [pipsolar Output](https://esphome.io/components/pipsolar.html#id5)*",
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
+                  "id": {
+                    "id_type": {
+                      "class": "pipsolar::PipsolarOutput",
+                      "parents": [
+                        "output::BinaryOutput",
+                        "output::FloatOutput"
+                      ]
+                    },
+                    "key": "Required"
+                  },
+                  "possible_values": {
+                    "data_type": "positive_float",
+                    "default": "[0, 1, 2]",
+                    "docs": "**, list**: a list of possible values default: 0,1,2\n\n*See also: [pipsolar Output](https://esphome.io/components/pipsolar.html#id5)*",
+                    "is_list": true,
+                    "key": "Optional"
+                  }
+                },
+                "extends": [
+                  "output.FLOAT_OUTPUT_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            }
+          },
+          "extends": [
+            "pipsolar.PIPSOLAR_COMPONENT_SCHEMA"
+          ]
+        },
+        "type": "schema"
       }
     }
   },
   "pipsolar.sensor": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
         "schema": {
-          "extends": [
-            "pipsolar.PIPSOLAR_COMPONENT_SCHEMA"
-          ],
           "config_vars": {
-            "grid_rating_voltage": {
+            "ac_output_active_power": {
+              "docs": "ac output active power\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*",
               "key": "Optional",
-              "type": "schema",
               "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
                 "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "V"
-                  },
-                  "accuracy_decimals": {
-                    "default": "1"
-                  },
-                  "device_class": {
-                    "default": "voltage"
-                  }
-                }
-              },
-              "docs": "grid rating voltage\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*"
-            },
-            "grid_rating_current": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "A"
-                  },
-                  "accuracy_decimals": {
-                    "default": "1"
-                  },
-                  "device_class": {
-                    "default": "current"
-                  }
-                }
-              },
-              "docs": "grid rating current\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*"
-            },
-            "ac_output_rating_voltage": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "V"
-                  },
-                  "accuracy_decimals": {
-                    "default": "1"
-                  },
-                  "device_class": {
-                    "default": "voltage"
-                  }
-                }
-              },
-              "docs": "AC output rating voltage\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*"
-            },
-            "ac_output_rating_frequency": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "Hz"
-                  },
-                  "icon": {
-                    "default": "mdi:current-ac"
-                  },
-                  "accuracy_decimals": {
-                    "default": "1"
-                  }
-                }
-              },
-              "docs": "AC output rating frequency\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*"
-            },
-            "ac_output_rating_current": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "A"
-                  },
-                  "accuracy_decimals": {
-                    "default": "1"
-                  },
-                  "device_class": {
-                    "default": "current"
-                  }
-                }
-              },
-              "docs": "AC output rating current\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*"
-            },
-            "ac_output_rating_apparent_power": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "VA"
-                  },
-                  "accuracy_decimals": {
-                    "default": "1"
-                  }
-                }
-              },
-              "docs": "AC output rating apparent power\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*"
-            },
-            "ac_output_rating_active_power": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "W"
-                  },
                   "accuracy_decimals": {
                     "default": "1"
                   },
                   "device_class": {
                     "default": "power"
-                  }
-                }
-              },
-              "docs": "AC output rating active power\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*"
-            },
-            "battery_rating_voltage": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
+                  },
                   "unit_of_measurement": {
-                    "default": "V"
-                  },
-                  "accuracy_decimals": {
-                    "default": "1"
-                  },
-                  "device_class": {
-                    "default": "voltage"
+                    "default": "W"
                   }
-                }
-              },
-              "docs": "battery rating voltage\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*"
-            },
-            "battery_recharge_voltage": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
+                },
                 "extends": [
                   "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "V"
-                  },
-                  "accuracy_decimals": {
-                    "default": "1"
-                  },
-                  "device_class": {
-                    "default": "voltage"
-                  }
-                }
+                ]
               },
-              "docs": "battery recharge voltage\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*"
-            },
-            "battery_under_voltage": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "V"
-                  },
-                  "accuracy_decimals": {
-                    "default": "1"
-                  },
-                  "device_class": {
-                    "default": "voltage"
-                  }
-                }
-              },
-              "docs": "battery under voltage\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*"
-            },
-            "battery_bulk_voltage": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "V"
-                  },
-                  "accuracy_decimals": {
-                    "default": "1"
-                  },
-                  "device_class": {
-                    "default": "voltage"
-                  }
-                }
-              },
-              "docs": "battery bulk voltage\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*"
-            },
-            "battery_float_voltage": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "V"
-                  },
-                  "accuracy_decimals": {
-                    "default": "1"
-                  },
-                  "device_class": {
-                    "default": "voltage"
-                  }
-                }
-              },
-              "docs": "battery float voltage\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*"
-            },
-            "battery_type": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "accuracy_decimals": {
-                    "default": "1"
-                  }
-                }
-              },
-              "docs": "battery type\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*"
-            },
-            "current_max_ac_charging_current": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "A"
-                  },
-                  "accuracy_decimals": {
-                    "default": "1"
-                  },
-                  "device_class": {
-                    "default": "current"
-                  }
-                }
-              },
-              "docs": "current max ac charging current\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*"
-            },
-            "current_max_charging_current": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "A"
-                  },
-                  "accuracy_decimals": {
-                    "default": "1"
-                  },
-                  "device_class": {
-                    "default": "current"
-                  }
-                }
-              },
-              "docs": "current max charging current\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*"
-            },
-            "input_voltage_range": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "accuracy_decimals": {
-                    "default": "1"
-                  }
-                }
-              },
-              "docs": "input voltage range\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*"
-            },
-            "output_source_priority": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "accuracy_decimals": {
-                    "default": "1"
-                  }
-                }
-              },
-              "docs": "output source priority\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*"
-            },
-            "charger_source_priority": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "accuracy_decimals": {
-                    "default": "1"
-                  }
-                }
-              },
-              "docs": "charger source priority\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*"
-            },
-            "parallel_max_num": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "accuracy_decimals": {
-                    "default": "1"
-                  }
-                }
-              },
-              "docs": "parallel max num\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*"
-            },
-            "machine_type": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "accuracy_decimals": {
-                    "default": "1"
-                  }
-                }
-              },
-              "docs": "machine type\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*"
-            },
-            "topology": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "accuracy_decimals": {
-                    "default": "1"
-                  }
-                }
-              },
-              "docs": "topology\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*"
-            },
-            "output_mode": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "accuracy_decimals": {
-                    "default": "1"
-                  }
-                }
-              },
-              "docs": "output mode\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*"
-            },
-            "battery_redischarge_voltage": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "accuracy_decimals": {
-                    "default": "1"
-                  }
-                }
-              },
-              "docs": "battery re-discharge voltage\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*"
-            },
-            "pv_ok_condition_for_parallel": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "accuracy_decimals": {
-                    "default": "1"
-                  }
-                }
-              },
-              "docs": "PV OK condition for parallel\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*"
-            },
-            "pv_power_balance": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "accuracy_decimals": {
-                    "default": "1"
-                  }
-                }
-              },
-              "docs": "PV power balance mode\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*"
-            },
-            "grid_voltage": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "V"
-                  },
-                  "accuracy_decimals": {
-                    "default": "1"
-                  },
-                  "device_class": {
-                    "default": "voltage"
-                  }
-                }
-              },
-              "docs": "grid voltage\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*"
-            },
-            "grid_frequency": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "Hz"
-                  },
-                  "icon": {
-                    "default": "mdi:current-ac"
-                  },
-                  "accuracy_decimals": {
-                    "default": "1"
-                  }
-                }
-              },
-              "docs": "grid frequency\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*"
-            },
-            "ac_output_voltage": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "V"
-                  },
-                  "accuracy_decimals": {
-                    "default": "1"
-                  },
-                  "device_class": {
-                    "default": "voltage"
-                  }
-                }
-              },
-              "docs": "ac output voltage\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*"
-            },
-            "ac_output_frequency": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "Hz"
-                  },
-                  "icon": {
-                    "default": "mdi:current-ac"
-                  },
-                  "accuracy_decimals": {
-                    "default": "1"
-                  }
-                }
-              },
-              "docs": "ac output frequency\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*"
+              "type": "schema"
             },
             "ac_output_apparent_power": {
+              "docs": "ac output apparent power\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*",
               "key": "Optional",
-              "type": "schema",
               "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
                 "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "VA"
-                  },
                   "accuracy_decimals": {
                     "default": "1"
+                  },
+                  "unit_of_measurement": {
+                    "default": "VA"
                   }
-                }
-              },
-              "docs": "ac output apparent power\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*"
-            },
-            "ac_output_active_power": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
+                },
                 "extends": [
                   "sensor.SENSOR_SCHEMA"
-                ],
+                ]
+              },
+              "type": "schema"
+            },
+            "ac_output_frequency": {
+              "docs": "ac output frequency\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*",
+              "key": "Optional",
+              "schema": {
                 "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "W"
+                  "accuracy_decimals": {
+                    "default": "1"
                   },
+                  "icon": {
+                    "default": "mdi:current-ac"
+                  },
+                  "unit_of_measurement": {
+                    "default": "Hz"
+                  }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "ac_output_rating_active_power": {
+              "docs": "AC output rating active power\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*",
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
                   "accuracy_decimals": {
                     "default": "1"
                   },
                   "device_class": {
                     "default": "power"
+                  },
+                  "unit_of_measurement": {
+                    "default": "W"
                   }
-                }
-              },
-              "docs": "ac output active power\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*"
-            },
-            "output_load_percent": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
+                },
                 "extends": [
                   "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "%"
-                  },
-                  "accuracy_decimals": {
-                    "default": "1"
-                  }
-                }
+                ]
               },
-              "docs": "output load percentage\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*"
+              "type": "schema"
             },
-            "bus_voltage": {
+            "ac_output_rating_apparent_power": {
+              "docs": "AC output rating apparent power\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*",
               "key": "Optional",
-              "type": "schema",
               "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
                 "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "V"
-                  },
                   "accuracy_decimals": {
                     "default": "1"
                   },
-                  "device_class": {
-                    "default": "voltage"
+                  "unit_of_measurement": {
+                    "default": "VA"
                   }
-                }
-              },
-              "docs": "bus voltage\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*"
-            },
-            "battery_voltage": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
+                },
                 "extends": [
                   "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "V"
-                  },
-                  "accuracy_decimals": {
-                    "default": "1"
-                  },
-                  "device_class": {
-                    "default": "voltage"
-                  }
-                }
+                ]
               },
-              "docs": "battery voltage\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*"
+              "type": "schema"
             },
-            "battery_charging_current": {
+            "ac_output_rating_current": {
+              "docs": "AC output rating current\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*",
               "key": "Optional",
-              "type": "schema",
               "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
                 "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "A"
-                  },
                   "accuracy_decimals": {
                     "default": "1"
                   },
                   "device_class": {
                     "default": "current"
+                  },
+                  "unit_of_measurement": {
+                    "default": "A"
                   }
-                }
-              },
-              "docs": "battery charging current\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*"
-            },
-            "battery_capacity_percent": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
+                },
                 "extends": [
                   "sensor.SENSOR_SCHEMA"
-                ],
+                ]
+              },
+              "type": "schema"
+            },
+            "ac_output_rating_frequency": {
+              "docs": "AC output rating frequency\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*",
+              "key": "Optional",
+              "schema": {
                 "config_vars": {
+                  "accuracy_decimals": {
+                    "default": "1"
+                  },
+                  "icon": {
+                    "default": "mdi:current-ac"
+                  },
+                  "unit_of_measurement": {
+                    "default": "Hz"
+                  }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "ac_output_rating_voltage": {
+              "docs": "AC output rating voltage\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*",
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
+                  "accuracy_decimals": {
+                    "default": "1"
+                  },
+                  "device_class": {
+                    "default": "voltage"
+                  },
+                  "unit_of_measurement": {
+                    "default": "V"
+                  }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "ac_output_voltage": {
+              "docs": "ac output voltage\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*",
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
+                  "accuracy_decimals": {
+                    "default": "1"
+                  },
+                  "device_class": {
+                    "default": "voltage"
+                  },
+                  "unit_of_measurement": {
+                    "default": "V"
+                  }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "battery_bulk_voltage": {
+              "docs": "battery bulk voltage\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*",
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
+                  "accuracy_decimals": {
+                    "default": "1"
+                  },
+                  "device_class": {
+                    "default": "voltage"
+                  },
+                  "unit_of_measurement": {
+                    "default": "V"
+                  }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "battery_capacity_percent": {
+              "docs": "battery capacity percent\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*",
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
+                  "accuracy_decimals": {
+                    "default": "1"
+                  },
                   "unit_of_measurement": {
                     "default": "%"
+                  }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "battery_charging_current": {
+              "docs": "battery charging current\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*",
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
+                  "accuracy_decimals": {
+                    "default": "1"
                   },
+                  "device_class": {
+                    "default": "current"
+                  },
+                  "unit_of_measurement": {
+                    "default": "A"
+                  }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "battery_discharge_current": {
+              "docs": "battery discharge current\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*",
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
+                  "accuracy_decimals": {
+                    "default": "1"
+                  },
+                  "device_class": {
+                    "default": "current"
+                  },
+                  "unit_of_measurement": {
+                    "default": "A"
+                  }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "battery_float_voltage": {
+              "docs": "battery float voltage\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*",
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
+                  "accuracy_decimals": {
+                    "default": "1"
+                  },
+                  "device_class": {
+                    "default": "voltage"
+                  },
+                  "unit_of_measurement": {
+                    "default": "V"
+                  }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "battery_rating_voltage": {
+              "docs": "battery rating voltage\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*",
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
+                  "accuracy_decimals": {
+                    "default": "1"
+                  },
+                  "device_class": {
+                    "default": "voltage"
+                  },
+                  "unit_of_measurement": {
+                    "default": "V"
+                  }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "battery_recharge_voltage": {
+              "docs": "battery recharge voltage\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*",
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
+                  "accuracy_decimals": {
+                    "default": "1"
+                  },
+                  "device_class": {
+                    "default": "voltage"
+                  },
+                  "unit_of_measurement": {
+                    "default": "V"
+                  }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "battery_redischarge_voltage": {
+              "docs": "battery re-discharge voltage\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*",
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
                   "accuracy_decimals": {
                     "default": "1"
                   }
-                }
-              },
-              "docs": "battery capacity percent\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*"
-            },
-            "inverter_heat_sink_temperature": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
+                },
                 "extends": [
                   "sensor.SENSOR_SCHEMA"
-                ],
+                ]
+              },
+              "type": "schema"
+            },
+            "battery_type": {
+              "docs": "battery type\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*",
+              "key": "Optional",
+              "schema": {
                 "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "\u00b0C"
+                  "accuracy_decimals": {
+                    "default": "1"
+                  }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "battery_under_voltage": {
+              "docs": "battery under voltage\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*",
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
+                  "accuracy_decimals": {
+                    "default": "1"
                   },
+                  "device_class": {
+                    "default": "voltage"
+                  },
+                  "unit_of_measurement": {
+                    "default": "V"
+                  }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "battery_voltage": {
+              "docs": "battery voltage\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*",
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
+                  "accuracy_decimals": {
+                    "default": "1"
+                  },
+                  "device_class": {
+                    "default": "voltage"
+                  },
+                  "unit_of_measurement": {
+                    "default": "V"
+                  }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "battery_voltage_offset_for_fans_on": {
+              "docs": "battery voltage offset for fans on\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*",
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
+                  "accuracy_decimals": {
+                    "default": "1"
+                  },
+                  "device_class": {
+                    "default": "voltage"
+                  },
+                  "unit_of_measurement": {
+                    "default": "V"
+                  }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "battery_voltage_scc": {
+              "docs": "battery voltage from scc\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*",
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
+                  "accuracy_decimals": {
+                    "default": "1"
+                  },
+                  "device_class": {
+                    "default": "voltage"
+                  },
+                  "unit_of_measurement": {
+                    "default": "V"
+                  }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "bus_voltage": {
+              "docs": "bus voltage\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*",
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
+                  "accuracy_decimals": {
+                    "default": "1"
+                  },
+                  "device_class": {
+                    "default": "voltage"
+                  },
+                  "unit_of_measurement": {
+                    "default": "V"
+                  }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "charger_source_priority": {
+              "docs": "charger source priority\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*",
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
+                  "accuracy_decimals": {
+                    "default": "1"
+                  }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "current_max_ac_charging_current": {
+              "docs": "current max ac charging current\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*",
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
+                  "accuracy_decimals": {
+                    "default": "1"
+                  },
+                  "device_class": {
+                    "default": "current"
+                  },
+                  "unit_of_measurement": {
+                    "default": "A"
+                  }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "current_max_charging_current": {
+              "docs": "current max charging current\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*",
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
+                  "accuracy_decimals": {
+                    "default": "1"
+                  },
+                  "device_class": {
+                    "default": "current"
+                  },
+                  "unit_of_measurement": {
+                    "default": "A"
+                  }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "eeprom_version": {
+              "docs": "eeprom version\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*",
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
+                  "accuracy_decimals": {
+                    "default": "1"
+                  }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "grid_frequency": {
+              "docs": "grid frequency\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*",
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
+                  "accuracy_decimals": {
+                    "default": "1"
+                  },
+                  "icon": {
+                    "default": "mdi:current-ac"
+                  },
+                  "unit_of_measurement": {
+                    "default": "Hz"
+                  }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "grid_rating_current": {
+              "docs": "grid rating current\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*",
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
+                  "accuracy_decimals": {
+                    "default": "1"
+                  },
+                  "device_class": {
+                    "default": "current"
+                  },
+                  "unit_of_measurement": {
+                    "default": "A"
+                  }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "grid_rating_voltage": {
+              "docs": "grid rating voltage\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*",
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
+                  "accuracy_decimals": {
+                    "default": "1"
+                  },
+                  "device_class": {
+                    "default": "voltage"
+                  },
+                  "unit_of_measurement": {
+                    "default": "V"
+                  }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "grid_voltage": {
+              "docs": "grid voltage\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*",
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
+                  "accuracy_decimals": {
+                    "default": "1"
+                  },
+                  "device_class": {
+                    "default": "voltage"
+                  },
+                  "unit_of_measurement": {
+                    "default": "V"
+                  }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "input_voltage_range": {
+              "docs": "input voltage range\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*",
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
+                  "accuracy_decimals": {
+                    "default": "1"
+                  }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "inverter_heat_sink_temperature": {
+              "docs": "inverter heatsink temperature\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*",
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
                   "accuracy_decimals": {
                     "default": "1"
                   },
                   "device_class": {
                     "default": "temperature"
-                  }
-                }
-              },
-              "docs": "inverter heatsink temperature\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*"
-            },
-            "pv_input_current_for_battery": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
+                  },
                   "unit_of_measurement": {
-                    "default": "A"
-                  },
+                    "default": "\u00b0C"
+                  }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "machine_type": {
+              "docs": "machine type\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*",
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
+                  "accuracy_decimals": {
+                    "default": "1"
+                  }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "output_load_percent": {
+              "docs": "output load percentage\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*",
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
                   "accuracy_decimals": {
                     "default": "1"
                   },
-                  "device_class": {
-                    "default": "current"
-                  }
-                }
-              },
-              "docs": "pv input current for battery\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*"
-            },
-            "pv_input_voltage": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
                   "unit_of_measurement": {
-                    "default": "V"
-                  },
-                  "accuracy_decimals": {
-                    "default": "1"
-                  },
-                  "device_class": {
-                    "default": "voltage"
+                    "default": "%"
                   }
-                }
-              },
-              "docs": "pv input voltage\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*"
-            },
-            "battery_voltage_scc": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
+                },
                 "extends": [
                   "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "V"
-                  },
-                  "accuracy_decimals": {
-                    "default": "1"
-                  },
-                  "device_class": {
-                    "default": "voltage"
-                  }
-                }
+                ]
               },
-              "docs": "battery voltage from scc\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*"
+              "type": "schema"
             },
-            "battery_discharge_current": {
+            "output_mode": {
+              "docs": "output mode\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*",
               "key": "Optional",
-              "type": "schema",
               "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "A"
-                  },
-                  "accuracy_decimals": {
-                    "default": "1"
-                  },
-                  "device_class": {
-                    "default": "current"
-                  }
-                }
-              },
-              "docs": "battery discharge current\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*"
-            },
-            "battery_voltage_offset_for_fans_on": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "V"
-                  },
-                  "accuracy_decimals": {
-                    "default": "1"
-                  },
-                  "device_class": {
-                    "default": "voltage"
-                  }
-                }
-              },
-              "docs": "battery voltage offset for fans on\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*"
-            },
-            "eeprom_version": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
                 "config_vars": {
                   "accuracy_decimals": {
                     "default": "1"
                   }
-                }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
               },
-              "docs": "eeprom version\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*"
+              "type": "schema"
+            },
+            "output_source_priority": {
+              "docs": "output source priority\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*",
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
+                  "accuracy_decimals": {
+                    "default": "1"
+                  }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "parallel_max_num": {
+              "docs": "parallel max num\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*",
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
+                  "accuracy_decimals": {
+                    "default": "1"
+                  }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
             },
             "pv_charging_power": {
+              "docs": "pc charging power\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*",
               "key": "Optional",
-              "type": "schema",
               "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
                 "config_vars": {
-                  "unit_of_measurement": {
-                    "default": "W"
-                  },
                   "accuracy_decimals": {
                     "default": "1"
                   },
                   "device_class": {
                     "default": "power"
+                  },
+                  "unit_of_measurement": {
+                    "default": "W"
                   }
-                }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
               },
-              "docs": "pc charging power\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*"
+              "type": "schema"
+            },
+            "pv_input_current_for_battery": {
+              "docs": "pv input current for battery\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*",
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
+                  "accuracy_decimals": {
+                    "default": "1"
+                  },
+                  "device_class": {
+                    "default": "current"
+                  },
+                  "unit_of_measurement": {
+                    "default": "A"
+                  }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "pv_input_voltage": {
+              "docs": "pv input voltage\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*",
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
+                  "accuracy_decimals": {
+                    "default": "1"
+                  },
+                  "device_class": {
+                    "default": "voltage"
+                  },
+                  "unit_of_measurement": {
+                    "default": "V"
+                  }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "pv_ok_condition_for_parallel": {
+              "docs": "PV OK condition for parallel\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*",
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
+                  "accuracy_decimals": {
+                    "default": "1"
+                  }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "pv_power_balance": {
+              "docs": "PV power balance mode\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*",
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
+                  "accuracy_decimals": {
+                    "default": "1"
+                  }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "topology": {
+              "docs": "topology\n\n*See also: [pipsolar Sensor](https://esphome.io/components/pipsolar.html#id1)*",
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
+                  "accuracy_decimals": {
+                    "default": "1"
+                  }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
             }
-          }
-        }
+          },
+          "extends": [
+            "pipsolar.PIPSOLAR_COMPONENT_SCHEMA"
+          ]
+        },
+        "type": "schema"
       }
     }
   },
   "pipsolar.switch": {
     "schemas": {
-      "PIPSWITCH_SCHEMA": {
-        "type": "schema",
+      "CONFIG_SCHEMA": {
         "schema": {
-          "extends": [
-            "switch._SWITCH_SCHEMA",
-            "core.COMPONENT_SCHEMA"
-          ],
           "config_vars": {
-            "restore_mode": {
+            "input_voltage_range": {
+              "docs": "input voltage range\n\n*See also: [pipsolar Switch](https://esphome.io/components/pipsolar.html#id4)*",
               "key": "Optional",
-              "default": "ALWAYS_OFF",
-              "type": "enum",
-              "values": {
-                "RESTORE_DEFAULT_OFF": null,
-                "RESTORE_DEFAULT_ON": null,
-                "ALWAYS_OFF": null,
-                "ALWAYS_ON": null,
-                "RESTORE_INVERTED_DEFAULT_OFF": null,
-                "RESTORE_INVERTED_DEFAULT_ON": null,
-                "DISABLED": null
-              }
+              "schema": {
+                "extends": [
+                  "pipsolar.switch.PIPSWITCH_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "output_source_priority_battery": {
+              "docs": "output source priority battery\n\n*See also: [pipsolar Switch](https://esphome.io/components/pipsolar.html#id4)*",
+              "key": "Optional",
+              "schema": {
+                "extends": [
+                  "pipsolar.switch.PIPSWITCH_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "output_source_priority_hybrid": {
+              "docs": "output source priority hybrid\n\n*See also: [pipsolar Switch](https://esphome.io/components/pipsolar.html#id4)*",
+              "key": "Optional",
+              "schema": {
+                "extends": [
+                  "pipsolar.switch.PIPSWITCH_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "output_source_priority_solar": {
+              "docs": "output source priority solar\n\n*See also: [pipsolar Switch](https://esphome.io/components/pipsolar.html#id4)*",
+              "key": "Optional",
+              "schema": {
+                "extends": [
+                  "pipsolar.switch.PIPSWITCH_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "output_source_priority_utility": {
+              "docs": "output source priority utility\n\n*See also: [pipsolar Switch](https://esphome.io/components/pipsolar.html#id4)*",
+              "key": "Optional",
+              "schema": {
+                "extends": [
+                  "pipsolar.switch.PIPSWITCH_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "pv_ok_condition_for_parallel": {
+              "docs": "pv ok condition for parallel\n\n*See also: [pipsolar Switch](https://esphome.io/components/pipsolar.html#id4)*",
+              "key": "Optional",
+              "schema": {
+                "extends": [
+                  "pipsolar.switch.PIPSWITCH_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "pv_power_balance": {
+              "docs": "pv power balance\n\n*See also: [pipsolar Switch](https://esphome.io/components/pipsolar.html#id4)*",
+              "key": "Optional",
+              "schema": {
+                "extends": [
+                  "pipsolar.switch.PIPSWITCH_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            }
+          },
+          "extends": [
+            "pipsolar.PIPSOLAR_COMPONENT_SCHEMA"
+          ]
+        },
+        "type": "schema"
+      },
+      "PIPSWITCH_SCHEMA": {
+        "schema": {
+          "config_vars": {
+            "icon": {
+              "default": "mdi:power"
             },
             "id": {
-              "key": "GeneratedID",
               "id_type": {
                 "class": "pipsolar::PipsolarSwitch",
                 "parents": [
-                  "switch_::Switch",
+                  "Component",
                   "EntityBase",
-                  "Component"
+                  "switch_::Switch"
                 ]
+              },
+              "key": "GeneratedID"
+            },
+            "restore_mode": {
+              "default": "ALWAYS_OFF",
+              "key": "Optional",
+              "type": "enum",
+              "values": {
+                "ALWAYS_OFF": null,
+                "ALWAYS_ON": null,
+                "DISABLED": null,
+                "RESTORE_DEFAULT_OFF": null,
+                "RESTORE_DEFAULT_ON": null,
+                "RESTORE_INVERTED_DEFAULT_OFF": null,
+                "RESTORE_INVERTED_DEFAULT_ON": null
               }
-            },
-            "icon": {
-              "default": "mdi:power"
             }
-          }
-        }
-      },
-      "CONFIG_SCHEMA": {
-        "type": "schema",
-        "schema": {
+          },
           "extends": [
-            "pipsolar.PIPSOLAR_COMPONENT_SCHEMA"
-          ],
-          "config_vars": {
-            "output_source_priority_utility": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "pipsolar.switch.PIPSWITCH_SCHEMA"
-                ]
-              },
-              "docs": "output source priority utility\n\n*See also: [pipsolar Switch](https://esphome.io/components/pipsolar.html#id4)*"
-            },
-            "output_source_priority_solar": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "pipsolar.switch.PIPSWITCH_SCHEMA"
-                ]
-              },
-              "docs": "output source priority solar\n\n*See also: [pipsolar Switch](https://esphome.io/components/pipsolar.html#id4)*"
-            },
-            "output_source_priority_battery": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "pipsolar.switch.PIPSWITCH_SCHEMA"
-                ]
-              },
-              "docs": "output source priority battery\n\n*See also: [pipsolar Switch](https://esphome.io/components/pipsolar.html#id4)*"
-            },
-            "output_source_priority_hybrid": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "pipsolar.switch.PIPSWITCH_SCHEMA"
-                ]
-              },
-              "docs": "output source priority hybrid\n\n*See also: [pipsolar Switch](https://esphome.io/components/pipsolar.html#id4)*"
-            },
-            "input_voltage_range": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "pipsolar.switch.PIPSWITCH_SCHEMA"
-                ]
-              },
-              "docs": "input voltage range\n\n*See also: [pipsolar Switch](https://esphome.io/components/pipsolar.html#id4)*"
-            },
-            "pv_ok_condition_for_parallel": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "pipsolar.switch.PIPSWITCH_SCHEMA"
-                ]
-              },
-              "docs": "pv ok condition for parallel\n\n*See also: [pipsolar Switch](https://esphome.io/components/pipsolar.html#id4)*"
-            },
-            "pv_power_balance": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "pipsolar.switch.PIPSWITCH_SCHEMA"
-                ]
-              },
-              "docs": "pv power balance\n\n*See also: [pipsolar Switch](https://esphome.io/components/pipsolar.html#id4)*"
-            }
-          }
-        }
+            "core.COMPONENT_SCHEMA",
+            "switch._SWITCH_SCHEMA"
+          ]
+        },
+        "type": "schema"
       }
     }
   },
   "pipsolar.text_sensor": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
         "schema": {
-          "extends": [
-            "pipsolar.PIPSOLAR_COMPONENT_SCHEMA"
-          ],
           "config_vars": {
             "device_mode": {
+              "docs": "device mode response\n\n*See also: [pipsolar Text Sensor](https://esphome.io/components/pipsolar.html#id3)*",
               "key": "Optional",
-              "type": "schema",
               "schema": {
                 "extends": [
                   "text_sensor.TEXT_SENSOR_SCHEMA"
                 ]
               },
-              "docs": "device mode response\n\n*See also: [pipsolar Text Sensor](https://esphome.io/components/pipsolar.html#id3)*"
-            },
-            "last_qpigs": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "text_sensor.TEXT_SENSOR_SCHEMA"
-                ]
-              },
-              "docs": "last qpigs reponse\n\n*See also: [pipsolar Text Sensor](https://esphome.io/components/pipsolar.html#id3)*"
-            },
-            "last_qpiri": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "text_sensor.TEXT_SENSOR_SCHEMA"
-                ]
-              },
-              "docs": "last qpiri reponse\n\n*See also: [pipsolar Text Sensor](https://esphome.io/components/pipsolar.html#id3)*"
-            },
-            "last_qmod": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "text_sensor.TEXT_SENSOR_SCHEMA"
-                ]
-              },
-              "docs": "last qmod reponse\n\n*See also: [pipsolar Text Sensor](https://esphome.io/components/pipsolar.html#id3)*"
+              "type": "schema"
             },
             "last_qflag": {
+              "docs": "last qflag reponse\n\n*See also: [pipsolar Text Sensor](https://esphome.io/components/pipsolar.html#id3)*",
               "key": "Optional",
-              "type": "schema",
               "schema": {
                 "extends": [
                   "text_sensor.TEXT_SENSOR_SCHEMA"
                 ]
               },
-              "docs": "last qflag reponse\n\n*See also: [pipsolar Text Sensor](https://esphome.io/components/pipsolar.html#id3)*"
-            },
-            "last_qpiws": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "text_sensor.TEXT_SENSOR_SCHEMA"
-                ]
-              },
-              "docs": "last qpiws reponse\n\n*See also: [pipsolar Text Sensor](https://esphome.io/components/pipsolar.html#id3)*"
-            },
-            "last_qt": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "text_sensor.TEXT_SENSOR_SCHEMA"
-                ]
-              },
-              "docs": "last qt reponse\n\n*See also: [pipsolar Text Sensor](https://esphome.io/components/pipsolar.html#id3)*"
+              "type": "schema"
             },
             "last_qmn": {
+              "docs": "last qmn reponse\n\n*See also: [pipsolar Text Sensor](https://esphome.io/components/pipsolar.html#id3)*",
               "key": "Optional",
-              "type": "schema",
               "schema": {
                 "extends": [
                   "text_sensor.TEXT_SENSOR_SCHEMA"
                 ]
               },
-              "docs": "last qmn reponse\n\n*See also: [pipsolar Text Sensor](https://esphome.io/components/pipsolar.html#id3)*"
+              "type": "schema"
+            },
+            "last_qmod": {
+              "docs": "last qmod reponse\n\n*See also: [pipsolar Text Sensor](https://esphome.io/components/pipsolar.html#id3)*",
+              "key": "Optional",
+              "schema": {
+                "extends": [
+                  "text_sensor.TEXT_SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "last_qpigs": {
+              "docs": "last qpigs reponse\n\n*See also: [pipsolar Text Sensor](https://esphome.io/components/pipsolar.html#id3)*",
+              "key": "Optional",
+              "schema": {
+                "extends": [
+                  "text_sensor.TEXT_SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "last_qpiri": {
+              "docs": "last qpiri reponse\n\n*See also: [pipsolar Text Sensor](https://esphome.io/components/pipsolar.html#id3)*",
+              "key": "Optional",
+              "schema": {
+                "extends": [
+                  "text_sensor.TEXT_SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "last_qpiws": {
+              "docs": "last qpiws reponse\n\n*See also: [pipsolar Text Sensor](https://esphome.io/components/pipsolar.html#id3)*",
+              "key": "Optional",
+              "schema": {
+                "extends": [
+                  "text_sensor.TEXT_SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "last_qt": {
+              "docs": "last qt reponse\n\n*See also: [pipsolar Text Sensor](https://esphome.io/components/pipsolar.html#id3)*",
+              "key": "Optional",
+              "schema": {
+                "extends": [
+                  "text_sensor.TEXT_SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
             }
-          }
-        }
+          },
+          "extends": [
+            "pipsolar.PIPSOLAR_COMPONENT_SCHEMA"
+          ]
+        },
+        "type": "schema"
       }
     }
   }

@@ -2,1535 +2,1535 @@
   "ld2450": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
+        "is_list": true,
         "schema": {
           "config_vars": {
             "id": {
-              "key": "GeneratedID",
               "id_type": {
                 "class": "ld2450::LD2450Component",
                 "parents": [
                   "Component",
                   "uart::UARTDevice"
                 ]
-              }
+              },
+              "key": "GeneratedID"
             },
             "throttle": {
-              "key": "Optional",
               "default": "1000ms",
-              "type": "schema",
+              "key": "Optional",
               "schema": {
                 "extends": [
                   "core.positive_time_period_milliseconds"
                 ]
-              }
+              },
+              "type": "schema"
             },
             "uart_id": {
               "key": "GeneratedID",
-              "use_id_type": "uart::UARTComponent",
-              "type": "use_id"
+              "type": "use_id",
+              "use_id_type": "uart::UARTComponent"
             }
           },
           "extends": [
             "core.COMPONENT_SCHEMA"
           ]
         },
-        "is_list": true
+        "type": "schema"
       }
     }
   },
   "ld2450.binary_sensor": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
         "schema": {
           "config_vars": {
-            "ld2450_id": {
-              "key": "GeneratedID",
-              "use_id_type": "ld2450::LD2450Component",
-              "type": "use_id"
-            },
-            "has_target": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "binary_sensor.BINARY_SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "icon": {
-                    "default": "mdi:shield-account"
-                  },
-                  "device_class": {
-                    "default": "occupancy"
-                  }
-                }
-              }
-            },
             "has_moving_target": {
               "key": "Optional",
-              "type": "schema",
               "schema": {
-                "extends": [
-                  "binary_sensor.BINARY_SENSOR_SCHEMA"
-                ],
                 "config_vars": {
-                  "icon": {
-                    "default": "mdi:target-account"
-                  },
                   "device_class": {
                     "default": "motion"
+                  },
+                  "icon": {
+                    "default": "mdi:target-account"
                   }
-                }
-              }
+                },
+                "extends": [
+                  "binary_sensor.BINARY_SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
             },
             "has_still_target": {
               "key": "Optional",
-              "type": "schema",
               "schema": {
-                "extends": [
-                  "binary_sensor.BINARY_SENSOR_SCHEMA"
-                ],
                 "config_vars": {
-                  "icon": {
-                    "default": "mdi:meditation"
-                  },
                   "device_class": {
                     "default": "occupancy"
+                  },
+                  "icon": {
+                    "default": "mdi:meditation"
                   }
-                }
-              }
+                },
+                "extends": [
+                  "binary_sensor.BINARY_SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "has_target": {
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
+                  "device_class": {
+                    "default": "occupancy"
+                  },
+                  "icon": {
+                    "default": "mdi:shield-account"
+                  }
+                },
+                "extends": [
+                  "binary_sensor.BINARY_SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "ld2450_id": {
+              "key": "GeneratedID",
+              "type": "use_id",
+              "use_id_type": "ld2450::LD2450Component"
             }
           }
-        }
+        },
+        "type": "schema"
       }
     }
   },
   "ld2450.button": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
         "schema": {
           "config_vars": {
-            "ld2450_id": {
-              "key": "GeneratedID",
-              "use_id_type": "ld2450::LD2450Component",
-              "type": "use_id"
-            },
             "factory_reset": {
               "key": "Optional",
-              "type": "schema",
               "schema": {
-                "extends": [
-                  "button.BUTTON_SCHEMA"
-                ],
                 "config_vars": {
-                  "id": {
-                    "key": "GeneratedID",
-                    "id_type": {
-                      "class": "ld2450::ResetButton",
-                      "parents": [
-                        "button::Button",
-                        "EntityBase"
-                      ]
-                    }
-                  },
-                  "icon": {
-                    "default": "mdi:restart-alert"
+                  "device_class": {
+                    "default": "restart"
                   },
                   "entity_category": {
                     "default": "config"
                   },
-                  "device_class": {
-                    "default": "restart"
+                  "icon": {
+                    "default": "mdi:restart-alert"
+                  },
+                  "id": {
+                    "id_type": {
+                      "class": "ld2450::ResetButton",
+                      "parents": [
+                        "EntityBase",
+                        "button::Button"
+                      ]
+                    },
+                    "key": "GeneratedID"
                   }
-                }
-              }
+                },
+                "extends": [
+                  "button.BUTTON_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "ld2450_id": {
+              "key": "GeneratedID",
+              "type": "use_id",
+              "use_id_type": "ld2450::LD2450Component"
             },
             "restart": {
               "key": "Optional",
-              "type": "schema",
               "schema": {
-                "extends": [
-                  "button.BUTTON_SCHEMA"
-                ],
                 "config_vars": {
-                  "id": {
-                    "key": "GeneratedID",
-                    "id_type": {
-                      "class": "ld2450::RestartButton",
-                      "parents": [
-                        "button::Button",
-                        "EntityBase"
-                      ]
-                    }
-                  },
-                  "icon": {
-                    "default": "mdi:restart"
+                  "device_class": {
+                    "default": "restart"
                   },
                   "entity_category": {
                     "default": "diagnostic"
                   },
-                  "device_class": {
-                    "default": "restart"
+                  "icon": {
+                    "default": "mdi:restart"
+                  },
+                  "id": {
+                    "id_type": {
+                      "class": "ld2450::RestartButton",
+                      "parents": [
+                        "EntityBase",
+                        "button::Button"
+                      ]
+                    },
+                    "key": "GeneratedID"
                   }
-                }
-              }
+                },
+                "extends": [
+                  "button.BUTTON_SCHEMA"
+                ]
+              },
+              "type": "schema"
             }
           }
-        }
+        },
+        "type": "schema"
       }
     }
   },
   "ld2450.number": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
         "schema": {
           "config_vars": {
             "ld2450_id": {
               "key": "GeneratedID",
-              "use_id_type": "ld2450::LD2450Component",
-              "type": "use_id"
+              "type": "use_id",
+              "use_id_type": "ld2450::LD2450Component"
             },
             "presence_timeout": {
               "key": "Required",
-              "type": "schema",
               "schema": {
-                "extends": [
-                  "number.NUMBER_SCHEMA"
-                ],
                 "config_vars": {
-                  "id": {
-                    "key": "GeneratedID",
-                    "id_type": {
-                      "class": "ld2450::PresenceTimeoutNumber",
-                      "parents": [
-                        "number::Number",
-                        "EntityBase"
-                      ]
-                    }
+                  "entity_category": {
+                    "default": "config"
                   },
                   "icon": {
                     "default": "mdi:timelapse"
                   },
-                  "entity_category": {
-                    "default": "config"
+                  "id": {
+                    "id_type": {
+                      "class": "ld2450::PresenceTimeoutNumber",
+                      "parents": [
+                        "EntityBase",
+                        "number::Number"
+                      ]
+                    },
+                    "key": "GeneratedID"
                   },
                   "unit_of_measurement": {
                     "default": "s"
                   }
-                }
-              }
+                },
+                "extends": [
+                  "number.NUMBER_SCHEMA"
+                ]
+              },
+              "type": "schema"
             },
             "zone_1": {
               "key": "Optional",
-              "type": "schema",
               "schema": {
                 "config_vars": {
                   "x1": {
                     "key": "Required",
-                    "type": "schema",
                     "schema": {
-                      "extends": [
-                        "number.NUMBER_SCHEMA"
-                      ],
                       "config_vars": {
-                        "id": {
-                          "key": "GeneratedID",
-                          "id_type": {
-                            "class": "ld2450::ZoneCoordinateNumber",
-                            "parents": [
-                              "number::Number",
-                              "EntityBase"
-                            ]
-                          }
+                        "device_class": {
+                          "default": "distance"
+                        },
+                        "entity_category": {
+                          "default": "config"
                         },
                         "icon": {
                           "default": "mdi:arrow-top-left-bold-box-outline"
                         },
-                        "entity_category": {
-                          "default": "config"
-                        },
-                        "device_class": {
-                          "default": "distance"
-                        },
-                        "unit_of_measurement": {
-                          "default": "mm"
-                        }
-                      }
-                    }
-                  },
-                  "y1": {
-                    "key": "Required",
-                    "type": "schema",
-                    "schema": {
-                      "extends": [
-                        "number.NUMBER_SCHEMA"
-                      ],
-                      "config_vars": {
                         "id": {
-                          "key": "GeneratedID",
                           "id_type": {
                             "class": "ld2450::ZoneCoordinateNumber",
                             "parents": [
-                              "number::Number",
-                              "EntityBase"
+                              "EntityBase",
+                              "number::Number"
                             ]
-                          }
-                        },
-                        "icon": {
-                          "default": "mdi:arrow-top-left"
-                        },
-                        "entity_category": {
-                          "default": "config"
-                        },
-                        "device_class": {
-                          "default": "distance"
+                          },
+                          "key": "GeneratedID"
                         },
                         "unit_of_measurement": {
                           "default": "mm"
                         }
-                      }
-                    }
+                      },
+                      "extends": [
+                        "number.NUMBER_SCHEMA"
+                      ]
+                    },
+                    "type": "schema"
                   },
                   "x2": {
                     "key": "Required",
-                    "type": "schema",
                     "schema": {
-                      "extends": [
-                        "number.NUMBER_SCHEMA"
-                      ],
                       "config_vars": {
-                        "id": {
-                          "key": "GeneratedID",
-                          "id_type": {
-                            "class": "ld2450::ZoneCoordinateNumber",
-                            "parents": [
-                              "number::Number",
-                              "EntityBase"
-                            ]
-                          }
+                        "device_class": {
+                          "default": "distance"
+                        },
+                        "entity_category": {
+                          "default": "config"
                         },
                         "icon": {
                           "default": "mdi:arrow-bottom-right-bold-box-outline"
                         },
-                        "entity_category": {
-                          "default": "config"
-                        },
-                        "device_class": {
-                          "default": "distance"
+                        "id": {
+                          "id_type": {
+                            "class": "ld2450::ZoneCoordinateNumber",
+                            "parents": [
+                              "EntityBase",
+                              "number::Number"
+                            ]
+                          },
+                          "key": "GeneratedID"
                         },
                         "unit_of_measurement": {
                           "default": "mm"
                         }
-                      }
-                    }
-                  },
-                  "y2": {
-                    "key": "Required",
-                    "type": "schema",
-                    "schema": {
+                      },
                       "extends": [
                         "number.NUMBER_SCHEMA"
-                      ],
+                      ]
+                    },
+                    "type": "schema"
+                  },
+                  "y1": {
+                    "key": "Required",
+                    "schema": {
                       "config_vars": {
+                        "device_class": {
+                          "default": "distance"
+                        },
+                        "entity_category": {
+                          "default": "config"
+                        },
+                        "icon": {
+                          "default": "mdi:arrow-top-left"
+                        },
                         "id": {
-                          "key": "GeneratedID",
                           "id_type": {
                             "class": "ld2450::ZoneCoordinateNumber",
                             "parents": [
-                              "number::Number",
-                              "EntityBase"
+                              "EntityBase",
+                              "number::Number"
                             ]
-                          }
+                          },
+                          "key": "GeneratedID"
+                        },
+                        "unit_of_measurement": {
+                          "default": "mm"
+                        }
+                      },
+                      "extends": [
+                        "number.NUMBER_SCHEMA"
+                      ]
+                    },
+                    "type": "schema"
+                  },
+                  "y2": {
+                    "key": "Required",
+                    "schema": {
+                      "config_vars": {
+                        "device_class": {
+                          "default": "distance"
+                        },
+                        "entity_category": {
+                          "default": "config"
                         },
                         "icon": {
                           "default": "mdi:arrow-bottom-right"
                         },
-                        "entity_category": {
-                          "default": "config"
-                        },
-                        "device_class": {
-                          "default": "distance"
+                        "id": {
+                          "id_type": {
+                            "class": "ld2450::ZoneCoordinateNumber",
+                            "parents": [
+                              "EntityBase",
+                              "number::Number"
+                            ]
+                          },
+                          "key": "GeneratedID"
                         },
                         "unit_of_measurement": {
                           "default": "mm"
                         }
-                      }
-                    }
+                      },
+                      "extends": [
+                        "number.NUMBER_SCHEMA"
+                      ]
+                    },
+                    "type": "schema"
                   }
                 }
-              }
+              },
+              "type": "schema"
             },
             "zone_2": {
               "key": "Optional",
-              "type": "schema",
               "schema": {
                 "config_vars": {
                   "x1": {
                     "key": "Required",
-                    "type": "schema",
                     "schema": {
-                      "extends": [
-                        "number.NUMBER_SCHEMA"
-                      ],
                       "config_vars": {
-                        "id": {
-                          "key": "GeneratedID",
-                          "id_type": {
-                            "class": "ld2450::ZoneCoordinateNumber",
-                            "parents": [
-                              "number::Number",
-                              "EntityBase"
-                            ]
-                          }
+                        "device_class": {
+                          "default": "distance"
+                        },
+                        "entity_category": {
+                          "default": "config"
                         },
                         "icon": {
                           "default": "mdi:arrow-top-left-bold-box-outline"
                         },
-                        "entity_category": {
-                          "default": "config"
-                        },
-                        "device_class": {
-                          "default": "distance"
-                        },
-                        "unit_of_measurement": {
-                          "default": "mm"
-                        }
-                      }
-                    }
-                  },
-                  "y1": {
-                    "key": "Required",
-                    "type": "schema",
-                    "schema": {
-                      "extends": [
-                        "number.NUMBER_SCHEMA"
-                      ],
-                      "config_vars": {
                         "id": {
-                          "key": "GeneratedID",
                           "id_type": {
                             "class": "ld2450::ZoneCoordinateNumber",
                             "parents": [
-                              "number::Number",
-                              "EntityBase"
+                              "EntityBase",
+                              "number::Number"
                             ]
-                          }
-                        },
-                        "icon": {
-                          "default": "mdi:arrow-top-left"
-                        },
-                        "entity_category": {
-                          "default": "config"
-                        },
-                        "device_class": {
-                          "default": "distance"
+                          },
+                          "key": "GeneratedID"
                         },
                         "unit_of_measurement": {
                           "default": "mm"
                         }
-                      }
-                    }
+                      },
+                      "extends": [
+                        "number.NUMBER_SCHEMA"
+                      ]
+                    },
+                    "type": "schema"
                   },
                   "x2": {
                     "key": "Required",
-                    "type": "schema",
                     "schema": {
-                      "extends": [
-                        "number.NUMBER_SCHEMA"
-                      ],
                       "config_vars": {
-                        "id": {
-                          "key": "GeneratedID",
-                          "id_type": {
-                            "class": "ld2450::ZoneCoordinateNumber",
-                            "parents": [
-                              "number::Number",
-                              "EntityBase"
-                            ]
-                          }
+                        "device_class": {
+                          "default": "distance"
+                        },
+                        "entity_category": {
+                          "default": "config"
                         },
                         "icon": {
                           "default": "mdi:arrow-bottom-right-bold-box-outline"
                         },
-                        "entity_category": {
-                          "default": "config"
-                        },
-                        "device_class": {
-                          "default": "distance"
+                        "id": {
+                          "id_type": {
+                            "class": "ld2450::ZoneCoordinateNumber",
+                            "parents": [
+                              "EntityBase",
+                              "number::Number"
+                            ]
+                          },
+                          "key": "GeneratedID"
                         },
                         "unit_of_measurement": {
                           "default": "mm"
                         }
-                      }
-                    }
-                  },
-                  "y2": {
-                    "key": "Required",
-                    "type": "schema",
-                    "schema": {
+                      },
                       "extends": [
                         "number.NUMBER_SCHEMA"
-                      ],
+                      ]
+                    },
+                    "type": "schema"
+                  },
+                  "y1": {
+                    "key": "Required",
+                    "schema": {
                       "config_vars": {
+                        "device_class": {
+                          "default": "distance"
+                        },
+                        "entity_category": {
+                          "default": "config"
+                        },
+                        "icon": {
+                          "default": "mdi:arrow-top-left"
+                        },
                         "id": {
-                          "key": "GeneratedID",
                           "id_type": {
                             "class": "ld2450::ZoneCoordinateNumber",
                             "parents": [
-                              "number::Number",
-                              "EntityBase"
+                              "EntityBase",
+                              "number::Number"
                             ]
-                          }
+                          },
+                          "key": "GeneratedID"
+                        },
+                        "unit_of_measurement": {
+                          "default": "mm"
+                        }
+                      },
+                      "extends": [
+                        "number.NUMBER_SCHEMA"
+                      ]
+                    },
+                    "type": "schema"
+                  },
+                  "y2": {
+                    "key": "Required",
+                    "schema": {
+                      "config_vars": {
+                        "device_class": {
+                          "default": "distance"
+                        },
+                        "entity_category": {
+                          "default": "config"
                         },
                         "icon": {
                           "default": "mdi:arrow-bottom-right"
                         },
-                        "entity_category": {
-                          "default": "config"
-                        },
-                        "device_class": {
-                          "default": "distance"
+                        "id": {
+                          "id_type": {
+                            "class": "ld2450::ZoneCoordinateNumber",
+                            "parents": [
+                              "EntityBase",
+                              "number::Number"
+                            ]
+                          },
+                          "key": "GeneratedID"
                         },
                         "unit_of_measurement": {
                           "default": "mm"
                         }
-                      }
-                    }
+                      },
+                      "extends": [
+                        "number.NUMBER_SCHEMA"
+                      ]
+                    },
+                    "type": "schema"
                   }
                 }
-              }
+              },
+              "type": "schema"
             },
             "zone_3": {
               "key": "Optional",
-              "type": "schema",
               "schema": {
                 "config_vars": {
                   "x1": {
                     "key": "Required",
-                    "type": "schema",
                     "schema": {
-                      "extends": [
-                        "number.NUMBER_SCHEMA"
-                      ],
                       "config_vars": {
-                        "id": {
-                          "key": "GeneratedID",
-                          "id_type": {
-                            "class": "ld2450::ZoneCoordinateNumber",
-                            "parents": [
-                              "number::Number",
-                              "EntityBase"
-                            ]
-                          }
+                        "device_class": {
+                          "default": "distance"
+                        },
+                        "entity_category": {
+                          "default": "config"
                         },
                         "icon": {
                           "default": "mdi:arrow-top-left-bold-box-outline"
                         },
-                        "entity_category": {
-                          "default": "config"
-                        },
-                        "device_class": {
-                          "default": "distance"
-                        },
-                        "unit_of_measurement": {
-                          "default": "mm"
-                        }
-                      }
-                    }
-                  },
-                  "y1": {
-                    "key": "Required",
-                    "type": "schema",
-                    "schema": {
-                      "extends": [
-                        "number.NUMBER_SCHEMA"
-                      ],
-                      "config_vars": {
                         "id": {
-                          "key": "GeneratedID",
                           "id_type": {
                             "class": "ld2450::ZoneCoordinateNumber",
                             "parents": [
-                              "number::Number",
-                              "EntityBase"
+                              "EntityBase",
+                              "number::Number"
                             ]
-                          }
-                        },
-                        "icon": {
-                          "default": "mdi:arrow-top-left"
-                        },
-                        "entity_category": {
-                          "default": "config"
-                        },
-                        "device_class": {
-                          "default": "distance"
+                          },
+                          "key": "GeneratedID"
                         },
                         "unit_of_measurement": {
                           "default": "mm"
                         }
-                      }
-                    }
+                      },
+                      "extends": [
+                        "number.NUMBER_SCHEMA"
+                      ]
+                    },
+                    "type": "schema"
                   },
                   "x2": {
                     "key": "Required",
-                    "type": "schema",
                     "schema": {
-                      "extends": [
-                        "number.NUMBER_SCHEMA"
-                      ],
                       "config_vars": {
-                        "id": {
-                          "key": "GeneratedID",
-                          "id_type": {
-                            "class": "ld2450::ZoneCoordinateNumber",
-                            "parents": [
-                              "number::Number",
-                              "EntityBase"
-                            ]
-                          }
+                        "device_class": {
+                          "default": "distance"
+                        },
+                        "entity_category": {
+                          "default": "config"
                         },
                         "icon": {
                           "default": "mdi:arrow-bottom-right-bold-box-outline"
                         },
-                        "entity_category": {
-                          "default": "config"
-                        },
-                        "device_class": {
-                          "default": "distance"
+                        "id": {
+                          "id_type": {
+                            "class": "ld2450::ZoneCoordinateNumber",
+                            "parents": [
+                              "EntityBase",
+                              "number::Number"
+                            ]
+                          },
+                          "key": "GeneratedID"
                         },
                         "unit_of_measurement": {
                           "default": "mm"
                         }
-                      }
-                    }
-                  },
-                  "y2": {
-                    "key": "Required",
-                    "type": "schema",
-                    "schema": {
+                      },
                       "extends": [
                         "number.NUMBER_SCHEMA"
-                      ],
+                      ]
+                    },
+                    "type": "schema"
+                  },
+                  "y1": {
+                    "key": "Required",
+                    "schema": {
                       "config_vars": {
+                        "device_class": {
+                          "default": "distance"
+                        },
+                        "entity_category": {
+                          "default": "config"
+                        },
+                        "icon": {
+                          "default": "mdi:arrow-top-left"
+                        },
                         "id": {
-                          "key": "GeneratedID",
                           "id_type": {
                             "class": "ld2450::ZoneCoordinateNumber",
                             "parents": [
-                              "number::Number",
-                              "EntityBase"
+                              "EntityBase",
+                              "number::Number"
                             ]
-                          }
+                          },
+                          "key": "GeneratedID"
+                        },
+                        "unit_of_measurement": {
+                          "default": "mm"
+                        }
+                      },
+                      "extends": [
+                        "number.NUMBER_SCHEMA"
+                      ]
+                    },
+                    "type": "schema"
+                  },
+                  "y2": {
+                    "key": "Required",
+                    "schema": {
+                      "config_vars": {
+                        "device_class": {
+                          "default": "distance"
+                        },
+                        "entity_category": {
+                          "default": "config"
                         },
                         "icon": {
                           "default": "mdi:arrow-bottom-right"
                         },
-                        "entity_category": {
-                          "default": "config"
-                        },
-                        "device_class": {
-                          "default": "distance"
+                        "id": {
+                          "id_type": {
+                            "class": "ld2450::ZoneCoordinateNumber",
+                            "parents": [
+                              "EntityBase",
+                              "number::Number"
+                            ]
+                          },
+                          "key": "GeneratedID"
                         },
                         "unit_of_measurement": {
                           "default": "mm"
                         }
-                      }
-                    }
+                      },
+                      "extends": [
+                        "number.NUMBER_SCHEMA"
+                      ]
+                    },
+                    "type": "schema"
                   }
                 }
-              }
+              },
+              "type": "schema"
             }
           }
-        }
+        },
+        "type": "schema"
       }
     }
   },
   "ld2450.select": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
         "schema": {
           "config_vars": {
-            "ld2450_id": {
-              "key": "GeneratedID",
-              "use_id_type": "ld2450::LD2450Component",
-              "type": "use_id"
-            },
             "baud_rate": {
               "key": "Optional",
-              "type": "schema",
               "schema": {
-                "extends": [
-                  "select.SELECT_SCHEMA"
-                ],
                 "config_vars": {
+                  "entity_category": {
+                    "default": "config"
+                  },
+                  "icon": {
+                    "default": "mdi:thermometer"
+                  },
                   "id": {
                     "id_type": {
                       "class": "ld2450::BaudRateSelect",
                       "parents": [
-                        "select::Select",
-                        "EntityBase"
+                        "EntityBase",
+                        "select::Select"
                       ]
                     }
-                  },
+                  }
+                },
+                "extends": [
+                  "select.SELECT_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "ld2450_id": {
+              "key": "GeneratedID",
+              "type": "use_id",
+              "use_id_type": "ld2450::LD2450Component"
+            },
+            "zone_type": {
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
                   "entity_category": {
                     "default": "config"
                   },
                   "icon": {
                     "default": "mdi:thermometer"
-                  }
-                }
-              }
-            },
-            "zone_type": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "select.SELECT_SCHEMA"
-                ],
-                "config_vars": {
+                  },
                   "id": {
                     "id_type": {
                       "class": "ld2450::ZoneTypeSelect",
                       "parents": [
-                        "select::Select",
-                        "EntityBase"
+                        "EntityBase",
+                        "select::Select"
                       ]
                     }
-                  },
-                  "entity_category": {
-                    "default": "config"
-                  },
-                  "icon": {
-                    "default": "mdi:thermometer"
                   }
-                }
-              }
+                },
+                "extends": [
+                  "select.SELECT_SCHEMA"
+                ]
+              },
+              "type": "schema"
             }
           }
-        }
+        },
+        "type": "schema"
       }
     }
   },
   "ld2450.sensor": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
         "schema": {
           "config_vars": {
+            "id": {
+              "docs": "**, [ID](https://esphome.io/guides/configuration-types.html#config-id)**: Manually specify the ID for this [LD2450 Sensor component.\n\n*See also: [Component](https://esphome.io/components/sensor/ld2450.html#configuration-variables)*"
+            },
             "ld2450_id": {
               "key": "GeneratedID",
-              "use_id_type": "ld2450::LD2450Component",
-              "type": "use_id"
-            },
-            "target_count": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "icon": {
-                    "default": "mdi:account-group"
-                  }
-                }
-              }
-            },
-            "still_target_count": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "icon": {
-                    "default": "mdi:human-greeting-proximity"
-                  }
-                }
-              }
+              "type": "use_id",
+              "use_id_type": "ld2450::LD2450Component"
             },
             "moving_target_count": {
               "key": "Optional",
-              "type": "schema",
               "schema": {
-                "extends": [
-                  "sensor.SENSOR_SCHEMA"
-                ],
                 "config_vars": {
                   "icon": {
                     "default": "mdi:account-switch"
                   }
-                }
-              }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "still_target_count": {
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
+                  "icon": {
+                    "default": "mdi:human-greeting-proximity"
+                  }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
             },
             "target_1": {
               "key": "Optional",
-              "type": "schema",
               "schema": {
                 "config_vars": {
-                  "x": {
-                    "key": "Optional",
-                    "type": "schema",
-                    "schema": {
-                      "extends": [
-                        "sensor.SENSOR_SCHEMA"
-                      ],
-                      "config_vars": {
-                        "unit_of_measurement": {
-                          "default": "mm"
-                        },
-                        "icon": {
-                          "default": "mdi:alpha-x-box-outline"
-                        },
-                        "device_class": {
-                          "default": "distance"
-                        }
-                      }
-                    }
-                  },
-                  "y": {
-                    "key": "Optional",
-                    "type": "schema",
-                    "schema": {
-                      "extends": [
-                        "sensor.SENSOR_SCHEMA"
-                      ],
-                      "config_vars": {
-                        "unit_of_measurement": {
-                          "default": "mm"
-                        },
-                        "icon": {
-                          "default": "mdi:alpha-y-box-outline"
-                        },
-                        "device_class": {
-                          "default": "distance"
-                        }
-                      }
-                    }
-                  },
-                  "speed": {
-                    "key": "Optional",
-                    "type": "schema",
-                    "schema": {
-                      "extends": [
-                        "sensor.SENSOR_SCHEMA"
-                      ],
-                      "config_vars": {
-                        "unit_of_measurement": {
-                          "default": "mm/s"
-                        },
-                        "icon": {
-                          "default": "mdi:speedometer-slow"
-                        },
-                        "device_class": {
-                          "default": "speed"
-                        }
-                      }
-                    }
-                  },
                   "angle": {
                     "key": "Optional",
-                    "type": "schema",
                     "schema": {
-                      "extends": [
-                        "sensor.SENSOR_SCHEMA"
-                      ],
                       "config_vars": {
-                        "unit_of_measurement": {
-                          "default": "\u00b0"
-                        },
                         "icon": {
                           "default": "mdi:format-text-rotation-angle-up"
+                        },
+                        "unit_of_measurement": {
+                          "default": "\u00b0"
                         }
-                      }
-                    }
+                      },
+                      "extends": [
+                        "sensor.SENSOR_SCHEMA"
+                      ]
+                    },
+                    "type": "schema"
                   },
                   "distance": {
                     "key": "Optional",
-                    "type": "schema",
                     "schema": {
-                      "extends": [
-                        "sensor.SENSOR_SCHEMA"
-                      ],
                       "config_vars": {
-                        "unit_of_measurement": {
-                          "default": "mm"
+                        "device_class": {
+                          "default": "distance"
                         },
                         "icon": {
                           "default": "mdi:map-marker-distance"
                         },
-                        "device_class": {
-                          "default": "distance"
+                        "unit_of_measurement": {
+                          "default": "mm"
                         }
-                      }
-                    }
+                      },
+                      "extends": [
+                        "sensor.SENSOR_SCHEMA"
+                      ]
+                    },
+                    "type": "schema"
                   },
                   "resolution": {
                     "key": "Optional",
-                    "type": "schema",
                     "schema": {
-                      "extends": [
-                        "sensor.SENSOR_SCHEMA"
-                      ],
                       "config_vars": {
-                        "unit_of_measurement": {
-                          "default": "mm"
+                        "device_class": {
+                          "default": "distance"
                         },
                         "icon": {
                           "default": "mdi:relation-zero-or-one-to-zero-or-one"
                         },
+                        "unit_of_measurement": {
+                          "default": "mm"
+                        }
+                      },
+                      "extends": [
+                        "sensor.SENSOR_SCHEMA"
+                      ]
+                    },
+                    "type": "schema"
+                  },
+                  "speed": {
+                    "key": "Optional",
+                    "schema": {
+                      "config_vars": {
+                        "device_class": {
+                          "default": "speed"
+                        },
+                        "icon": {
+                          "default": "mdi:speedometer-slow"
+                        },
+                        "unit_of_measurement": {
+                          "default": "mm/s"
+                        }
+                      },
+                      "extends": [
+                        "sensor.SENSOR_SCHEMA"
+                      ]
+                    },
+                    "type": "schema"
+                  },
+                  "x": {
+                    "key": "Optional",
+                    "schema": {
+                      "config_vars": {
                         "device_class": {
                           "default": "distance"
+                        },
+                        "icon": {
+                          "default": "mdi:alpha-x-box-outline"
+                        },
+                        "unit_of_measurement": {
+                          "default": "mm"
                         }
-                      }
-                    }
+                      },
+                      "extends": [
+                        "sensor.SENSOR_SCHEMA"
+                      ]
+                    },
+                    "type": "schema"
+                  },
+                  "y": {
+                    "key": "Optional",
+                    "schema": {
+                      "config_vars": {
+                        "device_class": {
+                          "default": "distance"
+                        },
+                        "icon": {
+                          "default": "mdi:alpha-y-box-outline"
+                        },
+                        "unit_of_measurement": {
+                          "default": "mm"
+                        }
+                      },
+                      "extends": [
+                        "sensor.SENSOR_SCHEMA"
+                      ]
+                    },
+                    "type": "schema"
                   }
                 }
-              }
+              },
+              "type": "schema"
             },
             "target_2": {
               "key": "Optional",
-              "type": "schema",
               "schema": {
                 "config_vars": {
-                  "x": {
-                    "key": "Optional",
-                    "type": "schema",
-                    "schema": {
-                      "extends": [
-                        "sensor.SENSOR_SCHEMA"
-                      ],
-                      "config_vars": {
-                        "unit_of_measurement": {
-                          "default": "mm"
-                        },
-                        "icon": {
-                          "default": "mdi:alpha-x-box-outline"
-                        },
-                        "device_class": {
-                          "default": "distance"
-                        }
-                      }
-                    }
-                  },
-                  "y": {
-                    "key": "Optional",
-                    "type": "schema",
-                    "schema": {
-                      "extends": [
-                        "sensor.SENSOR_SCHEMA"
-                      ],
-                      "config_vars": {
-                        "unit_of_measurement": {
-                          "default": "mm"
-                        },
-                        "icon": {
-                          "default": "mdi:alpha-y-box-outline"
-                        },
-                        "device_class": {
-                          "default": "distance"
-                        }
-                      }
-                    }
-                  },
-                  "speed": {
-                    "key": "Optional",
-                    "type": "schema",
-                    "schema": {
-                      "extends": [
-                        "sensor.SENSOR_SCHEMA"
-                      ],
-                      "config_vars": {
-                        "unit_of_measurement": {
-                          "default": "mm/s"
-                        },
-                        "icon": {
-                          "default": "mdi:speedometer-slow"
-                        },
-                        "device_class": {
-                          "default": "speed"
-                        }
-                      }
-                    }
-                  },
                   "angle": {
                     "key": "Optional",
-                    "type": "schema",
                     "schema": {
-                      "extends": [
-                        "sensor.SENSOR_SCHEMA"
-                      ],
                       "config_vars": {
-                        "unit_of_measurement": {
-                          "default": "\u00b0"
-                        },
                         "icon": {
                           "default": "mdi:format-text-rotation-angle-up"
+                        },
+                        "unit_of_measurement": {
+                          "default": "\u00b0"
                         }
-                      }
-                    }
+                      },
+                      "extends": [
+                        "sensor.SENSOR_SCHEMA"
+                      ]
+                    },
+                    "type": "schema"
                   },
                   "distance": {
                     "key": "Optional",
-                    "type": "schema",
                     "schema": {
-                      "extends": [
-                        "sensor.SENSOR_SCHEMA"
-                      ],
                       "config_vars": {
-                        "unit_of_measurement": {
-                          "default": "mm"
+                        "device_class": {
+                          "default": "distance"
                         },
                         "icon": {
                           "default": "mdi:map-marker-distance"
                         },
-                        "device_class": {
-                          "default": "distance"
+                        "unit_of_measurement": {
+                          "default": "mm"
                         }
-                      }
-                    }
+                      },
+                      "extends": [
+                        "sensor.SENSOR_SCHEMA"
+                      ]
+                    },
+                    "type": "schema"
                   },
                   "resolution": {
                     "key": "Optional",
-                    "type": "schema",
                     "schema": {
-                      "extends": [
-                        "sensor.SENSOR_SCHEMA"
-                      ],
                       "config_vars": {
-                        "unit_of_measurement": {
-                          "default": "mm"
+                        "device_class": {
+                          "default": "distance"
                         },
                         "icon": {
                           "default": "mdi:relation-zero-or-one-to-zero-or-one"
                         },
+                        "unit_of_measurement": {
+                          "default": "mm"
+                        }
+                      },
+                      "extends": [
+                        "sensor.SENSOR_SCHEMA"
+                      ]
+                    },
+                    "type": "schema"
+                  },
+                  "speed": {
+                    "key": "Optional",
+                    "schema": {
+                      "config_vars": {
+                        "device_class": {
+                          "default": "speed"
+                        },
+                        "icon": {
+                          "default": "mdi:speedometer-slow"
+                        },
+                        "unit_of_measurement": {
+                          "default": "mm/s"
+                        }
+                      },
+                      "extends": [
+                        "sensor.SENSOR_SCHEMA"
+                      ]
+                    },
+                    "type": "schema"
+                  },
+                  "x": {
+                    "key": "Optional",
+                    "schema": {
+                      "config_vars": {
                         "device_class": {
                           "default": "distance"
+                        },
+                        "icon": {
+                          "default": "mdi:alpha-x-box-outline"
+                        },
+                        "unit_of_measurement": {
+                          "default": "mm"
                         }
-                      }
-                    }
+                      },
+                      "extends": [
+                        "sensor.SENSOR_SCHEMA"
+                      ]
+                    },
+                    "type": "schema"
+                  },
+                  "y": {
+                    "key": "Optional",
+                    "schema": {
+                      "config_vars": {
+                        "device_class": {
+                          "default": "distance"
+                        },
+                        "icon": {
+                          "default": "mdi:alpha-y-box-outline"
+                        },
+                        "unit_of_measurement": {
+                          "default": "mm"
+                        }
+                      },
+                      "extends": [
+                        "sensor.SENSOR_SCHEMA"
+                      ]
+                    },
+                    "type": "schema"
                   }
                 }
-              }
+              },
+              "type": "schema"
             },
             "target_3": {
               "key": "Optional",
-              "type": "schema",
               "schema": {
                 "config_vars": {
-                  "x": {
-                    "key": "Optional",
-                    "type": "schema",
-                    "schema": {
-                      "extends": [
-                        "sensor.SENSOR_SCHEMA"
-                      ],
-                      "config_vars": {
-                        "unit_of_measurement": {
-                          "default": "mm"
-                        },
-                        "icon": {
-                          "default": "mdi:alpha-x-box-outline"
-                        },
-                        "device_class": {
-                          "default": "distance"
-                        }
-                      }
-                    }
-                  },
-                  "y": {
-                    "key": "Optional",
-                    "type": "schema",
-                    "schema": {
-                      "extends": [
-                        "sensor.SENSOR_SCHEMA"
-                      ],
-                      "config_vars": {
-                        "unit_of_measurement": {
-                          "default": "mm"
-                        },
-                        "icon": {
-                          "default": "mdi:alpha-y-box-outline"
-                        },
-                        "device_class": {
-                          "default": "distance"
-                        }
-                      }
-                    }
-                  },
-                  "speed": {
-                    "key": "Optional",
-                    "type": "schema",
-                    "schema": {
-                      "extends": [
-                        "sensor.SENSOR_SCHEMA"
-                      ],
-                      "config_vars": {
-                        "unit_of_measurement": {
-                          "default": "mm/s"
-                        },
-                        "icon": {
-                          "default": "mdi:speedometer-slow"
-                        },
-                        "device_class": {
-                          "default": "speed"
-                        }
-                      }
-                    }
-                  },
                   "angle": {
                     "key": "Optional",
-                    "type": "schema",
                     "schema": {
-                      "extends": [
-                        "sensor.SENSOR_SCHEMA"
-                      ],
                       "config_vars": {
-                        "unit_of_measurement": {
-                          "default": "\u00b0"
-                        },
                         "icon": {
                           "default": "mdi:format-text-rotation-angle-up"
+                        },
+                        "unit_of_measurement": {
+                          "default": "\u00b0"
                         }
-                      }
-                    }
+                      },
+                      "extends": [
+                        "sensor.SENSOR_SCHEMA"
+                      ]
+                    },
+                    "type": "schema"
                   },
                   "distance": {
                     "key": "Optional",
-                    "type": "schema",
                     "schema": {
-                      "extends": [
-                        "sensor.SENSOR_SCHEMA"
-                      ],
                       "config_vars": {
-                        "unit_of_measurement": {
-                          "default": "mm"
+                        "device_class": {
+                          "default": "distance"
                         },
                         "icon": {
                           "default": "mdi:map-marker-distance"
                         },
-                        "device_class": {
-                          "default": "distance"
+                        "unit_of_measurement": {
+                          "default": "mm"
                         }
-                      }
-                    }
+                      },
+                      "extends": [
+                        "sensor.SENSOR_SCHEMA"
+                      ]
+                    },
+                    "type": "schema"
                   },
                   "resolution": {
                     "key": "Optional",
-                    "type": "schema",
                     "schema": {
-                      "extends": [
-                        "sensor.SENSOR_SCHEMA"
-                      ],
                       "config_vars": {
-                        "unit_of_measurement": {
-                          "default": "mm"
+                        "device_class": {
+                          "default": "distance"
                         },
                         "icon": {
                           "default": "mdi:relation-zero-or-one-to-zero-or-one"
                         },
+                        "unit_of_measurement": {
+                          "default": "mm"
+                        }
+                      },
+                      "extends": [
+                        "sensor.SENSOR_SCHEMA"
+                      ]
+                    },
+                    "type": "schema"
+                  },
+                  "speed": {
+                    "key": "Optional",
+                    "schema": {
+                      "config_vars": {
+                        "device_class": {
+                          "default": "speed"
+                        },
+                        "icon": {
+                          "default": "mdi:speedometer-slow"
+                        },
+                        "unit_of_measurement": {
+                          "default": "mm/s"
+                        }
+                      },
+                      "extends": [
+                        "sensor.SENSOR_SCHEMA"
+                      ]
+                    },
+                    "type": "schema"
+                  },
+                  "x": {
+                    "key": "Optional",
+                    "schema": {
+                      "config_vars": {
                         "device_class": {
                           "default": "distance"
+                        },
+                        "icon": {
+                          "default": "mdi:alpha-x-box-outline"
+                        },
+                        "unit_of_measurement": {
+                          "default": "mm"
                         }
-                      }
-                    }
+                      },
+                      "extends": [
+                        "sensor.SENSOR_SCHEMA"
+                      ]
+                    },
+                    "type": "schema"
+                  },
+                  "y": {
+                    "key": "Optional",
+                    "schema": {
+                      "config_vars": {
+                        "device_class": {
+                          "default": "distance"
+                        },
+                        "icon": {
+                          "default": "mdi:alpha-y-box-outline"
+                        },
+                        "unit_of_measurement": {
+                          "default": "mm"
+                        }
+                      },
+                      "extends": [
+                        "sensor.SENSOR_SCHEMA"
+                      ]
+                    },
+                    "type": "schema"
                   }
                 }
-              }
+              },
+              "type": "schema"
+            },
+            "target_count": {
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
+                  "icon": {
+                    "default": "mdi:account-group"
+                  }
+                },
+                "extends": [
+                  "sensor.SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "uart_id": {
+              "docs": "**, [ID](https://esphome.io/guides/configuration-types.html#config-id)**: Manually specify the ID of the [UART Component](https://esphome.io/components/uart.html#uart) to use. Required if you have multiple UARTs configured.\n\n*See also: [Component](https://esphome.io/components/sensor/ld2450.html#configuration-variables)*"
             },
             "zone_1": {
               "key": "Optional",
-              "type": "schema",
               "schema": {
                 "config_vars": {
-                  "target_count": {
+                  "moving_target_count": {
                     "key": "Optional",
-                    "type": "schema",
                     "schema": {
-                      "extends": [
-                        "sensor.SENSOR_SCHEMA"
-                      ],
                       "config_vars": {
                         "icon": {
                           "default": "mdi:map-marker-account"
                         }
-                      }
-                    }
+                      },
+                      "extends": [
+                        "sensor.SENSOR_SCHEMA"
+                      ]
+                    },
+                    "type": "schema"
                   },
                   "still_target_count": {
                     "key": "Optional",
-                    "type": "schema",
                     "schema": {
-                      "extends": [
-                        "sensor.SENSOR_SCHEMA"
-                      ],
                       "config_vars": {
                         "icon": {
                           "default": "mdi:map-marker-account"
                         }
-                      }
-                    }
+                      },
+                      "extends": [
+                        "sensor.SENSOR_SCHEMA"
+                      ]
+                    },
+                    "type": "schema"
                   },
-                  "moving_target_count": {
+                  "target_count": {
                     "key": "Optional",
-                    "type": "schema",
                     "schema": {
-                      "extends": [
-                        "sensor.SENSOR_SCHEMA"
-                      ],
                       "config_vars": {
                         "icon": {
                           "default": "mdi:map-marker-account"
                         }
-                      }
-                    }
+                      },
+                      "extends": [
+                        "sensor.SENSOR_SCHEMA"
+                      ]
+                    },
+                    "type": "schema"
                   }
                 }
-              }
+              },
+              "type": "schema"
             },
             "zone_2": {
               "key": "Optional",
-              "type": "schema",
               "schema": {
                 "config_vars": {
-                  "target_count": {
+                  "moving_target_count": {
                     "key": "Optional",
-                    "type": "schema",
                     "schema": {
-                      "extends": [
-                        "sensor.SENSOR_SCHEMA"
-                      ],
                       "config_vars": {
                         "icon": {
                           "default": "mdi:map-marker-account"
                         }
-                      }
-                    }
+                      },
+                      "extends": [
+                        "sensor.SENSOR_SCHEMA"
+                      ]
+                    },
+                    "type": "schema"
                   },
                   "still_target_count": {
                     "key": "Optional",
-                    "type": "schema",
                     "schema": {
-                      "extends": [
-                        "sensor.SENSOR_SCHEMA"
-                      ],
                       "config_vars": {
                         "icon": {
                           "default": "mdi:map-marker-account"
                         }
-                      }
-                    }
+                      },
+                      "extends": [
+                        "sensor.SENSOR_SCHEMA"
+                      ]
+                    },
+                    "type": "schema"
                   },
-                  "moving_target_count": {
+                  "target_count": {
                     "key": "Optional",
-                    "type": "schema",
                     "schema": {
-                      "extends": [
-                        "sensor.SENSOR_SCHEMA"
-                      ],
                       "config_vars": {
                         "icon": {
                           "default": "mdi:map-marker-account"
                         }
-                      }
-                    }
+                      },
+                      "extends": [
+                        "sensor.SENSOR_SCHEMA"
+                      ]
+                    },
+                    "type": "schema"
                   }
                 }
-              }
+              },
+              "type": "schema"
             },
             "zone_3": {
               "key": "Optional",
-              "type": "schema",
               "schema": {
                 "config_vars": {
-                  "target_count": {
+                  "moving_target_count": {
                     "key": "Optional",
-                    "type": "schema",
                     "schema": {
-                      "extends": [
-                        "sensor.SENSOR_SCHEMA"
-                      ],
                       "config_vars": {
                         "icon": {
                           "default": "mdi:map-marker-account"
                         }
-                      }
-                    }
+                      },
+                      "extends": [
+                        "sensor.SENSOR_SCHEMA"
+                      ]
+                    },
+                    "type": "schema"
                   },
                   "still_target_count": {
                     "key": "Optional",
-                    "type": "schema",
                     "schema": {
-                      "extends": [
-                        "sensor.SENSOR_SCHEMA"
-                      ],
                       "config_vars": {
                         "icon": {
                           "default": "mdi:map-marker-account"
                         }
-                      }
-                    }
+                      },
+                      "extends": [
+                        "sensor.SENSOR_SCHEMA"
+                      ]
+                    },
+                    "type": "schema"
                   },
-                  "moving_target_count": {
+                  "target_count": {
                     "key": "Optional",
-                    "type": "schema",
                     "schema": {
-                      "extends": [
-                        "sensor.SENSOR_SCHEMA"
-                      ],
                       "config_vars": {
                         "icon": {
                           "default": "mdi:map-marker-account"
                         }
-                      }
-                    }
+                      },
+                      "extends": [
+                        "sensor.SENSOR_SCHEMA"
+                      ]
+                    },
+                    "type": "schema"
                   }
                 }
-              }
-            },
-            "id": {
-              "docs": "**[ID](https://esphome.io/guides/configuration-types.html#config-id)**: Manually specify the ID for this [LD2450 Sensor component.\n\n*See also: [Component](https://esphome.io/components/sensor/ld2450.html#configuration-variables)*"
-            },
-            "uart_id": {
-              "docs": "**[ID](https://esphome.io/guides/configuration-types.html#config-id)**: Manually specify the ID of the [UART Component](https://esphome.io/components/uart.html#uart) to use. Required if you have multiple UARTs configured.\n\n*See also: [Component](https://esphome.io/components/sensor/ld2450.html#configuration-variables)*"
+              },
+              "type": "schema"
             }
           }
-        }
+        },
+        "type": "schema"
       }
     }
   },
   "ld2450.switch": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
         "schema": {
           "config_vars": {
-            "ld2450_id": {
-              "key": "GeneratedID",
-              "use_id_type": "ld2450::LD2450Component",
-              "type": "use_id"
-            },
             "bluetooth": {
               "key": "Optional",
-              "type": "schema",
               "schema": {
-                "extends": [
-                  "switch._SWITCH_SCHEMA"
-                ],
                 "config_vars": {
-                  "restore_mode": {
-                    "key": "Optional",
-                    "default": "ALWAYS_OFF",
-                    "type": "enum",
-                    "values": {
-                      "RESTORE_DEFAULT_OFF": null,
-                      "RESTORE_DEFAULT_ON": null,
-                      "ALWAYS_OFF": null,
-                      "ALWAYS_ON": null,
-                      "RESTORE_INVERTED_DEFAULT_OFF": null,
-                      "RESTORE_INVERTED_DEFAULT_ON": null,
-                      "DISABLED": null
-                    }
-                  },
-                  "id": {
-                    "key": "GeneratedID",
-                    "id_type": {
-                      "class": "ld2450::BluetoothSwitch",
-                      "parents": [
-                        "switch_::Switch",
-                        "EntityBase"
-                      ]
-                    }
+                  "device_class": {
+                    "default": "switch"
                   },
                   "entity_category": {
                     "default": "config"
-                  },
-                  "device_class": {
-                    "default": "switch"
                   },
                   "icon": {
                     "default": "mdi:bluetooth"
+                  },
+                  "id": {
+                    "id_type": {
+                      "class": "ld2450::BluetoothSwitch",
+                      "parents": [
+                        "EntityBase",
+                        "switch_::Switch"
+                      ]
+                    },
+                    "key": "GeneratedID"
+                  },
+                  "restore_mode": {
+                    "default": "ALWAYS_OFF",
+                    "key": "Optional",
+                    "type": "enum",
+                    "values": {
+                      "ALWAYS_OFF": null,
+                      "ALWAYS_ON": null,
+                      "DISABLED": null,
+                      "RESTORE_DEFAULT_OFF": null,
+                      "RESTORE_DEFAULT_ON": null,
+                      "RESTORE_INVERTED_DEFAULT_OFF": null,
+                      "RESTORE_INVERTED_DEFAULT_ON": null
+                    }
                   }
-                }
-              }
+                },
+                "extends": [
+                  "switch._SWITCH_SCHEMA"
+                ]
+              },
+              "type": "schema"
+            },
+            "ld2450_id": {
+              "key": "GeneratedID",
+              "type": "use_id",
+              "use_id_type": "ld2450::LD2450Component"
             },
             "multi_target": {
               "key": "Optional",
-              "type": "schema",
               "schema": {
-                "extends": [
-                  "switch._SWITCH_SCHEMA"
-                ],
                 "config_vars": {
-                  "restore_mode": {
-                    "key": "Optional",
-                    "default": "ALWAYS_OFF",
-                    "type": "enum",
-                    "values": {
-                      "RESTORE_DEFAULT_OFF": null,
-                      "RESTORE_DEFAULT_ON": null,
-                      "ALWAYS_OFF": null,
-                      "ALWAYS_ON": null,
-                      "RESTORE_INVERTED_DEFAULT_OFF": null,
-                      "RESTORE_INVERTED_DEFAULT_ON": null,
-                      "DISABLED": null
-                    }
-                  },
-                  "id": {
-                    "key": "GeneratedID",
-                    "id_type": {
-                      "class": "ld2450::MultiTargetSwitch",
-                      "parents": [
-                        "switch_::Switch",
-                        "EntityBase"
-                      ]
-                    }
+                  "device_class": {
+                    "default": "switch"
                   },
                   "entity_category": {
                     "default": "config"
                   },
-                  "device_class": {
-                    "default": "switch"
-                  },
                   "icon": {
                     "default": "mdi:pulse"
+                  },
+                  "id": {
+                    "id_type": {
+                      "class": "ld2450::MultiTargetSwitch",
+                      "parents": [
+                        "EntityBase",
+                        "switch_::Switch"
+                      ]
+                    },
+                    "key": "GeneratedID"
+                  },
+                  "restore_mode": {
+                    "default": "ALWAYS_OFF",
+                    "key": "Optional",
+                    "type": "enum",
+                    "values": {
+                      "ALWAYS_OFF": null,
+                      "ALWAYS_ON": null,
+                      "DISABLED": null,
+                      "RESTORE_DEFAULT_OFF": null,
+                      "RESTORE_DEFAULT_ON": null,
+                      "RESTORE_INVERTED_DEFAULT_OFF": null,
+                      "RESTORE_INVERTED_DEFAULT_ON": null
+                    }
                   }
-                }
-              }
+                },
+                "extends": [
+                  "switch._SWITCH_SCHEMA"
+                ]
+              },
+              "type": "schema"
             }
           }
-        }
+        },
+        "type": "schema"
       }
     }
   },
   "ld2450.text_sensor": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
         "schema": {
           "config_vars": {
             "ld2450_id": {
               "key": "GeneratedID",
-              "use_id_type": "ld2450::LD2450Component",
-              "type": "use_id"
-            },
-            "version": {
-              "key": "Optional",
-              "type": "schema",
-              "schema": {
-                "extends": [
-                  "text_sensor.TEXT_SENSOR_SCHEMA"
-                ],
-                "config_vars": {
-                  "icon": {
-                    "default": "mdi:chip"
-                  },
-                  "entity_category": {
-                    "default": "diagnostic"
-                  }
-                }
-              }
+              "type": "use_id",
+              "use_id_type": "ld2450::LD2450Component"
             },
             "mac_address": {
               "key": "Optional",
-              "type": "schema",
               "schema": {
-                "extends": [
-                  "text_sensor.TEXT_SENSOR_SCHEMA"
-                ],
                 "config_vars": {
-                  "icon": {
-                    "default": "mdi:bluetooth"
-                  },
                   "entity_category": {
                     "default": "diagnostic"
+                  },
+                  "icon": {
+                    "default": "mdi:bluetooth"
                   }
-                }
-              }
+                },
+                "extends": [
+                  "text_sensor.TEXT_SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
             },
             "target_1": {
               "key": "Optional",
-              "type": "schema",
               "schema": {
                 "config_vars": {
                   "direction": {
                     "key": "Optional",
-                    "type": "schema",
                     "schema": {
-                      "extends": [
-                        "text_sensor.TEXT_SENSOR_SCHEMA"
-                      ],
                       "config_vars": {
-                        "icon": {
-                          "default": "mdi:sign-direction"
-                        },
                         "entity_category": {
                           "default": ""
+                        },
+                        "icon": {
+                          "default": "mdi:sign-direction"
                         }
-                      }
-                    }
+                      },
+                      "extends": [
+                        "text_sensor.TEXT_SENSOR_SCHEMA"
+                      ]
+                    },
+                    "type": "schema"
                   }
                 }
-              }
+              },
+              "type": "schema"
             },
             "target_2": {
               "key": "Optional",
-              "type": "schema",
               "schema": {
                 "config_vars": {
                   "direction": {
                     "key": "Optional",
-                    "type": "schema",
                     "schema": {
-                      "extends": [
-                        "text_sensor.TEXT_SENSOR_SCHEMA"
-                      ],
                       "config_vars": {
-                        "icon": {
-                          "default": "mdi:sign-direction"
-                        },
                         "entity_category": {
                           "default": ""
+                        },
+                        "icon": {
+                          "default": "mdi:sign-direction"
                         }
-                      }
-                    }
+                      },
+                      "extends": [
+                        "text_sensor.TEXT_SENSOR_SCHEMA"
+                      ]
+                    },
+                    "type": "schema"
                   }
                 }
-              }
+              },
+              "type": "schema"
             },
             "target_3": {
               "key": "Optional",
-              "type": "schema",
               "schema": {
                 "config_vars": {
                   "direction": {
                     "key": "Optional",
-                    "type": "schema",
                     "schema": {
-                      "extends": [
-                        "text_sensor.TEXT_SENSOR_SCHEMA"
-                      ],
                       "config_vars": {
-                        "icon": {
-                          "default": "mdi:sign-direction"
-                        },
                         "entity_category": {
                           "default": ""
+                        },
+                        "icon": {
+                          "default": "mdi:sign-direction"
                         }
-                      }
-                    }
+                      },
+                      "extends": [
+                        "text_sensor.TEXT_SENSOR_SCHEMA"
+                      ]
+                    },
+                    "type": "schema"
                   }
                 }
-              }
+              },
+              "type": "schema"
+            },
+            "version": {
+              "key": "Optional",
+              "schema": {
+                "config_vars": {
+                  "entity_category": {
+                    "default": "diagnostic"
+                  },
+                  "icon": {
+                    "default": "mdi:chip"
+                  }
+                },
+                "extends": [
+                  "text_sensor.TEXT_SENSOR_SCHEMA"
+                ]
+              },
+              "type": "schema"
             }
           }
-        }
+        },
+        "type": "schema"
       }
     }
   }
