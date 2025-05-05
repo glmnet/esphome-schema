@@ -873,7 +873,8 @@
           "logger",
           "time",
           "udp"
-        ]
+        ],
+        "docs": "The `syslog` component can be used to send ESPHome logs to a [syslog server](https://en.wikipedia.org/wiki/Syslog). It requires both a [UDP component](https://esphome.io/components/udp.html) and a [Time component](https://esphome.io/components/time/index.html) to be configured.\n\n*See also: [Syslog Component](https://esphome.io/components/syslog.html#syslog-component)*"
       },
       "tca9548a": {
         "dependencies": [
@@ -921,13 +922,13 @@
         "docs": "The `tuya` component creates a serial connection to the Tuya MCU for platforms to use.\n\n*See also: [Tuya MCU](https://esphome.io/components/tuya.html#tuya-mcu)*"
       },
       "uart": {
-        "docs": "UART is a common serial protocol for a lot of devices. For example, when uploading a binary to your ESP you have probably used UART to access the chip. UART (or for Arduino often also called Serial) usually consists of 2 pins:\n\n*See also: [UART Bus](https://esphome.io/components/uart.html#uart-bus)*"
+        "docs": "UART is a common serial protocol for many devices. For example, when uploading a binary to your ESP you have probably used UART to access the chip. UART (or for Arduino often also called Serial) usually consists of 2 pins:\n\n*See also: [UART Bus](https://esphome.io/components/uart.html#uart-bus)*"
       },
       "udp": {
         "dependencies": [
           "network"
         ],
-        "docs": "The purpose of this component is to allow ESPHome nodes to directly communicate with each over an IP network. It permits the state of sensors and binary sensors to be broadcast via UDP packets to other nodes on the same LAN, or to specific IP addresses (which may be in remote, but reachable networks).\n\n*See also: [UDP Component](https://esphome.io/components/udp.html#udp-component)*"
+        "docs": "This component allows reception and transmission of data over a network using the [User Datagram Protocol (UDP)](https://en.wikipedia.org/wiki/User_Datagram_Protocol). In conjunction with the [Packet Transport Component](https://esphome.io/components/packet_transport/index.html#packet-transport) it can be used to broadcast sensor data.\n\n*See also: [UDP Component](https://esphome.io/components/udp.html#udp-component)*"
       },
       "uponor_smatrix": {
         "dependencies": [
@@ -1424,53 +1425,44 @@
           "config_vars": {
             "area": {
               "default": "",
-              "docs": "**, string**: This is the area sent to the frontend. It is used by Home Assistant as the area / zone which the node belongs to.\n\n*See also: [ESPHome Core Configuration](https://esphome.io/components/esphome.html#configuration-variables)*",
               "key": "Optional",
               "type": "string"
             },
             "build_path": {
-              "docs": "**, string**: Customize where ESPHome will store the build files for your node. By default, ESPHome puts the PlatformIO project it uses to build the firmware in the `.esphome/build/<NODE>` (or into path from `ESPHOME_BUILD_PATH` environment variable if specified) directory, but you can customize this behavior using this option. Official docker image automatically use `/build` folder as default one in case it is mounted to it.\n\n*See also: [ESPHome Core Configuration](https://esphome.io/components/esphome.html#configuration-variables)*",
               "key": "Required",
               "type": "string"
             },
             "comment": {
-              "docs": "**, string**: Additional text information about this node. Only for display in UI.\n\n*See also: [ESPHome Core Configuration](https://esphome.io/components/esphome.html#configuration-variables)*",
               "key": "Optional",
               "type": "string"
             },
             "compile_process_limit": {
-              "docs": "**, int**: The maximum number of simultaneous compile processes to run. Defaults to the number of cores of the CPU which is also the maximum you can set.\n\n*See also: [ESPHome Core Configuration](https://esphome.io/components/esphome.html#configuration-variables)*",
               "key": "Optional",
               "type": "integer"
             },
             "debug_scheduler": {
               "default": "False",
-              "docs": "**, boolean**: If set, the scheduler will print debug information about scheduled tasks at log level DEBUG.\n\n*See also: [ESPHome Core Configuration](https://esphome.io/components/esphome.html#configuration-variables)*",
               "key": "Optional",
               "type": "boolean"
             },
             "friendly_name": {
               "default": "",
-              "docs": "**, string**: This is the name sent to the frontend. It is used by Home Assistant as the integration name, device name, and is automatically prefixed to entities where necessary.\n\n*See also: [ESPHome Core Configuration](https://esphome.io/components/esphome.html#configuration-variables)*",
               "key": "Optional",
               "type": "string"
             },
             "includes": {
               "default": "[]",
-              "docs": "**, list of files**: A list of C/C++ files to include in the (auto-generated) `main` file. The paths in this list are relative to the directory where the YAML configuration file is located or `<...>` includes. See [includes](https://esphome.io/components/esphome.html#esphome-includes).\n\n*See also: [ESPHome Core Configuration](https://esphome.io/components/esphome.html#configuration-variables)*",
               "is_list": true,
               "key": "Optional"
             },
             "libraries": {
               "default": "[]",
-              "docs": "**, list of libraries**: A list of libraries to include in the project. See [libraries](https://esphome.io/components/esphome.html#esphome-libraries).\n\n*See also: [ESPHome Core Configuration](https://esphome.io/components/esphome.html#configuration-variables)*",
               "is_list": true,
               "key": "Optional",
               "type": "string"
             },
             "min_version": {
               "default": "2025.5.0-dev",
-              "docs": "**, string**: The minimum ESPHome version required to compile this configuration. See [Minimum ESPHome version](https://esphome.io/components/esphome.html#esphome-min-version).\n\n*See also: [ESPHome Core Configuration](https://esphome.io/components/esphome.html#configuration-variables)*",
               "key": "Optional"
             },
             "name": {
@@ -1480,18 +1472,15 @@
             },
             "name_add_mac_suffix": {
               "default": "False",
-              "docs": "**, boolean**: Appends the last 3 bytes of the mac address of the device to the name in the form `<name>-aabbcc`. Defaults to `false`. See [Adding the MAC address as a suffix to the device name](https://esphome.io/components/esphome.html#esphome-mac-suffix).\n\n*See also: [ESPHome Core Configuration](https://esphome.io/components/esphome.html#configuration-variables)*",
               "key": "Optional",
               "type": "boolean"
             },
             "on_boot": {
-              "docs": "**, [Automation](https://esphome.io/automations/index.html#automation)**: An automation to perform when the node starts. See [on_boot](https://esphome.io/components/esphome.html#esphome-on-boot).\n\n*See also: [ESPHome Core Configuration](https://esphome.io/components/esphome.html#configuration-variables)*",
               "key": "Optional",
               "schema": {
                 "config_vars": {
                   "priority": {
                     "default": "600.0",
-                    "docs": "**, float**: The priority to execute your custom initialization code. A higher value means a high priority and thus also your code being executed earlier. Please note this is an ESPHome-internal value and any change will not be marked as a breaking change. Defaults to `600`. Priorities (you can use any value between them too):\n  * `800.0`: This is where all hardware initialization of vital components is executed. For example setting switches to their initial state.\n  \n  * `600.0`: This is where most sensors are set up.\n  \n  * `250.0`: At this priority, WiFi is initialized.\n  \n  * `200.0`: Network connections like MQTT/native API are set up at this priority.\n  \n  * `-100.0`: At this priority, pretty much everything should already be initialized.\n  \n  \n\n*See also: [ESPHome Core Configuration](https://esphome.io/components/esphome.html#on-boot)*",
                     "key": "Optional"
                   },
                   "then": {
@@ -1502,18 +1491,15 @@
               "type": "trigger"
             },
             "on_loop": {
-              "docs": "**, [Automation](https://esphome.io/automations/index.html#automation)**: An automation to perform on each `loop()` iteration. See [on_loop](https://esphome.io/components/esphome.html#esphome-on-loop).\n\n*See also: [ESPHome Core Configuration](https://esphome.io/components/esphome.html#configuration-variables)*",
               "key": "Optional",
               "type": "trigger"
             },
             "on_shutdown": {
-              "docs": "**, [Automation](https://esphome.io/automations/index.html#automation)**: An automation to perform right before the node shuts down. See [on_shutdown](https://esphome.io/components/esphome.html#esphome-on-shutdown).\n\n*See also: [ESPHome Core Configuration](https://esphome.io/components/esphome.html#configuration-variables)*",
               "key": "Optional",
               "schema": {
                 "config_vars": {
                   "priority": {
                     "default": "600.0",
-                    "docs": "**, float**: The priority to execute your custom shutdown code. A higher value means a high priority and in case of shutdown triggers that the code is executed **later**. Priority is used primarily for the initialization order of components. Shutdowns for these components are handled in *reverse* order, such that e.g. sensors (600) are shutdown before the hardware components (800) they depend on. Please note this is an ESPHome-internal value and any change will not be marked as a breaking change. Defaults to `600`. For priority values refer to the list in the [on_boot](https://esphome.io/components/esphome.html#esphome-on-boot) section.\n\n*See also: [ESPHome Core Configuration](https://esphome.io/components/esphome.html#on-shutdown)*",
                     "key": "Optional"
                   },
                   "then": {
@@ -1525,7 +1511,6 @@
             },
             "platformio_options": {
               "default": "{}",
-              "docs": "**, mapping**: Additional options to pass over to PlatformIO in the platformio.ini file. See [platformio_options](https://esphome.io/components/esphome.html#esphome-platformio-options).\n\n*See also: [ESPHome Core Configuration](https://esphome.io/components/esphome.html#configuration-variables)*",
               "key": "String",
               "key_type": "string_strict",
               "schema": {
@@ -1538,22 +1523,18 @@
               "type": "schema"
             },
             "project": {
-              "docs": "ESPHome Creator\u2019s Project information. See [Project information](https://esphome.io/components/esphome.html#esphome-creators-project).\n  * **name** (**Required**, string): Name of the project\n  \n  * **version** (**Required**, string): Version of the project\n  \n  * **on_update** (*Optional*, [Automation](https://esphome.io/automations/index.html#automation)): An automation to perform when the device firmware is updated. This compares the above `version` field with the `version` that was in the previous firmware as long as the `name` matches. The `version` is stored in flash memory when the firmware is first run for future comparisons.\n  \n  \n\n*See also: [ESPHome Core Configuration](https://esphome.io/components/esphome.html#configuration-variables)*",
               "key": "Optional",
               "schema": {
                 "config_vars": {
                   "name": {
-                    "docs": "**, string**: Name of the project\n\n*See also: [ESPHome Core Configuration](https://esphome.io/components/esphome.html#configuration-variables)*",
                     "key": "Required",
                     "type": "string"
                   },
                   "on_update": {
-                    "docs": "**, [Automation](https://esphome.io/automations/index.html#automation)**: An automation to perform when the device firmware is updated. This compares the above `version` field with the `version` that was in the previous firmware as long as the `name` matches. The `version` is stored in flash memory when the firmware is first run for future comparisons.\n\n*See also: [ESPHome Core Configuration](https://esphome.io/components/esphome.html#configuration-variables)*",
                     "key": "Optional",
                     "type": "trigger"
                   },
                   "version": {
-                    "docs": "**, string**: Version of the project\n\n*See also: [ESPHome Core Configuration](https://esphome.io/components/esphome.html#configuration-variables)*",
                     "key": "Required",
                     "type": "string"
                   }

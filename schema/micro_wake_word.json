@@ -2,6 +2,7 @@
   "micro_wake_word": {
     "action": {
       "disable_model": {
+        "docs": "Disables the specified model so it won\u2019t be detected when the component is running.\n\n*See also: [`micro_wake_word.disable_model` Action](https://esphome.io/components/micro_wake_word.html#micro-wake-word-disable-model-action)*",
         "schema": {
           "extends": [
             "micro_wake_word.MICRO_WAKE_WORLD_MODEL_ACTION_SCHEMA"
@@ -10,6 +11,7 @@
         "type": "schema"
       },
       "enable_model": {
+        "docs": "Enables the specified model so it can be detected when the component is running.\n\n*See also: [`micro_wake_word.enable_model` Action](https://esphome.io/components/micro_wake_word.html#micro-wake-word-enable-model-action)*",
         "schema": {
           "extends": [
             "micro_wake_word.MICRO_WAKE_WORLD_MODEL_ACTION_SCHEMA"
@@ -38,6 +40,7 @@
     },
     "condition": {
       "is_running": {
+        "docs": "Checks if the component is running to detect wake words.\n\n*See also: [`micro_wake_word.is_running` Condition](https://esphome.io/components/micro_wake_word.html#micro-wake-word-is-running-condition)*",
         "schema": {
           "extends": [
             "micro_wake_word.MICRO_WAKE_WORD_ACTION_SCHEMA"
@@ -46,6 +49,7 @@
         "type": "schema"
       },
       "model_is_enabled": {
+        "docs": "Checks if the given model is enabled.\n\n*See also: [`micro_wake_word.model_is_enabled` Condition](https://esphome.io/components/micro_wake_word.html#micro-wake-word-model-is-enabled-condition)*",
         "schema": {
           "extends": [
             "micro_wake_word.MICRO_WAKE_WORLD_MODEL_ACTION_SCHEMA"
@@ -69,6 +73,7 @@
             },
             "microphone": {
               "default": "{}",
+              "docs": "**, [Microphone Source Configuration](https://esphome.io/components/microphone/index.html#config-microphone-source)**: The [microphone](https://esphome.io/components/microphone/index.html) settings to use for audio input.\n\n*See also: [Micro Wake Word](https://esphome.io/components/micro_wake_word.html#configuration-variables)*",
               "key": "Optional",
               "maybe": "microphone",
               "schema": {
@@ -106,7 +111,7 @@
               "type": "schema"
             },
             "models": {
-              "docs": "**, list**: The models to use.\n  * **model** (**Required**, string): This can be one of:\n    * A simple name of a model that exists in the official [ESPHome Models repository](https://github.com/esphome/micro-wake-word-models). e.g. `okay_nabu`.\n    \n    * A github shorthand URL to a model JSON file. e.g. `github://esphome/micro-wake-word-models/models/okay_nabu.json@main`.\n    \n    * A full URL to a model JSON file. e.g. `https://github.com/esphome/micro-wake-word-models/raw/main/models/okay_nabu.json`.\n    \n    \n  \n  * **probability_cutoff** (*Optional*, percentage): The probability cutoff for the wake word detection. If the probability of the wake word is below this value, the wake word is not detected. A larger value reduces the number of false accepts but increases the number of false rejections.\n  \n  * **sliding_window_size** (*Optional*, int): The size of the sliding window average for the wake word detection. A small value lowers latency but may increase the number of false accepts.\n  \n  \n\n*See also: [Micro Wake Word](https://esphome.io/components/micro_wake_word.html#configuration-variables)*",
+              "docs": "**, list**: The models to use. Only the first model is enabled by default on the first boot. Each model\u2019s enabled state is then saved/restored to/from the flash.\n  * **id** (*Optional*, [ID](https://esphome.io/guides/configuration-types.html#config-id)): The optional ID used for the model actions below.\n  \n  * **model** (**Required**, string): This can be one of:\n    * A simple name of a model that exists in the official [ESPHome Models repository](https://github.com/esphome/micro-wake-word-models). e.g. `okay_nabu`.\n    \n    * A github shorthand URL to a model JSON file. e.g. `github://esphome/micro-wake-word-models/models/okay_nabu.json@main`.\n    \n    * A full URL to a model JSON file. e.g. `https://github.com/esphome/micro-wake-word-models/raw/main/models/okay_nabu.json`.\n    \n    \n  \n  * **probability_cutoff** (*Optional*, percentage): The probability cutoff for the wake word detection. If the probability of the wake word is below this value, the wake word is not detected. A larger value reduces the number of false accepts but increases the number of false rejections.\n  \n  * **sliding_window_size** (*Optional*, int): The size of the sliding window average for the wake word detection. A small value lowers latency but may increase the number of false accepts.\n  \n  * **internal** (*Optional*, boolean): The wake word model is internal to the device and won\u2019t be able to enabled/disabled in Home Assistant.\n  \n  \n\n*See also: [Micro Wake Word](https://esphome.io/components/micro_wake_word.html#configuration-variables)*",
               "is_list": true,
               "key": "Required",
               "maybe": "model",
@@ -124,6 +129,7 @@
             },
             "stop_after_detection": {
               "default": "True",
+              "docs": "**, boolean**: Whether to stop the component after detecting a wake word. Defaults to `true`.\n\n*See also: [Micro Wake Word](https://esphome.io/components/micro_wake_word.html#configuration-variables)*",
               "key": "Optional",
               "type": "boolean"
             },
@@ -167,6 +173,7 @@
         "schema": {
           "config_vars": {
             "id": {
+              "docs": "**, [ID](https://esphome.io/guides/configuration-types.html#config-id)**: The optional ID used for the model actions below.\n\n*See also: [Micro Wake Word](https://esphome.io/components/micro_wake_word.html#configuration-variables)*",
               "id_type": {
                 "class": "micro_wake_word::WakeWordModel",
                 "parents": []
@@ -175,6 +182,7 @@
             },
             "internal": {
               "default": "False",
+              "docs": "**, boolean**: The wake word model is internal to the device and won\u2019t be able to enabled/disabled in Home Assistant.\n\n*See also: [Micro Wake Word](https://esphome.io/components/micro_wake_word.html#configuration-variables)*",
               "key": "Optional",
               "type": "boolean"
             },

@@ -100,13 +100,14 @@
               "use_id_type": "media_player::MediaPlayer"
             },
             "micro_wake_word": {
+              "docs": "**, [ID](https://esphome.io/guides/configuration-types.html#config-id)**: The [micro_wake_word](https://esphome.io/components/micro_wake_word.html) component used for wake word detection. Configuring this allows Home Assistant to change which wake word model is enabled.\n\n*See also: [Voice Assistant](https://esphome.io/components/voice_assistant.html#configuration-variables)*",
               "key": "Optional",
               "type": "use_id",
               "use_id_type": "micro_wake_word::MicroWakeWord"
             },
             "microphone": {
               "default": "{}",
-              "docs": "**, [ID](https://esphome.io/guides/configuration-types.html#config-id)**: The [microphone](https://esphome.io/components/microphone/index.html) to use for input.\n\n*See also: [Voice Assistant](https://esphome.io/components/voice_assistant.html#configuration-variables)*",
+              "docs": "**, [Microphone Source Configuration](https://esphome.io/components/microphone/index.html#config-microphone-source)**: The [microphone](https://esphome.io/components/microphone/index.html) settings to use for input.\n\n*See also: [Voice Assistant](https://esphome.io/components/voice_assistant.html#configuration-variables)*",
               "key": "Optional",
               "maybe": "microphone",
               "schema": {

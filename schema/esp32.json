@@ -819,6 +819,7 @@
               }
             },
             "cpu_frequency": {
+              "docs": "**, string**: The CPU frequency to use. One of `40MHz`, `80MHz`, `160MHz` or `240MHz`. Defaults to `160MHz`. Not all values are available for all chips.\n\n*See also: [ESP32 Platform](https://esphome.io/components/esp32.html#configuration-variables)*",
               "key": "Optional",
               "type": "enum",
               "values": {

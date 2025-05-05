@@ -11,6 +11,7 @@
         "type": "schema"
       },
       "mute": {
+        "docs": "This action will apply a software mute to the audio data from the microphone before passing it to any listening components.\n\n*See also: [`microphone.mute` Action](https://esphome.io/components/microphone/index.html#microphone-mute-action)*",
         "schema": {
           "extends": [
             "microphone.MICROPHONE_ACTION_SCHEMA"
@@ -28,6 +29,7 @@
         "type": "schema"
       },
       "unmute": {
+        "docs": "This action will disable applying a software mute initiated with `microphone.mute`.\n\n*See also: [`microphone.unmute` Action](https://esphome.io/components/microphone/index.html#microphone-unmute-action)*",
         "schema": {
           "extends": [
             "microphone.MICROPHONE_ACTION_SCHEMA"
@@ -55,6 +57,7 @@
         "type": "schema"
       },
       "is_muted": {
+        "docs": "This condition will check if the microphone is currently apply a software mute.\n\n*See also: [`microphone.is_muted` Condition](https://esphome.io/components/microphone/index.html#microphone-is-muted-condition)*",
         "schema": {
           "extends": [
             "microphone.MICROPHONE_ACTION_SCHEMA"

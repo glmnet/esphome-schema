@@ -799,7 +799,9 @@
         ],
         "docs": "The boiler can also report several numerical values, which are available through sensors. Your boiler may not support all of these values, in which case there won\u2019t be any value published to that sensor. The following sensors are available:\n\n*See also: [opentherm Sensor](https://esphome.io/components/opentherm.html#sensor)*"
       },
-      "packet_transport": {},
+      "packet_transport": {
+        "docs": "The `packet_transport` sensor platform allows you to receive numeric sensor data directly from another ESPHome node. It requires a `packet_transport` component to be configured.\n\n*See also: [Packet Transport Sensor](https://esphome.io/components/sensor/packet_transport.html#packet-transport-sensor)*"
+      },
       "pid": {
         "docs": "Additionally, the PID climate platform provides an optional sensor platform to monitor the calculated PID parameters to help finding good PID values.\n\n*See also: [pid Sensor](https://esphome.io/components/climate/pid.html#pid-sensor)*"
       },
@@ -818,7 +820,8 @@
       "pm2005": {
         "dependencies": [
           "i2c"
-        ]
+        ],
+        "docs": "The `pm2005` sensor platform allows you to use your PM2005/PM2105 laser particulate matter sensor with ESPHome.\n\n*See also: [CUBIC PM2005/PM2105 Laser Particle Sensor Module](https://esphome.io/components/sensor/pm2005.html#cubic-pm2005-pm2105-laser-particle-sensor-module)*"
       },
       "pmsa003i": {
         "dependencies": [
@@ -1505,9 +1508,11 @@
         "type": "schema"
       },
       "to_ntc_resistance": {
+        "docs": "Convert your sensor values available as temperature into corresponding resistance values using an NTC characteristic curve.\n\n*See also: [`to_ntc_resistance`](https://esphome.io/components/sensor/index.html#to-ntc-resistance)*",
         "schema": {
           "config_vars": {
             "calibration": {
+              "docs": "calibration data.\n\n*See also: [to_ntc_resistance](https://esphome.io/components/sensor/index.html#to-ntc-resistance)*",
               "key": "Required"
             }
           }
@@ -1515,9 +1520,11 @@
         "type": "schema"
       },
       "to_ntc_temperature": {
+        "docs": "Convert your sensor values available as resistance values into corresponding temperatures using an NTC characteristic curve.\n\n*See also: [`to_ntc_temperature`](https://esphome.io/components/sensor/index.html#to-ntc-temperature)*",
         "schema": {
           "config_vars": {
             "calibration": {
+              "docs": "calibration data.\n\n*See also: [to_ntc_temperature](https://esphome.io/components/sensor/index.html#to-ntc-temperature)*",
               "key": "Required"
             }
           }
@@ -1718,11 +1725,11 @@
         "schema": {
           "config_vars": {
             "above": {
-              "docs": "**, float**: The minimum for the condition.\n\n*See also: [lambda](https://esphome.io/components/sensor/index.html#sensor-in-range-condition)*",
+              "docs": "**, float**: The minimum for the condition.\n\n*See also: [to_ntc_temperature](https://esphome.io/components/sensor/index.html#sensor-in-range-condition)*",
               "key": "Optional"
             },
             "below": {
-              "docs": "**, float**: The maximum for the condition.\n\n*See also: [lambda](https://esphome.io/components/sensor/index.html#sensor-in-range-condition)*",
+              "docs": "**, float**: The maximum for the condition.\n\n*See also: [to_ntc_temperature](https://esphome.io/components/sensor/index.html#sensor-in-range-condition)*",
               "key": "Optional"
             },
             "id": {
@@ -1858,12 +1865,12 @@
               "schema": {
                 "config_vars": {
                   "above": {
-                    "docs": "**, float**: The minimum for the trigger.\n\n*See also: [lambda](https://esphome.io/components/sensor/index.html#on-value-range)*",
+                    "docs": "**, float**: The minimum for the trigger.\n\n*See also: [to_ntc_temperature](https://esphome.io/components/sensor/index.html#on-value-range)*",
                     "key": "Optional",
                     "templatable": true
                   },
                   "below": {
-                    "docs": "**, float**: The maximum for the trigger.\n\n*See also: [lambda](https://esphome.io/components/sensor/index.html#on-value-range)*",
+                    "docs": "**, float**: The maximum for the trigger.\n\n*See also: [to_ntc_temperature](https://esphome.io/components/sensor/index.html#on-value-range)*",
                     "key": "Optional",
                     "templatable": true
                   },

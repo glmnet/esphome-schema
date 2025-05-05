@@ -4,18 +4,19 @@
       "uart": {
         "dependencies": [
           "uart"
-        ]
+        ],
+        "docs": "The [Packet Transport Component](https://esphome.io/components/packet_transport/index.html#packet-transport) platform allows ESPHome nodes to directly communicate with each over a communication channel. The UART implementation of the platform uses a serial port as a communication medium. See the [Packet Transport Component](https://esphome.io/components/packet_transport/index.html#packet-transport) and [UART Bus](https://esphome.io/components/uart.html#uart) for more information.\n\n*See also: [UART Packet Transport Platform](https://esphome.io/components/packet_transport/uart.html#uart-packet-transport-platform)*"
       },
-      "udp": {}
+      "udp": {
+        "docs": "The [Packet Transport Component](https://esphome.io/components/packet_transport/index.html#packet-transport) platform allows ESPHome nodes to directly communicate with each over a communication channel. The UDP implementation of the platform uses UDP as a communication medium. See the [Packet Transport Component](https://esphome.io/components/packet_transport/index.html#packet-transport) and [UDP Component](https://esphome.io/components/udp.html#udp) for more information.\n\n*See also: [UDP Packet Transport Platform](https://esphome.io/components/packet_transport/udp.html#udp-packet-transport-platform)*"
+      }
     },
     "schemas": {
       "ENCRYPTION_SCHEMA": {
-        "type": "schema",
         "schema": {
           "config_vars": {
             "encryption": {
               "key": "Optional",
-              "type": "schema",
               "maybe": "key",
               "schema": {
                 "config_vars": {
@@ -24,13 +25,14 @@
                     "type": "string"
                   }
                 }
-              }
+              },
+              "type": "schema"
             }
           }
-        }
+        },
+        "type": "schema"
       },
       "PROVIDER_SCHEMA": {
-        "type": "schema",
         "schema": {
           "config_vars": {
             "name": {
@@ -40,141 +42,142 @@
           "extends": [
             "packet_transport.ENCRYPTION_SCHEMA"
           ]
-        }
+        },
+        "type": "schema"
       },
       "TRANSPORT_SCHEMA": {
-        "type": "schema",
         "schema": {
-          "extends": [
-            "core.COMPONENT_SCHEMA",
-            "packet_transport.ENCRYPTION_SCHEMA"
-          ],
           "config_vars": {
-            "update_interval": {
+            "binary_sensors": {
+              "is_list": true,
               "key": "Optional",
-              "default": "15s"
-            },
-            "rolling_code_enable": {
-              "key": "Optional",
-              "default": "False",
-              "type": "boolean"
+              "maybe": "id",
+              "schema": {
+                "config_vars": {
+                  "broadcast_id": {
+                    "key": "Optional"
+                  },
+                  "id": {
+                    "key": "Required",
+                    "type": "use_id",
+                    "use_id_type": "binary_sensor::BinarySensor"
+                  }
+                }
+              },
+              "type": "schema"
             },
             "ping_pong_enable": {
-              "key": "Optional",
               "default": "False",
+              "key": "Optional",
               "type": "boolean"
             },
             "ping_pong_recycle_time": {
-              "key": "Optional",
               "default": "600s",
-              "type": "schema",
+              "key": "Optional",
               "schema": {
                 "extends": [
                   "core.positive_time_period_seconds"
                 ]
-              }
-            },
-            "sensors": {
-              "key": "Optional",
-              "is_list": true,
-              "type": "schema",
-              "maybe": "id",
-              "schema": {
-                "config_vars": {
-                  "id": {
-                    "key": "Required",
-                    "use_id_type": "sensor::Sensor",
-                    "type": "use_id"
-                  },
-                  "broadcast_id": {
-                    "key": "Optional"
-                  }
-                }
-              }
-            },
-            "binary_sensors": {
-              "key": "Optional",
-              "is_list": true,
-              "type": "schema",
-              "maybe": "id",
-              "schema": {
-                "config_vars": {
-                  "id": {
-                    "key": "Required",
-                    "use_id_type": "binary_sensor::BinarySensor",
-                    "type": "use_id"
-                  },
-                  "broadcast_id": {
-                    "key": "Optional"
-                  }
-                }
-              }
+              },
+              "type": "schema"
             },
             "providers": {
-              "key": "Optional",
               "default": "[]",
               "is_list": true,
-              "type": "schema",
+              "key": "Optional",
               "schema": {
                 "extends": [
                   "packet_transport.PROVIDER_SCHEMA"
                 ]
-              }
+              },
+              "type": "schema"
+            },
+            "rolling_code_enable": {
+              "default": "False",
+              "key": "Optional",
+              "type": "boolean"
+            },
+            "sensors": {
+              "is_list": true,
+              "key": "Optional",
+              "maybe": "id",
+              "schema": {
+                "config_vars": {
+                  "broadcast_id": {
+                    "key": "Optional"
+                  },
+                  "id": {
+                    "key": "Required",
+                    "type": "use_id",
+                    "use_id_type": "sensor::Sensor"
+                  }
+                }
+              },
+              "type": "schema"
+            },
+            "update_interval": {
+              "default": "15s",
+              "key": "Optional"
             }
-          }
-        }
+          },
+          "extends": [
+            "core.COMPONENT_SCHEMA",
+            "packet_transport.ENCRYPTION_SCHEMA"
+          ]
+        },
+        "type": "schema"
       }
     }
   },
   "packet_transport.binary_sensor": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
         "schema": {
-          "extends": [
-            "binary_sensor.BINARY_SENSOR_SCHEMA"
-          ],
           "config_vars": {
-            "transport_id": {
-              "key": "GeneratedID",
-              "use_id_type": "packet_transport::PacketTransport",
-              "type": "use_id"
+            "provider": {
+              "key": "Required"
             },
             "remote_id": {
               "key": "Optional",
               "type": "string"
             },
-            "provider": {
-              "key": "Required"
+            "transport_id": {
+              "key": "GeneratedID",
+              "type": "use_id",
+              "use_id_type": "packet_transport::PacketTransport"
             }
-          }
-        }
+          },
+          "extends": [
+            "binary_sensor.BINARY_SENSOR_SCHEMA"
+          ]
+        },
+        "type": "schema"
       }
     }
   },
   "packet_transport.sensor": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
         "schema": {
-          "extends": [
-            "sensor.SENSOR_SCHEMA"
-          ],
           "config_vars": {
-            "transport_id": {
-              "key": "GeneratedID",
-              "use_id_type": "packet_transport::PacketTransport",
-              "type": "use_id"
+            "provider": {
+              "key": "Required"
             },
             "remote_id": {
               "key": "Optional",
               "type": "string"
             },
-            "provider": {
-              "key": "Required"
+            "transport_id": {
+              "key": "GeneratedID",
+              "type": "use_id",
+              "use_id_type": "packet_transport::PacketTransport"
             }
-          }
-        }
+          },
+          "extends": [
+            "sensor.SENSOR_SCHEMA"
+          ]
+        },
+        "type": "schema"
       }
     }
   }

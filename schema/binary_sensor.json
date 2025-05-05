@@ -29,7 +29,9 @@
         "docs": "The `cap1188` binary sensor allows you to use your CAP1188 with ESPHome. First, setup a [Component/Hub](https://esphome.io/components/binary_sensor/cap1188.html#cap1188-component) and then use this binary sensor platform to create individual binary sensors for each touch sensor.\n\n*See also: [cap1188 Binary Sensor](https://esphome.io/components/binary_sensor/cap1188.html#binary-sensor)*"
       },
       "copy": {},
-      "cst226": {},
+      "cst226": {
+        "docs": "In addition to touch areas on the screen configured through the [Touchscreen](https://esphome.io/components/touchscreen/index.html#config-touchscreen) component, the cst226 supports a button located outside of the normal touchscreen area. A binary sensor can be configured to react to touching this button.\n\n*See also: [cst226 Binary Sensor](https://esphome.io/components/touchscreen/cst226.html#binary-sensor)*"
+      },
       "cst816": {},
       "custom": {},
       "daly_bms": {
@@ -136,7 +138,9 @@
           "opentherm"
         ]
       },
-      "packet_transport": {},
+      "packet_transport": {
+        "docs": "The `packet_transport` binary sensor platform allows you to receive binary sensor data directly from another ESPHome node. It requires a `packet_transport` component to be configured.\n\n*See also: [Packet Transport Binary Sensor](https://esphome.io/components/binary_sensor/packet_transport.html#packet-transport-binary-sensor)*"
+      },
       "pipsolar": {
         "dependencies": [
           "uart"

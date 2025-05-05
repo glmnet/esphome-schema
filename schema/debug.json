@@ -57,6 +57,7 @@
               "type": "schema"
             },
             "cpu_frequency": {
+              "docs": "Reports the CPU frequency in Hz. All options from [Sensor](https://esphome.io/components/sensor/index.html#config-sensor).\n\n*See also: [debug Sensor](https://esphome.io/components/debug.html#sensor)*",
               "key": "Optional",
               "schema": {
                 "config_vars": {

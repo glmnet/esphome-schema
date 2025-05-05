@@ -153,6 +153,7 @@
               "key": "Optional"
             },
             "command_spacing": {
+              "docs": "**, [Time](https://esphome.io/guides/configuration-types.html#config-time)**: Sets the minimum time between commands sent to the Nextion display. A higher value can help prevent buffer overflows but will result in slower interface updates. Range is `0-255ms`. Defaults to `0ms` (disabled).\n\n*See also: [Nextion TFT LCD Display](https://esphome.io/components/display/nextion.html#configuration-variables)*",
               "key": "Optional",
               "schema": {
                 "extends": [

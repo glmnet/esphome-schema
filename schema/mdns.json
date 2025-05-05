@@ -21,7 +21,7 @@
             },
             "services": {
               "default": "[]",
-              "docs": "**, list**: List of additional services to expose.\n  * **service** (**Required**, string): Name of extra service.\n  \n  * **protocol** (**Required**, string): Protocol of service (_udp or _tcp).\n  \n  * **port** (*Optional*, int): Port number of extra service.\n  \n  * **txt** (*Optional*, mapping): Additional text records to add to service.\n  \n  \n\n*See also: [mDNS Component](https://esphome.io/components/mdns.html#configuration-variables)*",
+              "docs": "**, list**: List of additional services to expose.\n  * **service** (**Required**, string): Name of extra service.\n  \n  * **protocol** (**Required**, string): Protocol of service (_udp or _tcp).\n  \n  * **port** (*Optional*, [templatable](https://esphome.io/automations/templates.html#config-templatable), int): Port number of extra service.\n  \n  * **txt** (*Optional*, mapping): Additional text records to add to service. Values are [templatable](https://esphome.io/automations/templates.html#config-templatable).\n  \n  \n\n*See also: [mDNS Component](https://esphome.io/components/mdns.html#configuration-variables)*",
               "is_list": true,
               "key": "Optional",
               "schema": {
@@ -29,7 +29,7 @@
                   "port": {
                     "data_type": "port",
                     "default": "0",
-                    "docs": "**, int**: Port number of extra service.\n\n*See also: [mDNS Component](https://esphome.io/components/mdns.html#configuration-variables)*",
+                    "docs": "**, [templatable](https://esphome.io/automations/templates.html#config-templatable), int**: Port number of extra service.\n\n*See also: [mDNS Component](https://esphome.io/components/mdns.html#configuration-variables)*",
                     "key": "Optional",
                     "templatable": true,
                     "type": "integer"
@@ -46,7 +46,7 @@
                   },
                   "txt": {
                     "default": "{}",
-                    "docs": "**, mapping**: Additional text records to add to service.\n\n*See also: [mDNS Component](https://esphome.io/components/mdns.html#configuration-variables)*",
+                    "docs": "**, mapping**: Additional text records to add to service. Values are [templatable](https://esphome.io/automations/templates.html#config-templatable).\n\n*See also: [mDNS Component](https://esphome.io/components/mdns.html#configuration-variables)*",
                     "key": "String",
                     "key_type": "string",
                     "schema": {

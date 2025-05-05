@@ -59,17 +59,17 @@
             "address": {
               "data_type": "hex_uint8_t",
               "default": "0",
-              "docs": "**, int**: The address (or subdevice) to trigger on, see dumper output for more info. Defaults to `0`.\n\n*See also: [remote_receiver Binary Sensor](https://esphome.io/components/remote_receiver.html#id59)*",
+              "docs": "**, int**: The address (or subdevice) to trigger on, see dumper output for more info. Defaults to `0`.\n\n*See also: [remote_receiver Binary Sensor](https://esphome.io/components/remote_receiver.html#id63)*",
               "key": "Optional"
             },
             "command": {
               "data_type": "hex_uint8_t",
-              "docs": "**, int**: The command to listen for.\n\n*See also: [remote_receiver Binary Sensor](https://esphome.io/components/remote_receiver.html#id59)*",
+              "docs": "**, int**: The command to listen for.\n\n*See also: [remote_receiver Binary Sensor](https://esphome.io/components/remote_receiver.html#id63)*",
               "key": "Required"
             },
             "device": {
               "data_type": "hex_uint8_t",
-              "docs": "**, int**: The device to trigger on, see dumper output for more info.\n\n*See also: [remote_receiver Binary Sensor](https://esphome.io/components/remote_receiver.html#id59)*",
+              "docs": "**, int**: The device to trigger on, see dumper output for more info.\n\n*See also: [remote_receiver Binary Sensor](https://esphome.io/components/remote_receiver.html#id63)*",
               "key": "Required"
             }
           }

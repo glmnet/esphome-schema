@@ -136,7 +136,7 @@
         "docs": "The `tuya` text sensor platform creates a sensor from a tuya component and requires [Tuya MCU](https://esphome.io/components/tuya.html) to be configured.\n\n*See also: [Tuya Text Sensor](https://esphome.io/components/text_sensor/tuya.html#tuya-text-sensor)*"
       },
       "uptime": {
-        "docs": "The `uptime` text sensor provides a human-readable representation the time since boot.\n\n*See also: [Uptime Text Sensor](https://esphome.io/components/text_sensor/uptime.html#uptime-text-sensor)*"
+        "docs": "The `uptime` text sensor provides a human-readable representation the time since. The elements can be separated by a custom string, and more significant elements will be omitted if they are zero. For example, if the uptime is 1 day, 2 hours, 3 minutes, and 4 seconds, the sensor will report `1d2h3m4s` with the default configuration. By default leading zero elements will be trimmed from the output, e.g. if the uptime is 0 days, 0 hours, 3 minutes, and 0 seconds, the sensor will report `3m0s`. This can be disabled by setting `expand` to `true`.\n\n*See also: [Uptime Text Sensor](https://esphome.io/components/text_sensor/uptime.html#uptime-text-sensor)*"
       },
       "version": {
         "docs": "The `version` text sensor platform exposes the ESPHome version the firmware was compiled against as a text sensor.\n\n*See also: [Version Text Sensor](https://esphome.io/components/text_sensor/version.html#version-text-sensor)*"

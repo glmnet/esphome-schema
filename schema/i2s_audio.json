@@ -422,7 +422,7 @@
             "config_vars": {
               "i2s_comm_fmt": {
                 "default": "stand_i2s",
-                "docs": "**, enum**: The I\u00b2S communication standard format used by this speaker.\n  * `stand_i2s` (Default)\n  \n  * `stand_msb`\n  \n  * `stand_pcm_short`\n  \n  * `stand_pcm_long`\n  \n  * `stand_max`\n  \n  * `i2s_msb`\n  \n  * `i2s_lsb`\n  \n  * `pcm`\n  \n  * `pcm_short`\n  \n  * `pcm_long`\n  \n  \n\n*See also: [I\u00b2S Audio Speaker](https://esphome.io/components/speaker/i2s_audio.html#configuration-variables)*",
+                "docs": "**, enum**: The I\u00b2S communication standard format used by this speaker.\n  * `stand_i2s` (Default)\n  \n  * `stand_msb`\n  \n  * `stand_pcm_short`\n  \n  * `stand_pcm_long`\n  \n  * `stand_max` (only with legacy driver)\n  \n  * `i2s_msb`\n  \n  * `i2s_lsb`\n  \n  * `pcm`\n  \n  * `pcm_short`\n  \n  * `pcm_long`\n  \n  \n\n*See also: [I\u00b2S Audio Speaker](https://esphome.io/components/speaker/i2s_audio.html#configuration-variables)*",
                 "key": "Optional",
                 "type": "enum",
                 "values": {

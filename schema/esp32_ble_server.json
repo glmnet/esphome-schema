@@ -7,6 +7,7 @@
             "appearance": {
               "data_type": "uint16_t",
               "default": "0",
+              "docs": "**, int**: Sets the [appearance](https://bitbucket.org/bluetooth-SIG/public/src/main/assigned_numbers/core/appearance_values.yaml) of the device (included in advertising data.) Defaults to `0`.\n\n*See also: [BLE Server](https://esphome.io/components/esp32_ble_server.html#configuration-variables)*",
               "key": "Optional",
               "type": "integer"
             },

@@ -5,6 +5,7 @@
         "schema": {
           "config_vars": {
             "cst226_id": {
+              "docs": "**, [ID](https://esphome.io/guides/configuration-types.html#config-id)**: Manually specify the ID of the touchscreen.\n\n*See also: [cst226 Binary Sensor](https://esphome.io/components/touchscreen/cst226.html#id1)*",
               "key": "GeneratedID",
               "type": "use_id",
               "use_id_type": "cst226::CST226Touchscreen"

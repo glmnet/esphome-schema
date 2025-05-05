@@ -120,6 +120,7 @@
               "type": "integer"
             },
             "ca_certificate_path": {
+              "docs": "**, file path**: Path to a CA certificate bundle. Not required on MacOS (the inbuilt CA bundle is used and SSL enabled by default). On Linux this is required to enable SSL.\n   > To use SSL on Linux you must have the `libssl-dev` package installed (e.g. `sudo apt install libssl-dev`). A typical value on Linux for `ca_certificate_path` would be `/etc/ssl/certs/ca-certificates.crt`.\n\n*See also: [HTTP Request](https://esphome.io/components/http_request.html#configuration-variables)*",
               "key": "Optional"
             },
             "esp8266_disable_ssl_support": {
@@ -195,10 +196,12 @@
           "config_vars": {
             "capture_response": {
               "default": "False",
+              "docs": "**, boolean**: when set to `true`, the response data will be captured and placed into the `body` variable as a `std::string` for use in [lambdas](https://esphome.io/automations/templates.html#config-lambda). Defaults to `false`.\n\n*See also: [HTTP Request](https://esphome.io/components/http_request.html#http-request-get-action)*",
               "key": "Optional",
               "type": "boolean"
             },
             "collect_headers": {
+              "docs": "**, list of strings**: List of the names of HTTP headers to collect from the response.\n\n*See also: [HTTP Request](https://esphome.io/components/http_request.html#http-request-get-action)*",
               "is_list": true,
               "key": "Optional",
               "type": "string"
@@ -210,17 +213,21 @@
             },
             "max_response_buffer_size": {
               "default": "1kB",
+              "docs": "**, integer**: The maximum buffer size to be used to store the response. Defaults to `1 kB`.\n\n*See also: [HTTP Request](https://esphome.io/components/http_request.html#http-request-get-action)*",
               "key": "Optional"
             },
             "on_error": {
+              "docs": "**, [Automation](https://esphome.io/automations/index.html#automation)**: An automation to perform if the request cannot be completed.\n\n*See also: [HTTP Request](https://esphome.io/components/http_request.html#http-request-get-action)*",
               "key": "Optional",
               "type": "trigger"
             },
             "on_response": {
+              "docs": "**, [Automation](https://esphome.io/automations/index.html#automation)**: An automation to perform after the request is received.\n\n*See also: [HTTP Request](https://esphome.io/components/http_request.html#http-request-get-action)*",
               "key": "Optional",
               "type": "trigger"
             },
             "request_headers": {
+              "docs": "**, mapping**: Map of HTTP headers. Values are [templatable](https://esphome.io/automations/templates.html#config-templatable).\n\n*See also: [HTTP Request](https://esphome.io/components/http_request.html#http-request-get-action)*",
               "key": "String",
               "key_type": "string",
               "schema": {

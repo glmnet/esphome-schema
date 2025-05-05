@@ -2,62 +2,62 @@
   "syslog": {
     "schemas": {
       "CONFIG_SCHEMA": {
-        "type": "schema",
         "schema": {
           "config_vars": {
-            "udp_id": {
-              "key": "GeneratedID",
-              "use_id_type": "udp::UDPComponent",
-              "type": "use_id"
+            "facility": {
+              "default": "16",
+              "key": "Optional",
+              "type": "integer"
             },
             "id": {
-              "key": "GeneratedID",
               "id_type": {
                 "class": "syslog::Syslog",
                 "parents": [
                   "Component",
-                  "Parented<udp::UDPComponent>",
-                  "Parented"
+                  "Parented",
+                  "Parented<udp::UDPComponent>"
                 ]
+              },
+              "key": "GeneratedID"
+            },
+            "level": {
+              "default": "DEBUG",
+              "key": "Optional",
+              "type": "enum",
+              "values": {
+                "DEBUG": null,
+                "ERROR": null,
+                "INFO": null,
+                "NONE": null,
+                "VERBOSE": null,
+                "VERY_VERBOSE": null,
+                "WARN": null
               }
+            },
+            "port": {
+              "data_type": "port",
+              "default": "514",
+              "key": "Optional",
+              "type": "integer"
+            },
+            "strip": {
+              "default": "True",
+              "key": "Optional",
+              "type": "boolean"
             },
             "time_id": {
               "key": "GeneratedID",
-              "use_id_type": "time::RealTimeClock",
-              "type": "use_id"
+              "type": "use_id",
+              "use_id_type": "time::RealTimeClock"
             },
-            "port": {
-              "key": "Optional",
-              "default": "514",
-              "type": "integer",
-              "data_type": "port"
-            },
-            "level": {
-              "key": "Optional",
-              "default": "DEBUG",
-              "type": "enum",
-              "values": {
-                "NONE": null,
-                "ERROR": null,
-                "WARN": null,
-                "INFO": null,
-                "DEBUG": null,
-                "VERBOSE": null,
-                "VERY_VERBOSE": null
-              }
-            },
-            "strip": {
-              "key": "Optional",
-              "default": "True",
-              "type": "boolean"
-            },
-            "facility": {
-              "key": "Optional",
-              "default": "16",
-              "type": "integer"
+            "udp_id": {
+              "key": "GeneratedID",
+              "type": "use_id",
+              "use_id_type": "udp::UDPComponent"
             }
           }
-        }
+        },
+        "type": "schema"
       }
     }
   }
