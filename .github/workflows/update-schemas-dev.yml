@@ -38,7 +38,7 @@ jobs:
 
       - name: Clone ESPHome docs repository
         run: |
-          git clone --depth=1 --branch=schema-2025-4 https://github.com/glmnet/esphome-docs.git
+          git clone --depth=1 --branch=next https://github.com/esphome/esphome-docs.git
 
       - name: Install ESPHome docs dependencies
         run: |
