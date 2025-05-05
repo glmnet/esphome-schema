@@ -1,4 +1,4 @@
-name: Update ESPHome Schemas
+name: Create Dev Schemas
 
 on:
   workflow_dispatch:
